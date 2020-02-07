@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.graph.generic;
+package com.vaani.dsa.ds.core.graph.nongeneric.intgraph;
 
 import java.util.ArrayList;
 import java.util.List;

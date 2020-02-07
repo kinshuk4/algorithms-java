@@ -14,7 +14,7 @@ public class Dijkstra {
 
 
     private static IntegerGraph initGraph() {
-        IntegerGraph g = new IntegerGraph(9);
+        IntegerGraph g = new IntegerGraph(false);
         g.addEdge(0, 1, 4);
         g.addEdge(0, 7, 8);
         g.addEdge(1, 2, 8);
@@ -72,37 +72,37 @@ public class Dijkstra {
         // 2. Visit all its neighbours.
         // 3. Update the distances for all the neighbours (In the Priority Queue).
         // Repeat the process till all the connected nodes are visited.
-        Map<Vertex, Double> distanceMatrix = new HashMap<>();
-        for (Vertex<Integer> vertex : g.getVertices()) {
-            distanceMatrix.put(vertex, Double.MAX_VALUE);//set every node to infinte
-        }
-
-        distanceMatrix.put(source, 0.0);
-
-        PriorityQueue<Vertex> queue = new PriorityQueue<Vertex>();
-        queue.add(source);
-
-
-        while (!queue.isEmpty()) {
-
-            Vertex<Integer> u = queue.poll();
-
-            for (Edge<Integer> neighbour : g.getAdjEdges(u)) {
-                Double newDist = distanceMatrix.get(u) + neighbour.weight;
-                Vertex<Integer> target = neighbour.getAdjacentVertex(u);
-                if (newDist < distanceMatrix.get(target)) {
-                    // Remove the node from the queue to update the distance value.
-                    queue.remove(target);
-                    distanceMatrix.put(target, newDist);
-
-                    // Take the path visited till now and add the new node.s
-//                    neighbour.target.path = new LinkedList<Vertex>(u.path);
-//                    neighbour.target.path.add(u);
-
-                    //Reenter the node with new distance.
-                    queue.add(target);
-                }
-            }
-        }
+//        Map<Vertex, Double> distanceMatrix = new HashMap<>();
+//        for (Vertex<Integer> vertex : g.getVertices()) {
+//            distanceMatrix.put(vertex, Double.MAX_VALUE);//set every node to infinte
+//        }
+//
+//        distanceMatrix.put(source, 0.0);
+//
+//        PriorityQueue<Vertex> queue = new PriorityQueue<Vertex>();
+//        queue.add(source);
+//
+//
+//        while (!queue.isEmpty()) {
+//
+//            Vertex<Integer> u = queue.poll();
+//
+//            for (Edge<Integer> neighbour : g.getAdjEdges(u)) {
+//                Double newDist = distanceMatrix.get(u) + neighbour.weight;
+//                Vertex<Integer> target = neighbour.getAdjacentVertex(u);
+//                if (newDist < distanceMatrix.get(target)) {
+//                    // Remove the node from the queue to update the distance value.
+//                    queue.remove(target);
+//                    distanceMatrix.put(target, newDist);
+//
+//                    // Take the path visited till now and add the new node.s
+////                    neighbour.target.path = new LinkedList<Vertex>(u.path);
+////                    neighbour.target.path.add(u);
+//
+//                    //Reenter the node with new distance.
+//                    queue.add(target);
+//                }
+//            }
+//        }
     }
 }

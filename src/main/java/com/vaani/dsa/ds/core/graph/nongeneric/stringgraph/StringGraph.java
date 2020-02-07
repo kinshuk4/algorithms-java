@@ -7,12 +7,12 @@ import java.util.*;
 
 @ToString
 @EqualsAndHashCode
-class Graph {
+class StringGraph {
 
-    private Set<Vertex> adjVertices; // collection of all verices
+    private Set<Vertex> adjVertices; // collection of all vertices
     private final boolean isDirected;
 
-    public Graph(boolean isDirected) {
+    public StringGraph(boolean isDirected) {
         adjVertices = new HashSet<>();
         this.isDirected = isDirected;
     }

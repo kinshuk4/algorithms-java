@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.graph;
 
-import com.vaani.dsa.ds.core.graph.generic.UndirectedGraphNode;
+import com.vaani.dsa.ds.core.graph.nongeneric.intgraph.UndirectedGraphNode;
 
 import java.util.*;
 

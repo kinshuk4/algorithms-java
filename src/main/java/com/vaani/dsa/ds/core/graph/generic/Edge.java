@@ -1,6 +1,9 @@
 package com.vaani.dsa.ds.core.graph.generic;
 
+import lombok.EqualsAndHashCode;
+
 //To represent the edges in the graph.
+@EqualsAndHashCode(exclude = "weight")
 public class Edge<T> {
     private static final int DEFAULT_WEIGHT = 1;
 
@@ -11,30 +14,27 @@ public class Edge<T> {
         this(from, to, DEFAULT_WEIGHT);
     }
 
-    public Edge(Vertex from, Vertex to, int weight) {
+    public Edge(Vertex<T> from, Vertex<T> to, int weight) {
         super();
         this.from = from;
         this.to = to;
         this.weight = weight;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Edge)) return false;
+//    public Edge(final T from, final T to, final int weight) {
+//        super();
+////        this.from = Vertex.from(from);
+////        this.to = Vertex.from(to);
+//        this.from = new Vertex<>(from);
+//        this.to = new Vertex<>(to);
+//        this.weight = weight;
+//    }
 
-        Edge _obj = (Edge) obj;
-        return _obj.from.equals(from) && _obj.to.equals(to) &&
-                _obj.weight == weight;
-    }
+//    public Edge(final T from, final T to) {
+//        this(from, to, DEFAULT_WEIGHT);
+//    }
 
-    @Override
-    public int hashCode() {
-        int result = from.hashCode();
-        result = 31 * result + to.hashCode();
-        result = 31 * result + weight;
-        return result;
-    }
+
 
     public Vertex<T> getAdjacentVertex(Vertex<T> vertexToBeProcessed) {
         if (from.equals(vertexToBeProcessed)) {
@@ -44,5 +44,30 @@ public class Edge<T> {
         } else {
             return null;
         }
+    }
+
+    Vertex<T> getTo() {
+        return to;
+    }
+
+    int getWeight() {
+        return weight;
+    }
+
+    Vertex<T> getFrom() {
+        return from;
+    }
+
+    boolean contains(final Vertex<T> v) {
+        return to.equals(v) || from.equals(v);
+    }
+
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "from=" + from.getValue() +
+                ", to=" + to.getValue() +
+                ", weight=" + weight +
+                '}';
     }
 }

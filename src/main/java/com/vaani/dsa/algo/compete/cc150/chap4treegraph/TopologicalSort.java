@@ -33,33 +33,33 @@ public class TopologicalSort {
      * (Depth First Search)
      */
     public static void visitVertex(AdjacentListGraph graph, Vertex vertex, TimeRecorder recorder, LinkedList<Vertex> sortedList) {
-        recorder.time += 1;
-        vertex.color = Vertex.Color.GRAY;
-        vertex.discover = recorder.time;
-
-        Map<Vertex, List<Vertex>> edgeMap = graph.getAdjacencys();
-        List<Vertex> adjacencys = edgeMap.get(vertex);
-        if (adjacencys != null && adjacencys.size() > 0) {
-            for (Vertex adjacency : adjacencys) {
-                if (adjacency.color == Vertex.Color.WHITE) {
-                    adjacency.parent = vertex;
-                    visitVertex(graph, adjacency, recorder, sortedList);
-                }
-            }
-        }
-
-        recorder.time += 1;
-        vertex.color = Vertex.Color.BLACK;
-        vertex.finish = recorder.time;
-        sortedList.addLast(vertex);
+//        recorder.time += 1;
+//        vertex.color = Vertex.Color.GRAY;
+//        vertex.discover = recorder.time;
+//
+//        Map<Vertex, List<Vertex>> edgeMap = graph.getAdjacencys();
+//        List<Vertex> adjacencys = edgeMap.get(vertex);
+//        if (adjacencys != null && adjacencys.size() > 0) {
+//            for (Vertex adjacency : adjacencys) {
+//                if (adjacency.color == Vertex.Color.WHITE) {
+//                    adjacency.parent = vertex;
+//                    visitVertex(graph, adjacency, recorder, sortedList);
+//                }
+//            }
+//        }
+//
+//        recorder.time += 1;
+//        vertex.color = Vertex.Color.BLACK;
+//        vertex.finish = recorder.time;
+//        sortedList.addLast(vertex);
     }
 
     public static void printVertex(Vertex[] Vertexs) {
-        for (Vertex vertex : Vertexs) {
-            System.out.println(vertex.getValue() + "  discover time:"
-                    + vertex.getDiscover() + "  finish time:"
-                    + vertex.getFinish());
-        }
+//        for (Vertex vertex : Vertexs) {
+//            System.out.println(vertex.getValue() + "  discover time:"
+//                    + vertex.getDiscover() + "  finish time:"
+//                    + vertex.getFinish());
+//        }
     }
 
     public static void main(String[] args) {

@@ -1,103 +1,62 @@
 package com.vaani.dsa.ds.core.graph.generic;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
 import java.util.*;
 
+@ToString
+@EqualsAndHashCode(exclude = "edges")
 public class Vertex<T> {
     public T value;
-    public Color color;
-    public Vertex parent;
-    public int discover;
-    public int finish;
-    public boolean isVisited;
-    public List<Edge<T>> neighbours;
+    private final Set<Edge<T>> edges; // collection of edges to neighbors
 
-    public Vertex(T value) {
-        this.value = value;
-        this.color = Color.WHITE;
-        neighbours = new LinkedList<Edge<T>>();
-    }
-
-    public Vertex(T value, boolean isVisited) {
-        this(value);
-        this.isVisited = isVisited;
+    public Vertex(T label) {
+        this.value = label;
+        edges = new HashSet<>();
     }
 
     public T getValue() {
         return value;
     }
 
-    public void setValue(T value) {
-        this.value = value;
+    boolean addEdge(Edge<T> edge) {
+        if (!edges.contains(edge)){
+            return edges.add(edge);
+        }
+        return false;
     }
 
-    public Color getColor() {
-        return color;
+    boolean addEdge(Vertex<T> v2, int weight) {
+        return edges.add(new Edge<T>(this, v2, weight));
     }
 
-    public void setColor(Color color) {
-        this.color = color;
+    boolean contains(Edge<T> edge) {
+        return edges.contains(edge);
     }
 
-    public Vertex getParent() {
-        return parent;
+    boolean removeEdge(Edge<T> edge) {
+        return edges.remove(edge);
     }
 
-    public void setParent(Vertex parent) {
-        this.parent = parent;
+    List<Edge<T>> getEdges() {
+        return new ArrayList<>(edges);
     }
 
-    public int getDiscover() {
-        return discover;
-    }
+    // TODO override hashCode() and equals()
 
-    public void setDiscover(int discover) {
-        this.discover = discover;
-    }
+//    // Flyweight for Vertex
+//    private static Map<String, Vertex<T>> vertexCache = new HashMap<>();
+//
+//    private static Vertex<?> from(String vertexLabel) {
+//        return vertexCache.computeIfAbsent(vertexLabel, Vertex::new);
+//    }
+//
+//    public static Vertex<?> from(Object vertexLabel) {
+//        return vertexCache.computeIfAbsent(vertexLabel.toString(), Vertex::new);
+//    }
 
-    public int getFinish() {
-        return finish;
-    }
 
-    public void setFinish(int finish) {
-        this.finish = finish;
-    }
-
-    public boolean isVisited() {
-        return isVisited;
-    }
-
-    public void setVisited(boolean visited) {
-        isVisited = visited;
-    }
-
-    public List<Edge<T>> getNeighbours() {
-        return neighbours;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((value == null) ? 0 : value.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Vertex other = (Vertex) obj;
-        if (value == null) {
-            if (other.value != null)
-                return false;
-        } else if (!value.equals(other.value))
-            return false;
-        return true;
-    }
 
     public enum Color {
         WHITE, GRAY, BLACK

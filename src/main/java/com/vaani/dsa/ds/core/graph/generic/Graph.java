@@ -1,241 +1,167 @@
 package com.vaani.dsa.ds.core.graph.generic;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
 import java.util.*;
-import java.util.stream.Collectors;
 
 //https://www.geeksforgeeks.org/graph-and-its-representations/
 //https://gist.github.com/smddzcy/bf8fc17dedf4d40b0a873fc44f855a58
 //http://www.vogella.com/tutorials/JavaAlgorithmsDijkstra/article.html
+@ToString
+@EqualsAndHashCode
 public class Graph<T> {
-//  	protected Map<T, Vertex<T>> adjacencyList;
-//    private Map<Vertex<T>, Vertex<T>> connectedComponents = null;
-
-    private Set<Vertex<T>> vertices;
-    private Set<Edge<T>> edges;
-    private Map<Vertex<T>, Set<Edge<T>>> adjList;
-    private Map<Vertex<T>, Vertex<T>> connectedComponents = null;
-
-    protected boolean isDirected;
-
-    public Graph() {
-        this(false);
-    }
+    private Map<T, Vertex<T>> adjVertices; // collection of all vertices
+    private final boolean isDirected;
 
     public Graph(boolean isDirected) {
-        vertices = new HashSet<>();
-        edges = new HashSet<>();
-        adjList = new HashMap<>();
+        adjVertices = new HashMap<>();
         this.isDirected = isDirected;
     }
 
-    public boolean addVertex(T element) {
-        if (null == element) {
-            throw new NullPointerException("Element cannot be null !!");
-        }
-        return addVertex(new Vertex<T>(element));
-//        Vertex<T> newVertex = findVertex(element);
-//        if (null == newVertex) {
-//            newVertex = new Vertex<T>(element);
-////            adjacencyList.put(newVertex, new ArrayList<>());
-////            connectedComponents.put(newVertex, newVertex);
-//            return vertices.add(new Vertex<T>(element));;
-//        }
-//        return false;
+    public List<Vertex<T>> getVertices() {
+        return new ArrayList<>(adjVertices.values());
     }
 
-    public boolean addVertex(Vertex<T> v) {
-        adjList.put(v, new HashSet<>());
-        connectedComponents.put(v, v);
-        return vertices.add(v);
+    void addVertex(T label) {
+        Vertex<T> v = new Vertex<>(label);
+        addVertex(v);
     }
 
-    public boolean addVertices(Collection<Vertex<T>> vertices) {
-        return this.vertices.addAll(vertices);
-    }
-
-
-    public boolean removeVertex(T label) {
-        return vertices.remove(new Vertex<T>(label));
-    }
-
-    public boolean removeVertex(Vertex<T> v) {
-        return vertices.remove(v);
-    }
-
-    public boolean addEdge(Edge<T> e) {
-        if (!edges.add(e)) {
-            return false;
+    void addVertex(Vertex<T> v) {
+        if (!adjVertices.containsKey(v.getValue())) {
+            adjVertices.put(v.getValue(), v);
         }
 
-        adjList.putIfAbsent(e.from, new HashSet<>());
-        adjList.putIfAbsent(e.to, new HashSet<>());
+    }
 
-        adjList.get(e.from).add(e);
+    void removeVertex(T label) {
+        Vertex<T> v = new Vertex<>(label);
+        // Remove all vertices which has above vertex
+        adjVertices.values()
+                .forEach(v1 -> v1.getEdges().stream().filter(e -> e.contains(v)).forEach(v1::removeEdge));
+        adjVertices.remove(v);
+    }
 
-        if (!isDirected) {
-            adjList.get(e.to).add(e);
+    Vertex<T> vertexFrom(T v1Label) {
+        return adjVertices.get(v1Label);
+    }
+
+    public void addEdge(T v1Label, T v2Label, int weight) {
+        addVertex(v1Label);
+        addVertex(v2Label);
+
+        Vertex<T> v1 = vertexFrom(v1Label);
+        Vertex<T> v2 = vertexFrom(v2Label);
+
+        Edge<T> e = new Edge<>(v1, v2, weight);
+
+        if (!v1.contains(e)) {
+            v1.addEdge(e);
+
+            if (!this.isDirected) {
+                v2.addEdge(e);
+            }
         }
-
-        return true;
     }
 
-
-    public boolean addEdge(T a, T b) {
-        return addEdge(new Edge<T>(new Vertex<T>(a),
-                new Vertex<T>(b)));
+    public void addEdge(T v1Label, T v2Label) {
+        addEdge(v1Label, v2Label, 1);
     }
 
-    public boolean addEdge(T a, T b, int w) {
-        return addEdge(new Edge<T>(new Vertex<T>(a),
-                new Vertex<T>(b), w));
+    void removeEdge(T v1Label, T v2Label) {
+        Edge<T> e = new Edge<>(adjVertices.get(v1Label), adjVertices.get(v2Label));
+        adjVertices.values().forEach(v -> v.removeEdge(e));
     }
 
-    public boolean removeEdge(Edge e) {
-        if (!edges.remove(e)) return false;
-        Set<Edge<T>> edgesOfV1 = adjList.get(e.from);
-        Set<Edge<T>> edgesOfV2 = adjList.get(e.to);
-
-        if (edgesOfV1 != null) edgesOfV1.remove(e);
-        if (edgesOfV2 != null) edgesOfV2.remove(e);
-
-        return true;
-    }
-
-    public boolean removeEdge(T vertexLabel1, T vertexLabel2) {
-        return removeEdge(new Edge<T>(new Vertex<T>(vertexLabel1),
-                new Vertex<T>(vertexLabel2)));
-    }
-
-    public Set<Vertex> getAdjVertices(Vertex v) {
-        return adjList.get(v).stream()
-                .map(e -> e.from.equals(v) ? e.to : e.from)
-                .collect(Collectors.toSet());
-    }
-
-    public Set<Edge<T>> getAdjEdges(Vertex<T> v) {
-        return adjList.get(v);
-    }
-
-    public Set<Vertex> getVertices() {
-        return Collections.unmodifiableSet(vertices);
-    }
-
-    public Set<Edge> getEdges() {
-        return Collections.unmodifiableSet(edges);
-    }
-
-    public Map<Vertex<T>, Set<Edge<T>>> getAdjList() {
-        return Collections.unmodifiableMap(adjList);
-    }
-
-
-    public int getV() {
-        return vertices.size();
-    }
-
-
-    public int getE() {
-        return edges.size();
-    }
-
-    public int getDegree(T a) {
-        return 0;
-    }
-
-
-    public boolean hasVertex(T a) {
-        return false;
-    }
-
-
-    public boolean hasEdge(T a, T b) {
-        return false;
-    }
-
-
-    public boolean isDirected() {
-        return false;
-    }
-
-
-//    private Vertex<T> findVertex(T element) {
-//        if (null == element) {
-//            throw new NullPointerException("Element cannot be null !!");
-//        }
-//        HashSet<Vertex<T>> vertexSet = getAllComponents();
-//        for (Vertex<T> vertexFromSet : vertexSet) {
-//            Vertex<T> foundVertex = performBFS(vertexFromSet, element);
-//            if (null != foundVertex) {
-//                return foundVertex;
-//            }
-//        }
-//        return null;
-//    }
-
-//    private HashSet<Vertex<T>> getAllComponents() {
-//        HashSet<Vertex<T>> setOfVertex = new HashSet<>();
-//        for (Vertex<T> vertex : connectedComponents.keySet()) {
-//            setOfVertex.add(findComponent(vertex));
-//        }
-//        return setOfVertex;
-//    }
-//    private Vertex<T> findComponent(Vertex<T> vertex) {
-//        Vertex<T> currVertex = vertex;
-//        while (!currVertex.equals(connectedComponents.get(currVertex))) {
-//            currVertex = connectedComponents.get(currVertex);
-//        }
-//        return currVertex;
-//    }
-//    private void unionComponents(Vertex<T> firstVertex, Vertex<T> secondVertex) {
-//        connectedComponents.put(findComponent(firstVertex), findComponent(secondVertex));
-//    }
-//
-//    /**
-//     * Method to perform a Breadth First Search
-//     * @param rootVertex
-//     * @param element
-//     * @return {@link Vertex<T>}
-//     */
-
-
-//    /**
-//     * Method to set all visited vertices as false
-//     */
-//    private void setAllVisitedFalse() {
-//        for (Vertex<T> vertex : adjacencyList.keySet()) {
-//            vertex.isVisited = false;
-//        }
-//    }
-
-
-//	public Vertex getVertex(int vert){
-//		return adjacencyList.get(vert);
-//	}
-
-    //
-//	public Collection<Vertex<T>> getAdjacencyList() {
-//		return adjacencyList.values();
-//	}
-
-    public static <T> List dfs(Graph<T> graph) {
-        List<Vertex<T>> visitedList = new ArrayList<>();
-        Stack<Vertex<T>> tempStack = new Stack();
-        Vertex<T> anySource = graph.getVertices().stream().findFirst().get();
-        tempStack.push(anySource);
-        anySource.isVisited = true;
-
-        visitedList.add(tempStack.peek());
-        Vertex<T> temp = null;
-        while (!tempStack.isEmpty()) {
-            temp = tempStack.peek();
-            boolean found = false;
-            for (Vertex<T> vertex : graph.getAdjVertices(temp)) {
-                if (!vertex.isVisited) {
-                    visitedList.add(vertex);
-                    tempStack.push(vertex);
+    //https://www.baeldung.com/java-graphs
+    public Set<Vertex<T>> breadthFirstTraversal(T rootLabel) {
+        Vertex<T> root = vertexFrom(rootLabel);
+        Set<Vertex<T>> visited = new LinkedHashSet<>();
+        Queue<Vertex<T>> queue = new LinkedList<>();
+        queue.add(root);
+        visited.add(root);
+        while (!queue.isEmpty()) {
+            Vertex<T> vertex = queue.poll();
+            for (Edge<T> e : vertex.getEdges()) {
+                Vertex<T> v = e.getTo();
+                if (!visited.contains(v)) {
+                    visited.add(v);
+                    queue.add(v);
                 }
             }
         }
-        return visitedList;
+
+        return visited;
+    }
+
+    //https://www.baeldung.com/java-graphs
+    public Set<Vertex<T>> depthFirstTraversal(T root) {
+        Set<Vertex<T>> visited = new LinkedHashSet<>();
+        Stack<Vertex<T>> stack = new Stack<>();
+        Vertex<T> rootVertex = vertexFrom(root);
+        stack.push(rootVertex);
+        while (!stack.isEmpty()) {
+            Vertex<T> vertex = stack.pop();
+            if (!visited.contains(vertex)) {
+                visited.add(vertex);
+                for (Edge<T> e : vertex.getEdges()) {
+                    Vertex<T> v = e.getTo();
+                    stack.push(v);
+                }
+            }
+        }
+        return visited;
+    }
+
+    public Set<Vertex<T>> dfsRecursion(T startVertex) {
+        Set<Vertex<T>> visited = new LinkedHashSet<>();
+        dfs(vertexFrom(startVertex), visited);
+        return visited;
+    }
+
+    private void dfs(Vertex<T> start, Set<Vertex<T>> visited) {
+        visited.add(start);
+
+        System.out.print(start + " ");
+        for (Edge<T> e : start.getEdges()) {
+            Vertex<T> destination = e.getTo();
+            if (!visited.contains(destination)) {
+                dfs(destination, visited);
+            }
+        }
+    }
+
+    public List<Vertex<T>> topologicalSorting() {
+        Set<Vertex<T>> visited = new LinkedHashSet<>();
+        Stack<Vertex<T>> stack = new Stack<>();
+        //visit from each node if not already visited
+        for (Vertex<T> v : adjVertices.values()) {
+            if (!visited.contains(v)) {
+                topologicalSortUtil(v, visited, stack);
+            }
+        }
+        System.out.println("Topological Sort: ");
+        int size = stack.size();
+        for (int i = 0; i < size; i++) {
+            System.out.print(stack.pop() + " ");
+        }
+
+        List<Vertex<T>> result = new ArrayList<>(stack);
+        Collections.reverse(result);
+        return result;
+    }
+
+    private void topologicalSortUtil(Vertex<T> start, Set<Vertex<T>> visited, Stack<Vertex<T>> stack) {
+        visited.add(start);
+
+        for (Edge<T> e : start.getEdges()) {
+            Vertex<T> destination = e.getTo();
+            if (!visited.contains(destination)) {
+                topologicalSortUtil(destination, visited, stack);
+            }
+        }
+
+        stack.push(start);
     }
 }
