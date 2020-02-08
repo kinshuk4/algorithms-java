@@ -76,69 +76,69 @@ class StringGraphTest {
     @Test
     void breadthFirstTraversal() {
         StringGraph g = getSimpleGraph();
-        Set<Vertex> bfsResult = g.breadthFirstTraversal("1");
+        Set<StringVertex> bfsResult = g.breadthFirstTraversal("1");
 
         // using list to verify ordering of traversal - https://stackoverflow.com/questions/45169421/junit-test-for-order-in-linkedhashset
         List<String> expectedResult = Arrays.asList("1", "2", "3", "4", "5");
 
         bfsResult.forEach(out::println);
 
-        Assert.assertEquals(expectedResult, bfsResult.stream().map(Vertex::getLabel).collect(Collectors.toList()));
+        Assert.assertEquals(expectedResult, bfsResult.stream().map(StringVertex::getLabel).collect(Collectors.toList()));
 
         StringGraph bigG = getBigGraph();
-        Set<Vertex> bfs2 = bigG.breadthFirstTraversal("1");
+        Set<StringVertex> bfs2 = bigG.breadthFirstTraversal("1");
         List <String> expectedResult2 = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9");
-        Assert.assertEquals(expectedResult2, bfs2.stream().map(Vertex::getLabel).collect(Collectors.toList()));
+        Assert.assertEquals(expectedResult2, bfs2.stream().map(StringVertex::getLabel).collect(Collectors.toList()));
     }
 
     @Test
     void depthFirstTraversal() {
         StringGraph g = getSimpleGraph();
-        Set<Vertex> dfsResult = g.depthFirstTraversal("1");
+        Set<StringVertex> dfsResult = g.depthFirstTraversal("1");
         List<String> expectedResult = Arrays.asList("1", "2", "4", "5", "3");
         List<String> anotherExpectedResult = Arrays.asList("1", "2", "3", "4", "5");
         dfsResult.forEach(out::println);
 
-        List<String> actualResult = dfsResult.stream().map(Vertex::getLabel).collect(Collectors.toList());
+        List<String> actualResult = dfsResult.stream().map(StringVertex::getLabel).collect(Collectors.toList());
 
         Assert.assertTrue(expectedResult.equals(actualResult) || anotherExpectedResult.equals(actualResult)) ;
 
         StringGraph bigG = getBigGraph();
-        Set<Vertex> dfsResult2 = bigG.depthFirstTraversal("1");
+        Set<StringVertex> dfsResult2 = bigG.depthFirstTraversal("1");
         List <String> expectedResult2 = Arrays.asList("1", "3", "4", "5", "7", "9", "2", "6", "8");
-        Assert.assertEquals(expectedResult2, dfsResult2.stream().map(Vertex::getLabel).collect(Collectors.toList()));
+        Assert.assertEquals(expectedResult2, dfsResult2.stream().map(StringVertex::getLabel).collect(Collectors.toList()));
     }
 
     @Test
     void dfsRecursion() {
         StringGraph g = getSimpleGraph();
-        Set<Vertex> dfsResult = g.dfsRecursion("1");
+        Set<StringVertex> dfsResult = g.dfsRecursion("1");
         List<String> expectedResult = Arrays.asList("1", "2", "4", "5", "3");
 
         dfsResult.forEach(out::println);
 
-        Assert.assertEquals(expectedResult, dfsResult.stream().map(Vertex::getLabel).collect(Collectors.toList()));
+        Assert.assertEquals(expectedResult, dfsResult.stream().map(StringVertex::getLabel).collect(Collectors.toList()));
 
         StringGraph bigG = getBigGraph();
-        Set<Vertex> dfsResult2 = bigG.dfsRecursion("1");
+        Set<StringVertex> dfsResult2 = bigG.dfsRecursion("1");
         List <String> expectedResult2 = Arrays.asList("1", "3", "4", "5", "7", "9", "2", "6", "8");
-        Assert.assertEquals(expectedResult2, dfsResult2.stream().map(Vertex::getLabel).collect(Collectors.toList()));
+        Assert.assertEquals(expectedResult2, dfsResult2.stream().map(StringVertex::getLabel).collect(Collectors.toList()));
     }
 
     @Test
     void topologicalSorting() {
         StringGraph g = getSimpleGraph();
-        Set<Vertex> dfsResult = g.dfsRecursion("1");
+        Set<StringVertex> dfsResult = g.dfsRecursion("1");
         List<String> expectedResult = Arrays.asList("1", "2", "4", "5", "3");
 
         dfsResult.forEach(out::println);
 
-        Assert.assertEquals(expectedResult, dfsResult.stream().map(Vertex::getLabel).collect(Collectors.toList()));
+        Assert.assertEquals(expectedResult, dfsResult.stream().map(StringVertex::getLabel).collect(Collectors.toList()));
 
         StringGraph bigG = getBigGraph();
-        Set<Vertex> dfsResult2 = bigG.dfsRecursion("1");
+        Set<StringVertex> dfsResult2 = bigG.dfsRecursion("1");
         List <String> expectedResult2 = Arrays.asList("1", "3", "4", "5", "7", "9", "2", "6", "8");
-        Assert.assertEquals(expectedResult2, dfsResult2.stream().map(Vertex::getLabel).collect(Collectors.toList()));
+        Assert.assertEquals(expectedResult2, dfsResult2.stream().map(StringVertex::getLabel).collect(Collectors.toList()));
     }
 
 }

@@ -2,6 +2,7 @@ package com.vaani.dsa.ds.core.graph.generic;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.*;
 
@@ -54,13 +55,16 @@ public class Graph<T> {
         Vertex<T> v1 = vertexFrom(v1Label);
         Vertex<T> v2 = vertexFrom(v2Label);
 
-        Edge<T> e = new Edge<>(v1, v2, weight);
+        Edge<T> e1 = new Edge<>(v1, v2, weight);
 
-        if (!v1.contains(e)) {
-            v1.addEdge(e);
+        if (!v1.contains(e1)) {
+            v1.addEdge(e1);
 
             if (!this.isDirected) {
-                v2.addEdge(e);
+                Edge<T> e2 = new Edge<>(v2, v1, weight);
+                if (!v2.contains(e2)) {
+                    v2.addEdge(e2);
+                }
             }
         }
     }
@@ -141,11 +145,6 @@ public class Graph<T> {
                 topologicalSortUtil(v, visited, stack);
             }
         }
-        System.out.println("Topological Sort: ");
-        int size = stack.size();
-        for (int i = 0; i < size; i++) {
-            System.out.print(stack.pop() + " ");
-        }
 
         List<Vertex<T>> result = new ArrayList<>(stack);
         Collections.reverse(result);
@@ -164,4 +163,56 @@ public class Graph<T> {
 
         stack.push(start);
     }
+
+    public boolean hasCycle() {
+        if (isDirected){
+            throw new NotImplementedException("Method not available.");
+        }else{
+            return hasCycleUndirectedDfs();
+        }
+    }
+
+    private boolean hasCycleUndirectedDfs(){
+        boolean result = false;
+
+        //visited array
+        Set<Vertex<T>> visited = new LinkedHashSet<>();
+        //do DFS, from each vertex
+        for (Vertex<T> v : adjVertices.values()) {
+            if (!visited.contains(v)) {
+                if (hasCycleUndirectedDfsUtil(v, visited, null)) {
+                    return true;
+                }
+            }
+        }
+        return result;
+    }
+
+    private boolean hasCycleUndirectedDfsUtil(Vertex<T> currVertex, Set<Vertex<T>> visited, Vertex<T> parent) {
+
+        //add this vertex to visited vertex
+        visited.add(currVertex);
+
+        //visit neighbors except its direct parent
+        for (Edge<T> e : currVertex.getEdges()) {
+            Vertex<T> vertex = e.getTo();
+            //check the adjacent vertex from current vertex
+            if (!vertex.equals(parent)) {
+                //if destination vertex is not its direct parent then
+                if (visited.contains(vertex)) {
+                    //if here means this destination vertex is already visited
+                    //means cycle has been detected
+                    return true;
+                } else {
+                    //recursion from destination node
+                    if (hasCycleUndirectedDfsUtil(vertex, visited, currVertex)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+
 }
