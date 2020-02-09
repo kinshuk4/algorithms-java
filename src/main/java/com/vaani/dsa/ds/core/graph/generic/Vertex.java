@@ -21,7 +21,7 @@ public class Vertex<T> {
     }
 
     boolean addEdge(Edge<T> edge) {
-        if (!edges.contains(edge)){
+        if (!edges.contains(edge)) {
             return edges.add(edge);
         }
         return false;
@@ -33,6 +33,10 @@ public class Vertex<T> {
 
     boolean contains(Edge<T> edge) {
         return edges.contains(edge);
+    }
+
+    boolean isConnected(Vertex<T> v2) {
+        return edges.stream().filter(x -> x.contains(v2)).findFirst().isPresent();
     }
 
     boolean removeEdge(Edge<T> edge) {
@@ -57,8 +61,4 @@ public class Vertex<T> {
 //    }
 
 
-
-    public enum Color {
-        WHITE, GRAY, BLACK
-    }
 }

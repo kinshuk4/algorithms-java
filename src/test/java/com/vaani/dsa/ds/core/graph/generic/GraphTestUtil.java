@@ -85,4 +85,47 @@ public class GraphTestUtil {
         stringGraph.addEdge("8", "9");
         return stringGraph;
     }
+
+    public static Graph<String> getAnotherDirectedGraph() {
+        //    5  --> 2
+        //  ⭧  ⭨     ⭨
+        // 7     4     1 --> 0
+        //  ⭨  ⭧    ⭧
+        //    6  --> 3
+
+        Graph<String> stringGraph = new Graph<String>(true);
+        stringGraph.addEdge("7", "5");
+        stringGraph.addEdge("7", "6");
+        stringGraph.addEdge("5", "4");
+        stringGraph.addEdge("6", "4");
+        stringGraph.addEdge("5", "2");
+        stringGraph.addEdge("6", "3");
+        stringGraph.addEdge("2", "1");
+        stringGraph.addEdge("3", "1");
+        stringGraph.addEdge("1", "0");
+
+        return stringGraph;
+    }
+
+    public static Graph<String> getBipartiteGraph() {
+        // a --  e
+        //    \
+        // b --  f
+        //    X
+        // c --  g
+        //
+        // d --  h
+
+
+        Graph<String> stringGraph = new Graph<String>(false);
+        stringGraph.addEdge("a", "e");
+        stringGraph.addEdge("a", "f");
+        stringGraph.addEdge("b", "g");
+        stringGraph.addEdge("c", "f");
+        stringGraph.addEdge("d", "h");
+
+        return stringGraph;
+    }
+
+
 }

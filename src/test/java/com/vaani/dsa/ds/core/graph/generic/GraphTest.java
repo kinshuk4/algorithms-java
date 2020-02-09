@@ -108,6 +108,10 @@ class GraphTest {
         List<Vertex<String>> dfsResult2 = bigG.topologicalSorting();
         List<String> expectedResult2 = Arrays.asList("1", "3", "4", "2", "6", "8", "5", "7", "9");
         Assert.assertEquals(expectedResult2, dfsResult2.stream().map(Vertex::getValue).collect(Collectors.toList()));
+
+        g = GraphTestUtil.getAnotherDirectedGraph();
+        List<Vertex<String>> dfsResult3 = g.topologicalSorting();
+        out.println(dfsResult3.stream().map(Vertex::getValue).collect(Collectors.toList()));
     }
 
     @Test
@@ -124,5 +128,27 @@ class GraphTest {
 
         g = GraphTestUtil.getBigDirectedGraph();
         Assert.assertTrue(g.hasCycle());
+    }
+
+    @Test
+    void isBipartiteDfs() {
+        Graph<String> g = GraphTestUtil.getSimpleUndirectedGraph();
+
+        Assert.assertTrue(g.isBipartiteDfs());
+
+        g = GraphTestUtil.getBipartiteGraph();
+
+        Assert.assertTrue(g.isBipartiteDfs());
+    }
+
+    @Test
+    void isBipartiteBfs() {
+        Graph<String> g = GraphTestUtil.getSimpleUndirectedGraph();
+
+        Assert.assertTrue(g.isBipartiteBfs());
+
+        g = GraphTestUtil.getBipartiteGraph();
+
+        Assert.assertTrue(g.isBipartiteBfs());
     }
 }

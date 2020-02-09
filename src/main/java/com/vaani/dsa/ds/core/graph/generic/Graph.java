@@ -78,6 +78,10 @@ public class Graph<T> {
         adjVertices.values().forEach(v -> v.removeEdge(e));
     }
 
+    public int size() {
+        return adjVertices.size();
+    }
+
     //https://www.baeldung.com/java-graphs
     public Set<Vertex<T>> breadthFirstTraversal(T rootLabel) {
         Vertex<T> root = vertexFrom(rootLabel);
@@ -165,14 +169,14 @@ public class Graph<T> {
     }
 
     public boolean hasCycle() {
-        if (isDirected){
+        if (isDirected) {
             throw new NotImplementedException("Method not available.");
-        }else{
+        } else {
             return hasCycleUndirectedDfs();
         }
     }
 
-    private boolean hasCycleUndirectedDfs(){
+    private boolean hasCycleUndirectedDfs() {
         boolean result = false;
 
         //visited array
@@ -214,5 +218,143 @@ public class Graph<T> {
         return false;
     }
 
+
+    public boolean isBipartiteDfs() {
+
+        //check if graph is empty
+        if (size() == 0) {
+            return true;
+        }
+
+
+        //initialize colors for all vertices
+        Map<Vertex<T>, Color> colors = new HashMap<>();
+        //color all the vertices with white color
+        for (Vertex<T> v : adjVertices.values()) {
+            colors.put(v, Color.WHITE);
+        }
+
+        //start coloring vertices , this code will handle the disconnected graph as well
+        //color the first vertex with RED
+        int i = 0;
+        for (Vertex<T> v : adjVertices.values()) {
+            // If the vertex is not yet visited
+            if (colors.get(v) == Color.WHITE) {
+                //if is it first vertex, mark it RED i.e. visited
+                colors.put(v, Color.RED);
+
+                boolean result = isBipartiteDfsUtil(v, colors);
+                if (!result)
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isBipartiteDfsUtil(Vertex<T> u, Map<Vertex<T>, Color> colors) {
+        //travel all adjacent vertices
+        for (Edge<T> e : u.getEdges()) {
+            Vertex<T> v = e.getTo();
+            // v is not yet visited
+            if (colors.get(v) == Color.WHITE) {
+                //color is with the alternate color of vertex v compared to parent
+                if (colors.get(u) == Color.RED) {
+                    //if u is in red, make vertex v in green
+                    colors.put(v, Color.GREEN);
+                } else if (colors.get(u) == Color.GREEN) {
+                    //if u is in green, make vertex v in red
+                    colors.put(v, Color.RED);
+                }
+
+                //make recursive call
+                boolean result = isBipartiteDfsUtil(v, colors);
+                if (!result) {
+                    return false;
+                }
+            } else if (colors.get(u) == colors.get(v)) {
+                return false;
+            }
+
+        }
+        // if here means graph is successfully colored in 2 color, red and green
+        //graph is bipartite
+        return true;
+    }
+
+    public boolean isBipartiteBfs() {
+        // Create a color array to store colors assigned to all veritces.
+        // Vertex number is used as index in this array.
+        // The value '-1' of colorArr[i] is used to indicate that no color is assigned to vertex 'i'.
+        // The value 1 is used to indicate first color is assigned and value 0 indicates second color is assigned.
+        //initialize colors for all vertices
+        Map<Vertex<T>, Color> colors = new HashMap<>();
+
+        //color all the vertices with white color
+        adjVertices.values().forEach(v -> colors.put(v, Color.WHITE));
+
+        List<Vertex<T>> vertices = getVertices();
+
+        for (Vertex<T> v: getVertices()) {
+            // if vertex is yet not visited
+            if (colors.get(v) == Color.WHITE) {
+                colors.put(v, Color.RED);
+                boolean result = isBipartiteBfsUtil(v, colors);
+                if (!result) {
+                    return false;
+                }
+            }
+
+
+
+        }
+        // Assign first color to source
+
+
+
+
+        // If we reach here, then all adjacent vertices can
+        // be colored with alternate color
+        return true;
+    }
+
+    private boolean isBipartiteBfsUtil(Vertex<T> p, Map<Vertex<T>, Color> colors) {
+        // Create a queue (FIFO) of vertex numbers
+        // and enqueue source vertex for BFS traversal
+        Queue<Vertex<T>> q = new LinkedList<>();
+        q.add(p);
+
+        // Run while there are vertices in queue (Similar to BFS)
+        while (q.size() != 0) {
+            // Dequeue a vertex from queue
+            Vertex<T> u = q.poll();
+
+//            // Return false if there is a self-loop
+//            if (G[u][u] == 1)
+//                return false;
+
+            // Find all non-colored adjacent vertices
+            for (Edge<T> e : u.getEdges()){
+                Vertex<T> v = e.getTo();
+
+                // v is not visited yet.
+                if(colors.get(v) == Color.WHITE){
+                    //color is with the alternate color of vertex v compared to parent
+                    if (colors.get(u) == Color.RED) {
+                        //if u is in red, make vertex v in green
+                        //if u is in red, make vertex v in green
+                        colors.put(v, Color.GREEN);
+                    } else if (colors.get(u) == Color.GREEN) {
+                        //if u is in green, make vertex v in red
+                        colors.put(v, Color.RED);
+                    }
+                    q.add(v);
+                }else if (colors.get(u) == colors.get(v)) {
+                    return false;
+                }
+            }
+
+        }
+        return true;
+    }
 
 }
