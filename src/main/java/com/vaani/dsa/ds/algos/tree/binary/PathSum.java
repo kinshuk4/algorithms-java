@@ -45,7 +45,7 @@ public class PathSum {
         if (root == null) {
             return false;
         }
-        currSum += root.val;
+        currSum += root.value;
 
         if (root.left == null && root.right == null) {
             return currSum == sum;

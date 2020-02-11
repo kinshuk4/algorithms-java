@@ -21,7 +21,7 @@ public class ZigZagLevelOrder {
 
         while (!queue1.isEmpty()) {
             BinaryTreeNode<T> node = queue1.poll();
-            level.add(node.val);
+            level.add(node.value);
 
             if (node.left != null) {
                 queue2.add(node.left);
@@ -65,7 +65,7 @@ public class ZigZagLevelOrder {
 
         while (!currLevel.empty()) {
             BinaryTreeNode<T> node = currLevel.pop(); //top();
-            level.add(node.val);
+            level.add(node.value);
 
             if (leftToRight) {
                 //if left to right, start pushing from left

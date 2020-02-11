@@ -41,7 +41,7 @@ public class SumRootToLeafNumbers {
 
     public void sumNumbers(BinaryTreeNode<Integer> root, int count) {
         if (root == null) return;
-        count = 10 * count + root.val;
+        count = 10 * count + root.value;
         if (root.left == null && root.right == null) {
             sum += count;
             return;

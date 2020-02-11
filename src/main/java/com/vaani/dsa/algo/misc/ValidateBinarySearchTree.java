@@ -29,7 +29,7 @@ public class ValidateBinarySearchTree {
             return;
         }
         isValid(root.left);
-        if (previous != null && previous.val >= root.val) {
+        if (previous != null && previous.value >= root.value) {
             valid = false;
             return;
         }

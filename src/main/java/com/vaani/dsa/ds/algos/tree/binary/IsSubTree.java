@@ -13,7 +13,7 @@ public class IsSubTree {
             return false;
         }
 
-        if (t1.val.equals(t2.val)) {
+        if (t1.value.equals(t2.value)) {
             return isSameTree(t1, t2);
         }
         return isSubtree(t1.left, t2) || isSubtree(t1.right, t2);
@@ -29,7 +29,7 @@ public class IsSubTree {
             return false;
         }
         //Why it is wrong - when value is same, tree should match and not check for subtree
-        if (t1.val.equals(t2.val)) {
+        if (t1.value.equals(t2.value)) {
             return isSubtree_Wrong(t1.left, t2.left) && isSubtree_Wrong(t1.right, t2.right);
         } else {
             return isSubtree_Wrong(t1.left, t2) || isSubtree_Wrong(t1.right, t2);

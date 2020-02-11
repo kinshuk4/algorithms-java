@@ -58,7 +58,7 @@ public class LevelOrderTraversalBottomUp {
             ArrayList<BinaryTreeNode> cur = new ArrayList<BinaryTreeNode>();
             ArrayList<Integer> parentData = new ArrayList<Integer>();
             for (BinaryTreeNode<Integer> n : parent) {
-                parentData.add(n.val);
+                parentData.add(n.value);
                 if (n.left != null) {
                     cur.add(n.left);
                 }

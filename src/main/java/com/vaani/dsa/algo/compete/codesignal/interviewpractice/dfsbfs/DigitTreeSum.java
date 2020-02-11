@@ -49,7 +49,7 @@ public class DigitTreeSum {
     static long digitTreeSum(BinaryTreeNode<Integer> root) {
         if (root == null) return 0;
         if (root.left == null && root.right == null) {
-            return root.val;
+            return root.value;
         }
         List<Long> leaves = new LinkedList<>();
 
@@ -63,12 +63,12 @@ public class DigitTreeSum {
             return;
         }
         if (root.left == null && root.right == null) {
-            leaves.add(currParent * 10 + root.val);
+            leaves.add(currParent * 10 + root.value);
             return;
         }
 
-        digitTreeSumHelper(root.left, currParent * 10 + root.val, leaves);
-        digitTreeSumHelper(root.right, currParent * 10 + root.val, leaves);
+        digitTreeSumHelper(root.left, currParent * 10 + root.value, leaves);
+        digitTreeSumHelper(root.right, currParent * 10 + root.value, leaves);
     }
 
     public static void main(String[] args) {

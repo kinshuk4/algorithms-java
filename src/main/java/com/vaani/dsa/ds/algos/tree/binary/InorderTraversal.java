@@ -42,7 +42,7 @@ public class InorderTraversal {
                 root = root.left;
             } else {
                 BinaryTreeNode<Integer> node = stack.pop();
-                result.add(node.val);
+                result.add(node.value);
                 if (node.right != null) {
                     root = node.right;
                 }

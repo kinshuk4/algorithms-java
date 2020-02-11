@@ -6,16 +6,16 @@ import java.util.*;
 public class BinaryTreeNode<T> {
     public BinaryTreeNode<T> left;
     public BinaryTreeNode<T> right;
-    public T val;
+    public T value;
     public boolean isVisited;
 
     public BinaryTreeNode(T data) {
-        this.val = data;
+        this.value = data;
     }
 
     public BinaryTreeNode(BinaryTreeNode<T> left, T data, BinaryTreeNode<T> right) {
         this.left = left;
-        this.val = data;
+        this.value = data;
         this.right = right;
     }
 
@@ -35,12 +35,12 @@ public class BinaryTreeNode<T> {
         this.right = right;
     }
 
-    public T getVal() {
-        return val;
+    public T getValue() {
+        return value;
     }
 
-    public void setVal(T val) {
-        this.val = val;
+    public void setValue(T value) {
+        this.value = value;
     }
 
     public boolean isVisited() {
@@ -53,7 +53,7 @@ public class BinaryTreeNode<T> {
 
     @Override
     public String toString() {
-        return String.valueOf(this.val);
+        return String.valueOf(this.value);
     }
 
     public String detailedToString() {
@@ -68,7 +68,7 @@ public class BinaryTreeNode<T> {
             return "";
         builder.append(detailedToStringHelper(root.left));
         builder.append(detailedToStringHelper(root.right));
-        return builder.append(String.valueOf(root.val)).toString();
+        return builder.append(String.valueOf(root.value)).toString();
     }
 
 
@@ -90,9 +90,9 @@ public class BinaryTreeNode<T> {
 
     public String toString2() {
         return "Tree{" +
-                "value=" + val +
-                ", left=" + (left != null ? left.val + "..." : "null") +
-                ", right=" + (right != null ? right.val + "..." : "null") +
+                "value=" + value +
+                ", left=" + (left != null ? left.value + "..." : "null") +
+                ", right=" + (right != null ? right.value + "..." : "null") +
                 '}';
     }
 
@@ -103,7 +103,7 @@ public class BinaryTreeNode<T> {
         if (t1 == null || t2 == null) {
             return false;
         }
-        return Objects.equals(t1.val, t2.val)
+        return Objects.equals(t1.value, t2.value)
                 && equalTrees(t1.left, t2.left)
                 && equalTrees(t1.right, t2.right);
     }

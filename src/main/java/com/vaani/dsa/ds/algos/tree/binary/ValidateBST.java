@@ -20,9 +20,9 @@ public class ValidateBST {
 
     public boolean isValidBST(BinaryTreeNode<Integer> root, int min, int max) {
         if (root == null) return true;
-        if (root.val > min && root.val < max
-                && isValidBST(root.left, min, root.val)
-                && isValidBST(root.right, root.val, max)) {
+        if (root.value > min && root.value < max
+                && isValidBST(root.left, min, root.value)
+                && isValidBST(root.right, root.value, max)) {
             return true;
         } else {
             return false;

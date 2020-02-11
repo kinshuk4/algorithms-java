@@ -14,9 +14,9 @@ public class LowestCommonAncestor1 {
      */
     public static BinaryTreeNode getLCA(BinaryTreeNode<Integer> root, BinaryTreeNode<Integer> p, BinaryTreeNode<Integer> q) {
         if (root == null || p == null || q == null) return null;
-        if (root.val > Math.max(p.val, q.val)) {
+        if (root.value > Math.max(p.value, q.value)) {
             return getLCA(root.left, p, q);
-        } else if (root.val < Math.min(p.val, q.val)) {
+        } else if (root.value < Math.min(p.value, q.value)) {
             return getLCA(root.right, p, q);
         } else {
             return root;
@@ -36,6 +36,6 @@ public class LowestCommonAncestor1 {
 
         BinaryTreeNode p = new BinaryTreeNode(2);
         BinaryTreeNode q = new BinaryTreeNode(8);
-        System.out.println(getLCA(root, p, q).val);
+        System.out.println(getLCA(root, p, q).value);
     }
 }

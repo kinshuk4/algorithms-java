@@ -57,7 +57,7 @@ public class LevelOrderTraversalSeperatedByLevel {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 BinaryTreeNode<Integer> node = queue.poll();
-                level.add(node.val);
+                level.add(node.value);
                 if (node.left != null) queue.add(node.left);
                 if (node.right != null) queue.add(node.right);
             }
@@ -80,7 +80,7 @@ public class LevelOrderTraversalSeperatedByLevel {
         while (!queue.isEmpty()) {
             BinaryTreeNode<Integer> node = queue.poll();
             currentLevel--;
-            level.add(node.val);
+            level.add(node.value);
             if (node.left != null) {
                 queue.add(node.left);
                 nextLevel++;

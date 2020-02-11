@@ -46,7 +46,7 @@ public class InorderTraversal {
                 node = node.left;
             } else {
                 node = stack.pop();
-                result.add(node.val);
+                result.add(node.value);
                 node = node.right;
             }
         }
@@ -67,7 +67,7 @@ public class InorderTraversal {
             return;
         }
         inorderTraversalRecursiveHelper(root.left, result);
-        result.add(root.val);
+        result.add(root.value);
         inorderTraversalRecursiveHelper(root.right, result);
     }
 }

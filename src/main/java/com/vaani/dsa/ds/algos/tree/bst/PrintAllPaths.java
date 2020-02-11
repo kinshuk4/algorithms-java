@@ -22,7 +22,7 @@ public class PrintAllPaths {
     public static void printAllPaths(BinaryTreeNode<Integer> root, int[] path, int pathLen) {
         if (root == null) return;
 
-        path[pathLen] = root.val;
+        path[pathLen] = root.value;
         pathLen++;
 
         if (root.left == null && root.right == null) {
@@ -48,7 +48,7 @@ public class PrintAllPaths {
 
         Queue<Object> q = new LinkedList<Object>();
         q.add(root);
-        q.add(root.val + "");
+        q.add(root.value + "");
 
         while (!q.isEmpty()) {
             BinaryTreeNode head = (BinaryTreeNode) q.poll();
@@ -60,13 +60,13 @@ public class PrintAllPaths {
             }
 
             if (head.left != null) {
-                String leftStr = headPath + "->" + head.left.val;
+                String leftStr = headPath + "->" + head.left.value;
                 q.add(head.left);
                 q.add(leftStr);
             }
 
             if (head.right != null) {
-                String rightStr = headPath + "->" + head.right.val;
+                String rightStr = headPath + "->" + head.right.value;
                 q.add(head.right);
                 q.add(rightStr);
             }

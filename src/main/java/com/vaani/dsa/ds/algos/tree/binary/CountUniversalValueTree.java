@@ -19,12 +19,12 @@ public class CountUniversalValueTree {
 
         // If left subtree is singly and non-empty, but data
         // doesn't match
-        if (root.left != null && !root.val.equals(root.left.val)) {
+        if (root.left != null && !root.value.equals(root.left.value)) {
             return false;
         }
 
         // Same for right subtree
-        if (root.right != null && !root.val.equals(root.right.val)) {
+        if (root.right != null && !root.value.equals(root.right.value)) {
             return false;
         }
 
@@ -68,13 +68,13 @@ public class CountUniversalValueTree {
 
         // If left subtree is singly and non-empty, but data
         // doesn't match
-        if (root.left != null && !root.val.equals(root.left.val)) {
+        if (root.left != null && !root.value.equals(root.left.value)) {
             return false;
         }
 
 
         // Same for right subtree
-        if (root.right != null && !root.val.equals(root.right.val)) {
+        if (root.right != null && !root.value.equals(root.right.value)) {
             return false;
         }
 

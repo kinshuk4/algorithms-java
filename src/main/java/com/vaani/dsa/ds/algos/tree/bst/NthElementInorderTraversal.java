@@ -27,7 +27,7 @@ public class NthElementInorderTraversal {
         int left = getNth(node.left, n);
         if (left != -1) return left;
         order++;
-        if (order == n) return node.val;
+        if (order == n) return node.value;
         int right = getNth(node.right, n);
         return right;
     }
@@ -46,7 +46,7 @@ public class NthElementInorderTraversal {
                 BinaryTreeNode<Integer> node = stack.pop();
                 n--;
                 if (n == 0) {
-                    return node.val;
+                    return node.value;
                 }
                 root = node.right;
             }

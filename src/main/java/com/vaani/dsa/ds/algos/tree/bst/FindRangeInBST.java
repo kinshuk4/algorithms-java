@@ -20,9 +20,9 @@ public class FindRangeInBST {
 
     private static void findElements(BinaryTreeNode<Integer> root, int start, int end, List<Integer> result) {
         if (root == null) return;
-        if (root.val > start) findElements(root.left, start, end, result);
-        if (root.val >= start && root.val <= end) result.add(root.val);
-        if (root.val < end) findElements(root.right, start, end, result);
+        if (root.value > start) findElements(root.left, start, end, result);
+        if (root.value >= start && root.value <= end) result.add(root.value);
+        if (root.value < end) findElements(root.right, start, end, result);
     }
 
     public static void main(String[] args) {

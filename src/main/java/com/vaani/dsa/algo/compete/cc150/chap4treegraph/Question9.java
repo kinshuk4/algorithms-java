@@ -27,15 +27,15 @@ public class Question9 {
             return;
         }
         if (node.left == null && node.right == null) { // leaf
-            if (node.val + curSum == sum) { // equal to sum
+            if (node.value + curSum == sum) { // equal to sum
                 ArrayList<Integer> extPath = new ArrayList<Integer>(curPath);
-                extPath.add(node.val);
+                extPath.add(node.value);
                 paths.add(extPath);
             }
         } else {
-            int newSum = node.val + curSum;
+            int newSum = node.value + curSum;
             ArrayList<Integer> extPath = new ArrayList<Integer>(curPath);
-            extPath.add(node.val);
+            extPath.add(node.value);
             if (node.left != null) {
                 check(node.left, sum, newSum, extPath, paths);
             }

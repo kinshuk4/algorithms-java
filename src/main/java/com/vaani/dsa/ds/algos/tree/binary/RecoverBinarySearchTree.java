@@ -31,9 +31,9 @@ public class RecoverBinarySearchTree {
 
     public void recoverTree(BinaryTreeNode<Integer> root) {
         inorder(root);
-        int temp = first.val;
-        first.val = second.val;
-        second.val = temp;
+        int temp = first.value;
+        first.value = second.value;
+        second.value = temp;
     }
 
     public void inorder(BinaryTreeNode<Integer> root) {
@@ -42,7 +42,7 @@ public class RecoverBinarySearchTree {
         if (pre == null) {
             pre = root;
         } else {
-            if (pre.val > root.val) {
+            if (pre.value > root.value) {
                 if (first == null) first = pre;
                 second = root;
             }

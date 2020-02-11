@@ -27,7 +27,7 @@ class BST {
     private BinaryTreeNode insert(BinaryTreeNode<Integer> node, int val) {
         if (node == null) {
             return new BinaryTreeNode(val);
-        } else if (node.val <= val) {
+        } else if (node.value <= val) {
             node.right = insert(node.right, val);
         } else {
             node.left = insert(node.left, val);
@@ -57,11 +57,11 @@ public class MostRepeatedKeyInBST {
         if (node == null) {
             return;
         } else {
-            Integer count = counts.get(node.val);
+            Integer count = counts.get(node.value);
             if (count == null) {
-                counts.put(node.val, 1);
+                counts.put(node.value, 1);
             } else {
-                counts.put(node.val, count + 1);
+                counts.put(node.value, count + 1);
             }
             mostRepeatedBST(node.left, counts);
             mostRepeatedBST(node.right, counts);

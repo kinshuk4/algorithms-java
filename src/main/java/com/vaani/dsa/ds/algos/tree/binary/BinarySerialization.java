@@ -32,7 +32,7 @@ public class BinarySerialization {
             result.append(" ");
             return;
         }
-        result.append(head.val);
+        result.append(head.value);
         result.append(" ");
         preorder(head.left, result);
         preorder(head.right, result);

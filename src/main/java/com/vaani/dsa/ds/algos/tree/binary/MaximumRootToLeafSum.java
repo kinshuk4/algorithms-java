@@ -20,11 +20,11 @@ public class MaximumRootToLeafSum {
         }
 
         if (root.left == null && root.right == null) {
-            return currPathSum + root.val;
+            return currPathSum + root.value;
         }
 
-        int ls = maximumPathSumHelper(root.left, currPathSum+root.val);
-        int rs = maximumPathSumHelper(root.right, currPathSum + root.val);
+        int ls = maximumPathSumHelper(root.left, currPathSum+root.value);
+        int rs = maximumPathSumHelper(root.right, currPathSum + root.value);
 
         return Math.max(ls, rs);
     }

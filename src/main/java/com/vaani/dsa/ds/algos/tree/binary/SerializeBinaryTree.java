@@ -20,7 +20,7 @@ public class SerializeBinaryTree {
         while(!queue.isEmpty()){
             BinaryTreeNode t = queue.poll();
             if(t!=null){
-                sb.append(String.valueOf(t.val) + ",");
+                sb.append(String.valueOf(t.value) + ",");
                 queue.add(t.left);
                 queue.add(t.right);
             }else{

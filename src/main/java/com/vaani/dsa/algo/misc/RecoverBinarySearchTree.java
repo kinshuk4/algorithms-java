@@ -42,9 +42,9 @@ public class RecoverBinarySearchTree {
         inorderTraverse(root);
 
         int size = track.size();
-        int temp = track.get(0).val;
-        track.get(0).val = track.get(size - 1).val;
-        track.get(size - 1).val = temp;
+        int temp = track.get(0).value;
+        track.get(0).value = track.get(size - 1).value;
+        track.get(size - 1).value = temp;
     }
 
     public void inorderTraverse(BinaryTreeNode<Integer> root) {
@@ -52,7 +52,7 @@ public class RecoverBinarySearchTree {
             return;
         }
         inorderTraverse(root.left);
-        if (previous != null && previous.val > root.val) {
+        if (previous != null && previous.value > root.value) {
             if (!track.contains(previous)) {
                 track.add(previous);
             }

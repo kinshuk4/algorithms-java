@@ -23,10 +23,10 @@ public class GetBinaryTreePaths {
         }
         if (node.left == null && node.right == null) {
             List<Integer> copy = new ArrayList<Integer>(cur);
-            copy.add(node.val);
+            copy.add(node.value);
             res.add(copy);
         } else {
-            cur.add(node.val);
+            cur.add(node.value);
             if (node.left != null) {
                 find(node.left, cur, res);
             }

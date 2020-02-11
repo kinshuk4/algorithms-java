@@ -27,7 +27,7 @@ public class PathsBySum {
         for (List<BinaryTreeNode> list : pathsList) {
             int temp = 0;
             for (BinaryTreeNode<Integer> t : list) {
-                temp += t.val;
+                temp += t.value;
             }
             if (temp == num) {
                 System.out.println(list);

@@ -19,7 +19,7 @@ public class Question8 {
         if (needle == null) {
             return true;
         }
-        if (haystack.val == needle.val) { // root match
+        if (haystack.value == needle.value) { // root match
             if (match(haystack, needle)) {
                 return true;
             }
@@ -31,7 +31,7 @@ public class Question8 {
         if (haystack == null && needle == null) {
             return true;
         }
-        if (haystack.val != needle.val) {
+        if (haystack.value != needle.value) {
             return false;
         }
         // compare left and right

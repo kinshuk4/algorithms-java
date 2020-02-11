@@ -23,7 +23,7 @@ public class PrintBinaryTree {
             Queue<BinaryTreeNode> nextLevel = new LinkedList<>();
             while (!currentLevel.isEmpty()) {
                 BinaryTreeNode<E> n = currentLevel.remove();
-                System.out.print(n.getVal().toString());
+                System.out.print(n.getValue().toString());
                 if(!currentLevel.isEmpty()){
                     System.out.print(',');
                 }

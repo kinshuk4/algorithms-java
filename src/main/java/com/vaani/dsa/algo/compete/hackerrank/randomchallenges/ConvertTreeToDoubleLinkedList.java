@@ -37,7 +37,7 @@ public class ConvertTreeToDoubleLinkedList {
         treeNodesQueue.offer(root);
         while (!treeNodesQueue.isEmpty()) {
             BinaryTreeNode<E> n = treeNodesQueue.remove();
-            DLLNode<E> dllNode = new DLLNode<>(n.val);
+            DLLNode<E> dllNode = new DLLNode<>(n.value);
             if (currentNode != null) {
                 currentNode.linkNext(dllNode);
             }
@@ -56,7 +56,7 @@ public class ConvertTreeToDoubleLinkedList {
     }
 
     private static <E> DLLNode<E> convertToDLLDFS(BinaryTreeNode<E> root, DLLNode<E> currentTail) {
-        DLLNode<E> tail = new DLLNode<>(root.val);
+        DLLNode<E> tail = new DLLNode<>(root.value);
         if (currentTail != null) {
             currentTail.linkNext(tail);
         }

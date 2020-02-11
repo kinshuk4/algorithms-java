@@ -20,9 +20,9 @@ public class Question5 {
         if (node == null) {
             return true;
         }
-        if (min < node.val && node.val < max) {
-            return validate(node.left, min, node.val)
-                    && validate(node.right, node.val, max);
+        if (min < node.value && node.value < max) {
+            return validate(node.left, min, node.value)
+                    && validate(node.right, node.value, max);
         } else {
             return false;
         }

@@ -42,7 +42,7 @@ public class PreorderTraversal {
         if (root == null) {
             return;
         }
-        result.add(root.val);
+        result.add(root.value);
         helper(root.left, result);
         helper(root.right, result);
     }
@@ -59,7 +59,7 @@ public class PreorderTraversal {
         stack.push(root);
         while (!stack.isEmpty()) {
             BinaryTreeNode<Integer> node = stack.pop();
-            result.add(node.val);
+            result.add(node.value);
             if (node.right != null) {
                 stack.push(node.right);
             }

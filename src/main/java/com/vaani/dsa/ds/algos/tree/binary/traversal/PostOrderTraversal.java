@@ -42,7 +42,7 @@ public class PostOrderTraversal {
             }
         }
         while (!reverse.isEmpty()) {
-            result.add(reverse.pop().val);
+            result.add(reverse.pop().value);
         }
         return result;
     }
@@ -64,7 +64,7 @@ public class PostOrderTraversal {
                 if (curr.right != null)
                     s.push(curr.right);
             } else {
-                System.out.println(curr.val + " ");
+                System.out.println(curr.value + " ");
                 s.pop();
             }
             prev = curr;
@@ -86,7 +86,7 @@ public class PostOrderTraversal {
         }
         helper(root.left, result);
         helper(root.right, result);
-        result.add(root.val);
+        result.add(root.value);
     }
 }
 

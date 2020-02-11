@@ -56,8 +56,8 @@ public class PathSum2 {
 
     public void pathSum(BinaryTreeNode<Integer> root, int sum, int count, List<Integer> single, List<List<Integer>> result) {
         if (root == null) return;
-        count += root.val;
-        single.add(root.val);
+        count += root.value;
+        single.add(root.value);
 
         if (root.left == null && root.right == null) {
             if (count == sum) result.add(new ArrayList<Integer>(single));

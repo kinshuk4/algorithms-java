@@ -83,8 +83,8 @@ public class MostFrequentSumInTree {
 
     private static int mostFrequentSumHelper(BinaryTreeNode<Integer> root, HashMap<Integer, Integer> sumFrequency) {
         if (root.left == null && root.right == null) {
-            sumFrequency.merge(root.val, 1, (val, acc) -> val + acc);
-            return root.val;
+            sumFrequency.merge(root.value, 1, (val, acc) -> val + acc);
+            return root.value;
         }
         int left = 0;
         if (root.left != null) {
@@ -94,8 +94,8 @@ public class MostFrequentSumInTree {
         if (root.right != null) {
             right = mostFrequentSumHelper(root.right, sumFrequency);
         }
-        sumFrequency.merge(root.val + left + right, 1, (val, acc) -> val + acc);
-        return root.val + left + right;
+        sumFrequency.merge(root.value + left + right, 1, (val, acc) -> val + acc);
+        return root.value + left + right;
 
     }
 
