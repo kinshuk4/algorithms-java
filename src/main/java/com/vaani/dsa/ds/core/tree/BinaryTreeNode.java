@@ -62,7 +62,7 @@ public class BinaryTreeNode<T> {
     }
 
     //Using the logic from here : http://stackoverflow.com/questions/20489834/binary-search-tree-recursive-tostring
-    public String detailedToStringHelper(BinaryTreeNode root) {
+    private String detailedToStringHelper(BinaryTreeNode root) {
         StringBuilder builder = new StringBuilder();
         if (root == null)
             return "";
