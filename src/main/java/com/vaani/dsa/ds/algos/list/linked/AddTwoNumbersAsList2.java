@@ -31,7 +31,7 @@ import static com.vaani.dsa.ds.utils.ListUtil.reverseIterative;
  * 0 ≤ b size ≤ 104,
  * 0 ≤ element value ≤ 9999.
  */
-public class AddTwoHugeNumbers {
+public class AddTwoNumbersAsList2 {
     static ListNode<Integer> addTwoHugeNumbers(ListNode<Integer> a, ListNode<Integer> b) {
         a = reverseIterative(a);
         b = reverseIterative(b);

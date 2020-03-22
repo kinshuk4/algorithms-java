@@ -12,8 +12,8 @@ import com.vaani.dsa.ds.core.list.ListNode;
  * <p>
  * 
  */
-public class AddTwoNumbers {
-    public static ListNode addTwoNumbers(ListNode<Integer> l1, ListNode<Integer> l2) {
+public class AddTwoNumbersAsList {
+    public static ListNode<Integer> addTwoNumbers(ListNode<Integer> l1, ListNode<Integer> l2) {
         ListNode<Integer> dummy = new ListNode(-1);
         ListNode<Integer> dummyHead = dummy;
         int extra = 0;
