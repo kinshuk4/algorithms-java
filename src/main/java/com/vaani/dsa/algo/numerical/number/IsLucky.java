@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.math.number;
+package com.vaani.dsa.algo.numerical.number;
 
 import com.vaani.dsa.ds.utils.DigitUtils;
 

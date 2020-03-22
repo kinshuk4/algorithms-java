@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.math.number;
+package com.vaani.dsa.algo.numerical.number;
 
 import org.junit.Assert;
 import org.junit.Test;

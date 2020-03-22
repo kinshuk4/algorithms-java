@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.math.fibonacci;
+package com.vaani.dsa.algo.numerical.fibonacci;
 
 import java.math.BigInteger;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.math.number;
+package com.vaani.dsa.algo.numerical.number;
 
 //https://github.com/xiaoningning/algorithm/blob/master/isNumber/src/IsNumber.java
 public class IsNumber {

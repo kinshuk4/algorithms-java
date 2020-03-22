@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.math;
+package com.vaani.dsa.algo.numerical;
 
 /*
 Implement pow(x, n).

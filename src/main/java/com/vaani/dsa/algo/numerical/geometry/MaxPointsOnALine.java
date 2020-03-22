@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.math.geometry;
+package com.vaani.dsa.algo.numerical.geometry;
 
 import com.vaani.dsa.ds.core.visual.Point;
 

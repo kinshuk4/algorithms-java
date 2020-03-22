@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.math;
+package com.vaani.dsa.algo.numerical;
 
 /**
  * Check whether a number is power of 3.

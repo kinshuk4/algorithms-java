@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.math.number;
+package com.vaani.dsa.algo.numerical.number;
 
 /**
  * Created by Xiaomeng on 10/9/2014.
