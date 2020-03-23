@@ -28,9 +28,7 @@ public class FindTrailingZerosInFactorial {
         return count;
     }
 
-    /**
-     * Why is this wrong?
-     */
+
     public static int findTrailingZeros2(int n) {
         int count = 0;
         for (int i = 5; n / i >= 1; i *= 5) {
@@ -41,21 +39,6 @@ public class FindTrailingZerosInFactorial {
 
     public static void main(String[] args) {
         int n = 100;
-        System.out.println(findTrailingZeros(100));
-    }
-
-    /**
-     * My solution
-     */
-    public int trailingZeroes(int n) {
-        int fives = 0;
-        for (int i = 1; i <= n; i++) {
-            int num = i;
-            while (num % 5 == 0) {
-                fives += 1;
-                num /= 5;
-            }
-        }
-        return fives;
+        System.out.println(findTrailingZeros2(100));
     }
 }
