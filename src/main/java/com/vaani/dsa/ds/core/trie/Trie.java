@@ -1,4 +1,6 @@
-package com.vaani.dsa.ds.core.tree;
+package com.vaani.dsa.ds.core.trie;
+
+import com.vaani.dsa.ds.core.trie.TrieNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -10,35 +12,33 @@ public class Trie {
     public int minLevDist;
 
     public Trie() {
-        this.root = new TrieNode(' ');
+        this.root = new TrieNode("");
     }
 
     public void insert(String word) {
         int length = word.length();
-        TrieNode current = this.root;
+        TrieNode curr = this.root;
 
-        if (length == 0) {
-            current.isWord = true;
-        }
-
-        for (int index = 0; index < length; index++) {
-
-            char letter = word.charAt(index);
-            TrieNode child = current.getChild(letter);
-
-            if (child != null) {
-                current = child;
-            } else {
-                current.children.put(letter, new TrieNode(letter));
-                current = current.getChild(letter);
+        for (int i = 0; i < length; i++) {
+            if(!curr.children.containsKey(word.charAt(i))){
+                curr.children.put(word.charAt(i), new TrieNode(word.substring(0, i+1)));
             }
-            if (index == length - 1) {
-                current.isWord = true;
+
+            curr = curr.children.get(word.charAt(i));
+
+//            if (child != null) {
+//                current = child;
+//            } else {
+//                current.children.put(letter, new TrieNode(letter));
+//                current = current.getChild(letter);
+//            }
+            if (i == length - 1) {
+                curr.isWord = true;
             }
         }
     }
 
-    public boolean search(String word) {
+    public boolean exists(String word) {
         TrieNode node = root;
         for (char c : word.toCharArray()) {
             TrieNode child = node.getChild(c);
@@ -76,27 +76,24 @@ public class Trie {
         return node;
     }
 
+    private void findAllChildWords(TrieNode n, List<String> results){
+        if(n.isWord){
+            results.add(n.prefix);
+        }
+
+        for(Character c: n.children.keySet()){
+            findAllChildWords(n.children.get(c), results);
+        }
+    }
+
     public List<String> wordsWithPrefix(String prefix){
         char[] prefixArray = prefix.toCharArray();
         TrieNode temp = root;
         TrieNode tn = getPrefixNode(prefix);
 
         List<String> words = new ArrayList<String>();
-        Deque<TrieNode> DQ = new ArrayDeque<TrieNode>();
-//        DQ.addLast(temp);
-//        while (!DQ.isEmpty()) {
-//            TrieNode first = DQ.removeFirst();
-//            if(first.isWord){
-//                words.add(first.);
-//            }
-//
-//            for(TrieNode n : first.children){
-//                if(n != null){
-//                    DQ.add(n);
-//                }
-//            }
-//        }
 
+        findAllChildWords(tn, words);
         return words;
     }
 }

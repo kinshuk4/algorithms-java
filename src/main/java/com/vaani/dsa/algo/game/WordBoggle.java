@@ -1,7 +1,7 @@
 package com.vaani.dsa.algo.game;
 
 
-import com.vaani.dsa.ds.core.tree.Trie;
+import com.vaani.dsa.ds.core.trie.Trie;
 
 import java.util.*;
 
@@ -75,7 +75,7 @@ public class WordBoggle {
             return;
         }
 
-        if(dictionary.search(str)){
+        if(dictionary.exists(str)){
             resultSet.add(str);
         }
 

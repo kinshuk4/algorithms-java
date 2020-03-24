@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.algos.trie;
 
-import com.vaani.dsa.ds.core.tree.Trie;
-import com.vaani.dsa.ds.core.tree.TrieNode;
+import com.vaani.dsa.ds.core.trie.Trie;
+import com.vaani.dsa.ds.core.trie.TrieNode;
 
 import java.util.Map;
 
