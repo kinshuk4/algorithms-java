@@ -11,6 +11,9 @@
 
     <properties>
         <java.version>9</java.version>
+        <maven.compiler.source>1.9</maven.compiler.source>
+        <maven.compiler.target>1.9</maven.compiler.target>
+
     </properties>
 
     <build>
@@ -24,8 +27,6 @@
                 </configuration>
             </plugin>
         </plugins>
-
-
     </build>
     <dependencies>
         <dependency>
