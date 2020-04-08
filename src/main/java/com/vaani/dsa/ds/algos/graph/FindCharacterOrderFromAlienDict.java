@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.algos.graph;
 
 
-import com.vaani.dsa.algo.compete.cc150.chap4treegraph.TopologicalSort;
+import com.vaani.dsa.algo.sort.TopologicalSort;
 import com.vaani.dsa.ds.core.graph.generic.AdjacentListGraph;
 import com.vaani.dsa.ds.core.graph.generic.Vertex;
 

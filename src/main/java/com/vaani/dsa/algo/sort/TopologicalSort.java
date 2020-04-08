@@ -1,4 +1,4 @@
-package com.vaani.ctci.chap4treegraph;
+package com.vaani.dsa.algo.sort;
 
 
 import com.vaani.dsa.ds.core.graph.generic.AdjacentListGraph;
@@ -6,9 +6,6 @@ import com.vaani.dsa.ds.core.graph.generic.Vertex;
 
 import java.util.*;
 
-/**
- * Created by Xiaomeng on 11/25/2014.
- */
 public class TopologicalSort {
     public static Vertex[] topologicalSort(AdjacentListGraph graph) {
 //        Set<Vertex> vertexSet = graph.getVertexMap();
