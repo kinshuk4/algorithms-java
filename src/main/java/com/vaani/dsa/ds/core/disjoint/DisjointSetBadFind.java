@@ -22,8 +22,8 @@ public class DisjointSetBadFind extends ADisjointSet {
     public boolean union(int i, int j) {
         int rootI = find(i);
         int rootJ = find(j);
-        //make x as parent of y
-        array[rootJ] = rootI;
+        //make j as parent of i
+        array[rootI] = rootJ;
         return true;
     }
 
@@ -58,10 +58,10 @@ public class DisjointSetBadFind extends ADisjointSet {
         // set1 = 2 - 0 - 1 - 3
         // set2 = 4 - 5
         ADisjointSet dsbfSet = new DisjointSetBadFind(6);
-        dsbfSet.union(2, 0);
-        dsbfSet.union(0, 1);
-        dsbfSet.union(1, 3);
-        dsbfSet.union(4, 5);
+        dsbfSet.union(0, 2);
+        dsbfSet.union(1, 0);
+        dsbfSet.union(3, 1);
+        dsbfSet.union(5, 4);
 
         System.out.println(dsbfSet.find(1));
         System.out.println(dsbfSet.find(5));

@@ -24,7 +24,7 @@ public class LongestPrefixMatching {
             char ch = input.charAt(level);
 
             // HashMap of current Trie node to traverse down
-            Map<Character, TrieNode> child = crawl.children;
+            Map<Character, TrieNode> child = crawl.getChildren();
 
             // See if there is a Trie edge for the current character
             if (child.containsKey(ch)) {
@@ -32,14 +32,14 @@ public class LongestPrefixMatching {
                 crawl = child.get(ch); //Update crawl to move down in Trie
 
                 // If this is end of a word, then update prevMatch
-                if (crawl.isWord)
+                if (crawl.isWord())
                     prevMatch = level + 1;
             } else break;
         }
 
         // If the last processed character did not match end of a word,
         // return the previously matching prefix
-        if (!crawl.isWord)
+        if (!crawl.isWord())
             return result.substring(0, prevMatch);
 
         else return result;

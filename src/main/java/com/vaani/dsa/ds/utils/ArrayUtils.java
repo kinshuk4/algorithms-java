@@ -18,8 +18,12 @@ public class ArrayUtils {
         int tmp = A[i];
         A[i] = A[j];
         A[j] = tmp;
-        TreeSet<Integer> ts = new TreeSet<>();
+    }
 
+    public static <T> void swap(T[] A, int i, int j) {
+        T tmp = A[i];
+        A[i] = A[j];
+        A[j] = tmp;
     }
 
     public static Character[] toObjectArray(char[] list) {

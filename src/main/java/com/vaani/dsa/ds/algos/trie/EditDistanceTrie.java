@@ -36,8 +36,8 @@ public class EditDistanceTrie {
 //            traverseTrie(theTrie.root, word.get(i), word, currentRow, theTrie);
 //        }
 
-        for (Character c : theTrie.root.children.keySet()) {
-            traverseTrie(theTrie.root.children.get(c), c, word, currentRow, theTrie);
+        for (Character c : theTrie.root.getChildren().keySet()) {
+            traverseTrie(theTrie.root.getChild(c), c, word, currentRow, theTrie);
         }
         return theTrie.minLevDist;
     }
@@ -77,14 +77,14 @@ public class EditDistanceTrie {
             }
         }
 
-        if (currentRow[size - 1] < theTrie.minLevDist && node.isWord) {
+        if (currentRow[size - 1] < theTrie.minLevDist && node.isWord()) {
             theTrie.minLevDist = currentRow[size - 1];
         }
 
         if (minimumElement < theTrie.minLevDist) {
 
-            for (Character c : node.children.keySet()) {
-                traverseTrie(node.children.get(c), c, word, currentRow, theTrie);
+            for (Character c : node.getChildren().keySet()) {
+                traverseTrie(node.getChild(c), c, word, currentRow, theTrie);
             }
         }
     }

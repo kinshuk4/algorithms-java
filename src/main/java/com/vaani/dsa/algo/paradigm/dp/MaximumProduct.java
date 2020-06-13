@@ -8,7 +8,7 @@ public class MaximumProduct {
 
     public static long getMaximumProduct(long[] arrs) {
         long max = 0;
-        //以i作为开始，以j作为结束
+
         for (int i = 0; i < arrs.length - 1; i++) {
             for (int j = i + 1; j < arrs.length; j++) {
                 long temp = 1;

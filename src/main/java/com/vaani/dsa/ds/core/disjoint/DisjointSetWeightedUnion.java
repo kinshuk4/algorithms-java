@@ -73,7 +73,7 @@ public class DisjointSetWeightedUnion extends ADisjointSet {
 
         System.out.println(dsbuSet.isConnected(1, 5));
         System.out.println(dsbuSet.isConnected(1, 2));
-        //[3, 3, 3, 3, 5, 5]
+        //[2, 2, 2, 2, 4, 4][1, 1, 4, 1, 2, 1]
         System.out.println(dsbuSet.toString());
     }
 }

@@ -20,73 +20,76 @@ public class Trie {
         TrieNode curr = this.root;
 
         for (int i = 0; i < length; i++) {
-            if(!curr.children.containsKey(word.charAt(i))){
-                curr.children.put(word.charAt(i), new TrieNode(word.substring(0, i+1)));
+            char c = word.charAt(i);
+            if (!curr.hasChild(c)) {
+                curr.addChild(c, word.substring(0, i + 1), i == length - 1);
+            }else{
+                // only set when this condition matches. Otherwise, it may unset in case of other child match, wehre iit thhe cheild is not leaf node
+                if (i == length-1){
+                    curr.getChild(c).setWord(i == length - 1);// for existing child, check if it is a word based on new word
+                }
             }
 
-            curr = curr.children.get(word.charAt(i));
+            curr = curr.getChild(c);
+        }
+    }
 
-//            if (child != null) {
-//                current = child;
-//            } else {
-//                current.children.put(letter, new TrieNode(letter));
-//                current = current.getChild(letter);
-//            }
-            if (i == length - 1) {
-                curr.isWord = true;
-            }
+    public void insertAll(String[] words) {
+        for (String word : words) {
+            insert(word);
         }
     }
 
     public boolean exists(String word) {
-        TrieNode node = root;
+        TrieNode curr = root;
         for (char c : word.toCharArray()) {
-            TrieNode child = node.getChild(c);
+            TrieNode child = curr.getChild(c);
             if (child == null)
                 return false;
-            node = child;
+            curr = child;
         }
-        if (node.isWord) {
+
+        if (curr.isWord()) {
             return true;
         } else {
             return false;
         }
     }
 
-    public boolean startsWith(String prefix){
+    public boolean startsWith(String prefix) {
         //can be rewritten as: return getPrefixNode(prefix) != null
         TrieNode node = root;
-        for(char c: prefix.toCharArray()){
+        for (char c : prefix.toCharArray()) {
             TrieNode child = node.getChild(c);
-            if(child==null)
+            if (child == null)
                 return false;
             node = child;
         }
         return true;
     }
 
-    private TrieNode getPrefixNode(String prefix){
+    private TrieNode getPrefixNode(String prefix) {
         TrieNode node = root;
-        for(char c: prefix.toCharArray()){
+        for (char c : prefix.toCharArray()) {
             TrieNode child = node.getChild(c);
-            if(child==null)
+            if (child == null)
                 return null;
             node = child;
         }
         return node;
     }
 
-    private void findAllChildWords(TrieNode n, List<String> results){
-        if(n.isWord){
-            results.add(n.prefix);
+    private void findAllChildWords(TrieNode n, List<String> results) {
+        if (n.isWord()) {
+            results.add(n.getPrefix());
         }
 
-        for(Character c: n.children.keySet()){
-            findAllChildWords(n.children.get(c), results);
+        for (Character c : n.getChildren().keySet()) {
+            findAllChildWords(n.getChild(c), results);
         }
     }
 
-    public List<String> wordsWithPrefix(String prefix){
+    public List<String> wordsWithPrefix(String prefix) {
         char[] prefixArray = prefix.toCharArray();
         TrieNode temp = root;
         TrieNode tn = getPrefixNode(prefix);

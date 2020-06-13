@@ -1,10 +1,10 @@
-package com.vaani.dsa.algo.paradigm.recursion;
+package com.vaani.dsa.algo.numerical.fibonacci;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class Fibonacci {
+public class NthFibonacci {
     /**
      * Native recursive without memorization
      */

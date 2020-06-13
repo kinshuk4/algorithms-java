@@ -38,7 +38,7 @@ public class EditDistanceTrie2 {
         List<String> result = new ArrayList<String>();
         StringBuilder single = new StringBuilder();
         TrieNode root = theTrie.root;
-        for (Character ch : root.children.keySet()) {
+        for (Character ch : root.getChildren().keySet()) {
             traverseTrie(root.getChild(ch), ch, word, currRow, k, theTrie, single, result);
             single.deleteCharAt(single.length() - 1);
         }
@@ -58,13 +58,13 @@ public class EditDistanceTrie2 {
             }
         }
         single.append(letter);
-        if (node.isWord) {
+        if (node.isWord()) {
             if (currRow[len - 1] == k) {
                 result.add(single.toString());
             }
         }
 
-        for (Character ch : node.children.keySet()) {
+        for (Character ch : node.getChildren().keySet()) {
             traverseTrie(node.getChild(ch), ch, word, currRow, k, theTrie, single, result);
             single.deleteCharAt(single.length() - 1);
         }
