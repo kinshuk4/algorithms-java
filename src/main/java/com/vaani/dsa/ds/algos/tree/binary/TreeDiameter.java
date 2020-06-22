@@ -2,7 +2,7 @@ package com.vaani.dsa.ds.algos.tree.binary;
 
 import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
 
-import static com.vaani.dsa.algo.compete.codility.TreeHeight.getTreeHeight;
+import static com.vaani.dsa.algo.compete.codility.BinaryTreeHeight.getTreeHeight;
 
 public class TreeDiameter {
     /**

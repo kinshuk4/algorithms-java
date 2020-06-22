@@ -31,6 +31,17 @@ public class PostorderTraversal {
         System.out.println(test.postorderTraversal(root));
     }
 
+//    public static void postOrder(Node root) {
+//        if(root == null){
+//            return;
+//        }
+//
+//
+//        postOrder(root.left);
+//        postOrder(root.right);
+//        System.out.print(""+ root.data+ " ");
+//    }
+
     public List<Integer> postorderTraversal(BinaryTreeNode root) {
         List<Integer> result = new ArrayList<Integer>();
         if (root == null) return result;

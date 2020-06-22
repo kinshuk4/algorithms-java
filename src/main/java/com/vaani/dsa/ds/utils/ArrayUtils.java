@@ -1,17 +1,15 @@
 package com.vaani.dsa.ds.utils;
 
 
-import java.util.TreeSet;
-
 public class ArrayUtils {
-    public static void reverse(int[] array, int start, int end) {
+    public static void reverseBetweenRange(int[] array, int start, int end) {
         while (start < end) {
             swap(array, start++, end--);
         }
     }
 
     public static void reverse(int[] array) {
-        reverse(array, 0, array.length - 1);
+        reverseBetweenRange(array, 0, array.length - 1);
     }
 
     public static void swap(int[] A, int i, int j) {

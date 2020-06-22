@@ -6,8 +6,6 @@ import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
  * Find the LCA of the binary search tree.
  */
 public class LCAofBST {
-
-
     /**
      * O(logn) time, O(1) space
      */

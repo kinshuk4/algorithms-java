@@ -20,18 +20,18 @@ public class DLLUtil {
     public static <E> void reverseList(DoubleLinkedList<E> list) {
 
         DLLNode<E> curr = list.get(0);
-        DLLNode<E> temp = curr;
+        DLLNode<E> prev = curr;
 
         while (curr != null) {
-            temp = curr.prev;
+            prev = curr.prev;
             curr.prev = curr.next;
-            curr.next = temp;
+            curr.next = prev;
             curr = curr.prev;
         }
 
         // temp will be null if linked list has only one node
-        if (temp != null) {
-            list.head = temp.prev;
+        if (prev != null) {
+            list.head = prev.prev;
         }
     }
 }

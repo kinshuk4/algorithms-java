@@ -1,8 +1,8 @@
 package com.vaani.dsa.algo.misc;
 
-import java.util.Arrays;
+import com.vaani.dsa.ds.utils.ArrayUtils;
 
-import static com.vaani.dsa.ds.utils.ArrayUtils.reverse;
+import java.util.Arrays;
 
 /**
  * Given an array of positive and negative integers,
@@ -45,9 +45,9 @@ public class StablePartition {
         while (j <= right && a[j] < 0)
             j++;
 
-        reverse(a, i, mid);
-        reverse(a, mid + 1, j - 1);
-        reverse(a, i, j - 1);
+        ArrayUtils.reverseBetweenRange(a, i, mid);
+        ArrayUtils.reverseBetweenRange(a, mid + 1, j - 1);
+        ArrayUtils.reverseBetweenRange(a, i, j - 1);
 
     }
 

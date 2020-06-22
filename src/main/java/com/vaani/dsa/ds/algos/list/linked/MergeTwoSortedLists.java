@@ -7,7 +7,7 @@ import com.vaani.dsa.ds.core.list.ListNode;
  * <p>
  */
 public class MergeTwoSortedLists {
-    public static ListNode mergeTwoLists(ListNode<Integer> l1, ListNode<Integer> l2) {
+    public static ListNode<Integer> mergeTwoLists(ListNode<Integer> l1, ListNode<Integer> l2) {
         ListNode<Integer> dummyHead = new ListNode<>(0);
         ListNode<Integer> curr = dummyHead;
         while (l1 != null && l2 != null) {

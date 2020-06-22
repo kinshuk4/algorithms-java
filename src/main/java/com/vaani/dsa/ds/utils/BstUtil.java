@@ -199,6 +199,31 @@ public class BstUtil<T> {
         }
     }
 
+//    public static Node insert(Node root,int data) {
+//        Node newNode = new Node(data);
+//        if(root == null){
+//            return newNode;
+//        }
+//        Node curr= root;
+//        while(true) {
+//            if(data <= curr.data){
+//                if(curr.left != null){
+//                    curr = curr.left;
+//                }else {
+//                    curr.left = newNode;
+//                    return root;
+//                }
+//            }else {
+//                if(curr.right != null) {
+//                    curr = curr.right;
+//                }else {
+//                    curr.right = newNode;
+//                    return root;
+//                }
+//            }
+//        }
+//    }
+
     public static <T extends Comparable> boolean insertRecursive(BinaryTreeNode<T> root, T n) {
 
         if (n == null)

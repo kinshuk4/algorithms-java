@@ -29,4 +29,38 @@ public class InsertInSortedDLL {
         currPrev.next = newNode;
         return head;
     }
+
+//    static DoublyLinkedListNode sortedInsert(DoublyLinkedListNode head, int data) {
+//        DoublyLinkedListNode newNode = new DoublyLinkedListNode(data);
+//        if(head == null){
+//            return newNode;
+//        }
+//        DoublyLinkedListNode curr = head;
+//        while(curr.next != null && curr.data < data){
+//            curr = curr.next;
+//        }
+//
+//        if(curr.data < data){
+//            DoublyLinkedListNode next = curr.next;
+//            curr.next = newNode;
+//            newNode.prev = curr;
+//            newNode.next= next;
+//        }else {
+//            DoublyLinkedListNode prev = curr.prev;
+//            newNode.next = curr;
+//            newNode.prev = prev;
+//            // curr is not head node
+//            if (prev != null){
+//                prev.next = newNode;
+//
+//            }else{
+//                head = newNode;
+//            }
+//
+//
+//        }
+//
+//        return head;
+//
+//    }
 }

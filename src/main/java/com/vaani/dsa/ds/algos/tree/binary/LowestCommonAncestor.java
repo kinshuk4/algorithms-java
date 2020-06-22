@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.paradigm.recursion;
+package com.vaani.dsa.ds.algos.tree.binary;
 
 import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
 

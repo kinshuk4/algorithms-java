@@ -1,125 +1,120 @@
 package com.vaani.dsa.ds.core.heap;
 
-import com.vaani.dsa.ds.utils.ArrayUtils;
-
-//http://people.cs.vt.edu/~shaffer/Book/JAVA/progs/Grkrusm/MinHeap.java
 public class IntMinHeap {
-    private int[] heap;   // Pointer to the heap array
-    private int capacity;   // Maximum size of the heap
-    private int size;      // Number of things in heap
+    public class MinHeap {
+        private int[] Heap;
+        private int size;
+        private int maxsize;
+        private static final int FRONT = 1;
 
-    public IntMinHeap(int[] h, int num, int max) {
-        heap = h;
-        size = num;
-        capacity = max;
-        buildheap();
-    }
-
-    /**
-     * Return current size of the heap
-     */
-    public int heapsize() {
-        return size;
-    }
-
-    /**
-     * Is pos a leaf position?
-     */
-    public boolean isLeaf(int pos) {
-        return (pos >= size / 2) && (pos < size);
-    }
-
-    /**
-     * Return position for left child of pos
-     */
-    public int getLeftChildIndex(int pos) {
-        assert pos < size / 2 : "Position has no left child";
-        return 2 * pos + 1;
-    }
-
-    /**
-     * Return position for right child of pos
-     */
-    public int getRightChildIndex(int pos) {
-        assert pos < (size - 1) / 2 : "Position has no right child";
-        return 2 * pos + 2;
-    }
-
-    /**
-     * Return position for parent
-     */
-    public int getParentIndex(int pos) {
-        assert pos > 0 : "Position has no parent";
-        return (pos - 1) / 2;
-    }
-
-    /**
-     * Heapify contents of Heap
-     */
-    public void buildheap() {
-        for (int i = size / 2 - 1; i >= 0; i--) {
-            siftdown(i);
+        public int getSize() {
+            return size;
         }
-    }
 
-    /**
-     * Insert into heap
-     */
-    public void insert(int val) {
-        assert size < capacity : "Heap is full";
-        int curr = size++;
-        heap[curr] = val;                 // Start at end of heap
-        // Now sift up until curr's parent's key > curr's key
-        siftUp(curr);
-    }
-
-    private void siftUp(int pos) {
-        while (pos != 0 && heap[pos] < heap[getParentIndex(pos)]) {
-            ArrayUtils.swap(heap, pos, getParentIndex(pos));
-            pos = getParentIndex(pos);
+        public MinHeap(int maxsize) {
+            this.maxsize = maxsize;
+            this.size = 0;
+            Heap = new int[this.maxsize + 1];
+            Heap[0] = Integer.MIN_VALUE;
         }
-    }
 
-    /**
-     * Put element in its correct place
-     */
-    private void siftdown(int pos) {
-        assert (pos >= 0) && (pos < size) : "Illegal heap position";
-        while (!isLeaf(pos)) {
-            int left = getLeftChildIndex(pos); // left child
-            int right = left + 1;// right child
-            if (left < (size - 1) && heap[left] > heap[right])
-                left++; // j is now index of child with greater value
-            if (heap[pos] <= heap[left])
-                return;
-            ArrayUtils.swap(heap, pos, left);
-            pos = left;  // Move down
+        private int parent(int pos) {
+            return pos / 2;
         }
-    }
 
-    public int removemin() {     // Remove minimum value
-        assert size > 0 : "Removing from empty heap";
-        ArrayUtils.swap(heap, 0, --size); // Swap minimum with last value
-        if (size != 0)      // Not on last element
-            siftdown(0);   // Put new heap root val in correct place
-        return heap[size];
-    }
+        private int leftChild(int pos) {
+            return (2 * pos);
+        }
 
-    /**
-     * Remove element at specified position
-     */
-    public int remove(int pos) {
-        assert (pos >= 0) && (pos < size) : "Illegal heap position";
-        if (pos == (size - 1)) size--; // Last element, no work to be done
-        else {
-            ArrayUtils.swap(heap, pos, --size); // Swap with last value
-            // If we just swapped in a small value, push it up
-            while (pos > 0 && heap[pos] < heap[getParentIndex(pos)]) {
-                ArrayUtils.swap(heap, pos, getParentIndex(pos));
-                pos = getParentIndex(pos);
+        private int rightChild(int pos) {
+            return (2 * pos) + 1;
+        }
+
+        private boolean isLeaf(int pos) {
+            if (pos > (size / 2) && pos <= size) return true;
+            return false;
+        }
+
+        private void swap(int fpos, int spos) {
+            int tmp;
+            tmp = Heap[fpos];
+            Heap[fpos] = Heap[spos];
+            Heap[spos] = tmp;
+        }
+
+        private void minHeapify(int pos) {
+
+        /*
+        System.out.println("Arbol en maxheapify");
+        print();
+        System.out.println("-----------");
+        */
+
+            if (!isLeaf(pos)) {
+
+                int right = rightChild(pos) <= size ? Heap[rightChild(pos)] : Integer.MAX_VALUE;
+                int left = leftChild(pos) <= size ? Heap[leftChild(pos)] : Integer.MAX_VALUE;
+                int parent = pos <= size ? Heap[pos] : Integer.MAX_VALUE;
+
+                if (parent > left || parent > right) {
+
+                    if (left < right) {
+                        swap(pos, leftChild(pos));
+                        minHeapify(leftChild(pos));
+                    } else {
+                        swap(pos, rightChild(pos));
+                        minHeapify(rightChild(pos));
+                    }
+                }
             }
-            if (size != 0) siftdown(pos);   // If it is big, push down
         }
-        return heap[size];
+
+        public void insert(int Element) {
+            // System.out.println("Antes " + size);
+            Heap[++size] = Element;
+            // System.out.println("Despues " + size);
+
+            int current = size;
+
+            while (Heap[current] < Heap[parent(current)]) {
+                swap(current, parent(current));
+                current = parent(current);
+            }
+        }
+
+//        public void print(){
+//            for(int i = 1; i<= size/2; i++){
+//                System.out.println(" Valor padre:    " + (i <= size ? Heap[i] : "No"));
+//                System.out.println(" Hijo izquierdo: " + (2*i <= size ? Heap[2*i] : "No"));
+//                System.out.println(" Hijo Derecho:   " + (2*i+1 <= size ? Heap[2*i+1] : "No"));
+//                System.out.println();
+//            }
+//        }
+
+        public void minheap() {
+            for (int pos = (size / 2); pos >= 1; pos--) {
+                minHeapify(pos);
+            }
+        }
+
+        public int poll() {
+            int popped = Heap[FRONT];
+
+        /*
+        System.out.println("Último - Size: " + size);
+        System.out.println("Prioridad: " + Heap[size] + "\n - - - \n");
+        */
+
+            Heap[FRONT] = Heap[size];
+            Heap[size] = Integer.MAX_VALUE;
+            size--;
+            minHeapify(FRONT);
+            return popped;
+        }
+
+        public int peek() {
+            return Heap[FRONT];
+        }
+
     }
 }
