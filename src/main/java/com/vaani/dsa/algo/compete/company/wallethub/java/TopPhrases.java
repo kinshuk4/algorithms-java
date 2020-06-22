@@ -19,20 +19,21 @@ public class TopPhrases {
     private static final long MAXIMUM_MEMORY_AVAILABLE = Runtime.getRuntime().maxMemory();
     private static final int TOP_PHRASE_COUNT = 100000;
     public static final String LARGE_FILE_PATH = "SOME LARGE FILE";
-    
-    
+
+
     public static void main(String[] args) throws IOException {
-    	TopPhrases tp = new TopPhrases();
-    	
-    	Solution1MapReduce mr = new Solution1MapReduce();
-    	
-    	List<String> phraseList = mr.getTopPhrases(LARGE_FILE_PATH, TOP_PHRASE_COUNT);
-    	
-    	Solution2UsingPersistentMap pm = new Solution2UsingPersistentMap();
-    	List<String> phraseList2 = pm.getTopPhrases(LARGE_FILE_PATH, TOP_PHRASE_COUNT);
-    	
-    	
-	}
+        TopPhrases tp = new TopPhrases();
+
+        Solution1MapReduce mr = new Solution1MapReduce();
+
+        List<String> phraseList = mr.getTopPhrases(LARGE_FILE_PATH, TOP_PHRASE_COUNT);
+
+        Solution2UsingPersistentMap pm = new Solution2UsingPersistentMap();
+        List<String> phraseList2 = pm.getTopPhrases(LARGE_FILE_PATH, TOP_PHRASE_COUNT);
+
+
+    }
+
     static class Solution1MapReduce {
 
         /**
@@ -43,50 +44,51 @@ public class TopPhrases {
          * @param top  How many top strings to include
          * @return TopMostOccuringPhraseList [top] strings in the given file
          */
-        public  List<String> getTopPhrases(String filePath, int top) throws IOException {
+        public List<String> getTopPhrases(String filePath, int top) throws IOException {
             if (top < 1)
                 return new ArrayList<String>();
             File file = new File(filePath);
             long start = System.currentTimeMillis();
             Collection<File> chunks = split(file);
-            System.out.println("File split into "+ chunks.size()+ " chunks, time it took:"+(System.currentTimeMillis() - start));
+            System.out.println("File split into " + chunks.size() + " chunks, time it took:" + (System.currentTimeMillis() - start));
 
             // After split operation, in worst case, we may have 1 file containing only 1 repeating string - but it won't lead to OEM
             //  because its same string (only count will be increased, not String objects in memory)
 
             long start2 = System.currentTimeMillis();
             List<PhraseFrequency> phraseFrequencyList = countInChunks(chunks, top);
-            System.out.println("Count from chunks took took in ms:"+ (System.currentTimeMillis() - start2));
-            System.out.println("Total time for "+ top+ " top phrases in ms: " + (System.currentTimeMillis() - start));
+            System.out.println("Count from chunks took took in ms:" + (System.currentTimeMillis() - start2));
+            System.out.println("Total time for " + top + " top phrases in ms: " + (System.currentTimeMillis() - start));
             //java 8, get list of properties from list of objects
             List<String> phrases = phraseFrequencyList.stream().map(PhraseFrequency::getPhrase).collect(Collectors.toList());
             return phrases;
         }
 
-       
+
         /**
          * Split large file into number of smaller chunk of files based upon hashCodes
          * We achieve 2 goals:
          * 1) Split file completely fits in memory (most of the times)
          * 2) Same strings are in one file
-         * 
+         * <p>
          * If, in worst case, we have again 1 (or more) large file that does not fit in memory -
          * it consists of at most several different string
          * which will not eat memory as they are used as map keys
          * O(n)
          * Space compexity : O(n)
+         *
          * @param file File which has to be split to fit in memory
          * @return Collection of files split from large files
          * @throws IOException
          */
         private Collection<File> split(File file) throws IOException {
             // Lets use half the memory, such that when we may have to merge in future
-        	// the merge entity is less than memory available
+            // the merge entity is less than memory available
             long memoryPerFile = MAXIMUM_MEMORY_AVAILABLE >> 1;
 
-            System.out.println("Total memory available: " + (MAXIMUM_MEMORY_AVAILABLE /(1024*1024)) + " Mb");
-            System.out.println("Memory we may use: " + (memoryPerFile /(1024*1024)) + " Mb");
-            System.out.println("File size: " + (file.length() /(1024*1024)) + " Mb");
+            System.out.println("Total memory available: " + (MAXIMUM_MEMORY_AVAILABLE / (1024 * 1024)) + " Mb");
+            System.out.println("Memory we may use: " + (memoryPerFile / (1024 * 1024)) + " Mb");
+            System.out.println("File size: " + (file.length() / (1024 * 1024)) + " Mb");
 
             int num = (int) (file.length() / memoryPerFile);
             //Big File completely fits into memory, so number of chunks will be 0
@@ -100,13 +102,13 @@ public class TopPhrases {
             //Now we know how many files to split, lets create those many files.
             final long start = System.currentTimeMillis();
 
-            
+
             try (Scanner scanner = new Scanner(file)) {
                 int i = 0;
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
                     Arrays.asList(line.split('\\' + DELIM))
-                            .forEach(phrase -> {                                        
+                            .forEach(phrase -> {
                                         File fileChunk = writeSplittedFile(phrase, fileMap, filesNumber);
                                         if (fileChunk != null) {
                                             results.add(fileChunk);
@@ -120,7 +122,7 @@ public class TopPhrases {
 
                 }
             } finally {
-            	//close all the files
+                //close all the files
                 fileMap.entrySet().forEach(e -> {
                     try {
                         e.getValue().flush();
@@ -137,7 +139,7 @@ public class TopPhrases {
 
         // O(n)
         private List<PhraseFrequency> countInChunks(Collection<File> chunks, int top) throws IOException {
-        	//min heap
+            //min heap
             Queue<PhraseFrequency> minHeap = new PriorityQueue<>(top);
             //Go through all the file chunks
             for (File chunk : chunks) {
@@ -174,7 +176,7 @@ public class TopPhrases {
 
         private File writeSplittedFile(String phrase, Map<Integer, FileWriter> fileMap, int filesNumber) {
             File file = null;
-            int number = Math.abs(phrase.hashCode() % filesNumber); 
+            int number = Math.abs(phrase.hashCode() % filesNumber);
             try {
                 FileWriter fw = fileMap.get(number);
                 if (fw == null) {
@@ -232,14 +234,14 @@ public class TopPhrases {
                 return "PC {" + phrase + " => " + frequency + '}';
             }
 
-			public String getPhrase() {
-				return phrase;
-			}
+            public String getPhrase() {
+                return phrase;
+            }
 
-			public long getCount() {
-				return frequency;
-			}
-            
+            public long getCount() {
+                return frequency;
+            }
+
         }
 
     }
@@ -257,13 +259,14 @@ public class TopPhrases {
     static class Solution2UsingPersistentMap {
         private Map<String, Integer> frequencyMap;
         private DB db;
-        
-        
-        public Solution2UsingPersistentMap(){
-        	//initialized the persistent hashmap
-        	createMapDB();
-        	
+
+
+        public Solution2UsingPersistentMap() {
+            //initialized the persistent hashmap
+            createMapDB();
+
         }
+
         public void createMapDB() {
             //location where we have to create the persistent cache
             db = DBMaker.newFileDB(new File("/tmp/cache"))
@@ -274,38 +277,38 @@ public class TopPhrases {
             this.frequencyMap = db.getHashMap("topWordsMap");
         }
 
-        
+
         /**
          * This will require O(1) memory for read a file line by line.
-         * After reading the file, we can put all the phrases in the 
+         * After reading the file, we can put all the phrases in the
          *
          * @param file File from which the @code top most frequent word will be mined.
          * @param top  How many top strings to include
          * @return TopMostOccuringPhraseList [top] strings in the given file
          */
-        public List<String> getTopPhrases(String filePath, int top) throws FileNotFoundException{
-            BufferedReader br = new BufferedReader( new FileReader(filePath));
+        public List<String> getTopPhrases(String filePath, int top) throws FileNotFoundException {
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
 
             String strLine;
             int lineNumFile = 0;
 
             //Read File Line By Line
             try {
-                while ((strLine = br.readLine()) != null)   {
+                while ((strLine = br.readLine()) != null) {
                     lineNumFile++;
                     // Print the content on the console
                     strLine = strLine.trim();
 
-                    if(strLine==null || "".equals(strLine)){
+                    if (strLine == null || "".equals(strLine)) {
                         continue;
                     }
                     String[] phrases = strLine.split(DELIM);
 
-                    for(String phrase:phrases){
-                        if(frequencyMap.containsKey(phrase)){
-                            frequencyMap.put(phrase,1);
-                        }else{
-                            frequencyMap.put(phrase,frequencyMap.get(phrase)+1);
+                    for (String phrase : phrases) {
+                        if (frequencyMap.containsKey(phrase)) {
+                            frequencyMap.put(phrase, 1);
+                        } else {
+                            frequencyMap.put(phrase, frequencyMap.get(phrase) + 1);
                         }
                     }
 
@@ -327,32 +330,31 @@ public class TopPhrases {
             //Index in this array is frequency count of the elements, and 
             //Linked list contains all the words with the same frequency
             ArrayList<LinkedList<String>> arrOfList = new ArrayList<LinkedList<String>>();
-            for (Map.Entry<String, Integer> entry : frequencyMap.entrySet())
-            {
-                if(arrOfList.size()>entry.getValue()){
+            for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
+                if (arrOfList.size() > entry.getValue()) {
                     LinkedList<String> getValue = arrOfList.get(entry.getValue());
-                    if(getValue==null){
+                    if (getValue == null) {
                         getValue = new LinkedList<>();
                     }
                     getValue.add(entry.getKey());
-                }else {
+                } else {
                     arrOfList.add(entry.getValue(), new LinkedList<>(Arrays.asList(entry.getKey())));
                 }
             }
 
-            int k=0;
+            int k = 0;
             //Now go through the array, and as soon as we have TOP_PHRASE_COUNT words, quit
             List<String> result = new ArrayList<>();
-            for(int i=arrOfList.size();i>0;i++){
+            for (int i = arrOfList.size(); i > 0; i++) {
                 List<String> entryKeyList = arrOfList.get(i);
-                if(entryKeyList == null || entryKeyList.size()==0){
+                if (entryKeyList == null || entryKeyList.size() == 0) {
                     continue;
-                }else{
-                    for(String entryKey : entryKeyList){
+                } else {
+                    for (String entryKey : entryKeyList) {
                         System.out.println(entryKey);
                         result.add(entryKey);
                         k++;
-                        if(k % TOP_PHRASE_COUNT == 0){
+                        if (k % TOP_PHRASE_COUNT == 0) {
                             break;
                         }
                     }
