@@ -1,6 +1,8 @@
 package com.vaani.dsa.ds.utils;
 
 
+import java.util.List;
+
 public class ArrayUtils {
     public static void reverseBetweenRange(int[] array, int start, int end) {
         while (start < end) {
@@ -39,4 +41,13 @@ public class ArrayUtils {
         }
         return arr;
     }
+
+    public static int[] listToPrimitiveArray(List<Integer> list) {
+        int[] arr = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            arr[i] = list.get(i);
+        }
+        return arr;
+    }
+
 }
