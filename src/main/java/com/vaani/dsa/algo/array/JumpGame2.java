@@ -12,7 +12,7 @@ package com.vaani.dsa.algo.array;
  * <p>
  * The minimum number of jumps to reach the last index is 2. (Jump 1 step from index 0 to 1, then 3 steps to the last index.)
  * <p>
- * Created by Xiaomeng on 7/24/2014.
+ *  on 7/24/2014.
  */
 public class JumpGame2 {
     /**

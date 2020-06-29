@@ -17,7 +17,7 @@ import java.util.List;
  * [1,4,6,4,1]
  * ]
  * <p>
- * Created by Xiaomeng on 8/26/2014.
+ *  on 8/26/2014.
  */
 public class PascalTriangle {
     public static void main(String[] args) {

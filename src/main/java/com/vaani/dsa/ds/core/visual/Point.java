@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.core.visual;
 
 /**
- * Created by Xiaomeng on 9/18/2014.
+ *  on 9/18/2014.
  */
 public class Point {
     public int x;

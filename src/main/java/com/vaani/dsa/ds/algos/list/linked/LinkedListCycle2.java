@@ -8,7 +8,7 @@ import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
  * Follow up:
  * Can you solve it without using extra space?
  * <p>
- * Created by Xiaomeng on 5/22/2014.
+ *  on 5/22/2014.
  */
 public class LinkedListCycle2 {
     public static ListNode detectCycle(ListNode head) {

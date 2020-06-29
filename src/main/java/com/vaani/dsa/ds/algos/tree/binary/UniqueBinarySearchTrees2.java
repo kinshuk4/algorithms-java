@@ -16,7 +16,7 @@ import java.util.List;
  * /     /       \                 \
  * 2     1         2                 3
  * <p>
- * Created by Xiaomeng on 8/14/2014.
+ *  on 8/14/2014.
  */
 public class UniqueBinarySearchTrees2 {
     public static void main(String[] args) {

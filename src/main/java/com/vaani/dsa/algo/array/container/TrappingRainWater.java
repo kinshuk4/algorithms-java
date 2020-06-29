@@ -7,7 +7,7 @@ package com.vaani.dsa.algo.array.container;
  * For example,
  * Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
  * <p>
- * Created by Xiaomeng on 9/2/2014.
+ *  on 9/2/2014.
  */
 public class TrappingRainWater {
     public static void main(String[] args) {

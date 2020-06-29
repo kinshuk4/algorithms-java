@@ -12,7 +12,7 @@ import java.util.List;
  * Note:
  * Could you optimize your algorithm to use only O(k) extra space?
  * <p>
- * Created by Xiaomeng on 8/26/2014.
+ *  on 8/26/2014.
  */
 public class PascalTriangle2 {
     public static void main(String[] args) {

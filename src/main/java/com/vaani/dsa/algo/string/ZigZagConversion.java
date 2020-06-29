@@ -18,7 +18,7 @@ import java.util.List;
  * <p>
  * convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
  * <p>
- * Created by Xiaomeng on 9/13/2014.
+ *  on 9/13/2014.
  */
 public class ZigZagConversion {
     public static void main(String[] args) {

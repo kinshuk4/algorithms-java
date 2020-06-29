@@ -10,7 +10,7 @@ package com.vaani.dsa.algo.misc;
  * <p>
  * Reference: http://okckd.github.io/blog/2014/08/27/google-api-read-4096/
  * <p>
- * Created by Xiaomeng on 10/24/2014.
+ *  on 10/24/2014.
  */
 public class Read4096 {
     String buffer = null;

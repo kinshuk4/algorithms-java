@@ -19,7 +19,7 @@ import java.util.Stack;
  * <p>
  * return [1,2,3].
  * <p>
- * Created by Xiaomeng on 8/7/2014.
+ *  on 8/7/2014.
  */
 public class PreorderTraversal {
     List<Integer> result = new ArrayList<Integer>();

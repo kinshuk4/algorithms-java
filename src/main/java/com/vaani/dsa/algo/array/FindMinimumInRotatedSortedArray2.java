@@ -14,7 +14,7 @@ package com.vaani.dsa.algo.array;
  * <p>
  * The array may contain duplicates.
  * <p>
- * Created by Xiaomeng on 10/22/2014.
+ *  on 10/22/2014.
  */
 public class FindMinimumInRotatedSortedArray2 {
     public static void main(String[] args) {

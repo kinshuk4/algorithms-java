@@ -3,7 +3,7 @@ package com.vaani.dsa.algo.string;
 /**
  * Write a function to find the longest common prefix string amongst an array of strings.
  * <p>
- * Created by Xiaomeng on 9/2/2014.
+ *  on 9/2/2014.
  */
 public class LongestCommonPrefix {
     public static void main(String[] args) {

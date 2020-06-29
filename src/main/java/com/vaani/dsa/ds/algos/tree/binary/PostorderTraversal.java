@@ -19,7 +19,7 @@ import java.util.Stack;
  * <p>
  * return [3,2,1].
  * <p>
- * Created by Xiaomeng on 8/7/2014.
+ *  on 8/7/2014.
  */
 public class PostorderTraversal {
     public static void main(String[] args) {

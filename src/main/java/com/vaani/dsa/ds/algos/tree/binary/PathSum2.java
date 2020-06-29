@@ -25,7 +25,7 @@ import java.util.List;
  * [5,8,4,5]
  * ]
  * <p>
- * Created by Xiaomeng on 8/13/2014.
+ *  on 8/13/2014.
  */
 public class PathSum2 {
 

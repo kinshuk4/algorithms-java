@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.core.tree.misc;
 
 /**
- * Created by Xiaomeng on 8/11/2014.
+ *  on 8/11/2014.
  */
 public class TreeLinkNode {
     public TreeLinkNode left;

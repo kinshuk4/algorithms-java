@@ -1,7 +1,7 @@
 package com.vaani.dsa.algo.paradigm.dp;
 
 /**
- * Created by Xiaomeng on 11/25/2014.
+ *  on 11/25/2014.
  */
 public class MinCostPath {
     public static int getMinCost(int[][] cost) {

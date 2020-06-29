@@ -37,7 +37,7 @@ import com.vaani.dsa.ds.core.tree.misc.TreeLinkNode;
  * / \  / \
  * 4->5->6->7 -> NULL
  * <p>
- * Created by Xiaomeng on 8/11/2014.
+ *  on 8/11/2014.
  */
 public class PopulatingNextRightPointers {
     public static void main(String[] args) {

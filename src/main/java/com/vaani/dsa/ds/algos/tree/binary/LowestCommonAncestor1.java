@@ -5,7 +5,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 /**
  * Given a binary search tree (BST), find the lowest common ancestor of two given nodes in the BST.
  * <p>
- * Created by Xiaomeng on 10/26/2014.
+ *  on 10/26/2014.
  */
 public class LowestCommonAncestor1 {
     /**

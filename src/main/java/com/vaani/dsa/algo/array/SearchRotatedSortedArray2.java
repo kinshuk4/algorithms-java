@@ -9,7 +9,7 @@ package com.vaani.dsa.algo.array;
  * <p>
  * Write a function to determine if a given target is in the array.
  * <p>
- * Created by Xiaomeng on 7/29/2014.
+ *  on 7/29/2014.
  */
 public class SearchRotatedSortedArray2 {
     public boolean search(int[] A, int target) {

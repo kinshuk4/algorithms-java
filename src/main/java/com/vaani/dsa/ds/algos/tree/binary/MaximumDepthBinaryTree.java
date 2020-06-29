@@ -7,7 +7,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
  * <p>
  * The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
  * <p>
- * Created by Xiaomeng on 8/11/2014.
+ *  on 8/11/2014.
  */
 public class MaximumDepthBinaryTree {
     public int maxDepth(BinaryTreeNode root) {

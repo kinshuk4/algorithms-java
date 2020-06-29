@@ -12,7 +12,7 @@ package com.vaani.dsa.algo.array;
  * [1,3,5,6], 7 → 4
  * [1,3,5,6], 0 → 0
  * <p>
- * Created by Xiaomeng on 7/30/2014.
+ *  on 7/30/2014.
  */
 public class SearchInsertPosition {
     public static void main(String[] args) {

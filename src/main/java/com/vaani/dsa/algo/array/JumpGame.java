@@ -12,7 +12,7 @@ package com.vaani.dsa.algo.array;
  * <p>
  * A = [3,2,1,0,4], return false.
  * <p>
- * Created by Xiaomeng on 7/24/2014.
+ *  on 7/24/2014.
  */
 public class JumpGame {
     public static boolean canJump(int[] A) {

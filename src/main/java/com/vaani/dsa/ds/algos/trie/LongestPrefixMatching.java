@@ -6,7 +6,7 @@ import com.vaani.dsa.ds.core.trie.TrieNode;
 import java.util.Map;
 
 /**
- * Created by Xiaomeng on 11/12/2014.
+ *  on 11/12/2014.
  */
 public class LongestPrefixMatching {
     public static String getMatchingPrefix(String input, Trie dict) {

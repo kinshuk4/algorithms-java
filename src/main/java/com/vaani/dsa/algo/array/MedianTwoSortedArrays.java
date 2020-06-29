@@ -3,7 +3,7 @@ package com.vaani.dsa.algo.array;
 /**
  * There are two sorted arrays A and B of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
  * <p>
- * Created by Xiaomeng on 9/22/2014.
+ *  on 9/22/2014.
  */
 public class MedianTwoSortedArrays {
     public static void main(String[] args) {

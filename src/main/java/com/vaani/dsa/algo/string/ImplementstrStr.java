@@ -5,7 +5,7 @@ package com.vaani.dsa.algo.string;
  * <p>
  * Returns a pointer to the first occurrence of needle in haystack, or null if needle is not part of haystack.
  * <p>
- * Created by Xiaomeng on 9/18/2014.
+ *  on 9/18/2014.
  */
 public class ImplementstrStr {
     public static void main(String[] args) {

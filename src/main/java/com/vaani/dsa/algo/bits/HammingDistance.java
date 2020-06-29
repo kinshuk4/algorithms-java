@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Xiaomeng on 10/22/2014.
+ *  on 10/22/2014.
  */
 public class HammingDistance {
     /**

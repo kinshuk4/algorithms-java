@@ -3,7 +3,7 @@ package com.vaani.dsa.algo.string;
 /**
  * Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
  * <p>
- * Created by Xiaomeng on 9/8/2014.
+ *  on 9/8/2014.
  */
 public class LongestPalindromicSubstring {
     public static void main(String[] args) {

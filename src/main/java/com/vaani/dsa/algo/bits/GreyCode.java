@@ -22,7 +22,7 @@ import java.util.List;
  * <p>
  * For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.
  * <p>
- * Created by Xiaomeng on 9/2/2014.
+ *  on 9/2/2014.
  */
 public class GreyCode {
     public static void main(String[] args) {

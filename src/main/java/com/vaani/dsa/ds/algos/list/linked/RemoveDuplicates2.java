@@ -9,7 +9,7 @@ import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
  * Given 1->2->3->3->4->4->5, return 1->2->5.
  * Given 1->1->1->2->3, return 2->3.
  * <p>
- * Created by Xiaomeng on 7/12/2014.
+ *  on 7/12/2014.
  */
 public class RemoveDuplicates2 {
     public static ListNode deleteDuplicates(ListNode head) {

@@ -20,7 +20,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
  * <p>
  * Return the sum = 12 + 13 = 25.
  * <p>
- * Created by Xiaomeng on 8/14/2014.
+ *  on 8/14/2014.
  */
 public class SumRootToLeafNumbers {
     int sum = 0;

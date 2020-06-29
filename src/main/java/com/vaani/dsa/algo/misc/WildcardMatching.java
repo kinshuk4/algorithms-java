@@ -20,7 +20,7 @@ package com.vaani.dsa.algo.misc;
  * isMatch("ab", "?*") → true
  * isMatch("aab", "c*a*b") → false
  * <p>
- * Created by Xiaomeng on 9/21/2014.
+ *  on 9/21/2014.
  */
 public class WildcardMatching {
     public static void main(String[] args) {

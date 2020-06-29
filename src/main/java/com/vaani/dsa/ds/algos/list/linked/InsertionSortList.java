@@ -7,7 +7,7 @@ import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
  * <p>
  * Reference: http://www.binglu.me/leetcode-question-insertion-sort-list/
  * <p>
- * Created by Xiaomeng on 8/4/2014.
+ *  on 8/4/2014.
  */
 public class InsertionSortList {
     public static void main(String[] args) {

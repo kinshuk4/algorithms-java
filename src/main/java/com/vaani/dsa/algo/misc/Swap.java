@@ -1,7 +1,7 @@
 package com.vaani.dsa.algo.misc;
 
 /**
- * Created by Xiaomeng on 10/9/2014.
+ *  on 10/9/2014.
  */
 public class Swap {
     public static void main(String[] args) {

@@ -9,7 +9,7 @@ package com.vaani.dsa.algo.array;
  * <p>
  * Your function should return length = 5, and A is now [1,1,2,2,3].
  * <p>
- * Created by Xiaomeng on 7/20/2014.
+ *  on 7/20/2014.
  */
 public class RemoveDuplicates2 {
     public static int removeDuplicates(int[] A) {

@@ -15,7 +15,7 @@ package com.vaani.dsa.algo.misc;
  * If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.
  * If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.
  * <p>
- * Created by Xiaomeng on 9/9/2014.
+ *  on 9/9/2014.
  */
 public class StringToInteger {
     public static void main(String[] args) {

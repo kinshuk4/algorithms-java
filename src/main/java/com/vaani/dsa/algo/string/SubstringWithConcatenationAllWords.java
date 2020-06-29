@@ -16,7 +16,7 @@ import java.util.Map;
  * You should return the indices: [0,9].
  * (order does not matter).
  * <p>
- * Created by Xiaomeng on 9/14/2014.
+ *  on 9/14/2014.
  */
 public class SubstringWithConcatenationAllWords {
     public static void main(String[] args) {

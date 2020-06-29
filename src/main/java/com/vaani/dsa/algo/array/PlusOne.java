@@ -5,7 +5,7 @@ package com.vaani.dsa.algo.array;
  * <p>
  * The digits are stored such that the most significant digit is at the head of the list.
  * <p>
- * Created by Xiaomeng on 7/22/2014.
+ *  on 7/22/2014.
  */
 public class PlusOne {
     public int[] plusOne(int[] digits) {

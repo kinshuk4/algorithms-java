@@ -7,7 +7,7 @@ package com.vaani.dsa.algo.array.container;
  * <p>
  * Note: You may not slant the container.
  * <p>
- * Created by Xiaomeng on 9/2/2014.
+ *  on 9/2/2014.
  */
 public class ContainerWithMostWater {
     public static void main(String[] args) {

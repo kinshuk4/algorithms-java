@@ -6,7 +6,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 /**
  * Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
  * <p>
- * Created by Xiaomeng on 8/16/2014.
+ *  on 8/16/2014.
  */
 public class ConvertSortedListToBST {
     ListNode head;

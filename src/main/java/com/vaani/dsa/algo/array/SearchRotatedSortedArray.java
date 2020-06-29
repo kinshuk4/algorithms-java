@@ -9,7 +9,7 @@ package com.vaani.dsa.algo.array;
  * <p>
  * You may assume no duplicate exists in the array.
  * <p>
- * Created by Xiaomeng on 7/28/2014.
+ *  on 7/28/2014.
  */
 public class SearchRotatedSortedArray {
     public static int search(int[] A, int target) {

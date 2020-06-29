@@ -9,7 +9,7 @@ import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
  * Given 1->2->3->4->5->NULL and k = 2,
  * return 4->5->1->2->3->NULL.
  * <p>
- * Created by Xiaomeng on 7/16/2014.
+ *  on 7/16/2014.
  */
 public class RotateList {
     public static ListNode rotateRight(ListNode head, int n) {

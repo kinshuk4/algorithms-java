@@ -8,7 +8,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
  * Note:
  * You may assume that duplicates do not exist in the tree.
  * <p>
- * Created by Xiaomeng on 8/12/2014.
+ *  on 8/12/2014.
  */
 public class ConstructFromPreorderAndInorder {
     public static void main(String[] args) {

@@ -7,7 +7,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
  * <p>
  * For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
  * <p>
- * Created by Xiaomeng on 8/11/2014.
+ *  on 8/11/2014.
  */
 public class BalancedBinaryTree {
     public boolean isBalanced(BinaryTreeNode root) {

@@ -10,7 +10,7 @@ import java.util.List;
  * <p>
  * "((()))", "(()())", "(())()", "()(())", "()()()"
  * <p>
- * Created by Xiaomeng on 8/23/2014.
+ *  on 8/23/2014.
  */
 public class GenerateParentheses {
     List<String> result;

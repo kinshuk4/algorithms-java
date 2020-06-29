@@ -3,7 +3,7 @@ package com.vaani.dsa.ds.algos.tree.binary;
 import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 /**
- * Created by Xiaomeng on 10/27/2014.
+ *  on 10/27/2014.
  */
 public class LowestCommonAncestor2 {
     /**

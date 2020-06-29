@@ -12,7 +12,7 @@ import java.util.Set;
  * <p>
  * Your algorithm should run in O(n) complexity.
  * <p>
- * Created by Xiaomeng on 9/2/2014.
+ *  on 9/2/2014.
  */
 public class LongestConsecutiveSequence {
     public static void main(String[] args) {

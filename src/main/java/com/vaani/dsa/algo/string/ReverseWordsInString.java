@@ -18,7 +18,7 @@ package com.vaani.dsa.algo.string;
  * How about multiple spaces between two words?
  * Reduce them to a single space in the reversed string.
  * <p>
- * Created by Xiaomeng on 9/12/2014.
+ *  on 9/12/2014.
  */
 public class ReverseWordsInString {
     public static void main(String[] args) {

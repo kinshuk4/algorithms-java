@@ -1,7 +1,7 @@
 package com.vaani.dsa.algo.numerical.number;
 
 /**
- * Created by Xiaomeng on 10/9/2014.
+ *  on 10/9/2014.
  */
 public class ArmstrongNumber {
     /**

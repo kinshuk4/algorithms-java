@@ -10,7 +10,7 @@ import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
  * <p>
  * Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.
  * <p>
- * Created by Xiaomeng on 7/19/2014.
+ *  on 7/19/2014.
  */
 public class SwapNodesInPairs {
     public static ListNode swapPairs(ListNode head) {

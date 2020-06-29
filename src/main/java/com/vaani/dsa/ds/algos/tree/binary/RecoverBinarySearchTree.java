@@ -9,7 +9,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
  * Note:
  * A getTreeHeight using O(n) space is pretty straight forward. Could you devise a constant space getTreeHeight?
  * <p>
- * Created by Xiaomeng on 8/16/2014.
+ *  on 8/16/2014.
  */
 public class RecoverBinarySearchTree {
     BinaryTreeNode<Integer> pre;

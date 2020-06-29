@@ -11,7 +11,7 @@ package com.vaani.dsa.ds.algos.tree.binary;
  * /     /       \                 \
  * 2     1         2                 3
  * <p>
- * Created by Xiaomeng on 8/14/2014.
+ *  on 8/14/2014.
  */
 public class UniqueBinarySearchTrees {
     public static void main(String[] args) {

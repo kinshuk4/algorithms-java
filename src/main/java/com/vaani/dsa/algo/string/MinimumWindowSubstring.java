@@ -14,7 +14,7 @@ package com.vaani.dsa.algo.string;
  * <p>
  * If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
  * <p>
- * Created by Xiaomeng on 9/14/2014.
+ *  on 9/14/2014.
  */
 public class MinimumWindowSubstring {
     public static void main(String[] args) {

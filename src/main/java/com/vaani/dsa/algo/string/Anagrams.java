@@ -7,7 +7,7 @@ import java.util.*;
  * <p>
  * Note: All inputs will be in lower-case.
  * <p>
- * Created by Xiaomeng on 8/12/2014.
+ *  on 8/12/2014.
  */
 public class Anagrams {
     public static void main(String[] args) {

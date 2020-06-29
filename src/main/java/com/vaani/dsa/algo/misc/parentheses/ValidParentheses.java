@@ -9,7 +9,7 @@ import java.util.Stack;
  * <p>
  * The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
  * <p>
- * Created by Xiaomeng on 8/23/2014.
+ *  on 8/23/2014.
  */
 public class ValidParentheses {
     public static void main(String[] args) {

@@ -19,7 +19,7 @@ import java.util.Stack;
  * <p>
  * return [1,3,2].
  * <p>
- * Created by Xiaomeng on 8/7/2014.
+ *  on 8/7/2014.
  */
 public class InorderTraversal {
     public static void main(String[] args) {

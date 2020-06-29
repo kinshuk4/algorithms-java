@@ -11,7 +11,7 @@ package com.vaani.dsa.algo.string;
  * Given s = "Hello World",
  * return 5.
  * <p>
- * Created by Xiaomeng on 9/1/2014.
+ *  on 9/1/2014.
  */
 public class LengthOfLastWord {
     public static void main(String[] args) {

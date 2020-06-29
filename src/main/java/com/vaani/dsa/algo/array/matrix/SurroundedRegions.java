@@ -22,7 +22,7 @@ import java.util.Queue;
  * X X X X
  * X O X X
  * <p>
- * Created by Xiaomeng on 9/16/2014.
+ *  on 9/16/2014.
  */
 public class SurroundedRegions {
     Queue<Integer> queue;

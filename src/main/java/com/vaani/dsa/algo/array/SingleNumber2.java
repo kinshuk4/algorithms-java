@@ -6,7 +6,7 @@ package com.vaani.dsa.algo.array;
  * Note:
  * Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
  * <p>
- * Created by Xiaomeng on 7/20/2014.
+ *  on 7/20/2014.
  */
 public class SingleNumber2 {
     public static int singleNumber(int[] A) {

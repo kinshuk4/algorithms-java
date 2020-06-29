@@ -11,9 +11,12 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
  * The right subtree of a node contains only nodes with keys greater than the node's key.
  * Both the left and right subtrees must also be binary search trees.
  * <p>
- * Created by Xiaomeng on 8/9/2014.
+ *  on 8/9/2014.
  */
 public class ValidateBST {
+
+    
+
     public boolean isValidBST(BinaryTreeNode root) {
         return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }

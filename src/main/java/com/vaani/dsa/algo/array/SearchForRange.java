@@ -11,7 +11,7 @@ package com.vaani.dsa.algo.array;
  * Given [5, 7, 7, 8, 8, 10] and target value 8,
  * return [3, 4].
  * <p>
- * Created by Xiaomeng on 7/29/2014.
+ *  on 7/29/2014.
  */
 public class SearchForRange {
     int[] result = new int[2];

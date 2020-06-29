@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Xiaomeng on 10/9/2014.
+ *  on 10/9/2014.
  */
 public class FindPrimeNumbers {
     public static List<Integer> findPrimeNumbers(int n) {

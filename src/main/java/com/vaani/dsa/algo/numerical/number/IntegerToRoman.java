@@ -8,7 +8,7 @@ import java.util.Map;
  * <p>
  * Input is guaranteed to be within the range from 1 to 3999.
  * <p>
- * Created by Xiaomeng on 8/3/2014.
+ *  on 8/3/2014.
  */
 public class IntegerToRoman {
     public static void main(String[] args) {

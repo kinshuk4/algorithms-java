@@ -10,7 +10,7 @@ import java.util.Queue;
  * <p>
  * The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
  * <p>
- * Created by Xiaomeng on 8/11/2014.
+ *  on 8/11/2014.
  */
 public class MinimumDepthBinaryTree {
     public static void main(String[] args) {

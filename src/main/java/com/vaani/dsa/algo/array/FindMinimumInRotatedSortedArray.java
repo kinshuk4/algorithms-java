@@ -9,7 +9,7 @@ package com.vaani.dsa.algo.array;
  * <p>
  * You may assume no duplicate exists in the array.
  * <p>
- * Created by Xiaomeng on 10/22/2014.
+ *  on 10/22/2014.
  */
 public class FindMinimumInRotatedSortedArray {
     public static void main(String[] args) {
