@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.list.linked;
 
-import com.vaani.dsa.ds.core.list.ListNode;
+import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
 
 /**
  * Given a list, rotate the list to the right by k places, where k is non-negative.

@@ -3,7 +3,7 @@ package com.vaani.dsa.ds.algos.list.linked;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.vaani.dsa.ds.core.list.ListNode;
+import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
 
 /**
  * Get the union of two sorted linked list.

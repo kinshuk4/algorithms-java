@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.list.dll;
+package com.vaani.dsa.ds.core.list.dll.generic;
 
 
 final class DoubleListIterator {

@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.tree;
+package com.vaani.dsa.ds.core.tree.bst.generic;
 
 public class BstNode<T extends Comparable> {
     public BstNode<T> left;

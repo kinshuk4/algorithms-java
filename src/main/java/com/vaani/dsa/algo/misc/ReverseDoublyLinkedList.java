@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.misc;
 
-import com.vaani.dsa.ds.core.list.dll.DLLNode;
+import com.vaani.dsa.ds.core.list.dll.generic.DLLNode;
 
 import static com.vaani.dsa.ds.utils.DLLUtil.display;
 

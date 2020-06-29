@@ -7,8 +7,30 @@ import java.util.Arrays;
  * Time complexity O(MN), where M is the target value and N is the number of distinct coins.
  * Space complexity O(M).
  */
-public class CoinChange {
+public class CoinChangeMinCoins {
 
+    public static int minCoinsRecursive(int[] coins, int V){
+        // base case
+        if (V == 0) return 0;
+
+        // Initialize result
+        int result = Integer.MAX_VALUE;
+
+        // Try every coin that has smaller value than V
+        for (int i=0; i<coins.length; i++) {
+            if (coins[i] <= V) {
+                int currResult = minCoinsRecursive(coins, V-coins[i]);
+
+                // Check for INT_MAX to avoid overflow and see if
+                // result can minimized
+                if (currResult != Integer.MAX_VALUE && currResult + 1 < result) {
+                    result = currResult + 1;
+                }
+
+            }
+        }
+        return result;
+    }
     public int[] minCoins(int value, int[] coins) {
         Arrays.sort(coins);
         int[] cache = new int[value + 1]; // stores the min number of coins

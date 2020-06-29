@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.tree;
+package com.vaani.dsa.ds.core.tree.binarytree.generic;
 
 import java.util.*;
 

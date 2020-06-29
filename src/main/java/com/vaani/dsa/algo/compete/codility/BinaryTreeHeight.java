@@ -1,7 +1,7 @@
 package com.vaani.dsa.algo.compete.codility;
 
 
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 public class BinaryTreeHeight {
 	public static int getTreeHeight(BinaryTreeNode<Integer> T) {

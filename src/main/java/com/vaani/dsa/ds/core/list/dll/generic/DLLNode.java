@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.list.dll;
+package com.vaani.dsa.ds.core.list.dll.generic;
 
 public final class DLLNode<T>{
     public T value;

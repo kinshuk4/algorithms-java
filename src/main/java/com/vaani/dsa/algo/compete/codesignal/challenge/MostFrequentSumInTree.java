@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.compete.codesignal.challenge;
 
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 import java.util.*;
 

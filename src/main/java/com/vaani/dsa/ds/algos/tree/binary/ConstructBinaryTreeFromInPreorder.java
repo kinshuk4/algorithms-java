@@ -23,7 +23,7 @@ Given the inorder and preorder traversals of a binary tree t, but not t itself, 
 
 */
 
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 public class ConstructBinaryTreeFromInPreorder {
     public static BinaryTreeNode<Integer> buildTree(int[] preorder, int[] inorder) {

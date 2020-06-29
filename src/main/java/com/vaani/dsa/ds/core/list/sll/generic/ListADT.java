@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.list;
+package com.vaani.dsa.ds.core.list.sll.generic;
 import java.util.Iterator;
  public interface ListADT<T, V> {
      void setDescription(String izena);

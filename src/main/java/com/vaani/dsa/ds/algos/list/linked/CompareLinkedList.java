@@ -1,7 +1,6 @@
 package com.vaani.dsa.ds.algos.list.linked;
 
-import com.vaani.dsa.ds.core.list.ListNode;
-import com.vaani.dsa.ds.core.list.SinglyLinkedListNode;
+import com.vaani.dsa.ds.core.list.sll.simple.SinglyLinkedListNode;
 
 //https://www.hackerrank.com/challenges/compare-two-linked-lists/problem
 public class CompareLinkedList {

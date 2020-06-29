@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.misc;
 
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 /**
  * Check if two binary trees are Isomorphic

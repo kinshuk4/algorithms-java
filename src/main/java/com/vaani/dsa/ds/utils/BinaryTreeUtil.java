@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.utils;
 
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 public class BinaryTreeUtil {
 

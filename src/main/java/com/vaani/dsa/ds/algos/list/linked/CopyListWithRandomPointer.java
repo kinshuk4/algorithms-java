@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.list.linked;
 
-import com.vaani.dsa.ds.core.list.RandomListNode;
+import com.vaani.dsa.ds.core.list.random.RandomListNode;
 
 /**
  * A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.

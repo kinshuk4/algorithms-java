@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.list.dll;
 
-import com.vaani.dsa.ds.core.list.dll.DLLNode;
+import com.vaani.dsa.ds.core.list.dll.generic.DLLNode;
 
 /**
  * Created by kchandra on 21/08/16.

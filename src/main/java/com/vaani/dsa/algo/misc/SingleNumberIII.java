@@ -2,7 +2,7 @@ package com.vaani.dsa.algo.misc;
 
 import java.util.ArrayList;
 
-import com.vaani.dsa.ds.core.list.ListNode;
+import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
 
 /*
 case of four

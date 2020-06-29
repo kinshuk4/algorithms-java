@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.TreeNodeWithParent;
+import com.vaani.dsa.ds.core.tree.misc.TreeNodeWithParent;
 
 /**
  * Given a binary tree, find the lowest common ancestor of two given nodes in the tree. Each node contains a parent pointer which links to its parent.

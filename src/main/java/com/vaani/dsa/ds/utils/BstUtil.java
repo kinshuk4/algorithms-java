@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.utils;
 
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
-import com.vaani.dsa.ds.core.tree.BstNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.bst.generic.BstNode;
 
 public class BstUtil<T> {
     private BstUtil() {

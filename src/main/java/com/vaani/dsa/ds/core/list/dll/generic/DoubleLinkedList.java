@@ -1,7 +1,7 @@
-package com.vaani.dsa.ds.core.list.dll;
+package com.vaani.dsa.ds.core.list.dll.generic;
 
 
-import com.vaani.dsa.ds.core.list.ListADT;
+import com.vaani.dsa.ds.core.list.sll.generic.ListADT;
 
 import java.util.Iterator;
 

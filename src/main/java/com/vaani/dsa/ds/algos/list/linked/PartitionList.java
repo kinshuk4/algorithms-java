@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.list.linked;
 
-import com.vaani.dsa.ds.core.list.ListNode;
+import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
 
 /**
  * Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.

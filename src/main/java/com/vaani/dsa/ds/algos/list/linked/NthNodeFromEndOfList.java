@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.list.linked;
 
-import com.vaani.dsa.ds.core.list.ListNode;
+import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
 
 public class NthNodeFromEndOfList {
     public static ListNode<Integer> removeNthFromEnd(ListNode<Integer> head, int n) {

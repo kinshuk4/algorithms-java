@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 /**
  * Given a binary tree, determine if it is a valid binary search tree (BST).

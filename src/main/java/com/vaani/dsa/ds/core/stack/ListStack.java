@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.core.stack;
 
-import com.vaani.dsa.ds.core.list.ListNode;
+import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
 
 /**
  * Created by kchandra on 18/08/16.

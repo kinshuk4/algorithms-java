@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.algos.tree.binary;
 
 
-import com.vaani.dsa.ds.core.tree.TreeNodeWithParent;
+import com.vaani.dsa.ds.core.tree.misc.TreeNodeWithParent;
 
 import java.util.ArrayList;
 import java.util.List;

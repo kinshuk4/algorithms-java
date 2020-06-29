@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.algos.tree.binary.traversal;
 
 
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 import java.util.Stack;
 

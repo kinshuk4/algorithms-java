@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.algos.tree.bst;
 
-import com.vaani.dsa.ds.core.list.ListNode;
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
+import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 /**
  * Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.

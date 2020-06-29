@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.compete.codeeval;
 
-import com.vaani.dsa.ds.core.list.ListNode;
+import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
 
 import java.io.File;
 import java.util.*;

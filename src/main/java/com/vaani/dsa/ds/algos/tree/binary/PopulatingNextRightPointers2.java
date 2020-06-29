@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.TreeLinkNode;
+import com.vaani.dsa.ds.core.tree.misc.TreeLinkNode;
 
 /**
  * Follow up for problem "Populating Next Right Pointers in Each ListNode".

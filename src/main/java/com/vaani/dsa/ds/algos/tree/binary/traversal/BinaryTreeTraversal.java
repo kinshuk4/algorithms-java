@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.tree.binary.traversal;
 
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 //https://github.com/shijiebei2009/Algorithms/blob/master/src%2Fmain%2Fjava%2Fcn%2Fcodepub%2Falgorithms%2Ftrees%2FTraverseBinaryTree.java
 public class BinaryTreeTraversal {

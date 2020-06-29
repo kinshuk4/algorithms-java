@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.list;
+package com.vaani.dsa.ds.core.list.sll.generic;
 
 public class ListNode<T> {
     public T val;

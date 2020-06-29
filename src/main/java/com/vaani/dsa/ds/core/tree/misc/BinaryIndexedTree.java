@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.tree;
+package com.vaani.dsa.ds.core.tree.misc;
 
 /**
  * Binary Indexed Tree is represented as an array. Let the array be BITree[]. Each node of Binary Indexed Tree stores

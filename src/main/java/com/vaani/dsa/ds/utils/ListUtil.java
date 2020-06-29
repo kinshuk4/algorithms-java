@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.utils;
 
-import com.vaani.dsa.ds.core.list.ListNode;
+import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
 
 public class ListUtil {
     public static <T> ListNode<T> insertAt(ListNode<T> head, int position, T value) {

@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.list.dll;
 
-import com.vaani.dsa.ds.core.list.dll.DLLNode;
+import com.vaani.dsa.ds.core.list.dll.generic.DLLNode;
 
 public class InsertInSortedDLL {
     public static <T extends Comparable<T>> DLLNode<T> insertInSortedDLL(DLLNode<T> head, T data) {

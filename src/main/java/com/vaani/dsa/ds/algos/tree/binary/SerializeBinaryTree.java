@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.*;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 import java.util.LinkedList;
 

@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.tree;
+package com.vaani.dsa.ds.core.tree.misc;
 
 /**
  * Created by Xiaomeng on 11/2/2014.

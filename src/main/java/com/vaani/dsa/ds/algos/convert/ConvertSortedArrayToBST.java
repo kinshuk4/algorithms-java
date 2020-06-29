@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.convert;
 
-import com.vaani.dsa.ds.core.tree.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 
 

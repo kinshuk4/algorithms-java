@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.list;
+package com.vaani.dsa.ds.core.list.random;
 
 public class RandomListNode {
     public int label;

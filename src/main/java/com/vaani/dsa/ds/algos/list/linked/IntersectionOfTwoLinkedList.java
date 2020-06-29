@@ -1,7 +1,6 @@
 package com.vaani.dsa.ds.algos.list.linked;
 
-import com.vaani.dsa.ds.core.list.SinglyLinkedListNode;
-import com.vaani.dsa.ds.utils.ListUtil;
+import com.vaani.dsa.ds.core.list.sll.simple.SinglyLinkedListNode;
 
 public class IntersectionOfTwoLinkedList {
     static int getLength(SinglyLinkedListNode head) {

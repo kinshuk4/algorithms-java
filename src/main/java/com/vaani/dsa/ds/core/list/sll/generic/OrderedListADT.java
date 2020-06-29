@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.list;
+package com.vaani.dsa.ds.core.list.sll.generic;
 
 public interface OrderedListADT<T, V>  extends ListADT<T, V> {
 	

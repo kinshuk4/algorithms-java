@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.utils;
 
-import com.vaani.dsa.ds.core.list.dll.DLLNode;
-import com.vaani.dsa.ds.core.list.dll.DoubleLinkedList;
+import com.vaani.dsa.ds.core.list.dll.generic.DLLNode;
+import com.vaani.dsa.ds.core.list.dll.generic.DoubleLinkedList;
 
 public class DLLUtil {
 
