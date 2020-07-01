@@ -1,4 +1,6 @@
-package com.vaani.dsa.algo.array;
+package com.vaani.dsa.algo.array.sorted;
+
+import org.junit.Assert;
 
 /**
  * Given a sorted array and a target value, return the index if the target is found.
@@ -18,7 +20,7 @@ public class SearchInsertPosition {
     public static void main(String[] args) {
         SearchInsertPosition test = new SearchInsertPosition();
         int[] A = {1, 3, 5, 6};
-        System.out.println(test.searchInsert(A, 0));
+        Assert.assertEquals(test.searchInsert(A, 0), 0);
     }
 
     public int searchInsert(int[] A, int target) {
@@ -38,5 +40,26 @@ public class SearchInsertPosition {
         } else {
             return mid;
         }
+    }
+
+    public int searchInsertIterative(int[] A, int target) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+        int low = 0;
+        int high = A.length - 1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            int cur = A[mid];
+            if (cur == target) {
+                return mid;
+            } else if (cur < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        return low;
     }
 }
