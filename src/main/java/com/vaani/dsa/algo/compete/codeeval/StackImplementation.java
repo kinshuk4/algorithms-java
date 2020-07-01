@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- * Created by mykola on 05.05.15.
+ *  on 05.05.15.
  */
 public class StackImplementation {
 

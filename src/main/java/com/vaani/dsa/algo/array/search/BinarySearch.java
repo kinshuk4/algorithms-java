@@ -1,9 +1,9 @@
 package com.vaani.dsa.algo.array.search;
 
 /**
- * Created by IntelliJ IDEA.
  *
- * @author: ramswaroop
+ *
+ *
  * @date: 9/1/15
  * @time: 4:56 PM
  */

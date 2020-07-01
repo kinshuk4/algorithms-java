@@ -1,13 +1,13 @@
 package com.vaani.dsa.algo.paradigm.backtracking;
 
 /**
- * Created by IntelliJ IDEA.
+ *
  * <p/>
  * A knight's tour is a sequence of moves of a knight on a chessboard such that the knight visits every square only
  * once. If the knight ends on a square that is one knight's move from the beginning square (so that it could tour the
  * board again immediately, following the same path), the tour is closed, otherwise it is open.
  *
- * @author: ramswaroop
+ *
  * @date: 10/15/15
  * @time: 11:56 PM
  * @see: https://en.wikipedia.org/wiki/Knight%27s_tour

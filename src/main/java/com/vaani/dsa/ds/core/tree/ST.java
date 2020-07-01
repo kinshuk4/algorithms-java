@@ -11,7 +11,7 @@ package com.vaani.dsa.ds.core.tree;
  * int size(): number of key-value pairs in the table
  * Iterable<Key> keys(): all the keys in the table
  * <p>
- * Created by kiyan on 5/26/16.
+ * on 5/26/16.
  */
 public class ST<Key, Value> {
 

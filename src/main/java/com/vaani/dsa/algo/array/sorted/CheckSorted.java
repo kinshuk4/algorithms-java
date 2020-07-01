@@ -1,9 +1,9 @@
 package com.vaani.dsa.algo.array.sorted;
 
 /**
- * Created by IntelliJ IDEA.
  *
- * @author: ramswaroop
+ *
+ *
  * @date: 10/23/15
  * @time: 8:30 AM
  */

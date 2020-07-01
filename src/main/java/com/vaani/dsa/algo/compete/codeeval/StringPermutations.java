@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Created by mykola on 12.05.15.
+ *  on 12.05.15.
  */
 public class StringPermutations {
 
