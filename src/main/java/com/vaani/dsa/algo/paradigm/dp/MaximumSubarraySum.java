@@ -12,10 +12,44 @@ More practice:
 If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 */
 
-public class MaximumSubarray {
-    public int maxSubArray(int[] A) {
+import org.junit.Assert;
+
+public class MaximumSubarraySum {
+
+    public static void main(String[] args) {
+        int[] arr = {4,-1,2,1};
+        int sol = 6;
+        MaximumSubarraySum test = new MaximumSubarraySum();
+        Assert.assertEquals(sol, test.maxSubarraySumKadane(arr));
+        Assert.assertEquals(sol, test.maxSubarraySumKadaneExtraSpace(arr));
+        Assert.assertEquals(sol, test.maxSubArraySumRecursive(arr));
+        Assert.assertEquals(sol, test.maxSubArraySumDP(arr));
+    }
+
+    public int maxSubarraySumKadane(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return 0;
+        }
+        if (arr.length == 1) {
+            return arr[0];
+        }
+
+
+        int maxSoFar = Integer.MIN_VALUE;
+        int maxEndingHere = 0;
+        for (int i = 0; i < arr.length; i++) {
+            maxEndingHere = maxEndingHere + arr[i];
+            maxEndingHere = Math.max(maxEndingHere, 0);
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        }
+
+        return maxSoFar;
+    }
+
+    public int maxSubarraySumKadaneExtraSpace(int[] A) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
+
         int length = A.length;
         int[] maxSoFar = new int[length];
 
@@ -40,14 +74,14 @@ public class MaximumSubarray {
     }
 
     //Solution2
-    public int maxSubArray2(int[] A) {
+    public int maxSubArraySumRecursive(int[] A) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
 
-        return maxSubArrayHelper(0, A.length - 1, A);
+        return maxSubArraySumRecursiveHelper(0, A.length - 1, A);
     }
 
-    public int maxSubArrayHelper(int start, int end, int[] A) {
+    public int maxSubArraySumRecursiveHelper(int start, int end, int[] A) {
         if (start > end) {
             return Integer.MIN_VALUE;
         }
@@ -72,7 +106,20 @@ public class MaximumSubarray {
 
         int midMax = A[mid] + Math.max(leftMax, 0) + Math.max(rightMax, 0);
 
-        return Math.max(Math.max(maxSubArrayHelper(start, mid - 1, A), maxSubArrayHelper(mid + 1, end, A)), midMax);
+        return Math.max(Math.max(maxSubArraySumRecursiveHelper(start, mid - 1, A), maxSubArraySumRecursiveHelper(mid + 1, end, A)), midMax);
+    }
+
+    public int maxSubArraySumDP(int[] a) {
+        int[] solution = new int[a.length + 1];
+        solution[0] = 0;
+
+        int max = 0;
+        for (int j = 1; j < solution.length; j++) {
+            solution[j] = Math.max(solution[j - 1] + a[j - 1], a[j - 1]);
+            max = Math.max(max, solution[j]);
+        }
+
+        return max;
     }
 }
 
