@@ -17,10 +17,27 @@ import org.junit.Assert;
 public class MaximumSubarraySum {
 
     public static void main(String[] args) {
-        int[] arr = {4,-1,2,1};
+        int[] arr = {4, -1, 2, 1};
         int sol = 6;
         MaximumSubarraySum test = new MaximumSubarraySum();
         Assert.assertEquals(sol, test.maxSubarraySumKadane(arr));
+        Assert.assertEquals(sol, test.maxSubarraySumKadaneModified(arr));
+        Assert.assertEquals(sol, test.maxSubarraySumKadaneExtraSpace(arr));
+        Assert.assertEquals(sol, test.maxSubArraySumRecursive(arr));
+        Assert.assertEquals(sol, test.maxSubArraySumDP(arr));
+
+        arr = new int[]{-1};
+        sol = -1;
+        Assert.assertEquals(0, test.maxSubarraySumKadane(arr));
+        Assert.assertEquals(sol, test.maxSubarraySumKadaneModified(arr));
+        Assert.assertEquals(sol, test.maxSubarraySumKadaneExtraSpace(arr));
+        Assert.assertEquals(sol, test.maxSubArraySumRecursive(arr));
+        Assert.assertEquals(sol, test.maxSubArraySumDP(arr));
+
+        arr = new int[]{-2, -1};
+        sol = -1;
+        Assert.assertEquals(0, test.maxSubarraySumKadane(arr));
+        Assert.assertEquals(sol, test.maxSubarraySumKadaneModified(arr));
         Assert.assertEquals(sol, test.maxSubarraySumKadaneExtraSpace(arr));
         Assert.assertEquals(sol, test.maxSubArraySumRecursive(arr));
         Assert.assertEquals(sol, test.maxSubArraySumDP(arr));
@@ -30,16 +47,27 @@ public class MaximumSubarraySum {
         if (arr == null || arr.length == 0) {
             return 0;
         }
-        if (arr.length == 1) {
-            return arr[0];
-        }
-
 
         int maxSoFar = Integer.MIN_VALUE;
         int maxEndingHere = 0;
         for (int i = 0; i < arr.length; i++) {
             maxEndingHere = maxEndingHere + arr[i];
             maxEndingHere = Math.max(maxEndingHere, 0);
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        }
+
+        return maxSoFar;
+    }
+
+    public int maxSubarraySumKadaneModified(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return 0;
+        }
+
+        int maxSoFar = arr[0];
+        int maxEndingHere = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            maxEndingHere = Math.max(maxEndingHere + arr[i], arr[i]);
             maxSoFar = Math.max(maxSoFar, maxEndingHere);
         }
 
@@ -113,7 +141,7 @@ public class MaximumSubarraySum {
         int[] solution = new int[a.length + 1];
         solution[0] = 0;
 
-        int max = 0;
+        int max = a[0];
         for (int j = 1; j < solution.length; j++) {
             solution[j] = Math.max(solution[j - 1] + a[j - 1], a[j - 1]);
             max = Math.max(max, solution[j]);
