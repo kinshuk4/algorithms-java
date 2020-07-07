@@ -4,7 +4,7 @@ import com.vaani.dsa.ds.core.list.sll.simple.ListNode;
 
 import static com.vaani.dsa.ds.utils.simple.ListUtil.getLength;
 
-public class IntersectionOfTwoLinkedList {
+public class IntersectionOfTwoLinkedLists {
 
 
     // method when node values are unique
@@ -38,7 +38,7 @@ public class IntersectionOfTwoLinkedList {
 
     }
 
-    static ListNode getIntersectionNode2(ListNode head1, ListNode head2) {
+    public static ListNode getIntersectionNode2(ListNode head1, ListNode head2) {
         int l1 = getLength(head1);
         int l2 = getLength(head2);
 
