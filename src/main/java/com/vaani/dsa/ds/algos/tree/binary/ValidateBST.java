@@ -23,12 +23,12 @@ public class ValidateBST {
         }
 
         // false if left is > than node
-        if (node.left != null && node.left.value > node.value) {
+        if (node.left != null && node.left.val > node.val) {
             return false;
         }
 
         // false if right is < than node
-        if (node.right != null && node.right.value < node.value) {
+        if (node.right != null && node.right.val < node.val) {
             return false;
         }
 
@@ -47,11 +47,11 @@ public class ValidateBST {
             return (true);
 
         /* false if the max of the left is > than us */
-        if (node.left != null && maxValue(node.left) > node.value)
+        if (node.left != null && maxValue(node.left) > node.val)
             return (false);
 
         /* false if the min of the right is <= than us */
-        if (node.right != null && minValue(node.right) < node.value)
+        if (node.right != null && minValue(node.right) < node.val)
             return (false);
 
         /* false if, recursively, the left or right is not a BST */
@@ -68,7 +68,7 @@ public class ValidateBST {
         while (current.left != null) {
             current = current.left;
         }
-        return current.value;
+        return current.val;
     }
 
     int maxValue(BinaryTreeNode node) {
@@ -76,7 +76,7 @@ public class ValidateBST {
         while (current.right != null) {
             current = current.right;
         }
-        return current.value;
+        return current.val;
     }
 
     public boolean isValidBST(BinaryTreeNode root) {
@@ -85,9 +85,9 @@ public class ValidateBST {
 
     public boolean isValidBSTHelper(BinaryTreeNode root, int min, int max) {
         if (root == null) return true;
-        if (root.value > min && root.value < max
-                && isValidBSTHelper(root.left, min, root.value)
-                && isValidBSTHelper(root.right, root.value, max)) {
+        if (root.val > min && root.val < max
+                && isValidBSTHelper(root.left, min, root.val)
+                && isValidBSTHelper(root.right, root.val, max)) {
             return true;
         } else {
             return false;
@@ -115,14 +115,14 @@ public class ValidateBST {
         queue.add(new BNode(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY));
         while (!queue.isEmpty()) {
             BNode b = queue.poll();
-            if (b.n.value <= b.left || b.n.value >= b.right) {
+            if (b.n.val <= b.left || b.n.val >= b.right) {
                 return false;
             }
             if (b.n.left != null) {
-                queue.offer(new BNode(b.n.left, b.left, b.n.value));
+                queue.offer(new BNode(b.n.left, b.left, b.n.val));
             }
             if (b.n.right != null) {
-                queue.offer(new BNode(b.n.right, b.n.value, b.right));
+                queue.offer(new BNode(b.n.right, b.n.val, b.right));
             }
         }
         return true;
@@ -145,7 +145,7 @@ public class ValidateBST {
             return;
         }
         isValidInorderHelper(root.left);
-        if (previous != null && previous.value >= root.value) {
+        if (previous != null && previous.val >= root.val) {
             valid = false;
             return;
         }
