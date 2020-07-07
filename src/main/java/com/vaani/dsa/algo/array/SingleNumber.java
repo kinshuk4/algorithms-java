@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.array;
 
-/**
+/** https://leetcode.com/problems/single-number/
  * Given an array of integers, every element appears twice except for one. Find that single one.
  * <p>
  * Note:
@@ -9,6 +9,8 @@ package com.vaani.dsa.algo.array;
  *  on 7/20/2014.
  */
 public class SingleNumber {
+
+    // XOR each element in the array, the final result is the one that appears only once.
     public int singleNumber(int[] A) {
         int result = 0;
         for (int i = 0; i < A.length; i++) {

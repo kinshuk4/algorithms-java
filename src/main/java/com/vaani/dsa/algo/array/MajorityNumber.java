@@ -1,10 +1,12 @@
 package com.vaani.dsa.algo.array;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-/*https://github.com/shijiebei2009/Algorithms/blob/master/src%2Fmain%2Fjava%2Fcn%2Fcodepub%2Falgorithms%2Fcommons%2FMajorityNumber.java
- * */
-
+/**
+ * https://leetcode.com/problems/majority-element/
+ */
+//https://algorithms.tutorialhorizon.com/majority-element-boyer-moore-majority-vote-algorithm/
 public class MajorityNumber {
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 3, 2, 2, 4, 2, 5, 8, 2};
@@ -13,6 +15,58 @@ public class MajorityNumber {
             a.add(i);
         }
         System.out.println(new MajorityNumber().majorityNumber(a));
+    }
+
+    public int boyerMooreMajority(int[] nums) {
+        int size = nums.length;
+        if (size == 0)
+            return -1;
+
+        int majorityElement = nums[0];
+        int count = 1;
+        for (int i = 1; i < size; i++) {
+            if (majorityElement == nums[i]) {
+                count++;
+            } else if (count == 0) {
+                majorityElement = nums[i];
+                count = 1;
+            } else {
+                count--;
+            }
+        }
+        //check if majorityElement is appearing more than n/2 times
+        count = 0;
+        for (int i = 0; i < size; i++) {
+            if (nums[i] == majorityElement) {
+                count++;
+            }
+        }
+        if (count > size / 2)
+            return majorityElement;
+        else
+            return -1;
+    }
+
+    public int majorityElementUsingSort(int[] nums) {
+        if(nums.length==1){
+            return nums[0];
+        }
+
+        Arrays.sort(nums);
+
+        int prev=nums[0];
+        int count=1;
+        for(int i=1; i<nums.length; i++){
+            if(nums[i] == prev){
+                count++;
+                if(count > nums.length/2) return nums[i];
+            }else{
+                count=1;
+                prev = nums[i];
+            }
+        }
+
+        return 0;
     }
 
     public int majorityNumber(ArrayList<Integer> nums) {
