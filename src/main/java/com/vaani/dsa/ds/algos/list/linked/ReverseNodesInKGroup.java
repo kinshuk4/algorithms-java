@@ -2,7 +2,7 @@ package com.vaani.dsa.ds.algos.list.linked;
 
 import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
 
-import static com.vaani.dsa.ds.utils.ListUtil.reverseIterative;
+import static com.vaani.dsa.ds.utils.generic.ListUtil.reverseIterative;
 
 /**
  * Given a linked list, reverseIterative the nodes of a linked list k at a time and return its modified list.

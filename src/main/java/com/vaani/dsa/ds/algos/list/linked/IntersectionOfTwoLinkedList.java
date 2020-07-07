@@ -1,10 +1,10 @@
 package com.vaani.dsa.ds.algos.list.linked;
 
-import com.vaani.dsa.ds.core.list.sll.simple.SinglyLinkedListNode;
+import com.vaani.dsa.ds.core.list.sll.simple.ListNode;
 
 public class IntersectionOfTwoLinkedList {
-    static int getLength(SinglyLinkedListNode head) {
-        SinglyLinkedListNode curr = head;
+    static int getLength(ListNode head) {
+        ListNode curr = head;
         int length = 0;
         while (curr != null) {
             length++;
@@ -13,14 +13,14 @@ public class IntersectionOfTwoLinkedList {
         return length;
     }
 
-    static SinglyLinkedListNode findMergeNode(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+    static ListNode findMergeNode(ListNode head1, ListNode head2) {
 
         int l1 = getLength(head1);
         int l2 = getLength(head2);
 
         int diff = Math.abs(l1 - l2);
-        SinglyLinkedListNode big = l1 > l2 ? head1 : head2;
-        SinglyLinkedListNode small = l1 <= l2 ? head1 : head2;
+        ListNode big = l1 > l2 ? head1 : head2;
+        ListNode small = l1 <= l2 ? head1 : head2;
 
         while(diff > 0){
             big = big.next;

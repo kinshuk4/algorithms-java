@@ -2,7 +2,7 @@ package com.vaani.dsa.ds.algos.list.linked;
 
 import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
 
-import static com.vaani.dsa.ds.utils.ListUtil.arrayToList;
+import static com.vaani.dsa.ds.utils.generic.ListUtil.arrayToList;
 
 /**
  * Note: Try to solve this task in O(list size) time using O(1) additional space, since this is what you'll be asked during an interview.

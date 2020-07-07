@@ -1,12 +1,12 @@
 package com.vaani.dsa.ds.algos.list.linked;
 
-import com.vaani.dsa.ds.core.list.sll.simple.SinglyLinkedListNode;
+import com.vaani.dsa.ds.core.list.sll.simple.ListNode;
 
 //https://www.hackerrank.com/challenges/compare-two-linked-lists/problem
 public class CompareLinkedList {
-    static boolean compareLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
-        SinglyLinkedListNode curr1 = head1;
-        SinglyLinkedListNode curr2 = head2;
+    static boolean compareLists(ListNode head1, ListNode head2) {
+        ListNode curr1 = head1;
+        ListNode curr2 = head2;
 
         while(curr1 != null && curr2!=null){
             if(curr1.val != curr2.val){
