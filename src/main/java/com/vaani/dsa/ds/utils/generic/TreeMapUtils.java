@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.utils;
+package com.vaani.dsa.ds.utils.generic;
 
 import java.util.Iterator;
 import java.util.TreeSet;

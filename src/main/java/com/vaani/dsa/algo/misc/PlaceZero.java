@@ -1,5 +1,5 @@
 package com.vaani.dsa.algo.misc;
-import static com.vaani.dsa.ds.utils.ArrayUtils.swap;
+import static com.vaani.dsa.ds.utils.generic.ArrayUtils.swap;
 
 /**
  * Given an array of random numbers, Push all the zero’s of a given array to the end of the array.

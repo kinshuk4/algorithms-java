@@ -1,5 +1,5 @@
 package com.vaani.dsa.algo.misc;
-import static com.vaani.dsa.ds.utils.ArrayUtils.swap;
+import static com.vaani.dsa.ds.utils.generic.ArrayUtils.swap;
 
 /**
  * Given an input array and another array that describes a new index for each element,

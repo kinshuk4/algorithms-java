@@ -2,7 +2,7 @@ package com.vaani.dsa.algo.array;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
-import static com.vaani.dsa.ds.utils.ArrayUtils.swap;
+import static com.vaani.dsa.ds.utils.generic.ArrayUtils.swap;
 
 /**
  * Given an array of n elements, where each element is at most k away from its target position, devise an algorithm that sorts in O(n log k) time.

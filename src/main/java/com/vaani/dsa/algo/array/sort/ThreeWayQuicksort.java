@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.array.sort;
 
-import static com.vaani.dsa.ds.utils.ArrayUtils.swap;
+import static com.vaani.dsa.ds.utils.generic.ArrayUtils.swap;
 
 /**
  * https://www.baeldung.com/java-sorting-arrays-with-repeated-entries

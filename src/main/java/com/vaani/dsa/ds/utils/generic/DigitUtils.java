@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.utils;
+package com.vaani.dsa.ds.utils.generic;
 
 public class DigitUtils {
 

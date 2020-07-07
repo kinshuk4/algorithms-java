@@ -2,7 +2,7 @@ package com.vaani.dsa.ds.algos.tree.bst;
 
 import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
-import static com.vaani.dsa.ds.utils.BstUtil.*;
+import static com.vaani.dsa.ds.utils.generic.BstUtil.*;
 
 /**
  * A tree is considered a binary search tree (BST) if for each of its nodes the following is true:

@@ -1,5 +1,5 @@
 package com.vaani.dsa.algo.array;
-import static com.vaani.dsa.ds.utils.ArrayUtils.swap;
+import static com.vaani.dsa.ds.utils.generic.ArrayUtils.swap;
 
 /**
  * Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.

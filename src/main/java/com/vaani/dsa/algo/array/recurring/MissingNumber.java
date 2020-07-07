@@ -1,8 +1,6 @@
 package com.vaani.dsa.algo.array.recurring;
 
-import com.vaani.dsa.ds.utils.ArrayUtils;
-
-import static com.vaani.dsa.ds.utils.ArrayUtils.sum;
+import static com.vaani.dsa.ds.utils.generic.ArrayUtils.sum;
 
 /**
  * Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.

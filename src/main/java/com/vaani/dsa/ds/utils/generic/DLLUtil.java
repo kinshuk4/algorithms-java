@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.utils;
+package com.vaani.dsa.ds.utils.generic;
 
 import com.vaani.dsa.ds.core.list.dll.generic.DLLNode;
 import com.vaani.dsa.ds.core.list.dll.generic.DoubleLinkedList;

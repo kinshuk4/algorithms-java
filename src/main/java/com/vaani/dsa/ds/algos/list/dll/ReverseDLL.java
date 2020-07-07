@@ -2,7 +2,7 @@ package com.vaani.dsa.ds.algos.list.dll;
 
 import com.vaani.dsa.ds.core.list.dll.generic.DoubleLinkedList;
 
-import static com.vaani.dsa.ds.utils.DLLUtil.reverseList;
+import static com.vaani.dsa.ds.utils.generic.DLLUtil.reverseList;
 
 // http://www.geeksforgeeks.org/reverse-a-doubly-linked-list/
 public class ReverseDLL {

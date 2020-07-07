@@ -1,7 +1,7 @@
 package com.vaani.dsa.algo.array;
 
 
-import com.vaani.dsa.ds.utils.DigitUtils;
+import com.vaani.dsa.ds.utils.generic.DigitUtils;
 
 import java.util.*;
 

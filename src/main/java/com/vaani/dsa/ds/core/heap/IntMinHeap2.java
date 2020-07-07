@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.core.heap;
 
-import com.vaani.dsa.ds.utils.ArrayUtils;
+import com.vaani.dsa.ds.utils.generic.ArrayUtils;
 
 //http://people.cs.vt.edu/~shaffer/Book/JAVA/progs/Grkrusm/MinHeap.java
 public class IntMinHeap2 {

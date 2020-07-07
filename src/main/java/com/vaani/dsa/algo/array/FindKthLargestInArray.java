@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.array;
 
-import static com.vaani.dsa.ds.utils.ArrayUtils.swap;
+import static com.vaani.dsa.ds.utils.generic.ArrayUtils.swap;
 
 public class FindKthLargestInArray {
     public static int findKthLargest(int[] nums, int k) {

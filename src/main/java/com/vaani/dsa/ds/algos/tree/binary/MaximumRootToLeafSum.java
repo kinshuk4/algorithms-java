@@ -2,7 +2,7 @@ package com.vaani.dsa.ds.algos.tree.binary;
 
 import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
-import static com.vaani.dsa.ds.utils.BinaryTreeUtil.arrayToBinaryTree;
+import static com.vaani.dsa.ds.utils.generic.BinaryTreeUtil.arrayToBinaryTree;
 
 public class MaximumRootToLeafSum {
 

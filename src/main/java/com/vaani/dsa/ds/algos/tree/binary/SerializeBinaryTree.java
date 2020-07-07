@@ -4,7 +4,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 import java.util.LinkedList;
 
-import static com.vaani.dsa.ds.utils.BinaryTreeUtil.getBinaryTree;
+import static com.vaani.dsa.ds.utils.generic.BinaryTreeUtil.getBinaryTree;
 
 /**
  * Design an algorithm and write code to serialize and deserialize a binary tree.

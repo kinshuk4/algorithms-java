@@ -1,5 +1,5 @@
 package com.vaani.dsa.algo.array;
-import static com.vaani.dsa.ds.utils.ArrayUtils.swap;
+import static com.vaani.dsa.ds.utils.generic.ArrayUtils.swap;
 
 /**
  * Given an array and a value, remove all instances of that value in place and return the new length.

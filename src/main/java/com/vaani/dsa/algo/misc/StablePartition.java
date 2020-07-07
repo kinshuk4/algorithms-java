@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.misc;
 
-import com.vaani.dsa.ds.utils.ArrayUtils;
+import com.vaani.dsa.ds.utils.generic.ArrayUtils;
 
 import java.util.Arrays;
 

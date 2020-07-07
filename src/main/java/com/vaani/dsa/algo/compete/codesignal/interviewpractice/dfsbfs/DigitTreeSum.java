@@ -5,7 +5,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 import java.util.*;
 
-import static com.vaani.dsa.ds.utils.BinaryTreeUtil.arrayToBinaryTree;
+import static com.vaani.dsa.ds.utils.generic.BinaryTreeUtil.arrayToBinaryTree;
 
 /**
  * We're going to store numbers in a tree. Each node in this tree will store a single digit (from 0 to 9), and each path from root to leaf encodes a non-negative integer.

@@ -19,8 +19,9 @@ public class MinStack {
         stack.push(element);
         if (minStack.size() == 0 || element <= minStack.peek()) {
             minStack.push(element);
-        } else
+        } else {
             minStack.push(minStack.peek());
+        }
     }
 
     public int pop() {
@@ -30,7 +31,6 @@ public class MinStack {
 
 
     public int top() {
-        minStack.peek();
         return stack.peek();
     }
 
