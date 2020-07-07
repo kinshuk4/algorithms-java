@@ -11,7 +11,7 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 
 public class ValidParentheses {
 
-
+    // using stack
     public static boolean isValid1(String s) {
         HashMap<Character, Character> parenthese = new HashMap<>() {{
             put('(', ')');
@@ -41,6 +41,7 @@ public class ValidParentheses {
         return stack.isEmpty();
     }
 
+    // Using list
     public static boolean isValid2(String s) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
@@ -74,5 +75,40 @@ public class ValidParentheses {
         } else {
             return false;
         }
+    }
+
+
+    // Using stack + switch case + also handles unknown characters
+    public static boolean isValid3(String str) {
+        if (str == null) return true;
+        HashMap<Character, Character> MAP = new HashMap<>();
+        MAP.put(')', '(');
+        MAP.put('}', '{');
+        MAP.put('>', '<');
+        MAP.put(']', '[');
+
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0, l = str.length(); i < l; i++) {
+            switch (str.charAt(i)) {
+                case '(':
+                case '{':
+                case '[':
+                case '<':
+                    stack.push(str.charAt(i));
+                    break;
+
+                case ')':
+                case '}':
+                case ']':
+                case '>':
+                    if (stack.isEmpty()) return false;
+                    char top = stack.pop();
+                    if (top != MAP.get(str.charAt(i))) return false;
+                    break;
+
+                default: // ignore
+            }
+        }
+        return stack.isEmpty() ? true : false;
     }
 }
