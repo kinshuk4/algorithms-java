@@ -51,15 +51,15 @@ public class PathSumII {
         if (root == null) {
             return;
         }
-        curList.add(root.value);
+        curList.add(root.val);
         if (root.left == null && root.right == null) {
-            if (curSum + root.value == target) {
+            if (curSum + root.val == target) {
                 result.add(curList);
             }
         }
 
-        helper(root.left, curSum + root.value, target, curList);
-        helper(root.right, curSum + root.value, target, curList);
+        helper(root.left, curSum + root.val, target, curList);
+        helper(root.right, curSum + root.val, target, curList);
 
     }
 }

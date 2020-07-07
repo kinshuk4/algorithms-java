@@ -21,19 +21,19 @@ public class ClosestInBst {
             return;
         }
 
-        int curDiff = Math.abs(node.value - target);
-        if (node.value == target) {
-            curRes[0] = node.value;
+        int curDiff = Math.abs(node.val - target);
+        if (node.val == target) {
+            curRes[0] = node.val;
             diff[0] = 0;
-        } else if (node.value < target) { // search the right sub-tree
+        } else if (node.val < target) { // search the right sub-tree
             if (curDiff < diff[0]) {
-                curRes[0] = node.value;
+                curRes[0] = node.val;
                 diff[0] = curDiff;
             }
             closest(node.right, target, curRes, diff);
         } else { // search the left sub-tree
             if (curDiff < diff[0]) {
-                curRes[0] = node.value;
+                curRes[0] = node.val;
                 diff[0] = curDiff;
             }
             closest(node.left, target, curRes, diff);

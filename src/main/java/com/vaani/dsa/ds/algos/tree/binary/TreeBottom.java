@@ -118,7 +118,7 @@ public class TreeBottom {
         int[] result = new int[q.size()];
         int i = 0;
         while(!q.isEmpty()){
-            result[i++] = Integer.valueOf((String)q.poll().getValue());
+            result[i++] = Integer.valueOf((String)q.poll().getVal());
         }
 
         return result;
@@ -129,13 +129,13 @@ public class TreeBottom {
             return;
         }
 
-        if(root.getLeft()!=null && !root.getLeft().getValue().equals(")")){
+        if(root.getLeft()!=null && !root.getLeft().getVal().equals(")")){
             fixTree(root.getLeft());
         }else{
             root.setLeft(null);
         }
 
-        if(root.getRight()!=null && !root.getRight().getValue().equals(")")){
+        if(root.getRight()!=null && !root.getRight().getVal().equals(")")){
             fixTree(root.getRight());
         }else{
             root.setRight(null);

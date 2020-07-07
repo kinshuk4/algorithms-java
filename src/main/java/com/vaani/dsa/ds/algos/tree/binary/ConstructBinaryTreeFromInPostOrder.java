@@ -35,7 +35,7 @@ public class ConstructBinaryTreeFromInPostOrder {
 
         BinaryTreeNode<Integer> root = new BinaryTreeNode(postorderTree[postEnd]);
         for (int i = inStart; i <= inEnd; i++) {
-            if (inorderTree[i] == root.value) {
+            if (inorderTree[i] == root.val) {
                 //inEnd - inStart == postEnd - postStart
                 root.left = buildTreeHelper(inorderTree, postorderTree, inStart, i - 1, postStart, postStart - inStart + i - 1);
                 root.right = buildTreeHelper(inorderTree, postorderTree, i + 1, inEnd, postEnd - inEnd + i, postEnd - 1);

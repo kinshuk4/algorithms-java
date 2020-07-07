@@ -38,7 +38,7 @@ public class LevelOrderTraversal1 {
 
         while (!queue.isEmpty()) {
             BinaryTreeNode<T> remove = queue.remove();
-            result.add(remove.value);
+            result.add(remove.val);
             if (remove.left != null) {
                 queue.add(remove.left);
             }

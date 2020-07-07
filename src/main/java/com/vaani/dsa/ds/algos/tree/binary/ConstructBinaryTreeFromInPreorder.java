@@ -45,7 +45,7 @@ public class ConstructBinaryTreeFromInPreorder {
         BinaryTreeNode<Integer> root = new BinaryTreeNode<>(preorder[preStart]);
 
         for (int i = inStart; i <= inEnd; i++) {
-            if (inorder[i] == root.value) {
+            if (inorder[i] == root.val) {
                 int leftPreStart = preStart + 1; // left node will be next node if not null
                 int rightPreStart = preEnd - inEnd + i + 1; // diff of 2 nodes
                 int leftPreEnd = preStart - inStart + i;
@@ -71,7 +71,7 @@ public class ConstructBinaryTreeFromInPreorder {
             return tNode;
 
         /* Else find the index of this node in Inorder traversal */
-        int inIndex = search(in, inStrt, inEnd, tNode.value);
+        int inIndex = search(in, inStrt, inEnd, tNode.val);
 
         /* Using index in Inorder traversal, construct left and
            right subtress */

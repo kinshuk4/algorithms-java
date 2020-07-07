@@ -54,6 +54,6 @@ public class LowestCommonAncestor2 {
         root.left.right.left = new BinaryTreeNode(3);
         root.left.right.right = new BinaryTreeNode(5);
 
-        System.out.println(getLCA2(root, root.left, root.left.right.right).value);
+        System.out.println(getLCA2(root, root.left, root.left.right.right).val);
     }
 }

@@ -15,9 +15,9 @@ public class LCAofBST {
                 return null;
             }
 
-            if (root.value < p.value && root.value < q.value) { // smaller than both
+            if (root.val < p.val && root.val < q.val) { // smaller than both
                 return LCA(root.right, p, q);
-            } else if (root.value > p.value && root.value > q.value) { // bigger than both
+            } else if (root.val > p.val && root.val > q.val) { // bigger than both
                 return LCA(root.left, p, q);
             } else {
                 return root;

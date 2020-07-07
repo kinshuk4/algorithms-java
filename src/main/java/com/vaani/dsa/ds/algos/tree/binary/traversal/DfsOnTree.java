@@ -65,7 +65,7 @@ public class DfsOnTree {
 
         if (!stack.isEmpty()) {
             BinaryTreeNode pop = stack.pop();
-            System.out.print(pop.value + "\t");
+            System.out.print(pop.val + "\t");
             if (pop.left != null && !pop.left.isVisited) {
                 dfsRecursive(pop.left);
             }

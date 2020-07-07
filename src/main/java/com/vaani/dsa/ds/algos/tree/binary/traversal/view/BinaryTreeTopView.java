@@ -61,7 +61,7 @@ public class BinaryTreeTopView {
             BinaryTreeNode<Integer> currNode = curr.node;
 
             if (!treeMap.containsKey(curr.drift)) {
-                treeMap.put(curr.drift, currNode.value);
+                treeMap.put(curr.drift, currNode.val);
             }
 
             if (currNode.left != null) {

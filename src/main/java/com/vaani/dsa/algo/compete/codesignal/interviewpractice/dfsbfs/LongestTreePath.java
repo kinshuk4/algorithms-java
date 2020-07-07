@@ -63,7 +63,7 @@ public class LongestTreePath {
 
                     if(!parent.isVisited){
                         parent.isVisited = true;
-                        parent.setValue(parent.value +1); // as parent has child, we have to add "/"
+                        parent.setVal(parent.val +1); // as parent has child, we have to add "/"
                     }
 
                     if(parent.left!=null){

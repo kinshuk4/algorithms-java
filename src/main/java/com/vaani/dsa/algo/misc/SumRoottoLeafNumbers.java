@@ -26,7 +26,7 @@ public class SumRoottoLeafNumbers {
     }
 
     public void helper(BinaryTreeNode<Integer> root, int curSum) {
-        curSum = curSum * 10 + root.value;
+        curSum = curSum * 10 + root.val;
         if (root.left == null && root.right == null) {
             sum = sum + curSum;
         }

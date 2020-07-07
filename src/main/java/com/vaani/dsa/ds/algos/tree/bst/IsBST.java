@@ -31,21 +31,21 @@ public class IsBST {
         BinaryTreeInorderIterator treeIterator = new BinaryTreeInorderIterator(root);
         while (treeIterator.hasNext()) {
             BinaryTreeNode next = treeIterator.next();
-            System.out.print(next.value + " ");
+            System.out.print(next.val + " ");
         }
         System.out.println();
 
         BinaryTreePostorderIterator postOrderIter = new BinaryTreePostorderIterator(root);
         while (postOrderIter.hasNext()) {
             BinaryTreeNode next = treeIterator.next();
-            System.out.print(next.value + " ");
+            System.out.print(next.val + " ");
         }
         System.out.println();
 
         BinaryTreePreOrderIterator preOrderIter = new BinaryTreePreOrderIterator(root);
         while (preOrderIter.hasNext()) {
             BinaryTreeNode next = preOrderIter.next();
-            System.out.print(next.value + " ");
+            System.out.print(next.val + " ");
         }
         System.out.println();
     }
@@ -54,9 +54,9 @@ public class IsBST {
         if (node == null) {
             return true;
         }
-        if ((min < node.value) && (node.value < max)) {
-            return isBST(node.left, min, node.value) &&
-                    isBST(node.right, node.value, max);
+        if ((min < node.val) && (node.val < max)) {
+            return isBST(node.left, min, node.val) &&
+                    isBST(node.right, node.val, max);
         } else {
             return false;
         }
@@ -67,8 +67,8 @@ public class IsBST {
             return true;
         }
         if (isBST1(node.left, prev)) {
-            if (node.value > prev) {
-                prev = node.value;
+            if (node.val > prev) {
+                prev = node.val;
                 return isBST1(node.right, prev);
             } else {
                 return false;

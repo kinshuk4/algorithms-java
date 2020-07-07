@@ -38,7 +38,7 @@ public class SerializeBinaryTree {
             result.append(" ");
             return;
         }
-        result.append(head.value);
+        result.append(head.val);
         result.append(" ");
         preorder(head.left, result);
         preorder(head.right, result);
@@ -74,7 +74,7 @@ public class SerializeBinaryTree {
         while (!queue.isEmpty()) {
             BinaryTreeNode<Integer> t = queue.poll();
             if (t != null) {
-                sb.append(String.valueOf(t.value)).append(",");
+                sb.append(String.valueOf(t.val)).append(",");
                 queue.add(t.left);
                 queue.add(t.right);
             } else {

@@ -17,7 +17,7 @@ public class TreeIsomorphism {
     public static boolean isIsomorphic(BinaryTreeNode p, BinaryTreeNode q) {
         if (p == null && q == null)
             return true;
-        else if (p == null || q == null || p.value != q.value)
+        else if (p == null || q == null || p.val != q.val)
             return false;
         else {
             return (isIsomorphic(p.left, q.left) && isIsomorphic(p.right, q.right))

@@ -39,7 +39,7 @@ public class BinaryTreeMaximumPathSum {
 
     public int dfs1(BinaryTreeNode<Integer> root) {
         if (root == null) return 0;
-        int m = root.value;
+        int m = root.val;
 
         int left = dfs1(root.left);
         int right = dfs2(root.right);
@@ -48,7 +48,7 @@ public class BinaryTreeMaximumPathSum {
         if (right > 0) m += right;
         max = m > max ? m : max;
 
-        return Math.max(left, right) > 0 ? root.value + Math.max(left, right) : root.value;
+        return Math.max(left, right) > 0 ? root.val + Math.max(left, right) : root.val;
     }
 
     /**
@@ -63,9 +63,9 @@ public class BinaryTreeMaximumPathSum {
         int right = dfs2(root.right);
         if (right < 0) right = 0;
 
-        int total = left + right + root.value;
+        int total = left + right + root.val;
         if (total > max) max = total;
 
-        return root.value + Math.max(left, right);
+        return root.val + Math.max(left, right);
     }
 }

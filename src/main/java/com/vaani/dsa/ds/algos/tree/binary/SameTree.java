@@ -24,7 +24,7 @@ public class SameTree {
     public boolean isSameTree(BinaryTreeNode p, BinaryTreeNode q) {
         if (p == null && q == null)
             return true;
-        else if (p == null || q == null || p.value.equals(q.value))
+        else if (p == null || q == null || p.val.equals(q.val))
             return false;
         else
             return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);

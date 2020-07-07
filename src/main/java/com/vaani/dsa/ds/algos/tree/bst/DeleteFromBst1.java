@@ -77,7 +77,7 @@ public class DeleteFromBst1 {
                         currParent = curr;
                         curr = curr.right;
                     }
-                    searched.setValue(curr.value);
+                    searched.setVal(curr.val);
                     if(currParent!=null) {
                         if (currParent.left == curr) {
                             currParent.left = null;
@@ -144,7 +144,7 @@ public class DeleteFromBst1 {
         if (root == null) {
             return null;
         }
-        if (root.value == value) {
+        if (root.val == value) {
             if (root.left == null) {
                 return root.right;
             } else {

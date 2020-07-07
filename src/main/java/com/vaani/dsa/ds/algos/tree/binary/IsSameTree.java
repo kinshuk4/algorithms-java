@@ -10,7 +10,7 @@ public class IsSameTree {
         if (t1 == null || t2 == null) {
             return t1 == t2;
         }
-        if (!t1.value.equals(t2.value)) {
+        if (!t1.val.equals(t2.val)) {
             return false;
         }
         return isSameTree(t1.left, t2.left) && isSameTree(t1.right, t2.right);

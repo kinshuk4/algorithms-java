@@ -23,11 +23,11 @@ public class BstUtil<T> {
 
     public static <T extends Comparable> BinaryTreeNode<T> search(BinaryTreeNode<T> root, T key) {
         // Base Cases: root is null or key is present at root
-        if (root == null || root.value == key)
+        if (root == null || root.val == key)
             return root;
 
         // val is greater than root's key
-        if (root.value.compareTo(key) > 0)
+        if (root.val.compareTo(key) > 0)
             return search(root.left, key);
 
         // val is less than root's key
@@ -36,11 +36,11 @@ public class BstUtil<T> {
 
     public static <T extends Comparable> BinaryTreeNode<T>[] searchWithParent(BinaryTreeNode<T> root, T key, BinaryTreeNode<T> parent) {
         // Base Cases: root is null or key is present at root
-        if (root == null || root.value == key)
+        if (root == null || root.val == key)
             return new BinaryTreeNode[]{root, parent};
         parent = root;
         // val is greater than root's key
-        if (root.value.compareTo(key) > 0)
+        if (root.val.compareTo(key) > 0)
             return searchWithParent(root.left, key, parent);
 
         // val is less than root's key
@@ -81,9 +81,9 @@ public class BstUtil<T> {
     public static <T extends Comparable> boolean find(BinaryTreeNode<T> root, int id) {
         BinaryTreeNode<T> current = root;
         while (current != null) {
-            if (current.value.equals(id)) {
+            if (current.val.equals(id)) {
                 return true;
-            } else if (current.value.compareTo(id) < 0) {
+            } else if (current.val.compareTo(id) < 0) {
                 current = current.left;
             } else {
                 current = current.right;
@@ -96,9 +96,9 @@ public class BstUtil<T> {
         BinaryTreeNode<T> parent = root;
         BinaryTreeNode<T> current = root;
         boolean isLeftChild = false;
-        while (!current.value.equals(id)) {
+        while (!current.val.equals(id)) {
             parent = current;
-            if (current.value.compareTo(id) > 0) {
+            if (current.val.compareTo(id) > 0) {
                 isLeftChild = true;
                 current = current.left;
             } else {
@@ -183,7 +183,7 @@ public class BstUtil<T> {
         BinaryTreeNode<T> parent = null;
         while (true) {
             parent = current;
-            if (id.compareTo(current.value) <= 0) {
+            if (id.compareTo(current.val) <= 0) {
                 current = current.left;
                 if (current == null) {
                     parent.left = newNode;
@@ -228,7 +228,7 @@ public class BstUtil<T> {
 
         if (n == null)
             return false;
-        if (root.value.compareTo(n) <= 0) {
+        if (root.val.compareTo(n) <= 0) {
             if (root.left == null) {
                 BinaryTreeNode<T> node = new BinaryTreeNode<>(n);
                 root.left = node;
@@ -250,7 +250,7 @@ public class BstUtil<T> {
     public void display(BinaryTreeNode<T> root) {
         if (root != null) {
             display(root.left);
-            System.out.print(" " + root.value);
+            System.out.print(" " + root.val);
             display(root.right);
         }
     }

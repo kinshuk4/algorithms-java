@@ -40,7 +40,7 @@ public class SymmetricTree {
             return false;
 
         //Note using equals method and not == as otherwise for generic objects it checkes equality of reference.
-        return left.value.equals(right.value)
+        return left.val.equals(right.val)
                 && isSymmetricHelper(left.left, right.right)
                 && isSymmetricHelper(left.right, right.left);
 
@@ -50,7 +50,7 @@ public class SymmetricTree {
     public boolean isSymmetricHelper2(BinaryTreeNode n1, BinaryTreeNode n2) {
         if (n1 == null && n2 == null) {
             return true;
-        } else if (n1 == null || n2 == null || n1.value != n2.value) {
+        } else if (n1 == null || n2 == null || n1.val != n2.val) {
             return false;
         } else {
             return isSymmetricHelper2(n1.left, n2.right) && isSymmetricHelper2(n1.right, n2.left);

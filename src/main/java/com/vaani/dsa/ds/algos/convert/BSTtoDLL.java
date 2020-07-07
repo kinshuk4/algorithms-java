@@ -51,11 +51,11 @@ public class BSTtoDLL {
         if (n == null) {
             System.out.println("null");
         } else {
-            int s = n.value;
-            System.out.print(n.value + " ");
+            int s = n.val;
+            System.out.print(n.val + " ");
             n = n.right;
-            while (n.value != s) {
-                System.out.print(n.value + " ");
+            while (n.val != s) {
+                System.out.print(n.val + " ");
                 n = n.right;
             }
         }
@@ -65,7 +65,7 @@ public class BSTtoDLL {
     public static void printDll(ArrayList<BinaryTreeNode> dll) {
         if (dll.size() != 0) {
             for (BinaryTreeNode n : dll) {
-                System.out.print(n.value + " ");
+                System.out.print(n.val + " ");
             }
         }
         System.out.println();
@@ -111,7 +111,7 @@ public class BSTtoDLL {
             prev.right = p;
         }
 
-        System.out.print("parent: " + p.value + " prev: ");
+        System.out.print("parent: " + p.val + " prev: ");
         nodeToString(prev);
         System.out.print(" head: ");
         nodeToString(head);
@@ -127,7 +127,7 @@ public class BSTtoDLL {
 
         bstToDllinPlace(rightTreeNode);
 
-        System.out.print("parent: " + p.value + " prev: ");
+        System.out.print("parent: " + p.val + " prev: ");
         nodeToString(prev);
         System.out.print(" head: ");
         nodeToString(head);
@@ -138,7 +138,7 @@ public class BSTtoDLL {
         if (n == null) {
             System.out.println("null");
         } else {
-            System.out.println(n.value);
+            System.out.println(n.val);
         }
 
     }

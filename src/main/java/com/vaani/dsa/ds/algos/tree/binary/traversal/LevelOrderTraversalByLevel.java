@@ -50,7 +50,7 @@ public class LevelOrderTraversalByLevel {
             ArrayList<Integer> parentLevelData = new ArrayList<Integer>();
 
             for (BinaryTreeNode<Integer> s : currentList) {
-                parentLevelData.add(s.value);
+                parentLevelData.add(s.val);
                 if (s.left != null) {
                     nextLevelList.add(s.left);
                 }

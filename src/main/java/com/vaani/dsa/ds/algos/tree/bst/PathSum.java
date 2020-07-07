@@ -26,13 +26,13 @@ public class PathSum {
             return curSum == target;
         }
         if (root.left == null && root.right == null) {
-            return helper(root.left, curSum + root.value, target) && helper(root.right, curSum + root.value, target);
+            return helper(root.left, curSum + root.val, target) && helper(root.right, curSum + root.val, target);
         } else if (root.left == null) {
-            return helper(root.right, curSum + root.value, target);
+            return helper(root.right, curSum + root.val, target);
         } else if (root.right == null) {
-            return helper(root.left, curSum + root.value, target);
+            return helper(root.left, curSum + root.val, target);
         } else {
-            return helper(root.left, curSum + root.value, target) || helper(root.right, curSum + root.value, target);
+            return helper(root.left, curSum + root.val, target) || helper(root.right, curSum + root.val, target);
         }
     }
 }
