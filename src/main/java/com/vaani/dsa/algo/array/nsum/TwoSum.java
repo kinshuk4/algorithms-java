@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.array;
+package com.vaani.dsa.algo.array.nsum;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -20,20 +20,7 @@ public class TwoSum {
     public static int[] twoSumUsingSorting(int[] numbers, int target) {
         int[] result = new int[2];
         Arrays.sort(numbers);
-
-        int i = 0, j = numbers.length - 1;
-        while (i < j) {
-            if (numbers[i] + numbers[j] > target) {
-                j--;
-            } else if (numbers[i] + numbers[j] < target) {
-                i++;
-            } else {
-                result[0] = i;
-                result[1] = j;
-                return result;
-            }
-        }
-        return result;
+        return TwoSum2.twoSumOnSortedArr(numbers, target);
     }
 
     public static int[] twoSumUsingHashTable(int[] numbers, int target) {

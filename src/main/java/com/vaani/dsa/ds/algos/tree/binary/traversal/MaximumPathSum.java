@@ -13,7 +13,7 @@ Given the below binary tree,
       / \
      2   3
 Return 6.
-https://github.com/paopao2/Algorithm-Practice/blob/master/Binary%20Tree%20Maximum%20Path%20Sum.java
+
 */
 
 /**

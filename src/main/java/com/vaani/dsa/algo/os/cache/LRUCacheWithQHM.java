@@ -6,7 +6,7 @@ import java.util.Queue;
 
 
 /**
- * https://github.com/xiaoningning/algorithm/blob/master/LRU/src/LRUCache.java
+ *
  * least-recently-used cache
  * hashmap + queue with a fixed size to implement LRU
  */

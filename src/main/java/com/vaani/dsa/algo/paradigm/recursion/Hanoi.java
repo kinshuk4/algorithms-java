@@ -37,7 +37,7 @@ public class Hanoi {
 
 }
 
-//https://github.com/xiaoningning/algorithm/blob/master/PuzzleCoding/src/HanoiTower.java
+
 class HanoiTower {
     public Stack<Integer> disks;
     public int index;

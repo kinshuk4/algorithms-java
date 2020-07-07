@@ -3,8 +3,7 @@ package com.vaani.dsa.algo.array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/*
- * https://github.com/paopao2/Algorithm-Practice/blob/master/4Sum.java
+/**
 Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.
 Note:
 Elements in a quadruplet (a,b,c,d) must be in non-descending order. (ie, a ≤ b ≤ c ≤ d)

@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.array;
+package com.vaani.dsa.algo.array.nsum;
 
 import java.util.HashMap;
 import java.util.Map;

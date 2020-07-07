@@ -5,7 +5,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 /**
  * Given two binary trees, write a function to check if they are equal or not.
  * Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
- * https://github.com/xiaoningning/LeetCode-1/blob/master/Java/src/net/kenyang/algorithm/SameTree.java
+ *
  */
 public class SameTree {
     public static void main(String[] args) {

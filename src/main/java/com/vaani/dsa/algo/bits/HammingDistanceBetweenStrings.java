@@ -6,7 +6,7 @@ import java.util.List;
 /**
  *  on 10/22/2014.
  */
-public class HammingDistance {
+public class HammingDistanceBetweenStrings {
     /**
      * Write a function to calculate the hamming distance between two binary numbers
      */

@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.numerical.number;
 
-//https://github.com/xiaoningning/algorithm/blob/master/isNumber/src/IsNumber.java
+
 public class IsNumber {
     public static void main(String[] args) {
         String s1 = "abc";

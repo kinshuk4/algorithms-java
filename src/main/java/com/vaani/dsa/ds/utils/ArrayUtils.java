@@ -1,6 +1,7 @@
 package com.vaani.dsa.ds.utils;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ArrayUtils {
@@ -50,4 +51,7 @@ public class ArrayUtils {
         return arr;
     }
 
+    public static int sum(int[] array){
+        return Arrays.stream(array).sum();
+    }
 }

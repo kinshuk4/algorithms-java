@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.tree.binary.traversal;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 import java.util.*;
 
@@ -26,9 +26,10 @@ import java.util.*;
  * <p>
  */
 public class LevelOrderTraversal2 {
-    List<List<Integer>> result = new ArrayList<List<Integer>>();
+
 
     public List<List<Integer>> levelOrderBottom(BinaryTreeNode root) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
         if (root == null) return result;
 
         Queue<BinaryTreeNode> queue1 = new LinkedList<BinaryTreeNode>();
@@ -37,11 +38,15 @@ public class LevelOrderTraversal2 {
         queue1.add(root);
 
         while (!queue1.isEmpty()) {
-            BinaryTreeNode<Integer> node = queue1.poll();
+            BinaryTreeNode node = queue1.poll();
             level.add(node.value);
 
-            if (node.left != null) queue2.add(node.left);
-            if (node.right != null) queue2.add(node.right);
+            if (node.left != null) {
+                queue2.add(node.left);
+            }
+            if (node.right != null) {
+                queue2.add(node.right);
+            }
 
             if (queue1.isEmpty()) {
                 result.add(level);
@@ -65,7 +70,7 @@ public class LevelOrderTraversal2 {
         while (!queue.isEmpty()) {
             List<Integer> level = new ArrayList<Integer>();
             for (int i = 0; i < numNodesAtCurrLevel; i++) {
-                BinaryTreeNode<Integer> node = queue.poll();
+                BinaryTreeNode node = queue.poll();
                 level.add(node.value);
                 if (node.left != null) {
                     queue.add(node.left);

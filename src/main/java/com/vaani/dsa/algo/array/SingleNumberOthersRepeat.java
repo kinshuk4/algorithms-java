@@ -6,7 +6,7 @@ package com.vaani.dsa.algo.array;
  * </br>
  * Note: Your algorithm should have a linear runtime complexity. Could you
  * implement it without using extra memory?
- * https://github.com/xiaoningning/LeetCode-1/blob/master/Java/src/net/kenyang/algorithm/SingleNumber.java
+ *
  */
 public class SingleNumberOthersRepeat {
     public int singleNumber(int[] A) {

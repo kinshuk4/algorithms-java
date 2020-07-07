@@ -5,7 +5,7 @@ package com.vaani.dsa.ds.algos.tree.bst;
  * <p>
  * For example,
  * Given n = 3, there are a total of 5 unique BST's.
- * https://github.com/xiaoningning/LeetCode-1/blob/master/Java/src/net/kenyang/algorithm/UniqueBinarySearchTrees.java
+ *
  */
 public class NumOfUniqueBSTs {
     public int numTrees(int n) {

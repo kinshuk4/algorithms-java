@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
 /**
- * https://github.com/xiaoningning/algorithm/blob/master/LRU/src/LRU.java
+ *
  * least-recently-used cache linkedhashmap with a fixed size to implement LRU
  */
 public class LRUWithLinkedHM<K, V> extends LinkedHashMap<K, V> {

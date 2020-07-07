@@ -5,7 +5,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 import java.util.Stack;
 
-//https://github.com/paopao2/Algorithm-Practice/blob/master/Breadth:Depth%20First%20Search.java
+
 public class DfsOnTree {
     static Stack<BinaryTreeNode> stack = new Stack<>();
 

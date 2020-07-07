@@ -2,7 +2,6 @@ package com.vaani.dsa.algo.array;
 
 import java.util.Iterator;
 
-//https://github.com/paopao2/Algorithm-Practice/blob/master/CircularArray.java
 public class CircularArray<T> implements Iterable<T> {
 
     /**

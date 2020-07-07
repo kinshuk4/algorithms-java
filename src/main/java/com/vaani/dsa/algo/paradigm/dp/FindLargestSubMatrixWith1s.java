@@ -3,7 +3,7 @@ package com.vaani.dsa.algo.paradigm.dp;
 import java.util.Arrays;
 import java.util.Stack;
 
-//https://github.com/xiaoningning/algorithm/blob/master/FindLargestSubMatrix/src/FindLargestSubMatrix.java
+
 /*
 * http://tech-queries.blogspot.com/2011/09/find-largest-sub-matrix-with-all-1s-not.html
 *

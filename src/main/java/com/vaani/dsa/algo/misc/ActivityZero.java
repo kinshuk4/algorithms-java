@@ -3,7 +3,6 @@ package com.vaani.dsa.algo.misc;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-//https://github.com/xiaoningning/algorithm/blob/master/ActivityZero/src/ActivityZero.java
 
 /**
  * You'll be given a list of activities and their caloric impact.
