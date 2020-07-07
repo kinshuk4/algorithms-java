@@ -1,23 +1,19 @@
 package com.vaani.dsa.ds.algos.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 /**
- * Given a binary tree, find its maximum depth. </br>
+ * Given a binary tree, find its maximum depth.
+ * <p>
  * The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
- *
+ * <p>
+ * on 8/11/2014.
  */
 public class MaximumDepthOfBinaryTree {
     public int maxDepth(BinaryTreeNode root) {
-
         if (root == null) {
             return 0;
         }
-
-        int iRightDepth = maxDepth(root.right);
-        int iLefttDepth = maxDepth(root.left);
-        return (iRightDepth > iLefttDepth) ? iRightDepth + 1 : iLefttDepth + 1;
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
-
-
 }
