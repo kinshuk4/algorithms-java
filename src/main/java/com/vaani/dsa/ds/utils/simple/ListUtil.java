@@ -4,7 +4,7 @@ import com.vaani.dsa.ds.core.list.sll.simple.ListNode;
 
 public class ListUtil {
 
-    public static  ListNode getMidNode(ListNode head) {
+    public static ListNode getMidNode(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -18,5 +18,15 @@ public class ListUtil {
             slow = slow.next;
         }
         return slow;
+    }
+
+    public static int getLength(ListNode head) {
+        ListNode curr = head;
+        int length = 0;
+        while (curr != null) {
+            length++;
+            curr = curr.next;
+        }
+        return length;
     }
 }
