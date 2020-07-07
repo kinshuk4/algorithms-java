@@ -1,15 +1,17 @@
 package com.vaani.dsa.ds.algos.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
-import static com.vaani.dsa.algo.compete.codility.BinaryTreeHeight.getTreeHeight;
+import static com.vaani.dsa.ds.algos.tree.binary.BinaryTreeHeight.getTreeHeight;
 
+/**
+ * https://leetcode.com/problems/diameter-of-binary-tree/
+ */
 public class TreeDiameter {
     /**
      * Time Complexity: O(n^2) - so bad
      */
-    int getDiameterBad(BinaryTreeNode<Integer> root)
-    {
+    int getDiameterBad(BinaryTreeNode root) {
         /* base case if tree is empty */
         if (root == null)
             return 0;
@@ -26,18 +28,17 @@ public class TreeDiameter {
           1) Diameter of left subtree
          2) Diameter of right subtree
          3) Height of left subtree + height of right subtree + 1 */
-        return Math.max(lheight + rheight + 1,
-                Math.max(ldiameter, rdiameter));
+        return Math.max(lheight + rheight + 1, Math.max(ldiameter, rdiameter));
 
     }
 
     private static int[] getDiameter(BinaryTreeNode root) {
-        int[] result = new int[]{0,0};    //1st element: diameter, 2nd: height
-        if (root == null)  {
+        int[] result = new int[]{0, 0};    //1st element: diameter, 2nd: height
+        if (root == null) {
             return result;
         }
-        int[] leftResult = getDiameter(root.getLeft());
-        int[] rightResult = getDiameter(root.getRight());
+        int[] leftResult = getDiameter(root.left);
+        int[] rightResult = getDiameter(root.right);
 
         int height = Math.max(leftResult[1], rightResult[1]) + 1;
 
@@ -51,8 +52,7 @@ public class TreeDiameter {
         return result;
     }
 
-    public static int getBinaryTreeDiameter(BinaryTreeNode root)
-    {
+    public static int getBinaryTreeDiameter(BinaryTreeNode root) {
         return getDiameter(root)[0];
     }
 }
