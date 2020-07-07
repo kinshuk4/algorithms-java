@@ -5,11 +5,11 @@ public class BinaryTreeNode {
     public BinaryTreeNode left;
     public BinaryTreeNode right;
 
-    BinaryTreeNode(int value) {
+    public BinaryTreeNode(int value) {
         this.value = value;
     }
 
-    BinaryTreeNode(int val, BinaryTreeNode left, BinaryTreeNode right) {
+    public BinaryTreeNode(int val, BinaryTreeNode left, BinaryTreeNode right) {
         this.value = val;
         this.left = left;
         this.right = right;
