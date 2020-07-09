@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.paradigm.backtracking;
 
 import java.util.ArrayList;
 

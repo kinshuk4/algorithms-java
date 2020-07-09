@@ -1,16 +1,16 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.array.nsum;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * 3Sum 变体，每个数字可以重复用
+ * 3Sum - Variation each number can be reused
  * <p>
- * 比方说有
+ * Lets say there is
  * -6,-2,-1,3
- * 不重用的话 -2,-1,3
- * 可重用的话，估计 -6,3,3也是一组解
+ * if not reused -2,-1,3
+ * reusable words, estimates -6,3,3 also a set of solution
  */
 public class ThreeSum2 {
     public static List<List<Integer>> threeSum(int[] num) {

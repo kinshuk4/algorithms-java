@@ -3,8 +3,11 @@ package com.vaani.dsa.algo.array;
 import java.util.Arrays;
 
 /**
- * Given an array A[0, n - 1], generate another array B such that
- * B[i] = A[0] * ... * A[i - 1] *  A[i + 1] * ... * A[n - 1].
+ * https://leetcode.com/problems/product-of-array-except-self/
+ * Given an array nums of n integers where n > 1,  return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
+ * Example:
+ * Input:  [1,2,3,4]
+ * Output: [24,12,8,6]
  */
 public class ArrayProductExceptSelf {
 
@@ -44,15 +47,9 @@ public class ArrayProductExceptSelf {
             right[j] = A[j + 1] * right[j + 1];
         }
 
-        /* Construct the product array using
-        left[] and right[] */
+        /* Construct the product array using left[] and right[] */
         for (i = 0; i < A.length; i++) {
             prod[i] = left[i] * right[i];
-        }
-
-        /* print the constructed prod array */
-        for (i = 0; i < A.length; i++) {
-            System.out.print(prod[i] + " ");
         }
 
         return prod;
@@ -88,8 +85,6 @@ public class ArrayProductExceptSelf {
         if (A.length == 1) {
             return A;
         }
-
-
 
         /* Allocate memory for the product array */
         int[] prod = new int[A.length];

@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.paradigm.recursion;
+package com.vaani.dsa.algo.paradigm.backtracking;
 
 import java.util.Stack;
 

@@ -1,11 +1,12 @@
 package com.vaani.dsa.algo.paradigm.dp;
 
-/*
-Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
-*/
-
+/**
+ * https://leetcode.com/problems/longest-palindromic-substring/
+ * Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
+ * <p>
+ */
 public class LongestPalindromicSubstring {
-    public String longestPalindrome(String s) {
+    public String longestPalindrome1(String s) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
 
@@ -44,5 +45,82 @@ public class LongestPalindromicSubstring {
         }
         return s.substring(start, end);
 
+    }
+
+    public String longestPalindromeRecursive(String s) {
+        if (s == null || s.length() == 0) return s;
+        String longest = s.substring(0, 1);
+        for (int i = 0; i < s.length(); i++) {
+            String s1 = expand(s, i, i);
+            if (s1.length() > longest.length()) longest = s1;
+            String s2 = expand(s, i, i + 1);
+            if (s2.length() > longest.length()) longest = s2;
+        }
+        return longest;
+    }
+
+    public String expand(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        return s.substring(left + 1, right);
+    }
+
+    public String longestPalindrome2(String str) {
+        int n = str.length();
+        if (n <= 1){
+            return str;
+        }
+
+        // table[i][j] will be false if
+        // substring str[i..j] is not palindrome.
+        // Else table[i][j] will be true
+        boolean[][] dp = new boolean[n][n];
+
+        // All substrings of length 1 are palindromes
+        int maxLength = 1;
+        for (int i = 0; i < n; ++i){
+            dp[i][i] = true;
+        }
+
+
+        // check for sub-string of length 2.
+        int start = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            if (str.charAt(i) == str.charAt(i + 1)) {
+                dp[i][i + 1] = true;
+                start = i;
+                maxLength = 2;
+            }
+        }
+
+        // Check for lengths greater than 2.
+        // k is length of substring
+        for (int k = 3; k <= n; ++k) {
+
+            // Fix the starting index
+            for (int i = 0; i < n - k + 1; ++i) {
+                // Get the ending index of substring from
+                // starting index i and length k
+                int j = i + k - 1;
+
+                // checking for sub-string from ith index to
+                // jth index iff str.charAt(i+1) to
+                // str.charAt(j-1) is a palindrome
+                if (dp[i + 1][j - 1]
+                        && str.charAt(i) == str.charAt(j)) {
+                    dp[i][j] = true;
+
+                    if (k > maxLength) {
+                        start = i;
+                        maxLength = k;
+                    }
+                }
+            }
+        }
+
+        // return length of LPS
+        return str.substring(start, start + maxLength);
     }
 }

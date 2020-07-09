@@ -1,8 +1,9 @@
 package com.vaani.dsa.ds.algos.tree.binary.traversal;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /*
@@ -21,15 +22,15 @@ Note: Recursive getTreeHeight is trivial, could you do it iteratively?
 
 public class PostOrderTraversal {
     //iterative, two stacks
-    public ArrayList<Integer> postorderTraversal(BinaryTreeNode root) {
+    public List<Integer> postorderTraversal(BinaryTreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<Integer>();
         if (root == null) {
             return result;
         }
         Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
-        Stack<BinaryTreeNode<Integer>> reverse = new Stack<BinaryTreeNode<Integer>>();
+        Stack<BinaryTreeNode> reverse = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
             BinaryTreeNode node = stack.pop();
@@ -72,15 +73,15 @@ public class PostOrderTraversal {
     }
 
     //Recursive
-    public ArrayList<Integer> postorderTraversal3(BinaryTreeNode root) {
+    public List<Integer> postorderTraversalRecursive(BinaryTreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<Integer>();
         helper(root, result);
         return result;
     }
 
-    public void helper(BinaryTreeNode<Integer> root, ArrayList<Integer> result) {
+    public void helper(BinaryTreeNode root, List<Integer> result) {
         if (root == null) {
             return;
         }

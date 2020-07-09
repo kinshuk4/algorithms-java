@@ -1,21 +1,21 @@
 package com.vaani.dsa.algo.string;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Arrays;
 import java.util.HashMap;
 
-/*
+/** https://leetcode.com/problems/group-anagrams/
 Given an array of strings, return all groups of strings that are anagrams.
 Note: All inputs will be in lower-case.
 */
 
 public class GroupOfAnagramFromList {
-    public ArrayList<String> anagrams(String[] strs) {
+    public List<String> anagrams(String[] strs) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
 
-        ArrayList<String> results = new ArrayList<String>();
-        HashMap<String, ArrayList<String>> anagramsMap = new HashMap<String, ArrayList<String>>();
+        List<String> results = new ArrayList<>();
+        HashMap<String, ArrayList<String>> anagramsMap = new HashMap<>();
 
         for (int i = 0; i < strs.length; i++) {
             String cur = strs[i];
@@ -23,13 +23,8 @@ public class GroupOfAnagramFromList {
             Arrays.sort(temp);
             String key = new String(temp);
 
-            if (anagramsMap.containsKey(key)) {
-                anagramsMap.get(key).add(cur);
-            } else {
-                ArrayList<String> newGroup = new ArrayList<String>();
-                newGroup.add(cur);
-                anagramsMap.put(key, newGroup);
-            }
+            anagramsMap.putIfAbsent(key, new ArrayList<>());
+            anagramsMap.get(key).add(cur);
         }
 
         for (ArrayList<String> s : anagramsMap.values()) {

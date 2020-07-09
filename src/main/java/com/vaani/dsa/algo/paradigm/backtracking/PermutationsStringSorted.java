@@ -1,10 +1,10 @@
-package com.vaani.dsa.algo.string;
+package com.vaani.dsa.algo.paradigm.backtracking;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Permutation {
+public class PermutationsStringSorted {
 
     public static void findPerms(List<String> permsList, String mystr, String chars) {
 

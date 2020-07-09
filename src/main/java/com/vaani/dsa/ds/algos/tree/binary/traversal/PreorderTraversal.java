@@ -1,8 +1,9 @@
 package com.vaani.dsa.ds.algos.tree.binary.traversal;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /*
@@ -20,25 +21,16 @@ Note: Recursive getTreeHeight is trivial, could you do it iteratively?
 
 //recursive
 
-/**
- * Definition for binary tree
- * public class BinaryTreeNode {
- * int val;
- * BinaryTreeNode left;
- * BinaryTreeNode right;
- * BinaryTreeNode(int x) { val = x; }
- * }
- */
 public class PreorderTraversal {
-    public ArrayList<Integer> preorderTraversal(BinaryTreeNode root) {
+    public List<Integer> preOrderTraversal(BinaryTreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<Integer>();
         helper(root, result);
         return result;
     }
 
-    public void helper(BinaryTreeNode<Integer> root, ArrayList<Integer> result) {
+    public void helper(BinaryTreeNode root, List<Integer> result) {
         if (root == null) {
             return;
         }
@@ -48,17 +40,17 @@ public class PreorderTraversal {
     }
 
     //iterative
-    public ArrayList<Integer> preorderTraversalIter(BinaryTreeNode root) {
+    public List<Integer> preOrderTraversalIterative(BinaryTreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<Integer>();
         if (root == null) {
             return result;
         }
         Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
         stack.push(root);
         while (!stack.isEmpty()) {
-            BinaryTreeNode<Integer> node = stack.pop();
+            BinaryTreeNode node = stack.pop();
             result.add(node.val);
             if (node.right != null) {
                 stack.push(node.right);
