@@ -1,15 +1,10 @@
-package com.vaani.dsa.ds.core.trie;
+package com.vaani.dsa.ds.core.trie.basic;
 
-import com.vaani.dsa.ds.core.trie.TrieNode;
-
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
 
 public class Trie {
     public TrieNode root;
-    public int minLevDist;
 
     public Trie() {
         this.root = new TrieNode("");
@@ -21,16 +16,17 @@ public class Trie {
 
         for (int i = 0; i < length; i++) {
             char c = word.charAt(i);
-            if (!curr.hasChild(c)) {
-                curr.addChild(c, word.substring(0, i + 1), i == length - 1);
-            }else{
+            boolean isWord = i == length - 1;
+            if (!curr.children.containsKey(c)) {
+                curr.children.put(c, new TrieNode(word.substring(0, i + 1), isWord));
+            } else {
                 // only set when this condition matches. Otherwise, it may unset in case of other child match, wehre iit thhe cheild is not leaf node
-                if (i == length-1){
-                    curr.getChild(c).setWord(i == length - 1);// for existing child, check if it is a word based on new word
+                if (isWord) {
+                    curr.children.get(c).isWord = isWord;// for existing child, check if it is a word based on new word
                 }
             }
 
-            curr = curr.getChild(c);
+            curr = curr.children.get(c);
         }
     }
 
@@ -40,16 +36,20 @@ public class Trie {
         }
     }
 
+    public boolean search(String word) {
+        return exists(word);
+    }
+
     public boolean exists(String word) {
         TrieNode curr = root;
         for (char c : word.toCharArray()) {
-            TrieNode child = curr.getChild(c);
+            TrieNode child = curr.children.get(c);
             if (child == null)
                 return false;
             curr = child;
         }
 
-        if (curr.isWord()) {
+        if (curr.isWord) {
             return true;
         } else {
             return false;
@@ -60,7 +60,7 @@ public class Trie {
         //can be rewritten as: return getPrefixNode(prefix) != null
         TrieNode node = root;
         for (char c : prefix.toCharArray()) {
-            TrieNode child = node.getChild(c);
+            TrieNode child = node.children.get(c);
             if (child == null)
                 return false;
             node = child;
@@ -71,7 +71,7 @@ public class Trie {
     private TrieNode getPrefixNode(String prefix) {
         TrieNode node = root;
         for (char c : prefix.toCharArray()) {
-            TrieNode child = node.getChild(c);
+            TrieNode child = node.children.get(c);
             if (child == null)
                 return null;
             node = child;
@@ -80,12 +80,12 @@ public class Trie {
     }
 
     private void findAllChildWords(TrieNode n, List<String> results) {
-        if (n.isWord()) {
-            results.add(n.getPrefix());
+        if (n.isWord) {
+            results.add(n.prefix);
         }
 
-        for (Character c : n.getChildren().keySet()) {
-            findAllChildWords(n.getChild(c), results);
+        for (Character c : n.children.keySet()) {
+            findAllChildWords(n.children.get(c), results);
         }
     }
 

@@ -14,4 +14,11 @@ public class BinaryTreeNode {
         this.left = left;
         this.right = right;
     }
+
+    @Override
+    public String toString() {
+        return this.val +
+                ", left=" + (left != null ? left.val + "..." : "null") +
+                ", right=" + (right != null ? right.val + "..." : "null");
+    }
 }

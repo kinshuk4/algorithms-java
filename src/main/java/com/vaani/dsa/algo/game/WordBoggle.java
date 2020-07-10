@@ -1,7 +1,7 @@
 package com.vaani.dsa.algo.game;
 
 
-import com.vaani.dsa.ds.core.trie.Trie;
+import com.vaani.dsa.ds.core.trie.encapsulated.Trie;
 
 import java.util.*;
 

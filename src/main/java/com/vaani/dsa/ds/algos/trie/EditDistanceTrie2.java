@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.algos.trie;
 
-import com.vaani.dsa.ds.core.trie.Trie;
-import com.vaani.dsa.ds.core.trie.TrieNode;
+import com.vaani.dsa.ds.core.trie.encapsulated.Trie;
+import com.vaani.dsa.ds.core.trie.encapsulated.TrieNode;
 
 import java.util.ArrayList;
 import java.util.List;

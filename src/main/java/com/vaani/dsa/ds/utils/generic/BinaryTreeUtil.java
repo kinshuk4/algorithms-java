@@ -2,6 +2,11 @@ package com.vaani.dsa.ds.utils.generic;
 
 import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class BinaryTreeUtil {
 
     public static BinaryTreeNode<Integer> arrayToBinaryTree(Integer[] arr) {
@@ -80,6 +85,28 @@ public class BinaryTreeUtil {
         root.left = deserializeWithPreorderHelper(tokens);
         root.right = deserializeWithPreorderHelper(tokens);
         return root;
+    }
+
+    public static <T> List<T> levelOrderTraversal(BinaryTreeNode<T> root) {
+        List<T> result = new LinkedList<>();
+        if (root == null) {
+            return result;
+        }
+        Queue<BinaryTreeNode<T>> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            BinaryTreeNode<T> remove = queue.remove();
+            result.add(remove.val);
+            if (remove.left != null) {
+                queue.add(remove.left);
+            }
+            if (remove.right != null) {
+                queue.add(remove.right);
+            }
+
+        }
+        return result;
     }
 
 }

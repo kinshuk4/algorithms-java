@@ -1,11 +1,9 @@
-package com.vaani.dsa.ds.core.trie;
+package com.vaani.dsa.ds.core.trie.encapsulated;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class TrieNode {
-    public final int ALPHABET = 26;
-
     private boolean isWord;
     private String prefix;
     private Map<Character, TrieNode> children;
@@ -17,7 +15,7 @@ public class TrieNode {
     public TrieNode(String prefix, boolean isWord) {
         this.isWord = isWord;
         this.prefix = prefix;
-        children = new HashMap<>(ALPHABET);
+        children = new HashMap<>();
     }
 
     public TrieNode getChild(char letter) {

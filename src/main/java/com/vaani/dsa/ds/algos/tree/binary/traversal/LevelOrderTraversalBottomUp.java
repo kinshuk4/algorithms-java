@@ -63,4 +63,65 @@ public class LevelOrderTraversalBottomUp {
         return result;
 
     }
+
+    public List<List<Integer>> levelOrderBottom2(BinaryTreeNode root) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if (root == null) return result;
+
+        Queue<BinaryTreeNode> queue1 = new LinkedList<BinaryTreeNode>();
+        Queue<BinaryTreeNode> queue2 = new LinkedList<BinaryTreeNode>();
+        List<Integer> level = new ArrayList<Integer>();
+        queue1.add(root);
+
+        while (!queue1.isEmpty()) {
+            BinaryTreeNode node = queue1.poll();
+            level.add(node.val);
+
+            if (node.left != null) {
+                queue2.add(node.left);
+            }
+            if (node.right != null) {
+                queue2.add(node.right);
+            }
+
+            if (queue1.isEmpty()) {
+                result.add(level);
+                level = new ArrayList<Integer>();
+                queue1.addAll(queue2);
+                queue2.clear();
+            }
+        }
+        Collections.reverse(result);
+        return result;
+    }
+
+    public List<List<Integer>> levelOrderBottom3(BinaryTreeNode root) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if (root == null) return result;
+        Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        queue.add(root);
+        int numNodesAtCurrLevel = 1;
+        int nextLevel = 0;
+
+        while (!queue.isEmpty()) {
+            List<Integer> level = new ArrayList<Integer>();
+            for (int i = 0; i < numNodesAtCurrLevel; i++) {
+                BinaryTreeNode node = queue.poll();
+                level.add(node.val);
+                if (node.left != null) {
+                    queue.add(node.left);
+                    nextLevel++;
+                }
+
+                if (node.right != null) {
+                    queue.add(node.right);
+                    nextLevel++;
+                }
+            }
+            result.add(0, level);
+            numNodesAtCurrLevel = nextLevel;
+            nextLevel = 0;
+        }
+        return result;
+    }
 }

@@ -1,8 +1,8 @@
 package com.vaani.dsa.ds.algos.trie;
 
 
-import com.vaani.dsa.ds.core.trie.Trie;
-import com.vaani.dsa.ds.core.trie.TrieNode;
+import com.vaani.dsa.ds.core.trie.encapsulated.TrieNode;
+import com.vaani.dsa.ds.core.trie.encapsulated.TrieWithMinLevDist;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ public class EditDistanceTrie {
      * @param word - the characters of an input word as an array representation
      * @return int - the minimum Levenshtein Distance
      */
-    public static int computeMinimumLevenshteinDistance(ArrayList<Character> word, Trie theTrie) {
+    public static int computeMinimumLevenshteinDistance(ArrayList<Character> word, TrieWithMinLevDist theTrie) {
 
         theTrie.minLevDist = Integer.MAX_VALUE;
 
@@ -50,7 +50,7 @@ public class EditDistanceTrie {
      * @param word        - an array representation of the current word
      * @param previousRow - a row in the Levenshtein Distance matrix
      */
-    private static void traverseTrie(TrieNode node, char letter, ArrayList<Character> word, int[] previousRow, Trie theTrie) {
+    private static void traverseTrie(TrieNode node, char letter, ArrayList<Character> word, int[] previousRow, TrieWithMinLevDist theTrie) {
 
         int size = previousRow.length;
         int[] currentRow = new int[size];
@@ -90,7 +90,7 @@ public class EditDistanceTrie {
     }
 
     public static void main(String[] args) {
-        Trie dict = new Trie();
+        TrieWithMinLevDist dict = new TrieWithMinLevDist();
         dict.insert("arb");
         dict.insert("area");
 

@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.paradigm.dp;
 
 public class UniquePaths {
     public int uniquePaths(int m, int n) {

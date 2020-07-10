@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.array.matrix;
 
 /*
 You are given an n x n 2D matrix representing an image.
@@ -10,7 +10,7 @@ Could you do this in-place?
 */
 
 public class RotateImage {
-    public void rotate(int[][] matrix) {
+    public void rotate1(int[][] matrix) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
 
         int length = matrix.length;
@@ -36,6 +36,21 @@ public class RotateImage {
                 //top -> right
                 matrix[offset][length - layer - 1] = temp;
 
+            }
+        }
+    }
+
+    public void rotate(int[][] matrix) {
+        int N = matrix.length;
+        for (int i = 0; i < N / 2; ++i) {
+            for (int j = 0; j < (N + 1) / 2; ++j) {
+                int temp = matrix[i][j];  // save the top element;
+                int u = N - 1 - i;
+                int v = N - 1 - j;
+                matrix[i][j] = matrix[v][i];  // right -> top;
+                matrix[v][i] = matrix[u][v]; // bottom -> right;
+                matrix[u][v] = matrix[j][u];// left -> bottom;
+                matrix[j][u] = temp;                // top -> left;
             }
         }
     }

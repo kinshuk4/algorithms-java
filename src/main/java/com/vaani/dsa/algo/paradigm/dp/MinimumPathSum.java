@@ -1,11 +1,21 @@
-package com.vaani.dsa.ds.algos.tree.binary;
+package com.vaani.dsa.algo.paradigm.dp;
 
-/**
+/** https://leetcode.com/problems/minimum-path-sum/
  * Given a m x n grid filled with non-negative numbers,
  * find a path from top left to bottom right which minimizes the sum of all numbers along its path.
  * <p/>
  * Note: You can only move either down or right at any point in time.
  * <p/>
+ * Example:
+ * <p>
+ * Input:
+ * [
+ * [1,3,1],
+ * [1,5,1],
+ * [4,2,1]
+ * ]
+ * Output: 7
+ * Explanation: Because the path 1→3→1→1→1 minimizes the sum.
  * If we could move to any direction in the path, then we kind of use
  * Dijkstra's algorithm to solve this problem. The difference with the
  * shotest path problem in graph is that in the graph, different node
@@ -17,7 +27,8 @@ package com.vaani.dsa.ds.algos.tree.binary;
  * question merely become Robort move question. With dynamic programming
  * we could solve it in O(mn) time complexity.
  */
-public class MinPathSum {
+
+public class MinimumPathSum {
     public static void main(String[] args) {
         int[][] grid = new int[][]{
                 {1, 3, 1},
@@ -53,6 +64,7 @@ public class MinPathSum {
 
 
     }
+
 
     // only left or down, Dynamic programming to solve this.
     public static void minPahtSum(int[][] grid) {
@@ -139,5 +151,38 @@ public class MinPathSum {
 
         System.out.println(cost[row - 1][col - 1]);
         // System.out.println(Arrays.deepToString(cost));
+    }
+
+    public int minPathSum(int[][] grid) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+
+        int rowLength = grid.length;
+        if (rowLength == 0) {
+            return 0;
+        }
+        int colLength = grid[0].length;
+        int[][] sum = new int[rowLength][colLength];
+        sum = grid.clone();
+
+        //initialize the first row and first column
+        for (int i = 1; i < colLength; i++) {
+            sum[0][i] += sum[0][i - 1];
+        }
+        for (int i = 1; i < rowLength; i++) {
+            sum[i][0] += sum[i - 1][0];
+        }
+
+        //build the rest using the base columns and rows
+        for (int i = 1; i < rowLength; i++) {
+            for (int j = 1; j < colLength; j++) {
+                int left = sum[i][j - 1];
+                int up = sum[i - 1][j];
+
+                int preSum = left < up ? left : up;
+                sum[i][j] += preSum;
+            }
+        }
+        return sum[rowLength - 1][colLength - 1];
     }
 }

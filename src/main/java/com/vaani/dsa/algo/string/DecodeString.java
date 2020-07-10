@@ -21,6 +21,16 @@ import java.util.*;
  * decodeString(s) = "zyzzzabcabc".
  */
 public class DecodeString {
+    public static void main(String[] args) {
+        System.out.println(decodeString("abc"));
+        System.out.println(decodeString("4[ab]"));
+        System.out.println(decodeString("2[b3[a]]"));
+        System.out.println(decodeString("z1[y]zzz2[abc]"));
+        System.out.println(decodeString("2[2[b]]"));
+        System.out.println(decodeString("100[codesignal]"));
+        System.out.println(decodeString("sd2[f2[e]g]i"));
+    }
+
     static String decodeString(String s) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
@@ -81,11 +91,11 @@ public class DecodeString {
                             }
                         }
 
-                    }else if (openCounter == 0) {
+                    } else if (openCounter == 0) {
                         sb2.append(c);
-                    } else  {
+                    } else {
 //                        sb.append(c);
-                        StringBuilder currSb = stringTillNowList.get(openCounter-1);
+                        StringBuilder currSb = stringTillNowList.get(openCounter - 1);
                         currSb.append(c);
                         stringTillNowList.set(openCounter - 1, currSb);
                     }
@@ -106,15 +116,5 @@ public class DecodeString {
         return result;
     }
 
-    public static void main(String[] args) {
-        System.out.println(decodeString("abc"));
-        System.out.println(decodeString("4[ab]"));
-        System.out.println(decodeString("2[b3[a]]"));
-        System.out.println(decodeString("z1[y]zzz2[abc]"));
-        System.out.println(decodeString("2[2[b]]"));
-        System.out.println(decodeString("100[codesignal]"));
-        System.out.println(decodeString("sd2[f2[e]g]i"));
 
-
-    }
 }

@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.paradigm.dp;
 
 /*
 Follow up for "Unique Paths":
