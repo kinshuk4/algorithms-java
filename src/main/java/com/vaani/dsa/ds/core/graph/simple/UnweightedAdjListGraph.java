@@ -15,6 +15,10 @@ public class UnweightedAdjListGraph {
         this.isDirected = isDirected;
     }
 
+    public Optional<List<Integer>> getAdjList(int vertex){
+        return Optional.ofNullable(adjMap.get(vertex));
+    }
+
     public boolean addEdge(int i, int j) {
         adjMap.putIfAbsent(i, new ArrayList<>());
         adjMap.get(i).add(j);
