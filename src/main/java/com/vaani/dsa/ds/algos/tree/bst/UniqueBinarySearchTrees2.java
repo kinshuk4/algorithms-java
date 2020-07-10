@@ -1,10 +1,11 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.ds.algos.tree.bst;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 import java.util.ArrayList;
+import java.util.List;
 
-/*
+/*https://leetcode.com/problems/unique-binary-search-trees-ii/submissions/
 Given n, generate all structurally unique BST's (binary search trees) that store values 1...n.
 
 For example,
@@ -32,32 +33,28 @@ Here's an example:
 The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 */
 
-/**
- * Definition for binary tree
- * public class BinaryTreeNode {
- * int val;
- * BinaryTreeNode left;
- * BinaryTreeNode right;
- * BinaryTreeNode(int x) { val = x; left = null; right = null; }
- * }
- */
-public class UniqueBinarySearchTreesII {
-    public ArrayList<BinaryTreeNode> generateTrees(int n) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
+
+public class UniqueBinarySearchTrees2 {
+    public List<BinaryTreeNode> generateTreesRecursive(int n) {
+        if (n == 0){
+            return new ArrayList<BinaryTreeNode>();
+        }
         return helper(1, n);
     }
 
-    public ArrayList<BinaryTreeNode> helper(int start, int end) {
-        ArrayList<BinaryTreeNode> result = new ArrayList<BinaryTreeNode>();
+    private List<BinaryTreeNode> helper(int start, int end) {
+        List<BinaryTreeNode> result = new ArrayList<>();
         if (start > end) {
             result.add(null);
             return result;
         }
 
         for (int i = start; i <= end; i++) {
-            for (BinaryTreeNode left : helper(start, i - 1)) {
-                for (BinaryTreeNode right : helper(i + 1, end)) {
+            List<BinaryTreeNode> leftTrees = helper(start, i - 1);
+            List<BinaryTreeNode> rightTrees = helper(i + 1, end);
+
+            for (BinaryTreeNode left : leftTrees) {
+                for (BinaryTreeNode right : rightTrees) {
                     BinaryTreeNode root = new BinaryTreeNode(i);
                     root.left = left;
                     root.right = right;
