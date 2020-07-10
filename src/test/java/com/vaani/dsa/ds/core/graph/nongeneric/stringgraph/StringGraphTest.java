@@ -1,5 +1,7 @@
 package com.vaani.dsa.ds.core.graph.nongeneric.stringgraph;
 
+import com.vaani.dsa.ds.core.graph.generic.stringgraph.StringGraph;
+import com.vaani.dsa.ds.core.graph.generic.stringgraph.StringVertex;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

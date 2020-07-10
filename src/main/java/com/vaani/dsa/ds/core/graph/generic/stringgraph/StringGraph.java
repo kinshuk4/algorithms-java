@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.graph.nongeneric.stringgraph;
+package com.vaani.dsa.ds.core.graph.generic.stringgraph;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

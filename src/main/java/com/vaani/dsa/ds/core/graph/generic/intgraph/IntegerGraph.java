@@ -1,9 +1,6 @@
-package com.vaani.dsa.ds.core.graph.nongeneric.intgraph;
+package com.vaani.dsa.ds.core.graph.generic.intgraph;
 
 import com.vaani.dsa.ds.core.graph.generic.Graph;
-import com.vaani.dsa.ds.core.graph.generic.Vertex;
-
-import java.util.*;
 
 
 public class IntegerGraph extends Graph<Integer> {

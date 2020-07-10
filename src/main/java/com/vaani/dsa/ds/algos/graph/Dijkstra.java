@@ -1,10 +1,7 @@
 package com.vaani.dsa.ds.algos.graph;
 
-import com.vaani.dsa.ds.core.graph.generic.Edge;
 import com.vaani.dsa.ds.core.graph.generic.Vertex;
-import com.vaani.dsa.ds.core.graph.nongeneric.intgraph.IntegerGraph;
-
-import java.util.*;
+import com.vaani.dsa.ds.core.graph.generic.intgraph.IntegerGraph;
 
 //https://www.evernote.com/shard/s34/nl/3857659/7c5b3cd1-d324-497c-9e16-78de558ffdb9/
 public class Dijkstra {
