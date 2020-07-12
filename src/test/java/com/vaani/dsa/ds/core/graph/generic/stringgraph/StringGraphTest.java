@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.graph.nongeneric.stringgraph;
+package com.vaani.dsa.ds.core.graph.generic.stringgraph;
 
 import com.vaani.dsa.ds.core.graph.generic.stringgraph.StringGraph;
 import com.vaani.dsa.ds.core.graph.generic.stringgraph.StringVertex;
