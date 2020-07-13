@@ -25,7 +25,7 @@ Return 6.
  * BinaryTreeNode(int x) { val = x; }
  * }
  */
-public class MaximumPathSum {
+public class MaximumPathSumInBinaryTree {
     public int maxPathSum(BinaryTreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.

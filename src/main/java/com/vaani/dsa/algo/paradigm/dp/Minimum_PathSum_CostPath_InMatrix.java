@@ -1,6 +1,9 @@
 package com.vaani.dsa.algo.paradigm.dp;
 
-/** https://leetcode.com/problems/minimum-path-sum/
+import java.util.Arrays;
+
+/**
+ * https://leetcode.com/problems/minimum-path-sum/
  * Given a m x n grid filled with non-negative numbers,
  * find a path from top left to bottom right which minimizes the sum of all numbers along its path.
  * <p/>
@@ -16,19 +19,9 @@ package com.vaani.dsa.algo.paradigm.dp;
  * ]
  * Output: 7
  * Explanation: Because the path 1→3→1→1→1 minimizes the sum.
- * If we could move to any direction in the path, then we kind of use
- * Dijkstra's algorithm to solve this problem. The difference with the
- * shotest path problem in graph is that in the graph, different node
- * to one node may have path with different weight. But int the grid,
- * each neighbor to this cell would sum with the same value. So if we
- * would also get minimun sum in fisrt calculate for this cell.
- * <p/>
- * Since the question ask to move either right or down only, then the
- * question merely become Robort move question. With dynamic programming
- * we could solve it in O(mn) time complexity.
  */
 
-public class MinimumPathSum {
+public class Minimum_PathSum_CostPath_InMatrix {
     public static void main(String[] args) {
         int[][] grid = new int[][]{
                 {1, 3, 1},
@@ -98,6 +91,19 @@ public class MinimumPathSum {
     }
 
     // Dijkstra's algorithm
+
+    /**
+     * If we could move to any direction in the path, then we kind of use
+     * Dijkstra's algorithm to solve this problem. The difference with the
+     * shortest path problem in graph is that in the graph, different node
+     * to one node may have path with different weight. But int the grid,
+     * each neighbor to this cell would sum with the same value. So if we
+     * would also get minimun sum in fisrt calculate for this cell.
+     * <p/>
+     * Since the question ask to move either right or down only, then the
+     * question merely become Robort move question. With dynamic programming
+     * we could solve it in O(mn) time complexity.
+     */
     public static void DijkstraPathSum(int[][] grid) {
         if (grid.length == 0) {
             System.out.println("sum path for zero grid " + 0);
@@ -153,36 +159,106 @@ public class MinimumPathSum {
         // System.out.println(Arrays.deepToString(cost));
     }
 
-    public int minPathSum(int[][] grid) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
-
-        int rowLength = grid.length;
-        if (rowLength == 0) {
+    public int minPathSumDP(int[][] grid) {
+        int m = grid.length;
+        if (m == 0) {
             return 0;
         }
-        int colLength = grid[0].length;
-        int[][] sum = new int[rowLength][colLength];
-        sum = grid.clone();
+        int n = grid[0].length;
+        int[][] dp = new int[m][n];
+//        sum = grid.clone();
 
         //initialize the first row and first column
-        for (int i = 1; i < colLength; i++) {
-            sum[0][i] += sum[0][i - 1];
+        // we move from left to right from 0,0
+        dp[0][0] = grid[0][0];
+        for (int i = 1; i < n; i++) {
+            dp[0][i] = dp[0][i - 1] + grid[0][i];
         }
-        for (int i = 1; i < rowLength; i++) {
-            sum[i][0] += sum[i - 1][0];
+        // we move down from 0,0
+        for (int i = 1; i < m; i++) {
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
         }
 
         //build the rest using the base columns and rows
-        for (int i = 1; i < rowLength; i++) {
-            for (int j = 1; j < colLength; j++) {
-                int left = sum[i][j - 1];
-                int up = sum[i - 1][j];
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                int left = dp[i][j - 1];
+                int up = dp[i - 1][j];
 
-                int preSum = left < up ? left : up;
-                sum[i][j] += preSum;
+                int preSum = grid[i][j] + Math.min(left, up);
+                dp[i][j] += preSum;
             }
         }
-        return sum[rowLength - 1][colLength - 1];
+        return dp[m - 1][n - 1];
     }
+
+
+    // very slow exponential
+    public int minPathSumBacktracking(int[][] grid) {
+
+        return minPathSum(grid, 0, 0, 0);
+
+    }
+
+    private int minPathSum(int[][] grid, int x, int y, int currSum) {
+        int m = grid.length;
+        int n = grid[0].length;
+
+        if (x == m - 1 && y == n - 1) {
+            return grid[x][y] + currSum;
+        }
+
+        if (canMove(x, y, m, n)) {
+            int item = grid[x][y];
+            return Math.min(minPathSum(grid, x, y + 1, currSum + item), minPathSum(grid, x + 1, y, currSum + item));
+        }
+
+        return Integer.MAX_VALUE;
+    }
+
+    private boolean canMove(int x, int y, int m, int n) {
+        // check if x and y are in limits and cell is not blocked
+        if (x >= 0 && y >= 0 && x < m && y < n) {
+            return true;
+        }
+        return false;
+    }
+
+    // fails because of wrong answer for
+    // [[1,4,8,6,2,2,1,7],[4,7,3,1,4,5,5,1],[8,8,2,1,1,8,0,1],[8,9,2,9,8,0,8,9],[5,7,5,7,1,8,5,5],[7,0,9,4,5,6,5,6],[4,9,9,7,9,1,9,0]]
+    // output: 53, expected: 47
+    public int minPathSumBacktrackingMemoization(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+
+        int[][] memo = new int[m][n];
+        for (int[] memoItem : memo) {
+            Arrays.fill(memoItem, Integer.MAX_VALUE);
+        }
+
+        return minPathSumMemo(grid, 0, 0, 0, memo);
+
+    }
+
+    private int minPathSumMemo(int[][] grid, int x, int y, int currSum, int[][] memo) {
+        int m = grid.length;
+        int n = grid[0].length;
+
+        if (x == m - 1 && y == n - 1) {
+            memo[x][y] = grid[x][y] + currSum;
+            return memo[x][y];
+        }
+
+        if (canMove(x, y, m, n)) {
+            if (memo[x][y] != Integer.MAX_VALUE) {
+                return memo[x][y];
+            }
+            int item = grid[x][y];
+            memo[x][y] = Math.min(minPathSumMemo(grid, x, y + 1, currSum + item, memo), minPathSumMemo(grid, x + 1, y, currSum + item, memo));
+            return memo[x][y];
+        }
+
+        return Integer.MAX_VALUE;
+    }
+
 }

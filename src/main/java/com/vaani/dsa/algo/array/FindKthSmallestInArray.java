@@ -26,25 +26,62 @@ import static com.vaani.dsa.ds.utils.generic.ArrayUtils.swap;
  * http://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array-set-2-expected-linear-time/
  * http://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/
  */
-public class FindKthSmallest {
+public class FindKthSmallestInArray {
     /**
      * Randomized quick select
      * Average/Best case: O(n)
      * Worst case: O(n^2)
      */
-    public static int findKthSmallest(int[] arr, int k) {
-        if (k < 1 || k > arr.length) return -1;
-        return findKthSmallest(arr, k - 1, 0, arr.length - 1);
+    public static int findKthSmallestQuickSelect(int[] arr, int k) {
+        if (k < 1 || k > arr.length) {
+            return -1;
+        }
+        return findKthSmallestQuickSelect(arr, k - 1, 0, arr.length - 1);
     }
 
-    public static int findKthSmallest(int[] arr, int k, int start, int end) {
+    public static int findKthSmallestQuickSelect(int[] arr, int k, int start, int end) {
         int partitionIndex = partition(arr, start, end);
         if (partitionIndex > k) {
-            return findKthSmallest(arr, k, start, partitionIndex - 1);
+            return findKthSmallestQuickSelect(arr, k, start, partitionIndex - 1);
         } else if (partitionIndex < k) {
-            return findKthSmallest(arr, k, partitionIndex + 1, end);
+            return findKthSmallestQuickSelect(arr, k, partitionIndex + 1, end);
         } else {
             return arr[partitionIndex];
+        }
+    }
+
+    // This function has partition function inbuilt
+    public static int getKthSmallestQuickSelect2(int[] nums, int k, int start, int end) {
+        int pivot = nums[end];
+
+        int left = start;
+        int right = end;
+
+        while (true) {
+
+            while (nums[left] < pivot && left < right) {
+                left++;
+            }
+
+            while (nums[right] >= pivot && right > left) {
+                right--;
+            }
+
+            if (left == right) {
+                break;
+            }
+
+            swap(nums, left, right);
+        }
+
+        swap(nums, left, end);
+
+        if (k == left + 1) {
+            return pivot;
+        } else if (k < left + 1) {
+            return getKthSmallestQuickSelect2(nums, k, start, left - 1);
+        } else {
+            return getKthSmallestQuickSelect2(nums, k, left + 1, end);
         }
     }
 
@@ -132,7 +169,7 @@ public class FindKthSmallest {
 
     public static void main(String[] args) {
         int arr[] = {7, 10, 4, 3, 20, 15};
-        System.out.println(findKthSmallest(arr, 5));
+        System.out.println(findKthSmallestQuickSelect(arr, 5));
         System.out.println(findKthSmallest2(arr, 5));
         System.out.println(findKthSmallest3(arr, 5));
         System.out.println(findKthLargest(arr, 5));

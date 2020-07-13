@@ -1,6 +1,9 @@
 package com.vaani.dsa.algo.array;
 
-import static com.vaani.dsa.ds.utils.generic.ArrayUtils.swap;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+import static com.vaani.dsa.algo.array.FindKthSmallestInArray.getKthSmallestQuickSelect2;
 
 public class FindKthLargestInArray {
     public static int findKthLargest(int[] nums, int k) {
@@ -8,47 +11,51 @@ public class FindKthLargestInArray {
             return 0;
         }
 
-        return getKth(nums.length - k +1, nums, 0, nums.length - 1);
+        return getKthSmallestQuickSelect2(nums, nums.length - k + 1, 0, nums.length - 1);
     }
 
-    public static int getKth(int k, int[] nums, int start, int end) {
-
-        int pivot = nums[end];
-
-        int left = start;
-        int right = end;
-
-        while (true) {
-
-            while (nums[left] < pivot && left < right) {
-                left++;
+    public static int getKthLargestUsingHeap(int[] nums, int k) {
+        int n = nums.length;
+        // use max heap
+        if (k < n - k) {
+            PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+            for (int i : nums) {
+                if (maxHeap.size() == k) {
+                    maxHeap.poll();
+                }
+                maxHeap.offer(i);
             }
 
-            while (nums[right] >= pivot && right > left) {
-                right--;
+            int kthLargest = 0;
+            for (int i = 0; i < k; i++) {
+                kthLargest = maxHeap.poll();
             }
 
-            if (left == right) {
-                break;
+            return kthLargest;
+        } else { // use min heap
+
+            PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+            for (int i : nums) {
+                // pop out the elements when heap size is higher
+                if (minHeap.size() == (n - k + 1)) {
+                    minHeap.poll();
+                }
+                minHeap.offer(i);
             }
 
-            swap(nums, left, right);
+            int kthLargest = 0;
+            for (int i = 0; i < (n - k + 1); i++) {
+                kthLargest = minHeap.poll();
+            }
+
+            return kthLargest;
         }
 
-        swap(nums, left, end);
-
-        if (k == left + 1) {
-            return pivot;
-        } else if (k < left + 1) {
-            return getKth(k, nums, start, left - 1);
-        } else {
-            return getKth(k, nums, left + 1, end);
-        }
     }
 
     public static void main(String[] args) {
         int k = 1;
-        int[] nums = {1,3,4,2};
+        int[] nums = {1, 3, 4, 2};
         System.out.println(findKthLargest(nums, k));
     }
 

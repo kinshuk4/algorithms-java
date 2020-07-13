@@ -1,6 +1,8 @@
 package com.vaani.dsa.algo.string;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
 
 /**
  * Given an encoded string, return its corresponding decoded string.
@@ -22,13 +24,13 @@ import java.util.*;
  */
 public class DecodeString {
     public static void main(String[] args) {
-        System.out.println(decodeString("abc"));
-        System.out.println(decodeString("4[ab]"));
-        System.out.println(decodeString("2[b3[a]]"));
-        System.out.println(decodeString("z1[y]zzz2[abc]"));
-        System.out.println(decodeString("2[2[b]]"));
-        System.out.println(decodeString("100[codesignal]"));
-        System.out.println(decodeString("sd2[f2[e]g]i"));
+        System.out.println(decodeString2("abc"));
+        System.out.println(decodeString2("4[ab]"));
+        System.out.println(decodeString2("2[b3[a]]"));
+        System.out.println(decodeString2("z1[y]zzz2[abc]"));
+        System.out.println(decodeString2("2[2[b]]"));
+        System.out.println(decodeString2("100[codesignal]"));
+        System.out.println(decodeString2("sd2[f2[e]g]i"));
     }
 
     static String decodeString(String s) {
@@ -112,8 +114,44 @@ public class DecodeString {
 
 
         }
-        String result = sb2.toString();
-        return result;
+        return sb2.toString();
+    }
+
+    public static String decodeString2(String s) {
+        Stack<Integer> counts = new Stack<>();
+        Stack<String> results = new Stack<>();
+
+        StringBuilder result = new StringBuilder();
+        int i = 0, n = s.length();
+
+        while (i < n) {
+            char c = s.charAt(i);
+            if (Character.isDigit(c)) {
+                int count = 0;
+                //eg. 30002 we should get to the end of digit
+                while (Character.isDigit(c)) {
+                    count = count * 10 + (c - '0');
+                    i++;
+                    c = s.charAt(i);
+                }
+                counts.push(count);
+            } else if (c == '[') {
+                results.push(result.toString());
+                result = new StringBuilder();
+                i++;
+            } else if (c == ']') {
+                String str = results.pop();
+                int count = counts.pop();
+                String repeated = result.toString().repeat(count);
+                result = new StringBuilder(str).append(repeated);
+                i++;
+            } else {
+                result.append(c);
+                i++;
+            }
+        }
+
+        return result.toString();
     }
 
 

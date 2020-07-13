@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.algos.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 import java.util.Stack;
 
@@ -36,6 +36,31 @@ If you notice carefully in the flattened tree, each node's right child points to
 
 // @formatter:on
 public class FlattenBinaryTreeToLinkedList {
+    public void flattenIterative(BinaryTreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            BinaryTreeNode curr = stack.pop();
+            if (curr.right != null) {
+                stack.push(curr.right);
+            }
+
+            if (curr.left != null) {
+                stack.push(curr.left);
+            }
+
+            if (!stack.isEmpty()) {
+                curr.right = stack.peek();
+            }
+            curr.left = null;
+        }
+    }
+
     public void flatten(BinaryTreeNode root) {
         if (root == null) return;
         if (root.left == null && root.right == null) return;
@@ -63,7 +88,7 @@ public class FlattenBinaryTreeToLinkedList {
     }
 
     public BinaryTreeNode nextNode(BinaryTreeNode node, Stack<BinaryTreeNode> rightStack) {
-        Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
+        Stack<BinaryTreeNode> stack = new Stack<>();
         stack = (Stack<BinaryTreeNode>) rightStack.clone();
         if (node.right != null) {
             stack.push(node.right);

@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.paradigm.dp;
+package com.vaani.dsa.algo.technique.two_pointer;
 
 
 /*
@@ -7,32 +7,21 @@ Given n non-negative integers a1, a2, ..., an, where each represents a point at 
 Note: You may not slant the container.
 */
 public class ContainerWithMostWater {
-    public int maxArea(int[] height) {
+    //O(N)
+    public int maxAreaTwoPointer(int[] height) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
         int max = 0;
-        int length = height.length;
+        int n = height.length;
 
-        //O(N2) exceeds time limit
-        // for(int i = 0; i < length - 1; i++) {
-        //     int leftHeight = height[i];
-        //     for (int j = i + 1; j < length; j++) {
-        //         int rightHeight = height[j];
-        //         int width = j - i;
-        //         int area = width * Math.min(rightHeight, leftHeight);
-        //         max = Math.max(max, area);
-        //     }
-        // }
-        // return max;
-
-
-        //O(N)
         int left = 0;
-        int right = length - 1;
+        int right = n - 1;
         while (left < right) {
             int leftHeight = height[left];
             int rightHeight = height[right];
-            max = Math.max(max, Math.min(rightHeight, leftHeight) * (right - left));
+
+            int minHeight = Math.min(rightHeight, leftHeight);
+            max = Math.max(max, minHeight * (right - left));
             if (leftHeight < rightHeight) {
                 left++;
             } else {
@@ -41,4 +30,22 @@ public class ContainerWithMostWater {
         }
         return max;
     }
+
+    //O(N2) exceeds time limit
+    public int maxAreaBruteForce(int[] height) {
+        int n = height.length;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < n - 1; i++) {
+            int leftHeight = height[i];
+            for (int j = i + 1; j < n; j++) {
+                int rightHeight = height[j];
+                int width = j - i;
+                int area = width * Math.min(rightHeight, leftHeight);
+                max = Math.max(max, area);
+            }
+        }
+        return max;
+    }
+
+
 }
