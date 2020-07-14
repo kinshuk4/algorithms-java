@@ -52,7 +52,7 @@ public class IsSameTree {
     }
 
 
-    static boolean isSameTreeGeneric(com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode<Integer> t1, com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode<Integer> t2) {
+    public static boolean isSameTreeGeneric(com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode<Integer> t1, com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode<Integer> t2) {
         if (t1 == null && t2 == null) {
             return true;
         }

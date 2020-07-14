@@ -14,12 +14,12 @@ If you have figured out the O(n) solution, try coding another solution using the
 
 import org.junit.Assert;
 
-public class MaximumSubarraySum {
+public class MaximumSumSubarray {
 
     public static void main(String[] args) {
         int[] arr = {4, -1, 2, 1};
         int sol = 6;
-        MaximumSubarraySum test = new MaximumSubarraySum();
+        MaximumSumSubarray test = new MaximumSumSubarray();
         Assert.assertEquals(sol, test.maxSubarraySumKadane(arr));
         Assert.assertEquals(sol, test.maxSubarraySumKadaneModified(arr));
         Assert.assertEquals(sol, test.maxSubarraySumKadaneExtraSpace(arr));
@@ -50,8 +50,9 @@ public class MaximumSubarraySum {
 
         int maxSoFar = Integer.MIN_VALUE;
         int maxEndingHere = 0;
-        for (int i = 0; i < arr.length; i++) {
-            maxEndingHere = maxEndingHere + arr[i];
+        for (int value : arr) {
+            maxEndingHere = maxEndingHere + value;
+
             maxEndingHere = Math.max(maxEndingHere, 0);
             maxSoFar = Math.max(maxSoFar, maxEndingHere);
         }
@@ -59,6 +60,7 @@ public class MaximumSubarraySum {
         return maxSoFar;
     }
 
+    // handles -ve numbers
     public int maxSubarraySumKadaneModified(int[] arr) {
         if (arr == null || arr.length == 0) {
             return 0;

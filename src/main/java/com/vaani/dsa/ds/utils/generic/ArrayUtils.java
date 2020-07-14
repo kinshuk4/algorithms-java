@@ -21,6 +21,7 @@ public class ArrayUtils {
         A[j] = tmp;
     }
 
+
     public static <T> void swap(T[] A, int i, int j) {
         T tmp = A[i];
         A[i] = A[j];
@@ -51,7 +52,17 @@ public class ArrayUtils {
         return arr;
     }
 
-    public static int sum(int[] array){
+    public static int sum(int[] array) {
         return Arrays.stream(array).sum();
+    }
+
+    /* Function to find index of value in arr[start...end], the function assumes that value is present in in[] */
+    public static int linearSearch(int[] arr, int value, int start, int end) {
+        for (int i = start; i <= end; i++) {
+            if (arr[i] == value) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

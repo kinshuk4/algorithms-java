@@ -2,6 +2,7 @@ package com.vaani.dsa.algo.paradigm.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /*
 Given a collection of integers that might contain duplicates, S, return all possible subsets.
@@ -21,19 +22,19 @@ If S = [1,2,2], a solution is:
   []
 ]
 */
-public class SubSetii {
-    public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] num) {
+public class SubSet2 {
+    public List<List<Integer>> subsetsWithDup(int[] num) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
         Arrays.sort(num);
-        ArrayList<ArrayList<Integer>> results = new ArrayList<ArrayList<Integer>>();
+        List<List<Integer>> results = new ArrayList<>();
         results.add(new ArrayList<Integer>());
         int index = 0;
         while (index < num.length) {
             int cur = num[index];
             //copy to current to get rid of concurrentModification exception
-            ArrayList<ArrayList<Integer>> current = new ArrayList<ArrayList<Integer>>(results);
-            for (ArrayList<Integer> arr : current) {
+            List<List<Integer>> current = new ArrayList<>(results);
+            for (List<Integer> arr : current) {
                 ArrayList<Integer> newList = new ArrayList<Integer>(arr);
                 newList.add(cur);
                 if (!results.contains(newList)) {
