@@ -1,11 +1,28 @@
 package com.vaani.dsa.algo.paradigm.dp;
 
+/**
+ * https://leetcode.com/problems/maximum-product-subarray/
+ * Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product.
+ * <p>
+ * Example 1:
+ * <p>
+ * Input: [2,3,-2,4]
+ * Output: 6
+ * Explanation: [2,3] has the largest product 6.
+ * Example 2:
+ * <p>
+ * Input: [-2,0,-1]
+ * Output: 0
+ * Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
+ */
 public class MaxProductSubArray {
 
     // Returns the product of max product subarray. Assumes that the
     // given array always has a subarray with product more than 1
-    public static int maxSubarrayProduct(int arr[]) {
+    public static int kadaneProduct(int[] arr) {
+
         int n = arr.length;
+
         // max positive product ending at the current position
         int maxEndingHere = 1;
 
@@ -50,19 +67,48 @@ public class MaxProductSubArray {
             }
 
             // update maxSoFar, if needed
-            if (maxSoFar < maxEndingHere)
-                maxSoFar = maxEndingHere;
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
         }
 
         return maxSoFar;
     }
 
+    public static int kadaneProductModified(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return 0;
+        }
+        int n = arr.length;
+
+        // max positive product ending at the current position
+        int maxEndingHere = arr[0];
+
+        // min negative product ending at the current position
+        int minEndingHere = arr[0];
+
+        // Initialize overall max product
+        int maxSoFar = arr[0];
+
+        for (int i = 1; i < n; i++) {
+            int currValue = arr[i];
+            int temp = maxEndingHere;
+
+            maxEndingHere = Math.max(Math.max(maxEndingHere * currValue, minEndingHere * currValue), currValue);
+            minEndingHere = Math.min(Math.min(temp * currValue, minEndingHere * currValue), currValue);
+
+            // update maxSoFar, if needed
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        }
+
+        return maxSoFar;
+
+    }
+
     // Driver Program to test above function
     public static void main(String[] args) {
-        int arr[] = {1, -2, -3, 0, 7, -8, -2};
+        int[] arr = {1, -2, -3, 0, 7, -8, -2};
 
         System.out.println("Maximum Sub array product is "
-                + maxSubarrayProduct(arr));
+                + kadaneProductModified(arr));
 
     }
 }

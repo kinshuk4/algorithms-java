@@ -1,52 +1,87 @@
-package com.vaani.dsa.algo.misc;/*
-* Suppose a sorted array is rotated at some pivot unknown to you beforehand.
-*
-* (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
-*
-* You are given a target value to search. If found in the array return its index, otherwise return -1.
-*
-*/
+package com.vaani.dsa.algo.misc;
+
+/**
+ * https://leetcode.com/problems/search-in-rotated-sorted-array/
+ * Suppose a sorted array is rotated at some pivot unknown to you beforehand.
+ * <p>
+ * (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+ * <p>
+ * You are given a target value to search. If found in the array return its index, otherwise return -1.
+ */
 
 public class SearchInRotatedSortedArray {
     public static void main(String[] args) {
         int[] a = {2, 3, 2, 2, 2, 2, 2, 2, 2, 2};
 
-        System.out.println(searchInSortedArray(a, 0, a.length - 1, 3));
-        System.out.println(search(a, 0, a.length - 1, 3));
+        System.out.println(rotatedSearchIterative1(a, 3));
+        System.out.println(rotatedSearchRecursive(a, 0, a.length - 1, 3));
+        System.out.println(rotatedSearchIterative2(new int[]{4, 5, 6, 7, 0, 1, 2}, 0));
 
     }
 
-    public static int searchInSortedArray(int[] a, int low, int high, int x) {
-        if (low > high || low < 0 || high >= a.length || a.length == 0)
-            return -1;
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            if (x < a[mid]) {
-                if (a[mid] < a[high])  // the higher is ordered
-                    high = mid - 1;
-                else {                // the lower is ordered
-                    if (x < a[low])    // the higher is not ordered, x is less than all lowers.
-                        low = mid + 1;
-                    else
-                        high = mid - 1;
-                }
-            } else if (x > a[mid]) {
-                if (a[low] < a[mid]) //the lower is ordered
-                    low = mid + 1;
-                else {
-                    if (x > a[high])
-                        high = mid - 1;
-                    else
-                        low = mid + 1;
-                }
-            } else  // x==a[mid]
+    // submitted
+    public static int rotatedSearchIterative1(int[] arr, int target) {
+        int start = 0, end = arr.length - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (arr[mid] == target) {
                 return mid;
+            } else if (target < arr[mid]) {
+                if (arr[mid] < arr[end]) {// the second half is sorted
+                    end = mid - 1;
+                } else {                // the lower is ordered
+                    if (target < arr[start]) {   // the higher is not ordered, x is less than all lowers.
+                        start = mid + 1;
+                    } else {
+                        end = mid - 1;
+                    }
+                }
+            } else if (target > arr[mid]) {
+                if (arr[start] < arr[mid]) { //the lower is ordered
+                    start = mid + 1;
+                } else {
+                    if (target > arr[end]) {
+                        end = mid - 1;
+                    } else {
+                        start = mid + 1;
+                    }
+                }
+            }
         }
         return -1;
 
     }
 
-    public static int search(int a[], int left, int right, int x) {
+    // submitted- didnt pass
+    public static int rotatedSearchIterative2(int[] arr, int target) {
+        int start = 0, end = arr.length - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (arr[mid] == target) {
+                return mid;
+            } else if (arr[mid] > arr[start]) { // left part is sorted
+                if (target < arr[mid] && target > arr[start]) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            } else { // right side is sorted
+
+                if (target > arr[mid] && target < arr[start]) {
+                    start = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
+
+            }
+        }
+        return -1;
+
+    }
+
+    public static int rotatedSearchRecursive(int a[], int left, int right, int x) {
         int mid = (left + right) / 2;
         if (x == a[mid]) { // Found element
             return mid;
@@ -56,28 +91,28 @@ public class SearchInRotatedSortedArray {
         }
 
         /* While there may be an inflection point due to the rotation, either the left or
-           * right half must be normally ordered.  We can look at the normally ordered half
-           * to make a determination as to which half we should search.
-           */
+         * right half must be normally ordered.  We can look at the normally ordered half
+         * to make a determination as to which half we should search.
+         */
         if (a[left] < a[mid]) { // Left is normally ordered.
             if (x >= a[left] && x <= a[mid]) {
-                return search(a, left, mid - 1, x);
+                return rotatedSearchRecursive(a, left, mid - 1, x);
             } else {
-                return search(a, mid + 1, right, x);
+                return rotatedSearchRecursive(a, mid + 1, right, x);
             }
         } else if (a[mid] < a[left]) { // Right is normally ordered.
             if (x >= a[mid] && x <= a[right]) {
-                return search(a, mid + 1, right, x);
+                return rotatedSearchRecursive(a, mid + 1, right, x);
             } else {
-                return search(a, left, mid - 1, x);
+                return rotatedSearchRecursive(a, left, mid - 1, x);
             }
         } else if (a[left] == a[mid]) { // Left is either all repeats OR loops around (with the right half being all dups)
             if (a[mid] != a[right]) { // If right half is different, search there
-                return search(a, mid + 1, right, x);
+                return rotatedSearchRecursive(a, mid + 1, right, x);
             } else { // Else, we have to search both halves
-                int result = search(a, left, mid - 1, x);
+                int result = rotatedSearchRecursive(a, left, mid - 1, x);
                 if (result == -1) {
-                    return search(a, mid + 1, right, x);
+                    return rotatedSearchRecursive(a, mid + 1, right, x);
                 } else {
                     return result;
                 }

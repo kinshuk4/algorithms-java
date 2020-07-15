@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import static com.vaani.dsa.ds.utils.simple.BinaryTreeUtil.getABinaryTree1;
 
 /**
+ * https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
  * Design an algorithm and write code to serialize and deserialize a binary tree.
  * Writing the tree to a file is called ‘serialization’ and reading back from the file to reconstruct the exact same binary tree is ‘deserialization’
  * <p>
@@ -69,7 +70,7 @@ public class SerializeBinaryTree {
         while (!queue.isEmpty()) {
             BinaryTreeNode t = queue.poll();
             if (t != null) {
-                sb.append(String.valueOf(t.val)).append(",");
+                sb.append(t.val).append(",");
                 queue.add(t.left);
                 queue.add(t.right);
             } else {
@@ -94,27 +95,28 @@ public class SerializeBinaryTree {
 
         int i = 1;
         while (!queue.isEmpty()) {
-            BinaryTreeNode t = queue.poll();
+            BinaryTreeNode node = queue.poll();
 
-            if (t == null)
+            if (node == null) {
                 continue;
+            }
 
             if (!arr[i].equals("#")) {
-                t.left = new BinaryTreeNode(Integer.parseInt(arr[i]));
-                queue.offer(t.left);
+                node.left = new BinaryTreeNode(Integer.parseInt(arr[i]));
+                queue.offer(node.left);
 
             } else {
-                t.left = null;
+                node.left = null;
                 queue.offer(null);
             }
             i++;
 
             if (!arr[i].equals("#")) {
-                t.right = new BinaryTreeNode(Integer.parseInt(arr[i]));
-                queue.offer(t.right);
+                node.right = new BinaryTreeNode(Integer.parseInt(arr[i]));
+                queue.offer(node.right);
 
             } else {
-                t.right = null;
+                node.right = null;
                 queue.offer(null);
             }
             i++;

@@ -7,13 +7,14 @@ The goal in this problem is to find the minimum number of coins needed to change
 Input = 2, Output:2 = 1 + 1.
 
  */
-public class MinCoinChange {
+public class CoinChangeMinCoinsCanonicalSystem {
     static int[] denoms = {1, 5, 10};
+
     private static int getChange(int m) {
         //write your code here
         int change = 0;
         int moneyRemaining = m;
-        for (int i = denoms.length - 1; i >= 0 ; i--){
+        for (int i = denoms.length - 1; i >= 0; i--) {
             int currDenom = denoms[i];
             int currChange = moneyRemaining / currDenom;
             moneyRemaining = moneyRemaining % currDenom;

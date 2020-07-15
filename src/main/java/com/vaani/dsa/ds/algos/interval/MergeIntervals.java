@@ -3,54 +3,48 @@ package com.vaani.dsa.ds.algos.interval;
 import com.vaani.dsa.ds.core.visual.Interval;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
-/*
-Given a collection of intervals, mergeIterative all overlapping intervals.
-
-For example,
-Given [1,3],[2,6],[8,10],[15,18],
-return [1,6],[8,10],[15,18].
-*/
+import static com.vaani.dsa.ds.utils.simple.IntervalUtils.convertIntervalsToMatrix;
+import static com.vaani.dsa.ds.utils.simple.IntervalUtils.convertMatrixToIntervals;
 
 /**
- * Definition for an interval.
- * public class Interval {
- * int start;
- * int end;
- * Interval() { start = 0; end = 0; }
- * Interval(int s, int e) { start = s; end = e; }
- * }
+ * https://leetcode.com/problems/merge-intervals/
+ * Given a collection of intervals, mergeIterative all overlapping intervals.
+ * <p>
+ * For example,
+ * Given [1,3],[2,6],[8,10],[15,18],
+ * return [1,6],[8,10],[15,18].
  */
 
 
 public class MergeIntervals {
-    public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
-        ArrayList<Interval> result = new ArrayList<Interval>();
+    public int[][] merge(int[][] intervals) {
+        List<Interval> intervalList = convertMatrixToIntervals(intervals);
+        List<Interval> mergedIntervals = merge(intervalList);
+        return convertIntervalsToMatrix(mergedIntervals);
+    }
+
+    public List<Interval> merge(List<Interval> intervals) {
+        List<Interval> result = new ArrayList<>();
         if (intervals == null || intervals.size() == 0) return result;
-        Comparator<Interval> comparator = new Comparator<Interval>() {
-            public int compare(Interval i1, Interval i2) {
-                if (i1.start < i2.start) {
-                    return -1;
-                } else if (i1.start > i2.start) {
-                    return 1;
-                } else {
-                    if (i1.end < i2.end) return -1;
-                    else if (i1.end > i2.end) return 1;
-                    else return 0;
-                }
+        Comparator<Interval> comparator = (i1, i2) -> {
+            if (i1.start < i2.start) {
+                return -1;
+            } else if (i1.start > i2.start) {
+                return 1;
+            } else {//if starts are equal
+                return Integer.compare(i1.end, i2.end);
             }
         };
 
-        Collections.sort(intervals, comparator);
+        intervals.sort(comparator);
 
-        for (int i = 0; i < intervals.size(); i++) {
-            Interval cur = intervals.get(i);
-            if (result.isEmpty()) result.add(cur);
-            else {
+        for (Interval cur : intervals) {
+            if (result.isEmpty()) {
+                result.add(cur);
+            } else {
                 Interval last = result.get(result.size() - 1);
                 if (last.end >= cur.start) {
                     last.end = Math.max(last.end, cur.end);

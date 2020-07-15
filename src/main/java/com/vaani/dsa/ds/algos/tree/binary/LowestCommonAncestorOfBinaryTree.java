@@ -1,45 +1,59 @@
 package com.vaani.dsa.ds.algos.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 /**
- *  on 10/27/2014.
+ * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
  */
-public class LowestCommonAncestor2 {
+public class LowestCommonAncestorOfBinaryTree {
     /**
      * Top-down approach: worst case O(n^2)
      * Balanced tree: O(n)
      * Degenerate tree: O(n^2)
      */
     public static BinaryTreeNode getLCA1(BinaryTreeNode root, BinaryTreeNode p, BinaryTreeNode q) {
-        if (root == null || p == null || q == null) return null;
-        if (root == p || root == q) return root;
+        if (root == null || p == null || q == null) {
+            return null;
+        }
+        if (root == p || root == q) {
+            return root;
+        }
 
         int count = getMatchCount(root.left, p, q);
-        if (count == 1)
+        if (count == 1) {
             return root;
-        else if (count == 0)
+        } else if (count == 0) {
             return getLCA1(root.right, p, q);
-        else
+        } else {
             return getLCA1(root.left, p, q);
+        }
     }
 
     public static int getMatchCount(BinaryTreeNode root, BinaryTreeNode p, BinaryTreeNode q) {
-        if (root == null) return 0;
+        if (root == null) {
+            return 0;
+        }
         int count = (root == p || root == q) ? 1 : 0;
         return count + getMatchCount(root.left, p, q) + getMatchCount(root.right, p, q);
     }
 
     /**
-     * Bottom-up approach: worst case O(n)
+     * Bottom-up approach: worst case O
+     * We can also use stack - https://www.youtube.com/watch?v=GnliEfQo114
      */
     public static BinaryTreeNode getLCA2(BinaryTreeNode root, BinaryTreeNode p, BinaryTreeNode q) {
-        if (root == null || p == null || q == null) return null;
-        if (root == p || root == q) return root;
+        if (root == null || p == null || q == null) {
+            return null;
+        }
+        if (root == p || root == q) {
+            return root;
+        }
 
         BinaryTreeNode left = getLCA2(root.left, p, q);
         BinaryTreeNode right = getLCA2(root.right, p, q);
-        if (left != null && right != null) return root;
+        if (left != null && right != null) {
+            return root;
+        }
         return left != null ? left : right;
     }
 

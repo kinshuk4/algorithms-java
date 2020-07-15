@@ -1,8 +1,8 @@
 package com.vaani.dsa.ds.algos.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
-public class LowestCommonAncestor {
+public class LowestCommonAncestorWithParentPointer {
 
     private int depth(NodeWithParent node) {
         int n = 0;
@@ -16,10 +16,6 @@ public class LowestCommonAncestor {
     /**
      * Find LCA for nodes with only parent pointer.
      * O(h) time, where h is the height of the tree
-     *
-     * @param node1
-     * @param node2
-     * @return
      */
     public NodeWithParent lca(NodeWithParent node1, NodeWithParent node2) {
         int leftDepth = depth(node1);

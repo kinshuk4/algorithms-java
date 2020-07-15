@@ -1,9 +1,9 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.ds.design;
 
 import java.util.Map;
 import java.util.TreeMap;
 
-public class MedianOfStream {
+public class MedianOfDataStreamUsingTreeMap {
 
     private long size = 0;
     private Map<Integer, Integer> hist = new TreeMap<Integer, Integer>();

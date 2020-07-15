@@ -17,7 +17,7 @@ Consider the following matrix:
 Given target = 3, return true.
 */
 
-public class Searcha2DMatrix {
+public class Search2DMatrix {
     public boolean searchMatrix(int[][] matrix, int target) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
         int rowLength = matrix.length;

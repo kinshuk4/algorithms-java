@@ -2,9 +2,10 @@ package com.vaani.dsa.ds.algos.tree.binary;
 
 import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
-import java.util.*;
+import java.util.LinkedList;
 
 /**
+ * https://leetcode.com/problems/validate-binary-search-tree/
  * Given a binary tree, determine if it is a valid binary search tree (BST).
  * <p>
  * Assume a BST is defined as follows:
@@ -79,15 +80,19 @@ public class ValidateBST {
         return current.val;
     }
 
-    public boolean isValidBST(BinaryTreeNode root) {
-        return isValidBSTHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    public boolean isValidBSTEfficient(BinaryTreeNode root) {
+        return isValidBSTEfficientHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    public boolean isValidBSTHelper(BinaryTreeNode root, int min, int max) {
-        if (root == null) return true;
+    // We are using long min and long max to handle the case
+    // when node's value is Integer.MIN_VALUE OR Integer.MAX_VALUE
+    public boolean isValidBSTEfficientHelper(BinaryTreeNode root, long min, long max) {
+        if (root == null) {
+            return true;
+        }
         if (root.val > min && root.val < max
-                && isValidBSTHelper(root.left, min, root.val)
-                && isValidBSTHelper(root.right, root.val, max)) {
+                && isValidBSTEfficientHelper(root.left, min, root.val)
+                && isValidBSTEfficientHelper(root.right, root.val, max)) {
             return true;
         } else {
             return false;

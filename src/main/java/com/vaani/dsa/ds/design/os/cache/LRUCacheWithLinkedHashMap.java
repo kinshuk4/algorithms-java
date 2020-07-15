@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.os.cache;
+package com.vaani.dsa.ds.design.os.cache;
 
 import java.util.LinkedHashMap;
 import java.util.Map.Entry;
@@ -7,14 +7,14 @@ import java.util.Map.Entry;
  *
  * least-recently-used cache linkedhashmap with a fixed size to implement LRU
  */
-public class LRUWithLinkedHM<K, V> extends LinkedHashMap<K, V> {
+public class LRUCacheWithLinkedHashMap<K, V> extends LinkedHashMap<K, V> {
 
 
     private int maxSize;
 
     // private static final long serialVersionUID = 1L;
 
-    public LRUWithLinkedHM(int size) {
+    public LRUCacheWithLinkedHashMap(int size) {
         // removeEldestEntry() is called after a put(). To allow maxEntries in
         // cache, capacity should be maxEntries + 1 (+1 for the entry which will
         // be removed). Load factor is taken as 1 because size is fixed. This is
@@ -29,7 +29,7 @@ public class LRUWithLinkedHM<K, V> extends LinkedHashMap<K, V> {
 
     public static void main(String[] args) {
 
-        LRUWithLinkedHM<String, Integer> lru = new LRUWithLinkedHM<String, Integer>(2);
+        LRUCacheWithLinkedHashMap<String, Integer> lru = new LRUCacheWithLinkedHashMap<String, Integer>(2);
 
         lru.put("A", 1);
         lru.put("B", 2);

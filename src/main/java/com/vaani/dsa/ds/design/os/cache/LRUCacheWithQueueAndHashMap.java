@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.os.cache;
+package com.vaani.dsa.ds.design.os.cache;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -6,23 +6,22 @@ import java.util.Queue;
 
 
 /**
- *
  * least-recently-used cache
  * hashmap + queue with a fixed size to implement LRU
  */
-public class LRUCacheWithQHM<K, V> {
-    private HashMap<K, V> lru;
+public class LRUCacheWithQueueAndHashMap<K, V> {
+    private HashMap<K, V> map;
     private Queue<K> queue;
     private int max;
 
-    public LRUCacheWithQHM(int n) {
-        lru = new HashMap<K, V>();
+    public LRUCacheWithQueueAndHashMap(int n) {
+        map = new HashMap<K, V>();
         queue = new LinkedList<K>();
         max = n;
     }
 
     public static void main(String[] args) {
-        LRUCacheWithQHM<String, Integer> lruCache = new LRUCacheWithQHM<String, Integer>(2);
+        LRUCacheWithQueueAndHashMap<String, Integer> lruCache = new LRUCacheWithQueueAndHashMap<String, Integer>(2);
 
         lruCache.add("A", 1);
         lruCache.add("B", 2);
@@ -43,43 +42,42 @@ public class LRUCacheWithQHM<K, V> {
     }
 
     public boolean add(K key, V value) {
-        if (lru.size() < max) {
-            lru.put(key, value);
+        if (map.size() < max) {
+            map.put(key, value);
             queue.add(key);
             return true;
-        } else if (lru.size() == max) {
-
-            lru.remove(queue.poll());
+        } else if (map.size() == max) {
+            map.remove(queue.poll());
             queue.add(key);
-            lru.put(key, value);
+            map.put(key, value);
             return true;
-        } else
-            return false;
+        }
+        return false;
     }
 
     public boolean remove(K key) {
         if (queue.contains(key)) {
             queue.remove(key);
-            lru.remove(key);
+            map.remove(key);
             return true;
-        } else
-            return false;
+        }
+        return false;
     }
 
     public int size() {
-        return lru.size();
+        return map.size();
     }
 
     public V get(K key) {
         if (queue.contains(key)) {
-            return lru.get(key);
+            return map.get(key);
         } else
             return null;
     }
 
     public V getFirst() {
         if (!queue.isEmpty()) {
-            return lru.get(queue.peek());
+            return map.get(queue.peek());
         } else
             return null;
     }

@@ -3,6 +3,10 @@ package com.vaani.dsa.ds.algos.list.linked;
 import com.vaani.dsa.ds.core.list.sll.simple.ListNode;
 import com.vaani.dsa.ds.utils.simple.ListUtil;
 
+import static com.vaani.dsa.ds.algos.list.linked.MergeTwoSortedLists.mergeIterative;
+import static com.vaani.dsa.ds.utils.simple.ListUtil.getMidNode;
+import static com.vaani.dsa.ds.utils.simple.ListUtil.getPointerToMidNode;
+
 
 /**
  * Sort a linked list in O(n log n) time using constant space complexity.
@@ -17,19 +21,23 @@ public class SortList {
         head.next.next.next.next = new ListNode(2);
 
         SortList test = new SortList();
-        test.sortList(head).display();
+        sortList(head).display();
     }
 
-    public ListNode sortList(ListNode head) {
-        if (head == null || head.next == null) return head;
-        ListNode partition = ListUtil.getMidNode(head);
-        ListNode mid = partition.next;
-        partition.next = null;
+    public static ListNode sortList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode partition = getPointerToMidNode(head);
 
-        ListNode first = sortList(head);
-        ListNode second = sortList(mid);
-        return MergeTwoSortedLists.mergeIterative(first, second);
-//        return mergeRecursive(first, second);
+        ListNode first = head;
+        ListNode second = partition.next;
+
+
+        partition.next = null;
+        first = sortList(first);
+        second = sortList(second);
+        return mergeIterative(first, second);
     }
 
 }

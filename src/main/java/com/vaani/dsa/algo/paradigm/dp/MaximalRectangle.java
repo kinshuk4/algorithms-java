@@ -18,6 +18,8 @@ L(i, j) = 0
 R(i, j) = n
 */
 
+import static com.vaani.dsa.ds.algos.stack.LargestRectangleInHistogram.largestRectangleArea2;
+
 public class MaximalRectangle {
     public int maximalRectangle(char[][] matrix) {
         // IMPORTANT: Please reset any member data you declared, as
@@ -67,5 +69,31 @@ public class MaximalRectangle {
 
         }
         return area;
+    }
+
+    // chosen
+    public int maximalRectangle2(char[][] matrix) {
+        int rows = matrix.length;
+        int cols = rows == 0 ? 0 : matrix[0].length;
+        int[][] heights = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (matrix[i][j] == '0') {
+                    heights[i][j] = 0;
+                } else if (matrix[i][j] == '1') {
+                    if (i == 0) {
+                        heights[i][j] = 1;
+                    } else {
+                        heights[i][j] = heights[i - 1][j] + 1;// as the height may increment based on row i-1
+                    }
+                }
+            }
+        }
+
+        int max = 0;
+        for (int i = 0; i < rows; i++) {
+            max = Math.max(max, largestRectangleArea2(heights[i]));
+        }
+        return max;
     }
 }

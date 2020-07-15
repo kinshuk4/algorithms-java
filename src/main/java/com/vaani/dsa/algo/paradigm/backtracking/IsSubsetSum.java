@@ -47,7 +47,7 @@ public class IsSubsetSum {
         boolean[][] dp = new boolean[n][sum + 1];
 
         // If sum is 0, then answer is true
-        for (int i = 0; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             dp[i][0] = true;
         }
 

@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.paradigm.dp;
 
 import java.util.ArrayList;
 import java.util.Set;
