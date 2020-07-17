@@ -5,6 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ArrayUtils {
+    public static void reverseBetweenRange(char[] array, int start, int end) {
+        while (start < end) {
+            swap(array, start++, end--);
+        }
+    }
+
     public static void reverseBetweenRange(int[] array, int start, int end) {
         while (start < end) {
             swap(array, start++, end--);
@@ -15,11 +21,22 @@ public class ArrayUtils {
         reverseBetweenRange(array, 0, array.length - 1);
     }
 
+    public static void reverse(char[] array) {
+        reverseBetweenRange(array, 0, array.length - 1);
+    }
+
     public static void swap(int[] A, int i, int j) {
         int tmp = A[i];
         A[i] = A[j];
         A[j] = tmp;
     }
+
+    public static void swap(char[] A, int i, int j) {
+        char tmp = A[i];
+        A[i] = A[j];
+        A[j] = tmp;
+    }
+
 
 
     public static <T> void swap(T[] A, int i, int j) {

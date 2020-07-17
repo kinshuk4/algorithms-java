@@ -1,6 +1,6 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.string;
 
-/*
+/* https://leetcode.com/problems/valid-palindrome/
 Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
 
 For example,
@@ -14,9 +14,11 @@ For the purpose of this problem, we define empty string as valid palindrome.
 */
 
 public class ValidPalindrome {
+    public static void main(String[] args) throws Exception {
+        System.out.println(new ValidPalindrome().isPalindrome("989 "));
+    }
+
     public boolean isPalindrome(String s) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
         if (s == null || s.length() == 0) {
             return true;
         }
@@ -45,5 +47,38 @@ public class ValidPalindrome {
         }
 
         return true;
+    }
+
+    public boolean isPalindrome2(String s) {
+        if (s == null || s.isEmpty()) {
+            return true;
+        }
+        s = s.toLowerCase();
+        for (int i = 0, j = s.length() - 1; i < j; ) {
+            char leftChar = s.charAt(i);
+            char rightChar = s.charAt(j);
+            if (!isCharacterOrDigit(leftChar)) {
+                i++;
+                continue;
+            }
+            if (!isCharacterOrDigit(rightChar)) {
+                j--;
+                continue;
+            }
+            if (leftChar != rightChar) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
+    public boolean isCharacterOrDigit(char c) {
+        if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')) {
+            return true;
+        }
+//        return Character.isLetterOrDigit(c);
+        return false;
     }
 }

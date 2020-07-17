@@ -1,43 +1,41 @@
 package com.vaani.dsa.ds.algos.convert;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 
 
-/*
-Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
-*/
+/* https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
+ * Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
+ * Given the sorted array: [-10,-3,0,5,9],
 
-/**
- * Definition for binary tree
- * public class BinaryTreeNode {
- * int val;
- * BinaryTreeNode left;
- * BinaryTreeNode right;
- * BinaryTreeNode(int x) { val = x; }
- * }
+One possible answer is: [0,-3,9,-10,null,5], which represents the following height balanced BST:
+
+      0
+     / \
+   -3   9
+   /   /
+ -10  5
+ *
  */
 public class ConvertSortedArrayToBST {
-    public BinaryTreeNode sortedArrayToBST(int[] num) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
-        int length = num.length;
-
-        if (length == 0) {
-            return null;
-        }
-        return getNode(0, length - 1, num);
+    public static void main(String[] args) {
+        int[] num = {2, 4, 7, 9, 10, 12};
+        ConvertSortedArrayToBST test = new ConvertSortedArrayToBST();
+        test.sortedArrayToBST(num);
     }
 
-    public BinaryTreeNode getNode(int start, int end, int[] num) {
+    public BinaryTreeNode sortedArrayToBST(int[] nums) {
+        return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
+    }
+
+    public BinaryTreeNode sortedArrayToBSTHelper(int[] arr, int start, int end) {
         if (start > end) {
             return null;
         }
-        int mid = (start + end) / 2;
-        BinaryTreeNode root = new BinaryTreeNode(num[mid]);
-        root.left = getNode(start, mid - 1, num);
-        root.right = getNode(mid + 1, end, num);
+        int mid = start + (end - start) / 2;
+        BinaryTreeNode root = new BinaryTreeNode(arr[mid]);
+        root.left = sortedArrayToBSTHelper(arr, start, mid - 1);
+        root.right = sortedArrayToBSTHelper(arr, mid + 1, end);
         return root;
     }
-
 }

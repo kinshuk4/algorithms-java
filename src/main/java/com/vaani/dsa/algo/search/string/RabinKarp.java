@@ -100,6 +100,6 @@ public class RabinKarp {
         }
 
         // no match
-        return N;
+        return -1;
     }
 }

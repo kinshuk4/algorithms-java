@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.paradigm.recursion;
+package com.vaani.dsa.algo.paradigm.backtracking;
 
 /*
 Given a string s, partition s such that every substring of the partition is a palindrome.

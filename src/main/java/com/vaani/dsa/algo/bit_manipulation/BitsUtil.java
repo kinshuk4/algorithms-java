@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.bits;
+package com.vaani.dsa.algo.bit_manipulation;
 
 public class BitsUtil {
     public static int numOnesInInteger(int num) {

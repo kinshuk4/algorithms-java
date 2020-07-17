@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.string;
 
 import java.util.Scanner;
 //https://github.com/kchanin/CaesarCipher/blob/master/src/com/chanin/Main.java
@@ -35,6 +35,31 @@ public class CaesarCipher {
             return value;
         }
         return value;
+    }
+
+    static String caesarCipher(String s, int k) {
+        k = k % 26;
+        StringBuilder passwd = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            int ch = s.charAt(i);
+            int t = (ch + k);
+
+            if (ch >= 'a' && ch <= 'z') {
+                if (t > 'z') {
+                    t = 'a' + (t - 'z') - 1;
+                }
+                passwd.append((char) (t));
+            } else if (ch >= 'A' && ch <= 'Z') {
+                if (t > 'Z') {
+                    t = 'A' + (t - 'Z') - 1;
+                }
+                passwd.append((char) (t));
+            } else {
+                passwd.append((char) ch);
+            }
+        }
+
+        return passwd.toString();
     }
 
 }

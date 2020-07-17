@@ -16,4 +16,9 @@ public class ListNode {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return Integer.toString(val) + "->" + (next == null ? "null" : next.toString());
+    }
 }

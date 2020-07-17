@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.bits;
+package com.vaani.dsa.algo.bit_manipulation;
 
 /*
 Given two binary strings, return their sum (also a binary string).

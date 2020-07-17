@@ -34,5 +34,8 @@ public class CountSubsetSumEqualK {
         return dp[n - 1][sum];
     }
 
+    // Reuse subset sum
+    // let S be Set. S1 - S2 = min. S1+S2 = sum, min + sum = 2S1 => min = sum - 2S1
+
 
 }

@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.bits;
+package com.vaani.dsa.algo.bit_manipulation;
 
 /**
  * Created by kchandra on 16/08/16.

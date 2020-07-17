@@ -4,7 +4,7 @@ package com.vaani.dsa.algo.paradigm.dp;
  * An O(N) Solution (Manacher�s Algorithm):
  * S = �abaaba�, T = �#a#b#a#a#b#a#�.
  */
-public class LongestPalindrome {
+public class LongestPalindromicSubstringManacher {
     public static void main(String[] args) {
         String s = "cabaaba";
         System.out.println(s);

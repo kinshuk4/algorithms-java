@@ -8,7 +8,7 @@ public class PowerOfThree {
 
     public boolean isPowerOfThree(int num) {
         if (num == 0) {
-            return true;
+            return false;
         }
 
         while (num % 9 == 0) {

@@ -1,5 +1,6 @@
-package com.vaani.dsa.algo.misc;
-//https://github.com/JoshuaYang36/Java-Exercises/blob/master/Algorithms/HappyNumber.java
+package com.vaani.dsa.algo.numerical;
+
+// https://leetcode.com/problems/happy-number/
 /*  ----------------------------------------------------------------------------------------------------------------/
 /   Problem: A happy number is one where taking each digit in the given integer, and summing their squares will     /
 /            result in 1 or continue before.                                                                        /
@@ -12,7 +13,8 @@ package com.vaani.dsa.algo.misc;
 /            return true                                                                                            /
 /   ---------------------------------------------------------------------------------------------------------------*/
 public class HappyNumber {
-    public boolean isHappy(int n) {
+
+    public boolean isHappyRecursive(int n) {
         int output = 0;
         int lastDigit;
         while(n > 9){
@@ -23,12 +25,35 @@ public class HappyNumber {
         output = output + (n * n);
 
         if(output == 1){
-
             return true;
         }
         else{
-            isHappy(output);
+            isHappyRecursive(output);
         }
         return false;
     }
+
+    // submitted - elegant
+    public boolean isHappyFloydCycleDetection(int n) {
+        int slow = n;
+        int fast = getNext(n);
+
+        while(fast != 1 && fast != slow) {
+            slow = getNext(slow);
+            fast = getNext(getNext(fast));
+        }
+
+        return fast == 1;
+    }
+    private int getNext(int n) {
+        int ans = 0;
+        while(n > 0) {
+            int digit = n%10;
+            ans += digit*digit;
+            n/=10;
+        }
+        return ans;
+    }
+
+
 }

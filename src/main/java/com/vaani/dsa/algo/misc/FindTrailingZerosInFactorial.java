@@ -1,5 +1,8 @@
 package com.vaani.dsa.algo.misc;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Given an integer n, write a function that returns count of trailing zeroes in n!.
  * <p>
@@ -19,13 +22,14 @@ package com.vaani.dsa.algo.misc;
  * Reference: http://www.geeksforgeeks.org/count-trailing-zeroes-factorial-number/
  */
 public class FindTrailingZerosInFactorial {
+    //https://www.youtube.com/watch?v=3Hdmv_Ym8PI&feature=youtu.be
     public static int findTrailingZeros(int n) {
-        int count = 0;
+        int numberOfFives = 0;
         while (n != 0) {
-            count += n / 5;
+            numberOfFives += n / 5;
             n /= 5;
         }
-        return count;
+        return numberOfFives;
     }
 
 
@@ -35,6 +39,18 @@ public class FindTrailingZerosInFactorial {
             count += n / i;
         }
         return count;
+    }
+
+    int trailingZeroes(int n) {
+        List<Integer> resultList = new ArrayList<>();
+        int result = 0;
+        //first count number of 5 in the number as number multiplied by (2,4,8) gives a trailing zero
+        while (n != 0) {
+            n = n / 5; //again divide as 25 will also create more trailing zero and so on
+            resultList.add(n);
+        }
+        result = resultList.stream().reduce(0, Integer::sum);
+        return result;
     }
 
     public static void main(String[] args) {

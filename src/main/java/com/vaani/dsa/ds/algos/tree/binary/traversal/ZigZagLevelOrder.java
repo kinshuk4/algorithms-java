@@ -1,26 +1,25 @@
 package com.vaani.dsa.ds.algos.tree.binary.traversal;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 import java.util.*;
 
 public class ZigZagLevelOrder {
 
-    @SuppressWarnings("Duplicates")
-    public static <T> List<List<T>> zigzagLevelOrderUsingQueue(BinaryTreeNode<T> root) {
-        List<List<T>> result = new LinkedList<>();
+    public static List<List<Integer>> zigzagLevelOrderUsingQueue(BinaryTreeNode root) {
+        List<List<Integer>> result = new LinkedList<>();
         if (root == null) {
             return result;
         }
 
-        Queue<BinaryTreeNode<T>> queue1 = new LinkedList<>();
-        Queue<BinaryTreeNode<T>> queue2 = new LinkedList<>();
+        Queue<BinaryTreeNode> queue1 = new LinkedList<>();
+        Queue<BinaryTreeNode> queue2 = new LinkedList<>();
 
-        List<T> level = new LinkedList<>();
+        List<Integer> level = new LinkedList<>();
         queue1.add(root);
 
         while (!queue1.isEmpty()) {
-            BinaryTreeNode<T> node = queue1.poll();
+            BinaryTreeNode node = queue1.poll();
             level.add(node.val);
 
             if (node.left != null) {
@@ -32,7 +31,7 @@ public class ZigZagLevelOrder {
 
             if (queue1.isEmpty()) {
                 result.add(level);
-                level = new ArrayList<T>();
+                level = new LinkedList<>();
                 queue1.addAll(queue2);
                 queue2.clear();
             }
@@ -46,25 +45,25 @@ public class ZigZagLevelOrder {
     /**
      * Two Stack Solution
      */
-    public static <T> List<List<T>> ZigZagLevelOrderUsingStack(BinaryTreeNode<T> root) {
-        List<List<T>> result = new LinkedList<>();
+    public static List<List<Integer>> ZigZagLevelOrderUsingStack(BinaryTreeNode root) {
+        List<List<Integer>> result = new LinkedList<>();
         if (root == null) {
             return result;
         }
 
 
-        Stack<BinaryTreeNode<T>> currLevel = new Stack<>();
-        Stack<BinaryTreeNode<T>> nextLevel = new Stack<>();
-        Stack<BinaryTreeNode<T>> temp;
+        Stack<BinaryTreeNode> currLevel = new Stack<>();
+        Stack<BinaryTreeNode> nextLevel = new Stack<>();
+        Stack<BinaryTreeNode> temp;
 
         boolean leftToRight = true;
 
         // push root in stack
         currLevel.push(root);
-        List<T> level = new LinkedList<>();
+        List<Integer> level = new LinkedList<>();
 
         while (!currLevel.empty()) {
-            BinaryTreeNode<T> node = currLevel.pop(); //top();
+            BinaryTreeNode node = currLevel.pop(); //top();
             level.add(node.val);
 
             if (leftToRight) {
@@ -80,7 +79,7 @@ public class ZigZagLevelOrder {
 
             if (currLevel.isEmpty()) {
                 result.add(level);
-                level = new LinkedList<T>();
+                level = new LinkedList<>();
 
                 leftToRight = !leftToRight;
                 //swap stacks
@@ -95,10 +94,33 @@ public class ZigZagLevelOrder {
         return result;
     }
 
-    private static <T> void pushToStack(Stack<BinaryTreeNode<T>> stack, BinaryTreeNode<T> node) {
+    private static void pushToStack(Stack<BinaryTreeNode> stack, BinaryTreeNode node) {
         if (node != null) {
             stack.push(node);
         }
+    }
+
+    public static List<List<Integer>> zigzagLevelOrderUsingRecursion(BinaryTreeNode root) {
+        List<List<Integer>> result = new LinkedList<>();
+        if (root == null) {
+            return result;
+        }
+        dfs(root, 0, result);
+        return result;
+    }
+
+    private static void dfs(BinaryTreeNode cur, int level, List<List<Integer>> result) {
+        if (cur == null) return;
+        if (result.size() <= level) {
+            result.add(new ArrayList<Integer>());
+        }
+        if (level % 2 == 0) {
+            result.get(level).add(cur.val);
+        } else {
+            result.get(level).add(0, cur.val);
+        }
+        dfs(cur.left, level + 1, result);
+        dfs(cur.right, level + 1, result);
     }
 
 

@@ -1,6 +1,7 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.string;
 
 /**
+ * https://leetcode.com/problems/string-to-integer-atoi/
  * Implement atoi to convert a string to an integer.
  * <p>
  * Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
@@ -15,22 +16,29 @@ package com.vaani.dsa.algo.misc;
  * If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.
  * If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.
  * <p>
- *  on 9/9/2014.
  */
-public class StringToInteger {
+public class StringToIntegerAtoi {
     public static void main(String[] args) {
-        StringToInteger test = new StringToInteger();
+        StringToIntegerAtoi test = new StringToIntegerAtoi();
         String str = "-321";
-        System.out.println(test.atoi(str));
+        System.out.println(test.atoi1(str));
+        System.out.println(test.atoi2(" "));
     }
 
-    public int atoi(String str) {
-        str = str.trim();
+    public int atoi1(String str) {
         int len = str.length();
-        if (len == 0) return 0;
+
+        int i = 0;
+        // trim spaces
+        while (i < len && str.charAt(i) == ' ') {
+            i++;
+        }
+
+        if(i == len){
+            return 0;
+        }
 
         boolean positive = true;
-        int i = 0;
         if (str.charAt(i) == '+') {
             i++;
         } else if (str.charAt(i) == '-') {
@@ -39,7 +47,7 @@ public class StringToInteger {
         }
 
         int result = 0;
-        int measure = Integer.MAX_VALUE / 10;
+        int measure = Integer.MAX_VALUE / 10; // 2147483647 / 10
         while (i < len) {
             char ch = str.charAt(i);
             if (ch >= '0' && ch <= '9') {
@@ -54,5 +62,55 @@ public class StringToInteger {
             i++;
         }
         return positive ? result : -result;
+    }
+
+    public int atoi2(String str) {
+        if (str == null || str.equals("")) {
+            return 0;
+        }
+
+
+        int length = str.length();
+        int i = 0;
+        // trim spaces
+        while (i < length && str.charAt(i) == ' ') {
+            i++;
+        }
+
+        // we have reached the end of string
+        if (i == length) {
+            return 0;
+        }
+
+        // get sign
+        int sign = 1;
+        if (str.charAt(i) == '+') {
+            i++;
+        } else if (str.charAt(i) == '-') {
+            sign = -1;
+            i++;
+        }
+
+        long num = 0;
+        for (; i < length; i++) {
+            int currDigit = str.charAt(i) - '0';
+            if (currDigit < 0 || str.charAt(i) > 9) {
+                break;
+            }
+            if (num >= Integer.MAX_VALUE) {
+                if (sign == 1) {
+                    return Integer.MAX_VALUE;
+                } else {
+                    return Integer.MIN_VALUE;
+                }
+            }
+
+
+//            if (num > Integer.MAX_VALUE / 10 || (num == Integer.MAX_VALUE / 10 && str.charAt(i) - '0' > Integer.MAX_VALUE % 10))
+//                return sign == -1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+            num = num * 10 + currDigit;
+        }
+
+        return (int) num * sign;
     }
 }
