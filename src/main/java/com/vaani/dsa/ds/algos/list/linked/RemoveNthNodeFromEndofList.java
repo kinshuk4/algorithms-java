@@ -1,8 +1,8 @@
 package com.vaani.dsa.ds.algos.list.linked;
 
-import com.vaani.dsa.ds.core.list.sll.generic.ListNode;
+import com.vaani.dsa.ds.core.list.sll.simple.ListNode;
 
-/*
+/* https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 Given a linked list, remove the nth node from the end of list and return its head.
 
 For example,
@@ -15,19 +15,9 @@ Given n will always be valid.
 Try to do this in one pass.
 */
 
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- * int val;
- * ListNode next;
- * ListNode(int x) {
- * val = x;
- * next = null;
- * }
- * }
- */
+
 public class RemoveNthNodeFromEndofList {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
         if (head == null) return null;
@@ -47,5 +37,41 @@ public class RemoveNthNodeFromEndofList {
         else pre.next = p2.next;
 
         return head;
+    }
+
+    public static ListNode removeNthFromEnd2(ListNode head, int n) {
+        if (head == null) {
+            return null;
+        }
+
+        ListNode first = head, second = head;
+
+        for (int i = 0; i < n; i++) {
+            second = second.next;
+        }
+
+        if (second == null) {
+            return first.next;
+        }
+
+        while (second.next != null) {
+            first = first.next;
+            second = second.next;
+        }
+
+        first.next = first.next.next;
+        return head;
+    }
+
+    public static void main(String[] args) {
+        ListNode l = new ListNode(1);
+        l.next = new ListNode(2);
+        l.next.next = new ListNode(3);
+        l.next.next.next = new ListNode(4);
+        l.next.next.next.next = new ListNode(5);
+        l.display();
+
+        ListNode n = removeNthFromEnd(l, 1);
+        n.display();
     }
 }

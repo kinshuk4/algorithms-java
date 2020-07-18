@@ -1,6 +1,10 @@
-package com.vaani.dsa.ds.algos.tree.bst;
+package com.vaani.dsa.ds.algos.tree.binary;
+
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeLinkNode;
 
 import java.util.ArrayList;
+import java.util.List;
+
 /*
 Given a binary tree
 
@@ -30,38 +34,51 @@ After calling your function, the tree should look like:
       2 -> 3 -> NULL
      / \  / \
     4->5->6->7 -> NULL
-*/
 
-/**
- * Definition for binary tree with next pointer.
- * public class TreeLinkNode {
- * int val;
- * TreeLinkNode left, right, next;
- * TreeLinkNode(int x) { val = x; }
- * }
  */
+public class PopulatingNextRightPointersInEachNode {
+    public static void main(String[] args) {
+        TreeLinkNode root = new TreeLinkNode(1);
+        root.left = new TreeLinkNode(2);
+        root.right = new TreeLinkNode(3);
+        root.left.left = new TreeLinkNode(4);
+        root.left.right = new TreeLinkNode(5);
 
-class TreeLinkNode {
-    int val;
-    TreeLinkNode left, right, next;
+        root.right.left = new TreeLinkNode(6);
+        root.right.right = new TreeLinkNode(7);
 
-    TreeLinkNode(int x) {
-        val = x;
+        PopulatingNextRightPointersInEachNode test = new PopulatingNextRightPointersInEachNode();
+
+        test.connectRecursive(root);
     }
-}
 
-public class PopulatingNextRightPointersinEachNode {
-    public void connect(TreeLinkNode root) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
+    public TreeLinkNode connect(TreeLinkNode root) {
+        connectRecursive(root);
+        return root;
+    }
+
+    public void connectRecursive(TreeLinkNode root) {
+        if (root == null || root.left == null || root.right == null) {
+            return;
+        }
+
+        root.left.next = root.right;
+        root.right.next = root.next == null ? null : root.next.left;
+
+        connectRecursive(root.left);
+        connectRecursive(root.right);
+    }
+
+    public void connectIterative(TreeLinkNode root) {
         if (root == null) {
             return;
         }
-        ArrayList<TreeLinkNode> levelList = new ArrayList<TreeLinkNode>();
+        List<TreeLinkNode> levelList = new ArrayList<>();
         levelList.add(root);
 
         while (!levelList.isEmpty()) {
-            ArrayList<TreeLinkNode> nextLevel = new ArrayList<TreeLinkNode>();
+
+            List<TreeLinkNode> nextLevel = new ArrayList<>();
             for (int i = 0; i < levelList.size(); i++) {
                 levelList.get(i).next = (i + 1 == levelList.size()) ? null : levelList.get(i + 1);
                 if (levelList.get(i).left != null) {

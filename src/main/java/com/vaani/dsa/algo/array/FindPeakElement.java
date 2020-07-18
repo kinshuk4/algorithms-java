@@ -1,5 +1,7 @@
 package com.vaani.dsa.algo.array;
 
+import org.junit.Assert;
+
 /**
  * A peak element is an element that is greater than its neighbors.
  * <p>
@@ -13,9 +15,11 @@ package com.vaani.dsa.algo.array;
  */
 public class FindPeakElement {
     public static void main(String[] args) {
-        int[] num = {4, 3, 2, 1};
+        int[] nums = {4, 3, 2, 1};
+        int[] nums2 = {1, 2, 3, 4};
         FindPeakElement test = new FindPeakElement();
-        System.out.println(test.findPeakElement(num));
+        Assert.assertEquals(0, test.findPeakElement(nums)); // as left side is -∞
+        Assert.assertEquals(3, test.findPeakElement(nums2)); // as right side -∞
     }
 
     /**
@@ -23,19 +27,48 @@ public class FindPeakElement {
      * <p>
      * http://www.geeksforgeeks.org/find-a-peak-in-a-given-array/
      */
-    public int findPeakElement(int[] num) {
-        return findPeakElement(num, 0, num.length - 1);
+    public int findPeakElement(int[] nums) {
+        return findPeakElement(nums, 0, nums.length - 1);
     }
 
-    public int findPeakElement(int[] num, int start, int end) {
+    public int findPeakElement(int[] nums, int start, int end) {
+
         int mid = start + (end - start) / 2;
 
-        if ((mid == 0 || num[mid - 1] < num[mid]) && (mid == num.length - 1 || num[mid + 1] < num[mid])) return mid;
+        if ((mid == 0 || nums[mid - 1] < nums[mid])
+                && (mid == nums.length - 1 || nums[mid + 1] < nums[mid])) {
+            return mid;
+        }
 
-        if (mid > 0 && num[mid - 1] > num[mid]) {
-            return findPeakElement(num, start, mid - 1);
+        if (mid > 0 && nums[mid - 1] > nums[mid]) {
+            return findPeakElement(nums, start, mid - 1);
         } else {
-            return findPeakElement(num, mid + 1, end);
+            return findPeakElement(nums, mid + 1, end);
         }
     }
+
+    // submitted
+    public int findPeakElement2(int[]  nums) {
+        return helper2( nums, 0,  nums.length - 1);
+    }
+
+    public int helper2(int[] nums, int start, int end) {
+        if (start == end) {
+            return start;
+        } else if (start + 1 == end) {
+            if (nums[start] > nums[end]) return start;
+            return end;
+        } else {
+            int mid = start + (end - start) / 2;
+
+            if (nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) {
+                return mid;
+            } else if (nums[mid - 1] > nums[mid] && nums[mid] > nums[mid + 1]) { // increasing order to the right, search on left
+                return helper2(nums, start, mid - 1);
+            } else {
+                return helper2(nums, mid + 1, end);
+            }
+        }
+    }
+
 }

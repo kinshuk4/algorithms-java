@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.paradigm.dp;
 
-/*
+/* https://leetcode.com/problems/decode-ways/
 A message containing letters from A-Z is being encoded to numbers using the following mapping:
 
 'A' -> 1
@@ -21,34 +21,73 @@ Count[i] = Count[i-1]  if S[i-1] is a valid char
 
 */
 public class DecodeWays {
-    public int numDecodings(String s) {
+    public int numDecodingsDP(String s) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
         if (s == null || s.length() == 0) return 0;
         int length = s.length();
-        int[] count = new int[length + 1];
-        count[0] = 1;
-        if (s.charAt(0) != '0') count[1] = 1;
-        else return 0;
+        int[] dp = new int[length + 1];
+        dp[0] = 1; // there is only 1 way to decode empty string
+
+        // if 0th value is 0, we cannot decode it
+        if (s.charAt(0) != '0') {
+            dp[1] = 1;
+        } else {
+            return 0;
+        }
 
 
         for (int i = 2; i <= length; i++) {
             if (s.charAt(i - 1) != '0') {
                 int value = Integer.parseInt(s.substring(i - 2, i));
                 if (value > 10 && value <= 26) {
-                    count[i] = count[i - 2] + count[i - 1];
+                    dp[i] = dp[i - 2] + dp[i - 1];
                 } else {
-                    count[i] = count[i - 1];
+                    dp[i] = dp[i - 1];
                 }
             } else {
                 if (s.charAt(i - 2) == '1' || s.charAt(i - 2) == '2') {
-                    count[i] = count[i - 2];
+                    dp[i] = dp[i - 2];
                 } else {
                     return 0;
                 }
             }
         }
-        return count[length];
+        return dp[length];
 
+    }
+
+    @SuppressWarnings("Duplicates")
+    public static int numDecodingsDP2(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        int n = s.length();
+        int[] dp = new int[n + 1];
+        dp[0] = 1; // there is only 1 way to decode empty string
+
+        // if 0th value is 0, we cannot decode it
+        if (s.charAt(0) != '0') {
+            dp[1] = 1;
+        } else {
+            return 0;
+        }
+
+
+        for (int i = 2; i <= n; i++) {
+            int oneDigit = Integer.parseInt(s.substring(i - 1, i));
+            int twoDigits = Integer.parseInt(s.substring(i - 2, i));
+
+            if (oneDigit >= 1) {
+                dp[i] += dp[i - 1];
+            }
+
+            if (twoDigits >= 10 && twoDigits <= 26) {
+                dp[i] += dp[i - 2];
+            }
+
+
+        }
+        return dp[n];
     }
 }

@@ -1,6 +1,6 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.search.binary;
 
-/*
+/* https://leetcode.com/problems/search-a-2d-matrix/
 Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
 
 Integers in each row are sorted from left to right.
@@ -18,30 +18,31 @@ Given target = 3, return true.
 */
 
 public class Search2DMatrix {
+    // assume a single large array - as each row can be concatenated after other
     public boolean searchMatrix(int[][] matrix, int target) {
-        // Note: The Solution object is instantiated only once and is reused by each test case.
-        int rowLength = matrix.length;
-        int columnLength = matrix[0].length;
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
+        int m = matrix.length;
+        int n = matrix[0].length;
 
         boolean found = false;
 
-        int low = 0, high = rowLength * columnLength;
-
-
+        int low = 0, high = m * n;
         while (low <= high) {
-            int cur = (low + high) / 2;
-            int row = cur / columnLength;
-            int column = cur % columnLength;
-            if (row > rowLength - 1 || column > columnLength - 1) {
+            int mid = low + (high - low) / 2;
+            int row = mid / n;
+            int column = mid % n;
+            if (row > m - 1 || column > n - 1) {
                 break;
             }
             if (matrix[row][column] == target) {
                 found = true;
                 break;
             } else if (matrix[row][column] > target) {
-                high = cur - 1;
+                high = mid - 1;
             } else {
-                low = cur + 1;
+                low = mid + 1;
             }
         }
 

@@ -1,7 +1,8 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.array.matrix;
 
 import java.util.ArrayList;
-/*
+import java.util.List;
+/* https://leetcode.com/problems/spiral-matrix/
 Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
 
 For example,
@@ -16,10 +17,10 @@ You should return [1,2,3,6,9,8,7,4,5].
 */
 
 public class SpiralMatrix {
-    public ArrayList<Integer> spiralOrder(int[][] matrix) {
+    public List<Integer> spiralOrderRecursive(int[][] matrix) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
         int rowLength = matrix.length;
-        ArrayList<Integer> results = new ArrayList<Integer>();
+        List<Integer> results = new ArrayList<Integer>();
         if (rowLength == 0) {
             return results;
         }
@@ -29,7 +30,7 @@ public class SpiralMatrix {
         return results;
     }
 
-    public void spiralOrderHelper(int layer, int row, int col, int[][] matrix, ArrayList<Integer> res) {
+    public void spiralOrderHelper(int layer, int row, int col, int[][] matrix, List<Integer> res) {
         if (row == 0 || col == 0) {
             return;
         } else if (row == 1) {
@@ -62,5 +63,52 @@ public class SpiralMatrix {
 
             spiralOrderHelper(layer + 1, row - 2, col - 2, matrix, res);
         }
+    }
+
+    // submitted
+    public List<Integer> spiralOrder(int[][] matrix) {
+
+        List<Integer> result = new ArrayList<>();
+
+        if (matrix.length == 0) {
+            return result;
+        }
+
+        int top = 0;
+        int bottom = matrix.length-1;
+        int left = 0;
+        int right = matrix[0].length - 1;
+        int size = matrix.length * matrix[0].length;
+        while (result.size() < size) {
+            // Traverse Right
+            for (int j = left; j <= right; j ++) {
+                result.add(matrix[top][j]);
+            }
+            top++;
+
+            // Traverse Down
+            for (int j = top; j <= bottom; j ++) {
+                result.add(matrix[j][right]);
+            }
+            right--;
+
+            if (top <= bottom) {
+                // Traverse Left
+                for (int j = right; j >= left; j --) {
+                    result.add(matrix[bottom][j]);
+                }
+            }
+            bottom--;
+
+            if (left <= right) {
+                // Traver Up
+                for (int j = bottom; j >= top; j --) {
+                    result.add(matrix[j][left]);
+                }
+            }
+            left ++;
+        }
+
+        return result;
     }
 }
