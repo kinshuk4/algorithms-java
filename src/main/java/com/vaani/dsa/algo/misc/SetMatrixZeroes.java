@@ -98,6 +98,7 @@ public class SetMatrixZeroes {
 
 
     // need extra space O(m+n)
+    //https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/discuss/87738/Java-20-lines-very-easy-solution-7ms-with-explanation
     public static void setZeros(int[][] matrix) {
         boolean[] row = new boolean[matrix.length];
         boolean[] column = new boolean[matrix[0].length];

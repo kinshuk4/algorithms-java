@@ -1,6 +1,7 @@
 package com.vaani.dsa.algo.paradigm.dp;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 /*
 Given a string s and a dictionary of words dict, add spaces in s to construct a sentence where each word is a valid dictionary word.
@@ -15,17 +16,15 @@ A solution is ["cats and dog", "cat sand dog"].
 */
 
 //exceeds time limit
-public class WordBreakii {
-    public ArrayList<String> wordBreak(String s, Set<String> dict) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
-        ArrayList<String> result = new ArrayList<String>();
+public class WordBreak2 {
+    public List<String> wordBreak(String s, Set<String> dict) {
+        List<String> result = new ArrayList<>();
         if (s == null || s.equals("")) return result;
         helper(s, new StringBuilder(), result, 0, dict);
         return result;
     }
 
-    public void helper(String s, StringBuilder sb, ArrayList<String> result, int curIndex, Set<String> dict) {
+    public void helper(String s, StringBuilder sb, List<String> result, int curIndex, Set<String> dict) {
         if (curIndex == s.length()) result.add(sb.toString());
         else if (curIndex < s.length()) {
             for (int i = curIndex; i <= s.length(); i++) {
@@ -39,14 +38,11 @@ public class WordBreakii {
                 }
             }
         }
-
     }
-}
 
-//DP
-class WordBreakii2 {
-    public ArrayList<String> wordBreak(String s, Set<String> dict) {
-        ArrayList<String> result = new ArrayList<String>();
+
+    public List<String> wordBreakDP(String s, Set<String> dict) {
+        List<String> result = new ArrayList<String>();
         if (s == null || dict.size() <= 0) {
             return result;
         }
@@ -77,7 +73,7 @@ class WordBreakii2 {
         return result;
     }
 
-    private void dfs(String s, boolean[][] seg, int start, ArrayList<String> result, StringBuffer sb, Set<String> dict) {
+    private void dfs(String s, boolean[][] seg, int start, List<String> result, StringBuffer sb, Set<String> dict) {
         if (start == s.length()) {
             result.add(sb.toString());
         } else if (start < s.length()) {

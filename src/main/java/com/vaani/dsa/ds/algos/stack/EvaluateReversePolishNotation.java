@@ -1,7 +1,7 @@
 package com.vaani.dsa.ds.algos.stack;
 
 import java.util.Stack;
-/*
+/* https://leetcode.com/problems/evaluate-reverse-polish-notation/
 Evaluate the value of an arithmetic expression in Reverse Polish Notation.
 
 Valid operators are +, -, *, /. Each operand may be an integer or another expression.
@@ -12,26 +12,34 @@ Some examples:
 */
 
 public class EvaluateReversePolishNotation {
-    public int evalRPN(String[] exp) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
-        Stack<Integer> stack = new Stack<Integer>();
+    public int evalRPN(String[] tokens) {
+        Stack<Integer> operandStack = new Stack<Integer>();
 
-        for (int i = 0; i < exp.length; i++) {
-            if (exp[i].matches("-?[\\d]+")) {
-                stack.push(Integer.parseInt(exp[i]));
+        for (String s : tokens) {
+            if (s.matches("-?[\\d]+")) {
+                operandStack.push(Integer.parseInt(s));
             } else {
-                int op2 = stack.pop();
-                int op1 = stack.pop();
+                int operand2 = operandStack.pop();
+                int operand1 = operandStack.pop();
                 int result = 0;
-                String operator = exp[i];
-                if (operator.equals("+")) result = op1 + op2;
-                else if (operator.equals("-")) result = op1 - op2;
-                else if (operator.equals("*")) result = op1 * op2;
-                else if (operator.equals("/")) result = op1 / op2;
-                stack.push(result);
+                String operator = s;
+                switch (operator){
+                    case "+":
+                        result = operand1 + operand2;
+                        break;
+                    case "-":
+                        result = operand1 - operand2;
+                        break;
+                    case "*":
+                        result = operand1 * operand2;
+                        break;
+                    case "/":
+                        result = operand1 / operand2;
+                        break;
+                }
+                operandStack.push(result);
             }
         }
-        return stack.pop();
+        return operandStack.pop();
     }
 }
