@@ -18,7 +18,7 @@ L(i, j) = 0
 R(i, j) = n
 */
 
-import static com.vaani.dsa.ds.algos.stack.LargestRectangleInHistogram.largestRectangleArea2;
+import static com.vaani.dsa.algo.ds.stack.LargestRectangleInHistogram.largestRectangleArea2;
 
 public class MaximalRectangle {
     public int maximalRectangle(char[][] matrix) {
