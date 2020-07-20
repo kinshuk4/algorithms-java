@@ -31,7 +31,7 @@ public class RemoveDuplicatesfromSortedListii {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
         ListNode node = head;
-        HashSet<ListNode> duplicates = new HashSet<ListNode>();
+        HashSet<ListNode> duplicates = new HashSet<>();
 
         while (node != null && node.next != null) {
             if (node.val == node.next.val) {

@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class MajorityNumber {
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 3, 2, 2, 4, 2, 5, 8, 2};
-        ArrayList<Integer> a = new ArrayList<Integer>();
+        ArrayList<Integer> a = new ArrayList<>();
         for (int i : nums) {
             a.add(i);
         }

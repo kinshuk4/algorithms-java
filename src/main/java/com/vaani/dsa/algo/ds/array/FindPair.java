@@ -33,7 +33,7 @@ public class FindPair {
 
     public static int findPairs2(int[] arr, int k) {
         int count = 0;
-        Set<Integer> set = new HashSet<Integer>();
+        Set<Integer> set = new HashSet<>();
         for (int num : arr) {
             if (!set.contains(num)) set.add(num);
         }

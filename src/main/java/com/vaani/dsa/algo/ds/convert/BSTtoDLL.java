@@ -76,8 +76,8 @@ public class BSTtoDLL {
         if (node == null)
             return null;
 
-        Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
-        ArrayList<BinaryTreeNode> dll = new ArrayList<BinaryTreeNode>();
+        Stack<BinaryTreeNode> stack = new Stack<>();
+        ArrayList<BinaryTreeNode> dll = new ArrayList<>();
         BinaryTreeNode current = node;
         boolean done = false;
         while (!done) {

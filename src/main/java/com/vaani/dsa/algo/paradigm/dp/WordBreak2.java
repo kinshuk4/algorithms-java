@@ -42,7 +42,7 @@ public class WordBreak2 {
 
 
     public List<String> wordBreakDP(String s, Set<String> dict) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         if (s == null || dict.size() <= 0) {
             return result;
         }

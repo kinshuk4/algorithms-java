@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.paradigm.dp;
 
 /**
  * Implement wildcard pattern matching with support for '?' and '*'.
@@ -36,8 +36,8 @@ public class WildcardMatching {
     }
 
     /*
-    * Greedy: http://blog.csdn.net/perfect8886/article/details/22689147
-    * */
+     * Greedy: http://blog.csdn.net/perfect8886/article/details/22689147
+     * */
     public boolean isMatch(String s, String p) {
         int i = 0, j = 0;
         int star = -1, mark = -1;
@@ -62,4 +62,38 @@ public class WildcardMatching {
 
         return j == p.length();
     }
+
+
+    // https://www.youtube.com/watch?v=7SHV_QfVROE
+    public boolean isMatchDP(String s, String p) {
+        int m = s.length(), n = p.length();
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        dp[0][0] = true;
+        for (int i = 1; i <= m; i++) {
+            dp[i][0] = false;
+        }
+
+        for (int j = 1; j <= n; j++) {
+            // if current value is asterisk, we borrow the boolean from previous column
+            // j - 1 => because we have dp array 1 indexed now
+            if (p.charAt(j - 1) == '*') {
+                dp[0][j] = true;
+            } else {
+                break;
+            }
+        }
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+
+                if (p.charAt(j - 1) != '*') {
+                    dp[i][j] = dp[i - 1][j - 1] && (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '?');
+                } else {
+                    dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
+                }
+            }
+        }
+        return dp[m][n];
+    }
+
 }

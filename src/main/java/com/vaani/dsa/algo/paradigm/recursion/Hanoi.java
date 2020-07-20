@@ -44,7 +44,7 @@ class HanoiTower {
 
     public HanoiTower(int i) {
         index = i;
-        disks = new Stack<Integer>();
+        disks = new Stack<>();
 
     }
 

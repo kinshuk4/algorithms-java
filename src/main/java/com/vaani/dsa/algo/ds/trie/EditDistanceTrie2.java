@@ -35,7 +35,7 @@ public class EditDistanceTrie2 {
         for (int i = 0; i < len + 1; i++) {
             currRow[i] = i;
         }
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         StringBuilder single = new StringBuilder();
         TrieNode root = theTrie.root;
         for (Character ch : root.getChildren().keySet()) {

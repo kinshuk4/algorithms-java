@@ -64,7 +64,7 @@ public class MirrorMaze {
 
         int mazeRow = 0;
         int mazeCol = 0;
-        ArrayList<String> mirrors = new ArrayList<String>();
+        ArrayList<String> mirrors = new ArrayList<>();
         int laserStartRow = -1;
         int laserStartCol = -1;
         String laserOrientation = null;
@@ -138,7 +138,7 @@ public class MirrorMaze {
         System.out.println("the demensions of board: " + board.length + " x " + board[0].length);
 
         // track the path of the laser
-        ArrayList<Position> path = new ArrayList<Position>();
+        ArrayList<Position> path = new ArrayList<>();
         String direction = "+"; // "+": increase step; "-": decrease step
         path.add(new Position(col, row, orientation, direction));
 

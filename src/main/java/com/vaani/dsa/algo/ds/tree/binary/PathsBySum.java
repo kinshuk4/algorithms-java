@@ -22,7 +22,7 @@ public class PathsBySum {
         l1.left = l2;
         l1.right = r2;
         int num = 22;
-        dfs(root, new ArrayList<BinaryTreeNode>());
+        dfs(root, new ArrayList<>());
 
         for (List<BinaryTreeNode> list : pathsList) {
             int temp = 0;

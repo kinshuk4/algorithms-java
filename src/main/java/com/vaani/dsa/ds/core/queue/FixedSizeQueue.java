@@ -12,7 +12,7 @@ public class FixedSizeQueue<T> {
     }
     public FixedSizeQueue(int maxSize) {
         this.maxSize = maxSize;
-        queue = new ArrayDeque<T>(maxSize);
+        queue = new ArrayDeque<>(maxSize);
     }
 
     public boolean add(T t) {

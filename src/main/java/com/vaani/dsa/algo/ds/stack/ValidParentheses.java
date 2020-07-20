@@ -51,7 +51,7 @@ public class ValidParentheses {
             put(']', '[');
         }};
 
-        ArrayList<Character> toBeClosed = new ArrayList<Character>();
+        ArrayList<Character> toBeClosed = new ArrayList<>();
         for (int i = 0; i < s.length(); i++) {
             char cur = s.charAt(i);
             if (!parenthese.containsKey(cur)) {

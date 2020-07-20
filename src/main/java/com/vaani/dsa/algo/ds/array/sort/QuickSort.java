@@ -1,33 +1,13 @@
 package com.vaani.dsa.algo.ds.array.sort;
 
+import static com.vaani.dsa.ds.utils.generic.ArrayUtils.swap;
+
 public class QuickSort {
 
     public static void quickSort(int values[]) {
         if (values == null || values.length == 0) {
             return;
         } else quickSortHelper(values, 0, values.length - 1);
-    }
-
-    private static int partition(int[] values, int left, int right) {
-        int l = left + 1, r = right, pivot_index = left;
-        int p = values[pivot_index];
-        while (l <= r) {
-            while (l < right && values[l] < p) l++;
-            while (r > left && values[r] >= p) r--;
-            if (l <= r) {
-                swapValuesInArray(values, l, r);
-                l++;
-                r--;
-            }
-        }
-
-        swapValuesInArray(values, r, pivot_index);
-        return r;
-        // Recursion
-        //		if (left < r)
-        //			partition(values,left, r);
-        //		if (l < right)
-        //			partition(values,l, right);
     }
 
     private static void quickSortHelper(int arr[], int left, int right) {
@@ -45,10 +25,26 @@ public class QuickSort {
 
     }
 
-    private static void swapValuesInArray(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+    private static int partition(int[] values, int left, int right) {
+        int l = left + 1, r = right, pivot_index = left;
+        int p = values[pivot_index];
+        while (l <= r) {
+            while (l < right && values[l] < p) l++;
+            while (r > left && values[r] >= p) r--;
+            if (l <= r) {
+                swap(values, l, r);
+                l++;
+                r--;
+            }
+        }
+
+        swap(values, r, pivot_index);
+        return r;
+        // Recursion
+        //		if (left < r)
+        //			partition(values,left, r);
+        //		if (l < right)
+        //			partition(values,l, right);
     }
 
 

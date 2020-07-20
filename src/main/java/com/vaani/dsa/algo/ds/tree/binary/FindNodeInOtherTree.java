@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class FindNodeInOtherTree {
     public static TreeNodeWithParent findNode(TreeNodeWithParent node, TreeNodeWithParent root) {
-        List<Integer> path = new ArrayList<Integer>();
+        List<Integer> path = new ArrayList<>();
         while (node.parent != null) {
             if (node.parent.left == node) {
                 path.add(0, 0);

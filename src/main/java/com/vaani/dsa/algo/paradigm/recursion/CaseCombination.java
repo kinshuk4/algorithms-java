@@ -14,7 +14,7 @@ public class CaseCombination {
     }
 
     public List<String> getCombination(String s) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         StringBuilder single = new StringBuilder();
         getCombination(s, 0, single, result);
         return result;

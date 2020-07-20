@@ -9,10 +9,10 @@ import java.util.*;
 public class MostRepeatedNumber {
 
     public static int mostRepeatedNumber(int[] vals) {
-        Map<Integer, Integer> counts = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> counts = new HashMap<>();
 
         int maxCount = 0;
-        List<Integer> candidates = new ArrayList<Integer>();
+        List<Integer> candidates = new ArrayList<>();
 
         for (int val : vals) {
             Integer count = counts.get(val);

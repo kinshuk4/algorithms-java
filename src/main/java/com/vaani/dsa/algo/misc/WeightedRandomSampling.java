@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class WeightedRandomSampling {
 
-    private Map<Integer, Double> probs = new HashMap<Integer, Double>();
+    private Map<Integer, Double> probs = new HashMap<>();
     private Random rnd = new Random();
 
     public WeightedRandomSampling(Map<Integer, Double> probs) {

@@ -29,7 +29,7 @@ public class Nqueens {
     public ArrayList<String[]> solve(int n) {
         // Start typing your Java solution below
         // DO NOT write main() function
-        ArrayList<String[]> res = new ArrayList<String[]>();
+        ArrayList<String[]> res = new ArrayList<>();
         solve(0, new int[n], res);
         return res;
     }

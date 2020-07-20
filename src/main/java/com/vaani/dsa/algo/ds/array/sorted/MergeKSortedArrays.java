@@ -12,7 +12,7 @@ public class MergeKSortedArrays {
         int[] result = new int[k * n];
         if (k == 0) return result;
 
-        Comparator<Element> comparator = new Comparator<Element>() {
+        Comparator<Element> comparator = new Comparator<>() {
             @Override
             public int compare(Element e1, Element e2) {
                 int num1 = e1.arr[e1.index];
@@ -20,7 +20,7 @@ public class MergeKSortedArrays {
                 return num1 - num2;
             }
         };
-        PriorityQueue<Element> queue = new PriorityQueue<Element>(k, comparator);
+        PriorityQueue<Element> queue = new PriorityQueue<>(k, comparator);
 
         for (int i = 0; i < arr.length; i++) {
             if (arr[i].length > 0) queue.add(new Element(arr[i], 0));

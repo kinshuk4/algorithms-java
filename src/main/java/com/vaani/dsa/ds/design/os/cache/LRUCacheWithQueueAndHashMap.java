@@ -15,13 +15,13 @@ public class LRUCacheWithQueueAndHashMap<K, V> {
     private int max;
 
     public LRUCacheWithQueueAndHashMap(int n) {
-        map = new HashMap<K, V>();
-        queue = new LinkedList<K>();
+        map = new HashMap<>();
+        queue = new LinkedList<>();
         max = n;
     }
 
     public static void main(String[] args) {
-        LRUCacheWithQueueAndHashMap<String, Integer> lruCache = new LRUCacheWithQueueAndHashMap<String, Integer>(2);
+        LRUCacheWithQueueAndHashMap<String, Integer> lruCache = new LRUCacheWithQueueAndHashMap<>(2);
 
         lruCache.add("A", 1);
         lruCache.add("B", 2);

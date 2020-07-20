@@ -46,7 +46,7 @@ public class TopPhrases {
          */
         public List<String> getTopPhrases(String filePath, int top) throws IOException {
             if (top < 1)
-                return new ArrayList<String>();
+                return new ArrayList<>();
             File file = new File(filePath);
             long start = System.currentTimeMillis();
             Collection<File> chunks = split(file);
@@ -329,7 +329,7 @@ public class TopPhrases {
             //Now get all the values via creating array of linked list - 
             //Index in this array is frequency count of the elements, and 
             //Linked list contains all the words with the same frequency
-            ArrayList<LinkedList<String>> arrOfList = new ArrayList<LinkedList<String>>();
+            ArrayList<LinkedList<String>> arrOfList = new ArrayList<>();
             for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
                 if (arrOfList.size() > entry.getValue()) {
                     LinkedList<String> getValue = arrOfList.get(entry.getValue());

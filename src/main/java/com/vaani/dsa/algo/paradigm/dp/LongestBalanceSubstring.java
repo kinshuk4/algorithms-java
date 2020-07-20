@@ -42,7 +42,7 @@ public class LongestBalanceSubstring {
         for (int i = 0; i < s.length(); i++) {
             diffCounter[i + 1] = diffCounter[i] + ((s.charAt(i) == '0') ? -1 : 1);
         }
-        HashMap<Integer, Integer> counterIndex = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> counterIndex = new HashMap<>();
         for (int i = 1, j = diffCounter.length - 1; i < j; ) {
             if (!counterIndex.containsKey(diffCounter[i])) {
                 counterIndex.put(diffCounter[i], i - 1);

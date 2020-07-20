@@ -1,12 +1,18 @@
 package com.vaani.dsa.algo.arithmetic;
 
 /**
+ * https://leetcode.com/problems/add-binary/
  * Given two binary strings, return their sum (also a binary string).
  * <p>
- * For example,
- * a = "11"
- * b = "1"
- * Return "100".
+ * Example 1:
+ * <p>
+ * Input: a = "11", b = "1"
+ * Output: "100"
+ * <p>
+ * Example 2:
+ * <p>
+ * Input: a = "1010", b = "1011"
+ * Output: "10101"
  */
 public class AddBinary {
     public static void main(String[] args) {
@@ -32,9 +38,44 @@ public class AddBinary {
             index++;
         }
 
-        if (extra == 1)
+        if (extra == 1) {
             result.append(1);
+        }
 
         return result.reverse().toString();
+    }
+
+    public String addBinary2(String a, String b) {
+        if (a == null || a.equals("")) {
+            return b;
+        }
+        if (b == null || b.equals("")) {
+            return a;
+        }
+
+        int length1 = a.length() - 1;
+        int length2 = b.length() - 1;
+        int carry = 0;
+        StringBuilder sb = new StringBuilder();
+        while (length1 >= 0 || length2 >= 0 || carry != 0) {
+            char a1, b1;
+            if (length1 < 0) {
+                a1 = '0';
+            } else {
+                a1 = a.charAt(length1);
+            }
+            if (length2 < 0) {
+                b1 = '0';
+            } else {
+                b1 = b.charAt(length2);
+            }
+
+            int sum =  (a1 - '0' + b1 - '0' + carry);
+            carry = sum / 2;
+            sb.insert(0, sum % 2);
+            length1--;
+            length2--;
+        }
+        return sb.toString();
     }
 }

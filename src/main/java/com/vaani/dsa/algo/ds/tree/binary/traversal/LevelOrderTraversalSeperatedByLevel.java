@@ -46,14 +46,14 @@ public class LevelOrderTraversalSeperatedByLevel {
     }
 
     public static List<List<Integer>> levelOrder(BinaryTreeNode root) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
 
-        Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
         queue.add(root);
 
         while (!queue.isEmpty()) {
-            List<Integer> level = new ArrayList<Integer>();
+            List<Integer> level = new ArrayList<>();
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 BinaryTreeNode<Integer> node = queue.poll();
@@ -67,15 +67,15 @@ public class LevelOrderTraversalSeperatedByLevel {
     }
 
     public List<List<Integer>> levelOrder2(BinaryTreeNode root) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
 
-        Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
         queue.add(root);
 
         int currentLevel = 1;
         int nextLevel = 0;
-        List<Integer> level = new ArrayList<Integer>();
+        List<Integer> level = new ArrayList<>();
 
         while (!queue.isEmpty()) {
             BinaryTreeNode<Integer> node = queue.poll();
@@ -94,7 +94,7 @@ public class LevelOrderTraversalSeperatedByLevel {
                 currentLevel = nextLevel;
                 nextLevel = 0;
                 result.add(level);
-                level = new ArrayList<Integer>();
+                level = new ArrayList<>();
             }
         }
         return result;

@@ -44,7 +44,7 @@ class BST {
 public class MostRepeatedKeyInBST {
 
     public int mostRepeatedBST(BST bst) {
-        Map<Integer, Integer> counts = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> counts = new HashMap<>();
         mostRepeatedBST(bst.root(), counts);
         int max = 0;
         for (Map.Entry<Integer, Integer> entry : counts.entrySet()) {

@@ -56,7 +56,7 @@ public class SurroundedRegions {
     }
 
     public void bfs(int i, int j, char[][] board) {
-        Queue<Integer> q = new LinkedList<Integer>();
+        Queue<Integer> q = new LinkedList<>();
         visit(i, j, q, board);
 
         int rowLength = board.length;

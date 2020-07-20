@@ -59,8 +59,8 @@ class StringGraph {
     //https://www.baeldung.com/java-graphs
     Set<StringVertex> breadthFirstTraversal(String rootLabel) {
         StringVertex root = StringVertex.from(rootLabel);
-        Set<StringVertex> visited = new LinkedHashSet<StringVertex>();
-        Queue<StringVertex> queue = new LinkedList<StringVertex>();
+        Set<StringVertex> visited = new LinkedHashSet<>();
+        Queue<StringVertex> queue = new LinkedList<>();
         queue.add(root);
         visited.add(root);
         while (!queue.isEmpty()) {

@@ -13,7 +13,7 @@ public class MissingRanges {
      * Cleaner solution
      */
     public static List<String> findMissingRanges2(int[] A, int lower, int upper) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         int len = A.length;
 
         int prev = lower - 1;
@@ -35,7 +35,7 @@ public class MissingRanges {
      * My solution
      */
     public static List<String> findMissingRanges(int[] A, int lower, int upper) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         int len = A.length;
         if (len == 0) {
             StringBuilder single = new StringBuilder();

@@ -16,13 +16,13 @@ public class NearlySortedArray {
      * Space: O(k)
      */
     public static void sort(int[] arr, int k) {
-        Comparator<Integer> comparator = new Comparator<Integer>() {
+        Comparator<Integer> comparator = new Comparator<>() {
             public int compare(Integer n1, Integer n2) {
                 return n1 - n2;
             }
         };
 
-        PriorityQueue<Integer> queue = new PriorityQueue<Integer>(k + 1, comparator);
+        PriorityQueue<Integer> queue = new PriorityQueue<>(k + 1, comparator);
         for (int i = 0; i < k + 1; i++) {
             queue.offer(arr[i]);
         }

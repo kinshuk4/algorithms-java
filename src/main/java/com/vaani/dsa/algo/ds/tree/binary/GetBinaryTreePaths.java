@@ -11,8 +11,8 @@ import java.util.List;
 public class GetBinaryTreePaths {
 
     public List<List<Integer>> getAllPaths(BinaryTreeNode node) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        List<Integer> cur = new ArrayList<Integer>();
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> cur = new ArrayList<>();
         find(node, cur, res);
         return res;
     }
@@ -22,7 +22,7 @@ public class GetBinaryTreePaths {
             return;
         }
         if (node.left == null && node.right == null) {
-            List<Integer> copy = new ArrayList<Integer>(cur);
+            List<Integer> copy = new ArrayList<>(cur);
             copy.add(node.val);
             res.add(copy);
         } else {

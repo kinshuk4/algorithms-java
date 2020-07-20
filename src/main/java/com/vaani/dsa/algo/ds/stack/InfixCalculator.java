@@ -7,15 +7,15 @@ import java.util.*;
  */
 public class InfixCalculator {
     public static int calculate(String input) {
-        Map<String, Integer> precedence = new HashMap<String, Integer>();
+        Map<String, Integer> precedence = new HashMap<>();
         precedence.put("(", -1);
         precedence.put("+", 1);
         precedence.put("-", 1);
         precedence.put("*", 2);
         precedence.put("/", 2);
 
-        Stack<String> stack = new Stack<String>();
-        List<String> postfix = new ArrayList<String>();
+        Stack<String> stack = new Stack<>();
+        List<String> postfix = new ArrayList<>();
 
         List<String> tokens = parse(input);
         for (String token : tokens) {
@@ -40,7 +40,7 @@ public class InfixCalculator {
             postfix.add(stack.pop());
         }
 
-        Stack<Integer> stack2 = new Stack<Integer>();
+        Stack<Integer> stack2 = new Stack<>();
         for (String token : postfix) {
             if (token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/")) {
                 int operand2 = stack2.pop();
@@ -62,7 +62,7 @@ public class InfixCalculator {
     }
 
     public static List<String> parse(String input) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         int i = 0;
         while (i < input.length()) {
             char ch = input.charAt(i);

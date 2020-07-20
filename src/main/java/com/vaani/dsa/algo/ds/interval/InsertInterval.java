@@ -32,7 +32,7 @@ public class InsertInterval {
     public ArrayList<Interval> insert(ArrayList<Interval> intervals, Interval newInterval) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<Interval> result = new ArrayList<Interval>(intervals);
+        ArrayList<Interval> result = new ArrayList<>(intervals);
         if (intervals == null || intervals.isEmpty()) {
             result.add(newInterval);
             return result;

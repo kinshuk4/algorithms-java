@@ -25,7 +25,7 @@ public class UglyNumber2 {
             return 0;
         }
 
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
         list.add(1);
 
         int i = 0;
@@ -59,7 +59,7 @@ public class UglyNumber2 {
         if(n<=0)
             return 0;
 
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
 
         int i=0;

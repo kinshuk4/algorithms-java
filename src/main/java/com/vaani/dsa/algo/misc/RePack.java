@@ -17,8 +17,8 @@ public class RePack {
 
     int capacity = 313;
     int countRound = 0;
-    Queue<Integer> pack = new LinkedList<Integer>();
-    Stack<Integer> desk = new Stack<Integer>();
+    Queue<Integer> pack = new LinkedList<>();
+    Stack<Integer> desk = new Stack<>();
     int countAction = 0;
     boolean done = false;
 

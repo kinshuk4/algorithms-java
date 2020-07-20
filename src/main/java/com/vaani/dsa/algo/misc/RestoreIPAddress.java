@@ -14,7 +14,7 @@ public class RestoreIPAddress {
     public ArrayList<String> restoreIpAddresses(String s) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
         if (s == null || s.equals("")) return result;
         helper(s, 0, 0, new StringBuilder(), result);
         return result;

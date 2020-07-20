@@ -14,7 +14,7 @@ public class RotateIterator implements Iterator<Integer> {
 
     public RotateIterator(List<Iterator<Integer>> iterators) {
         this.iterators = iterators;
-        queue = new LinkedList<Iterator<Integer>>();
+        queue = new LinkedList<>();
         for (Iterator<Integer> it : iterators) {
             if (it.hasNext()) queue.offer(it);
         }
@@ -25,7 +25,7 @@ public class RotateIterator implements Iterator<Integer> {
         List<Integer> list2 = Arrays.asList(4, 5, 6);
         List<Integer> list3 = Arrays.asList(7, 8);
 
-        List<Iterator<Integer>> iterators = new ArrayList<Iterator<Integer>>();
+        List<Iterator<Integer>> iterators = new ArrayList<>();
         iterators.add(list1.iterator());
         iterators.add(list2.iterator());
         iterators.add(list3.iterator());

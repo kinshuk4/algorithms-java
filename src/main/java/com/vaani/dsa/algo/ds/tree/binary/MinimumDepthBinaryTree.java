@@ -36,7 +36,7 @@ public class MinimumDepthBinaryTree {
      */
     public int minDepth2(BinaryTreeNode root) {
         if (root == null) return 0;
-        Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
         queue.add(root);
         int level = 1;
         while (!queue.isEmpty()) {

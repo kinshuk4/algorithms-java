@@ -78,13 +78,13 @@ public class MinimumWindowSubstring {
         int min = Integer.MAX_VALUE;
         String minWindow = "";
 
-        HashSet<Character> set = new HashSet<Character>();
+        HashSet<Character> set = new HashSet<>();
         for (char c : T.toCharArray()) {
             set.add(c);
         }
 
         for (int i = 0; i + length2 <= length1; i++) {
-            HashSet<Character> temp = new HashSet<Character>(set);
+            HashSet<Character> temp = new HashSet<>(set);
             int k = i;
             while (!temp.isEmpty()) {
                 char c = S.charAt(k);

@@ -12,7 +12,7 @@ import java.util.List;
 public class LowerUpperCasePermutation {
 
     public List<String> lowerUpperCasePermutation(String str) {
-        List<String> res = new ArrayList<String>();
+        List<String> res = new ArrayList<>();
         if (str.length() == 0) {
             return res;
         }

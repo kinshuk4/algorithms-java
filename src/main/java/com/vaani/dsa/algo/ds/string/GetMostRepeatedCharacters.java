@@ -13,7 +13,7 @@ import java.util.List;
 public class GetMostRepeatedCharacters {
 
     public List<Character> getMostRepeatedCharacters(String s) {
-        List<Character> res = new ArrayList<Character>();
+        List<Character> res = new ArrayList<>();
         int i = 0;
         int maxLen = 0;
 

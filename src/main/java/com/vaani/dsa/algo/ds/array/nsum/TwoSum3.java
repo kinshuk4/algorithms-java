@@ -16,7 +16,7 @@ import java.util.Map;
  * find(7) -> false
  */
 public class TwoSum3 {
-    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    Map<Integer, Integer> map = new HashMap<>();
 
     public void add(int number) {
         if (!map.containsKey(number)) {

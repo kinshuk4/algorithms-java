@@ -117,10 +117,10 @@ public class ListUtil {
         if (arr == null || arr.length == 0) {
             return null;
         }
-        ListNode<T> head = new ListNode<T>(arr[0]);
+        ListNode<T> head = new ListNode<>(arr[0]);
         ListNode<T> cur = head;
         for (int i = 1; i < arr.length; ++i) {
-            cur.next = new ListNode<T>(arr[i]);
+            cur.next = new ListNode<>(arr[i]);
             cur = cur.next;
         }
         return head;

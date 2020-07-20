@@ -17,7 +17,7 @@ public class BinaryTreeInorderIterator {
     private Stack<BinaryTreeNode> stack;
 
     public BinaryTreeInorderIterator(BinaryTreeNode node) {
-        this.stack = new Stack<BinaryTreeNode>();
+        this.stack = new Stack<>();
         BinaryTreeNode cur = node;
         while (cur != null) {
             this.stack.push(node);

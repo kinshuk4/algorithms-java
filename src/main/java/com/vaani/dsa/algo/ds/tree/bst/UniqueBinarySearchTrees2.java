@@ -37,7 +37,7 @@ The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 public class UniqueBinarySearchTrees2 {
     public List<BinaryTreeNode> generateTreesRecursive(int n) {
         if (n == 0){
-            return new ArrayList<BinaryTreeNode>();
+            return new ArrayList<>();
         }
         return helper(1, n);
     }

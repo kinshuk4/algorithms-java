@@ -26,23 +26,23 @@ public class AddTwoNumbersAsList {
         }
         ListNode<Integer> n = l1 != null ? l1 : l2;
         while (n != null) {
-            dummy.next = new ListNode<Integer>((n.val + extra) % 10);
+            dummy.next = new ListNode<>((n.val + extra) % 10);
             extra = n.val + extra > 9 ? 1 : 0;
             n = n.next;
             dummy = dummy.next;
         }
-        if (extra == 1) dummy.next = new ListNode<Integer>(1);
+        if (extra == 1) dummy.next = new ListNode<>(1);
         return dummyHead.next;
     }
 
     public static void main(String[] args) {
-        ListNode<Integer> l1 = new ListNode<Integer>(2);
-        l1.next = new ListNode<Integer>(4);
-        l1.next.next = new ListNode<Integer>(3);
+        ListNode<Integer> l1 = new ListNode<>(2);
+        l1.next = new ListNode<>(4);
+        l1.next.next = new ListNode<>(3);
 
-        ListNode l2 = new ListNode<Integer>(5);
-        l2.next = new ListNode<Integer>(6);
-        l2.next.next = new ListNode<Integer>(4);
+        ListNode l2 = new ListNode<>(5);
+        l2.next = new ListNode<>(6);
+        l2.next.next = new ListNode<>(4);
 
         addTwoNumbers(l1, l2).display();
     }

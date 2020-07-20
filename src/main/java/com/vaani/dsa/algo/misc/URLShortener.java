@@ -28,7 +28,7 @@ public class URLShortener {
     }
 
     public static int decode(String in) {
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> map = new HashMap<>();
         map.put("A_3b", 19870825);
         System.out.println(in);
         if (map.containsKey(in)) {

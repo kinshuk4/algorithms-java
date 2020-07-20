@@ -41,11 +41,11 @@ public class JumpRiver {
      * https://sites.google.com/site/codingbughunter/algorithm-question-discuss
      */
     public static int jump(int[] river) {
-        List<Map<Integer, Integer>> states = new ArrayList<Map<Integer, Integer>>();
+        List<Map<Integer, Integer>> states = new ArrayList<>();
         int min = Integer.MAX_VALUE;
 
         for (int i = 0; i < river.length; i++) {
-            states.add(new HashMap<Integer, Integer>());
+            states.add(new HashMap<>());
         }
         states.get(0).put(1, 0);
         for (int i = 0; i < river.length; i++) {

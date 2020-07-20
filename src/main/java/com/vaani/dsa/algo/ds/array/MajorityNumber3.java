@@ -23,7 +23,7 @@ public class MajorityNumber3 {
      * @return: The majority number
      */
     public int majorityNumber(List<Integer> nums, int k) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             if (map.containsKey(num)) {
                 map.put(num, map.get(num) + 1);

@@ -24,7 +24,7 @@ public class CombinationSum1 {
         List<List<Integer>> result = new ArrayList<>();
         if (candidates.length == 0) return result;
         Arrays.sort(candidates);
-        helper(candidates, new ArrayList<Integer>(), 0, target, result);
+        helper(candidates, new ArrayList<>(), 0, target, result);
         return result;
     }
 
@@ -33,7 +33,7 @@ public class CombinationSum1 {
             result.add(currList);
         } else if (target > 0) {
             for (int i = currIndex; i < candidates.length; i++) {
-                ArrayList<Integer> temp = new ArrayList<Integer>(currList);
+                ArrayList<Integer> temp = new ArrayList<>(currList);
                 temp.add(candidates[i]);
                 helper(candidates, temp, i, target - candidates[i], result);
             }

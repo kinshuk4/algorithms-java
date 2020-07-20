@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class FindAnagramInDict {
     public List<String> findAnagramInDict(String[] pool, String target) {
-        List<String> res = new ArrayList<String>();
+        List<String> res = new ArrayList<>();
         char[] anagram = target.toCharArray();
         Arrays.sort(anagram);
 

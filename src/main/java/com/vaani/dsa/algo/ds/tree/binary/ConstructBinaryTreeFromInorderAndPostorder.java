@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 
 
@@ -20,10 +20,8 @@ You may assume that duplicates do not exist in the tree.
  * BinaryTreeNode(int x) { val = x; }
  * }
  */
-public class ConstructBinaryTreeFromInPostOrder {
+public class ConstructBinaryTreeFromInorderAndPostorder {
     public BinaryTreeNode buildTree(int[] inorder, int[] postorder) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
         int length = inorder.length;
         return buildTreeHelper(inorder, postorder, 0, length - 1, 0, length - 1);
     }
@@ -33,7 +31,7 @@ public class ConstructBinaryTreeFromInPostOrder {
             return null;
         }
 
-        BinaryTreeNode<Integer> root = new BinaryTreeNode(postorderTree[postEnd]);
+        BinaryTreeNode root = new BinaryTreeNode(postorderTree[postEnd]);
         for (int i = inStart; i <= inEnd; i++) {
             if (inorderTree[i] == root.val) {
                 //inEnd - inStart == postEnd - postStart

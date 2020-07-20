@@ -33,7 +33,7 @@ public class PascalsTriangle2 {
     }
 
     public List<Integer> getRow3(int rowIndex) {
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
         if (rowIndex < 0) return list;
         list.add(1);
         if (rowIndex == 0) return list;
@@ -50,8 +50,8 @@ public class PascalsTriangle2 {
     }
 
     public List<Integer> getRow2(int rowIndex) {
-        List<Integer> result = new ArrayList<Integer>();
-        List<Integer> tmp = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
+        List<Integer> tmp = new ArrayList<>();
         for (int i = 0; i <= rowIndex; i++) {
             tmp.clear();
             for (int j = 0; j <= i; j++) {
@@ -60,7 +60,7 @@ public class PascalsTriangle2 {
                 else
                     tmp.add(result.get(j - 1) + result.get(j));
             }
-            result = new ArrayList<Integer>(tmp);
+            result = new ArrayList<>(tmp);
         }
         return result;
     }

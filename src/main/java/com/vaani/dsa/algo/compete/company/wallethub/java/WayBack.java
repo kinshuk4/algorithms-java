@@ -27,7 +27,7 @@ Right on Ganapathi Temple Road
 //	        String line = br.readLine();
 //	        int N = Integer.parseInt(line);
 
-		 	List<String> directionList = new ArrayList<String>();
+		 	List<String> directionList = new ArrayList<>();
 		 	
 	        //Scanner
 	        Scanner s = new Scanner(System.in);

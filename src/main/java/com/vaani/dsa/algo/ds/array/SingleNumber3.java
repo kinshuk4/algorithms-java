@@ -39,7 +39,7 @@ public class SingleNumber3 {
             }
         }
 
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         result.add(num1);
         result.add(num2);
         return result;

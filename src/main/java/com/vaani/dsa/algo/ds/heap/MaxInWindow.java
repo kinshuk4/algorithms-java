@@ -21,8 +21,8 @@ public class MaxInWindow {
     }
 
     public static ArrayList<Integer> maxInWindow(int[] a, int windowSize) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        Queue<Integer> maxIndexQueue = new LinkedList<Integer>();
+        ArrayList<Integer> result = new ArrayList<>();
+        Queue<Integer> maxIndexQueue = new LinkedList<>();
 
         if (a.length >= windowSize && windowSize > 1) {
             int i = 0;

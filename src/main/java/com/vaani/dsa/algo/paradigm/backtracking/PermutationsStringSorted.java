@@ -19,7 +19,7 @@ public class PermutationsStringSorted {
     }
 
     public static List<String> getPermutations(String chars) {
-        List<String> myList = new ArrayList<String>();
+        List<String> myList = new ArrayList<>();
         findPerms(myList, "", chars);
 
         return myList;

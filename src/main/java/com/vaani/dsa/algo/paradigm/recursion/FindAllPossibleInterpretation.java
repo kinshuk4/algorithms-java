@@ -38,7 +38,7 @@ public class FindAllPossibleInterpretation {
      */
     public List<String> printInterpretation(int[] arr) {
         single = new StringBuilder();
-        result = new ArrayList<String>();
+        result = new ArrayList<>();
         dfs(arr, 0, arr.length - 1);
         return result;
     }

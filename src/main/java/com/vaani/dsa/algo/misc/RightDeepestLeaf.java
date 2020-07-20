@@ -17,7 +17,7 @@ public class RightDeepestLeaf {
         if (root == null) {
             return null;
         }
-        Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
         BinaryTreeNode cur = null;

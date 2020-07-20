@@ -53,7 +53,7 @@ public class WordBreak {
             return true;
         } else {
             int i;
-            HashSet<String> currentWords = new HashSet<String>();
+            HashSet<String> currentWords = new HashSet<>();
             for (i = 1; i <= s.length(); i++) {
                 String current = s.substring(0, i);
                 if (dictionary.contains(current)) {
@@ -97,7 +97,7 @@ public class WordBreak {
     }
 
     public boolean wordBreakRecursiveMemo2(String s, Set<String> dictionary) {
-        return wordBreakRecursiveMemo2Helper(s, dictionary, new HashMap<String, Boolean>());
+        return wordBreakRecursiveMemo2Helper(s, dictionary, new HashMap<>());
     }
 
     // will still not help much as recursion seems to be top down

@@ -28,7 +28,7 @@ public class TreeLeafPath {
 
     public TreeLeafPath(Integer v) {
         value = v;
-        children = new ArrayList<TreeLeafPath>();
+        children = new ArrayList<>();
     }
 
     public static void printPath(Stack<TreeLeafPath> s) {
@@ -86,7 +86,7 @@ public class TreeLeafPath {
         root.addTree(node4);
         root.addTree(node8);
 
-        Stack<TreeLeafPath> stack = new Stack<TreeLeafPath>();
+        Stack<TreeLeafPath> stack = new Stack<>();
         leafPath(root, stack);
         System.out.println();
 

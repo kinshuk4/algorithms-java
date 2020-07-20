@@ -28,14 +28,14 @@ public class SubSet2 {
         // the same Solution instance will be reused for each test case.
         Arrays.sort(num);
         List<List<Integer>> results = new ArrayList<>();
-        results.add(new ArrayList<Integer>());
+        results.add(new ArrayList<>());
         int index = 0;
         while (index < num.length) {
             int cur = num[index];
             //copy to current to get rid of concurrentModification exception
             List<List<Integer>> current = new ArrayList<>(results);
             for (List<Integer> arr : current) {
-                ArrayList<Integer> newList = new ArrayList<Integer>(arr);
+                ArrayList<Integer> newList = new ArrayList<>(arr);
                 newList.add(cur);
                 if (!results.contains(newList)) {
                     results.add(newList);

@@ -47,10 +47,10 @@ public class CompareArrayBST {
         if (a[0] != b[0])
             return false;
 
-        ArrayList<Integer> aSmaller = new ArrayList<Integer>();
-        ArrayList<Integer> aLarger = new ArrayList<Integer>();
-        ArrayList<Integer> bSmaller = new ArrayList<Integer>();
-        ArrayList<Integer> bLarger = new ArrayList<Integer>();
+        ArrayList<Integer> aSmaller = new ArrayList<>();
+        ArrayList<Integer> aLarger = new ArrayList<>();
+        ArrayList<Integer> bSmaller = new ArrayList<>();
+        ArrayList<Integer> bLarger = new ArrayList<>();
 
         //a[0] and b[0] are the roots of trees.
         for (int i = 1; i < a.length; i++) {

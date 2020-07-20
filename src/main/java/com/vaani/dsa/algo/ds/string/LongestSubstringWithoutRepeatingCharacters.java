@@ -67,7 +67,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
         // left is first pointer, right is second pointer
         for (int left = 0; left < s.length(); left++) {
-            HashSet<Character> chars = new HashSet<Character>();
+            HashSet<Character> chars = new HashSet<>();
             chars.add(s.charAt(left));
             int right = left + 1;
             while (right < s.length()) {
@@ -91,7 +91,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
         int maxLength = 0;
 
         // left is first pointer, right is second pointer
-        HashSet<Character> set = new HashSet<Character>();
+        HashSet<Character> set = new HashSet<>();
         int left = 0;
         int right = 0;
         while (right < s.length()) {

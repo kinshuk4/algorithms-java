@@ -52,7 +52,7 @@ public class GreyCode {
      * 而这正好是Gray码的生成方法。这就说明了，Gray码的第n个数确实是n xor (n shr 1)。
      */
     public List<Integer> grayCode(int n) {
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         int count = (int) Math.pow(2, n);
         for (int i = 0; i < count; i++) {
             result.add((i >> 1) ^ i);

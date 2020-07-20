@@ -9,7 +9,7 @@ import java.util.List;
 public class PrimesWithInN {
 
     public List<Integer> primes(int n) {
-        List<Integer> res = new ArrayList<Integer>();
+        List<Integer> res = new ArrayList<>();
         if (n < 2) {
             return res;
         }

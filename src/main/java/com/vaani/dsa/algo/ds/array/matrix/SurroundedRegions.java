@@ -35,7 +35,7 @@ public class SurroundedRegions {
     * */
     public void solve(char[][] board) {
         if (board.length == 0 || board[0].length == 0) return;
-        queue = new LinkedList<Integer>();
+        queue = new LinkedList<>();
         rows = board.length;
         cols = board[0].length;
         for (int i = 0; i < rows; i++) {

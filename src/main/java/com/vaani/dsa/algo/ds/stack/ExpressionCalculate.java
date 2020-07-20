@@ -22,7 +22,7 @@ public class ExpressionCalculate {
      */
     public double calculate(String expression) {
         StringBuilder sb = new StringBuilder();
-        Stack<Character> stack = new Stack<Character>();
+        Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < expression.length(); ++i) {
             char ch = expression.charAt(i);
@@ -56,7 +56,7 @@ public class ExpressionCalculate {
         System.out.println(sb.toString());
         String postOrder = sb.toString();
 
-        Stack<Double> resStack = new Stack<Double>();
+        Stack<Double> resStack = new Stack<>();
         for (int i = 0; i < postOrder.length(); ++i) {
             char ch = postOrder.charAt(i);
             if (Character.isDigit(ch)) {

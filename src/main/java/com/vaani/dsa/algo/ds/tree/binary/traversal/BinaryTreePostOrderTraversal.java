@@ -20,16 +20,16 @@ Note: Recursive getTreeHeight is trivial, could you do it iteratively?
 */
 
 
-public class PostOrderTraversal {
+public class BinaryTreePostOrderTraversal {
     //iterative, two stacks
     public List<Integer> postorderTraversal(BinaryTreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
-        Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
+        Stack<BinaryTreeNode> stack = new Stack<>();
         Stack<BinaryTreeNode> reverse = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
@@ -74,9 +74,7 @@ public class PostOrderTraversal {
 
     //Recursive
     public List<Integer> postorderTraversalRecursive(BinaryTreeNode root) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         helper(root, result);
         return result;
     }

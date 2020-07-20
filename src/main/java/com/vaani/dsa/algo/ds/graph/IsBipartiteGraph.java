@@ -15,7 +15,7 @@ public class IsBipartiteGraph {
         int[] colors = new int[V];
         for (int i = 0; i < V; i++) colors[i] = -1;
 
-        Queue<Integer> queue = new LinkedList<Integer>();
+        Queue<Integer> queue = new LinkedList<>();
         queue.offer(src);
         colors[src] = 1;
 

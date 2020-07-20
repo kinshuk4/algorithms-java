@@ -46,7 +46,7 @@ public class PrintAllPaths {
     public static void printAllPathToLeafNonRecursive(BinaryTreeNode root) {
         if (root == null) return;
 
-        Queue<Object> q = new LinkedList<Object>();
+        Queue<Object> q = new LinkedList<>();
         q.add(root);
         q.add(root.val + "");
 

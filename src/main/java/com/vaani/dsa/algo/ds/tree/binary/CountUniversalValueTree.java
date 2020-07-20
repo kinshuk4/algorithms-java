@@ -1,49 +1,25 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+
+import static com.vaani.dsa.algo.ds.tree.binary.IsUniValuedBinaryTree.isUnivalTree;
 
 public class CountUniversalValueTree {
-    static boolean isUnivalTree(BinaryTreeNode<Integer> root) {
-        if (root == null) {
-            return true;
-        }
 
-        boolean left = isUnivalTree(root.left);
-        boolean right = isUnivalTree(root.right);
-
-        // If any of the subtrees is not singly, then this
-        // cannot be singly.
-        if (!left || !right) {
-            return false;
-        }
-
-        // If left subtree is singly and non-empty, but data
-        // doesn't match
-        if (root.left != null && !root.val.equals(root.left.val)) {
-            return false;
-        }
-
-        // Same for right subtree
-        if (root.right != null && !root.val.equals(root.right.val)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    int countUnivalTreeBad(BinaryTreeNode<Integer> root) {
+    // O (n ^ 2)
+    int countUniValTreeBad(BinaryTreeNode root) {
         if (root == null) {
             return 0;
         }
 
-        int totalCount = countUnivalTreeBad(root.left) + countUnivalTreeBad(root.right);
+        int totalCount = countUniValTreeBad(root.left) + countUniValTreeBad(root.right);
         if (isUnivalTree(root)) {
             totalCount += 1;
         }
         return totalCount;
     }
 
-    class Counter {
+    static class Counter {
         int count = 0;
     }
 
@@ -51,14 +27,16 @@ public class CountUniversalValueTree {
     // This function increments count by number of single
     // valued subtrees under root. It returns true if subtree
     // under root is Singly, else false.
-    boolean countUnivalTreeHelper(BinaryTreeNode<Integer> root, Counter c) {
+    // https://www.youtube.com/watch?v=7HgsS8bRvjo
+    boolean countUniValTreeHelper(BinaryTreeNode root, Counter c) {
         // Return false to indicate NULL
-        if (root == null)
+        if (root == null) {
             return true;
+        }
 
         // Recursively count in left and right subtrees also
-        boolean left = countUnivalTreeHelper(root.left, c);
-        boolean right = countUnivalTreeHelper(root.right, c);
+        boolean left = countUniValTreeHelper(root.left, c);
+        boolean right = countUniValTreeHelper(root.right, c);
 
         // If any of the subtrees is not singly, then this
         // cannot be singly.
@@ -68,13 +46,13 @@ public class CountUniversalValueTree {
 
         // If left subtree is singly and non-empty, but data
         // doesn't match
-        if (root.left != null && !root.val.equals(root.left.val)) {
+        if (root.left != null && !(root.val == root.left.val)) {
             return false;
         }
 
 
         // Same for right subtree
-        if (root.right != null && !root.val.equals(root.right.val)) {
+        if (root.right != null && !(root.val == root.right.val)) {
             return false;
         }
 
@@ -85,10 +63,10 @@ public class CountUniversalValueTree {
         return true;
     }
 
-    int countUnivalTree(BinaryTreeNode<Integer> root) {
+    int countUnivalTree(BinaryTreeNode root) {
         Counter ct = new Counter();
         // Recursive function to count
-        countUnivalTreeHelper(root, ct);
+        countUniValTreeHelper(root, ct);
         return ct.count;
     }
 }

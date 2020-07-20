@@ -18,7 +18,7 @@ public class NthFibonacci {
      * Recursive with memorization
      */
     public static int fibonacci2(int n) {
-        Map<Integer, Integer> memo = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> memo = new HashMap<>();
         memo.put(0, 0);
         memo.put(1, 1);
         if (!memo.containsKey(n))

@@ -57,7 +57,7 @@ public class IntegerToRoman {
     }
 
     public String intToRoman(int num) {
-        Map<Integer, Character> map = new HashMap<Integer, Character>() {{
+        Map<Integer, Character> map = new HashMap<>() {{
             put(1, 'I');
             put(5, 'V');
             put(10, 'X');

@@ -19,7 +19,7 @@ public class MaximalOverlap {
      * @return
      */
     public int maximalOverlapped(List<Interval> intervals) {
-        List<Endpoint> endpoints = new ArrayList<Endpoint>();
+        List<Endpoint> endpoints = new ArrayList<>();
         for (Interval interval : intervals) {
             endpoints.add(new Endpoint(interval.start, true));
             endpoints.add(new Endpoint(interval.end, false));

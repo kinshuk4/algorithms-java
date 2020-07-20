@@ -23,7 +23,7 @@ Return
 public class PalindromePartitioning {
     public ArrayList<ArrayList<String>> partition(String s) {
         if (s == null || s.length() == 0) {
-            return new ArrayList<ArrayList<String>>();
+            return new ArrayList<>();
         }
 
         int length = s.length();
@@ -50,9 +50,9 @@ public class PalindromePartitioning {
     //recursively backtrack the palindrome list from startindex to the end
     public ArrayList<ArrayList<String>> partitionHelper(String s, int index, boolean[][] isPal) {
 
-        ArrayList<ArrayList<String>> result = new ArrayList<ArrayList<String>>();
+        ArrayList<ArrayList<String>> result = new ArrayList<>();
         if (index == s.length()) {
-            result.add(new ArrayList<String>());
+            result.add(new ArrayList<>());
             return result;
         }
 

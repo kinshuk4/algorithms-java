@@ -14,8 +14,8 @@ public class JaccardSimilarityCoefficient {
             return 1.0;
         }
 
-        Set<Character> words0 = new HashSet<Character>();
-        Set<Character> words1 = new HashSet<Character>();
+        Set<Character> words0 = new HashSet<>();
+        Set<Character> words1 = new HashSet<>();
         for (int i = 0; i < s0.length(); i++) {
             words0.add(s0.charAt(i));
         }
@@ -34,8 +34,8 @@ public class JaccardSimilarityCoefficient {
         if (StringUtils.isEmpty(str1) && StringUtils.isEmpty(str2)) {
             return 1;
         }
-        Set<Character> s1 = new HashSet<Character>();
-        Set<Character> s2 = new HashSet<Character>();
+        Set<Character> s1 = new HashSet<>();
+        Set<Character> s2 = new HashSet<>();
         str1 = Preconditions.checkNotNull(str1);
         str2 = Preconditions.checkNotNull(str2);
         char[] chars1 = str1.toCharArray();
@@ -48,12 +48,12 @@ public class JaccardSimilarityCoefficient {
         }
 
         //求交集
-        Set<Character> intersection = new HashSet<Character>();
+        Set<Character> intersection = new HashSet<>();
         intersection.addAll(s1);
         intersection.retainAll(s2);
 
         //求并集
-        Set<Character> union = new HashSet<Character>();
+        Set<Character> union = new HashSet<>();
         union.addAll(s1);
         union.addAll(s2);
 

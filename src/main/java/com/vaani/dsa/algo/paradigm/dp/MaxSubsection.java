@@ -17,7 +17,7 @@ public class MaxSubsection {
 
     public int maxValue(List<Section> sections) {
         // transform the sections to timestamps
-        List<Timestamp> timestamps = new ArrayList<Timestamp>();
+        List<Timestamp> timestamps = new ArrayList<>();
         for (Section section : sections) {
             timestamps.add(new Timestamp(section.startTime, true, section.value));
             timestamps.add(new Timestamp(section.endTime, false, section.value));

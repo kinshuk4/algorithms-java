@@ -45,7 +45,7 @@ public class AddTwoNumbersAsList2 {
             int sum = k % 10000;
 
             if (result == null) {
-                result = new ListNode<Integer>(sum);
+                result = new ListNode<>(sum);
                 curr = result;
             } else {
                 ListNode<Integer> newNode = new ListNode<>(sum);
@@ -70,7 +70,7 @@ public class AddTwoNumbersAsList2 {
             int sum = k % 10000;
 
             if (result == null) {
-                result = new ListNode<Integer>(sum);
+                result = new ListNode<>(sum);
                 curr = result;
             } else {
                 ListNode<Integer> newNode = new ListNode<>(sum);

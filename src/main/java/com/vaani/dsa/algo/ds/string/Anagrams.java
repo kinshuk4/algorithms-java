@@ -17,15 +17,15 @@ public class Anagrams {
     }
 
     public List<String> anagrams(String[] strs) {
-        List<String> result = new ArrayList<String>();
-        Map<String, List<String>> map = new HashMap<String, List<String>>();
+        List<String> result = new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
 
         for (String s : strs) {
             char[] charArr = s.toCharArray();
             Arrays.sort(charArr);
             String sorted = new String(charArr);
             if (!map.containsKey(sorted)) {
-                map.put(sorted, new ArrayList<String>());
+                map.put(sorted, new ArrayList<>());
             }
             map.get(sorted).add(s);
         }

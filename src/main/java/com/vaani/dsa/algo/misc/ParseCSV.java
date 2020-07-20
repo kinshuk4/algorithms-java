@@ -12,7 +12,7 @@ public class ParseCSV {
 
     public String[] parseCSV(String line) {
         boolean prevEscape = false;
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < line.length(); ++i) {
             char cur = line.charAt(i);

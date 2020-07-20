@@ -78,7 +78,7 @@ public class BinaryTreeUtil {
             index++;
             return null;
         }
-        BinaryTreeNode<T> root = new BinaryTreeNode<T>(tokens[index++]);
+        BinaryTreeNode<T> root = new BinaryTreeNode<>(tokens[index++]);
         root.left = deserializeWithPreorderHelper(tokens);
         root.right = deserializeWithPreorderHelper(tokens);
         return root;
@@ -131,7 +131,7 @@ public class BinaryTreeUtil {
 
             if (queue1.isEmpty()) {
                 result.add(level);
-                level = new ArrayList<T>();
+                level = new ArrayList<>();
                 queue1.addAll(queue2);
                 queue2.clear();
             }
@@ -179,7 +179,7 @@ public class BinaryTreeUtil {
 
             if (currLevel.isEmpty()) {
                 result.add(level);
-                level = new LinkedList<T>();
+                level = new LinkedList<>();
 
                 leftToRight = !leftToRight;
                 //swap stacks

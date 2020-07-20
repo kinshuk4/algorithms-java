@@ -22,11 +22,11 @@ public class Combination {
     public ArrayList<ArrayList<Integer>> combine(int n, int k) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         if (n <= 0 || k <= 0 || n < k) return result;
 
         for (int i = 1; i <= n; i++) {
-            ArrayList<Integer> init = new ArrayList<Integer>();
+            ArrayList<Integer> init = new ArrayList<>();
             init.add(i);
             helper(init, n, k, result);
         }
@@ -42,7 +42,7 @@ public class Combination {
         }
         int curMax = cur.get(cur.size() - 1);
         while (curMax < n) {
-            ArrayList<Integer> res = new ArrayList<Integer>(cur);
+            ArrayList<Integer> res = new ArrayList<>(cur);
             res.add(++curMax);
             helper(res, n, k, result);
         }

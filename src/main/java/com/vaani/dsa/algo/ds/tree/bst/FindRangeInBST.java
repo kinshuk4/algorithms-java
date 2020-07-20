@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class FindRangeInBST {
     public static List<Integer> findElements(BinaryTreeNode root, int start, int end) {
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         findElements(root, start, end, result);
         return result;
     }

@@ -28,11 +28,11 @@ public class PascalsTriangle {
     }
 
     public List<List<Integer>> generate2(int numRows) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<>();
         List<Integer> curr;
-        List<Integer> prev = new ArrayList<Integer>();
+        List<Integer> prev = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {
-            curr = new ArrayList<Integer>();
+            curr = new ArrayList<>();
             if (i > 0) prev = result.get(i - 1);
             for (int j = 0; j <= i; j++) {
                 if (j == 0 || j == i)
@@ -51,12 +51,12 @@ public class PascalsTriangle {
             return result;
         }
 
-        List<Integer> prev = new ArrayList<Integer>();
+        List<Integer> prev = new ArrayList<>();
         prev.add(1);
         result.add(prev);
 
         for (int i = 2; i <= numRows; i++) {
-            ArrayList<Integer> curr = new ArrayList<Integer>();
+            ArrayList<Integer> curr = new ArrayList<>();
 
             curr.add(1); //first
             for (int j = 0; j < prev.size() - 1; j++) {

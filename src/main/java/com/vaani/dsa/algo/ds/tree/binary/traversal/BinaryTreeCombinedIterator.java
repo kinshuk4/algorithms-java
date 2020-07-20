@@ -15,14 +15,14 @@ public class BinaryTreeCombinedIterator {
 
     public BinaryTreeCombinedIterator(BinaryTreeNode n) {
         root = n;
-        stack = new Stack<BinaryTreeNode>();
+        stack = new Stack<>();
         pushLeft(root);
 
         // for post-order, no need for in-order
-        postOrderQueue = new LinkedList<BinaryTreeNode>();
+        postOrderQueue = new LinkedList<>();
         pushPostOrder(root);
         // for pre-order
-        preOrderStack = new Stack<BinaryTreeNode>();
+        preOrderStack = new Stack<>();
         preOrderStack.push(root);
     }
 

@@ -32,7 +32,7 @@ public class PostfixEvaluator {
 
 
     public int doParse() throws InvalidAlgorithmParameterException {
-        operandStack = new Stack<Integer>();
+        operandStack = new Stack<>();
         char ch;
         int j;
         int num1, num2, interAns;

@@ -4,7 +4,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
 import static com.vaani.dsa.ds.utils.generic.BstUtil.*;
 
-/**
+/*
  * A tree is considered a binary search tree (BST) if for each of its nodes the following is true:
  *
  * The left subtree of a node contains only nodes with keys less than the node's key.
@@ -44,13 +44,35 @@ import static com.vaani.dsa.ds.utils.generic.BstUtil.*;
  * You're given a binary search tree t and an array of numbers queries. Your task is to remove queries[0], queries[1], etc., from t, step by step, following the algorithm above. Return the resulting BST.
  */
 public class DeleteFromBst1 {
+
+    public static void main(String[] args) {
+//        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(5);
+//        root.setLeft(new BinaryTreeNode<>(2));
+//        root.setRight(new BinaryTreeNode<>(6));
+//
+//        root.getLeft().setLeft(new BinaryTreeNode<>(1));
+//        root.getLeft().setRight(new BinaryTreeNode<>(3));
+//
+//        root.getRight().setRight(new BinaryTreeNode<>(8));
+//        root.getRight().getRight().setLeft(new BinaryTreeNode<>(7));
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(3);
+        root.setLeft(new BinaryTreeNode<>(2));
+        root.setRight(new BinaryTreeNode<>(5));
+
+        root.getLeft().setLeft(new BinaryTreeNode<>(1));
+
+
+        deleteFromBST(root, new int[]{3, 2, 1});
+    }
+
+
     //Instead of adding next inorder element , we add the right most child of left parent
     static BinaryTreeNode<Integer> deleteFromBST(BinaryTreeNode<Integer> t, int[] queries) {
-        if(t==null || queries==null || queries.length==0){
+        if (t == null || queries == null || queries.length == 0) {
             return t;
         }
         for (int key : queries) {
-            if(t==null){
+            if (t == null) {
                 return null;
             }
             BinaryTreeNode<Integer>[] searchedResult = searchWithParent(t, key, null);
@@ -112,25 +134,7 @@ public class DeleteFromBst1 {
     }
 
 
-    public static void main(String[] args) {
-//        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(5);
-//        root.setLeft(new BinaryTreeNode<>(2));
-//        root.setRight(new BinaryTreeNode<>(6));
-//
-//        root.getLeft().setLeft(new BinaryTreeNode<>(1));
-//        root.getLeft().setRight(new BinaryTreeNode<>(3));
-//
-//        root.getRight().setRight(new BinaryTreeNode<>(8));
-//        root.getRight().getRight().setLeft(new BinaryTreeNode<>(7));
-        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(3);
-        root.setLeft(new BinaryTreeNode<>(2));
-        root.setRight(new BinaryTreeNode<>(5));
 
-        root.getLeft().setLeft(new BinaryTreeNode<>(1));
-
-
-        deleteFromBST(root, new int[] {3,2,1});
-    }
 
 
     static BinaryTreeNode<Integer> deleteFromBST2(BinaryTreeNode<Integer> tree, int[] queries) {

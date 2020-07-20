@@ -15,7 +15,7 @@ public class UnionOfSortedLinkedList {
         ListNode<Integer> curL1 = l1;
         ListNode<Integer> curL2 = l2;
 
-        List<Integer> res = new ArrayList<Integer>();
+        List<Integer> res = new ArrayList<>();
 
         while (curL1 != null && curL2 != null) {
             if (curL1.val < curL2.val) {

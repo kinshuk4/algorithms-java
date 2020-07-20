@@ -13,7 +13,7 @@ public class CopyListWithRandomPointer {
         if (head == null) return head;
         RandomListNode n = head;
         while (n != null) {
-            RandomListNode temp = new RandomListNode(n.label);
+            RandomListNode temp = new RandomListNode(n.val);
             temp.next = n.next;
             n.next = temp;
             n = n.next.next;

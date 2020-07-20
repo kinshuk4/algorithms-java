@@ -6,7 +6,7 @@ import java.util.TreeMap;
 public class MedianOfDataStreamUsingTreeMap {
 
     private long size = 0;
-    private Map<Integer, Integer> hist = new TreeMap<Integer, Integer>();
+    private Map<Integer, Integer> hist = new TreeMap<>();
 
     public void add(int val) {
         Integer count = hist.get(val);

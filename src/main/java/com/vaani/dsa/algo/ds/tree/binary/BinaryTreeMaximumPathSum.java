@@ -116,7 +116,7 @@ public class BinaryTreeMaximumPathSum {
     public int maxPathSum4(com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<Integer> curMax = new ArrayList<Integer>(1);
+        ArrayList<Integer> curMax = new ArrayList<>(1);
         curMax.add(Integer.MIN_VALUE);
         subPath4(root, curMax);
         //getMaxNonAdjacentSum(root, curMax);

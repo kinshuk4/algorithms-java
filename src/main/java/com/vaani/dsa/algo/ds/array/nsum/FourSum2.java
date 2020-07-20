@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class FourSum2 {
     public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int a : A)
             for (int b : B) {
                 int s = a + b;
@@ -47,7 +47,7 @@ public class FourSum2 {
 
     // fails may be due to thread issue
     public int fourSumCountParallelStream(int[] A, int[] B, int[] C, int[] D) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
 
         Arrays.stream(A).parallel().forEach(a -> {
             Arrays.stream(B).parallel().forEach(b -> map.put(a + b, map.getOrDefault(a + b, 0) + 1));
@@ -65,7 +65,7 @@ public class FourSum2 {
 
     // fast -
     public int fourSumCountStream(int[] A, int[] B, int[] C, int[] D) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
 
         Arrays.stream(A).forEach(a -> {
             Arrays.stream(B).parallel().forEach(b -> map.put(a + b, map.getOrDefault(a + b, 0) + 1));

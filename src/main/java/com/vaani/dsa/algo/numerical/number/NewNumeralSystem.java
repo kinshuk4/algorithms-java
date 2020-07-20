@@ -35,7 +35,7 @@ public class NewNumeralSystem {
 
 
         int l = 0, r = 25;
-        List<String> list = new LinkedList<String>();
+        List<String> list = new LinkedList<>();
         char c = numbers[l];
         char d = numbers[r];
         int sum = c + d - 2 * 65;

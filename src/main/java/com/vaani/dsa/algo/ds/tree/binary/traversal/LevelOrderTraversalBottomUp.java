@@ -41,12 +41,12 @@ public class LevelOrderTraversalBottomUp {
         if (root == null) {
             return result;
         }
-        ArrayList<BinaryTreeNode> list = new ArrayList<BinaryTreeNode>();
+        ArrayList<BinaryTreeNode> list = new ArrayList<>();
         list.add(root);
         ArrayList<BinaryTreeNode> parent = list;
         while (!parent.isEmpty()) {
-            ArrayList<BinaryTreeNode> cur = new ArrayList<BinaryTreeNode>();
-            ArrayList<Integer> parentData = new ArrayList<Integer>();
+            ArrayList<BinaryTreeNode> cur = new ArrayList<>();
+            ArrayList<Integer> parentData = new ArrayList<>();
             for (BinaryTreeNode n : parent) {
                 parentData.add(n.val);
                 if (n.left != null) {
@@ -65,12 +65,12 @@ public class LevelOrderTraversalBottomUp {
     }
 
     public List<List<Integer>> levelOrderBottom2(BinaryTreeNode root) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
 
-        Queue<BinaryTreeNode> queue1 = new LinkedList<BinaryTreeNode>();
-        Queue<BinaryTreeNode> queue2 = new LinkedList<BinaryTreeNode>();
-        List<Integer> level = new ArrayList<Integer>();
+        Queue<BinaryTreeNode> queue1 = new LinkedList<>();
+        Queue<BinaryTreeNode> queue2 = new LinkedList<>();
+        List<Integer> level = new ArrayList<>();
         queue1.add(root);
 
         while (!queue1.isEmpty()) {
@@ -86,7 +86,7 @@ public class LevelOrderTraversalBottomUp {
 
             if (queue1.isEmpty()) {
                 result.add(level);
-                level = new ArrayList<Integer>();
+                level = new ArrayList<>();
                 queue1.addAll(queue2);
                 queue2.clear();
             }
@@ -96,15 +96,15 @@ public class LevelOrderTraversalBottomUp {
     }
 
     public List<List<Integer>> levelOrderBottom3(BinaryTreeNode root) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
-        Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
         queue.add(root);
         int numNodesAtCurrLevel = 1;
         int nextLevel = 0;
 
         while (!queue.isEmpty()) {
-            List<Integer> level = new ArrayList<Integer>();
+            List<Integer> level = new ArrayList<>();
             for (int i = 0; i < numNodesAtCurrLevel; i++) {
                 BinaryTreeNode node = queue.poll();
                 level.add(node.val);

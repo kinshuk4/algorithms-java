@@ -13,7 +13,7 @@ Some examples:
 
 public class EvaluateReversePolishNotation {
     public int evalRPN(String[] tokens) {
-        Stack<Integer> operandStack = new Stack<Integer>();
+        Stack<Integer> operandStack = new Stack<>();
 
         for (String s : tokens) {
             if (s.matches("-?[\\d]+")) {

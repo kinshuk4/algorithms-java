@@ -15,7 +15,7 @@ public class SetsIntersection {
      * @return
      */
     public List<Integer> intersection(List<Integer> first, List<Integer> second) {
-        List<Integer> res = new ArrayList<Integer>();
+        List<Integer> res = new ArrayList<>();
 
         for (int v1 : first) {
             // find v1 in v2
@@ -38,8 +38,8 @@ public class SetsIntersection {
      * @return
      */
     public List<Integer> intersectionFast(List<Integer> first, List<Integer> second) {
-        List<Integer> res = new ArrayList<Integer>();
-        Set<Integer> set = new TreeSet<Integer>();
+        List<Integer> res = new ArrayList<>();
+        Set<Integer> set = new TreeSet<>();
 
         List<Integer> smallList = null;
         if (first.size() > second.size()) {

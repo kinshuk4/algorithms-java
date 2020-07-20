@@ -66,7 +66,7 @@ public class DoubleLinkedList<E> implements ListADT<E, DLLNode<E>> {
     }
 
     public void addTail(E value) {
-        DLLNode<E> newNode = new DLLNode<E>(value);
+        DLLNode<E> newNode = new DLLNode<>(value);
 
         if (head == null) {
             head = tail = newNode;
@@ -84,7 +84,7 @@ public class DoubleLinkedList<E> implements ListADT<E, DLLNode<E>> {
         if (prevNode == null) {
             throw new Exception("Cannot find the given node with prevValue" + prevValue);
         }
-        DLLNode<E> newNode = new DLLNode<E>(value);
+        DLLNode<E> newNode = new DLLNode<>(value);
 
         // Make next of new node as next of prev_node
         newNode.next = prevNode.next;

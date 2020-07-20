@@ -13,7 +13,7 @@ public class InfixToPostfix {
 
     public InfixToPostfix(String in) {
         input = in;
-        operatorStack = new Stack<Character>();
+        operatorStack = new Stack<>();
     }
 
     public static void main(String[] args) throws IOException {

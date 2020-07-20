@@ -11,7 +11,7 @@ import java.util.List;
 public class DiagonalPrinting {
 
     public List<List<Character>> diagonalPrinting(char[][] matrix) {
-        List<List<Character>> res = new ArrayList<List<Character>>();
+        List<List<Character>> res = new ArrayList<>();
         int row = matrix.length;
         if (matrix.length == 0) {
             return res;
@@ -19,7 +19,7 @@ public class DiagonalPrinting {
         int col = matrix[0].length;
 
         for (int c = 0; c < col; ++c) {
-            List<Character> list = new ArrayList<Character>();
+            List<Character> list = new ArrayList<>();
             int tr = 0, tc = c;
             while (tr < row && tc < col) {
                 list.add(matrix[tr][tc]);
@@ -30,7 +30,7 @@ public class DiagonalPrinting {
         }
 
         for (int r = 1; r < row; ++r) {
-            List<Character> list = new ArrayList<Character>();
+            List<Character> list = new ArrayList<>();
             int tr = r, tc = 0;
             while (tr < row && tc < col) {
                 list.add(matrix[tr][tc]);

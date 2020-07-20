@@ -9,7 +9,7 @@ public class BurrowsWheelerTransform {
 
     public String bwt(String str, String eof) {
         str = str + eof;
-        List<String> strList = new ArrayList<String>();
+        List<String> strList = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < str.length(); ++i) {
             sb.append(str.substring(i));
@@ -27,7 +27,7 @@ public class BurrowsWheelerTransform {
     }
 
     public String reverse(String encoded, String eof) {
-        List<StringBuilder> table = new ArrayList<StringBuilder>();
+        List<StringBuilder> table = new ArrayList<>();
         for (int i = 0; i < encoded.length(); ++i) {
             table.add(new StringBuilder());
         }
@@ -36,7 +36,7 @@ public class BurrowsWheelerTransform {
             for (int j = 0; j < encoded.length(); ++j) {
                 table.get(j).insert(0, encoded.charAt(j));
             }
-            Collections.sort(table, new Comparator<StringBuilder>() {
+            Collections.sort(table, new Comparator<>() {
                 public int compare(StringBuilder sb1, StringBuilder sb2) {
                     return sb1.toString().compareTo(sb2.toString());
                 }

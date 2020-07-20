@@ -82,7 +82,7 @@ public class FlattenBinaryTreeToLinkedList {
             return;
         }
 
-        Stack<BinaryTreeNode> rightStack = new Stack<BinaryTreeNode>();
+        Stack<BinaryTreeNode> rightStack = new Stack<>();
 
         root = nextNode(root, rightStack);
     }

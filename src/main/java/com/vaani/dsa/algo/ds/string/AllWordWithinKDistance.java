@@ -9,7 +9,7 @@ public class AllWordWithinKDistance {
     }
 
     public List<String> findAllWords(String target, List<String> pool, int k) {
-        List<String> res = new ArrayList<String>();
+        List<String> res = new ArrayList<>();
         for (String candidate : pool) {
             if (similar(target, candidate, k)) {
                 res.add(candidate);

@@ -64,7 +64,7 @@ public class ThreeSum {
     }
 
     public static List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
             if (i != 0 && nums[i] == nums[i - 1]) {
@@ -78,7 +78,7 @@ public class ThreeSum {
                 } else if (currSum < 0) {
                     start++;
                 } else {
-                    List<Integer> triplet = new ArrayList<Integer>();
+                    List<Integer> triplet = new ArrayList<>();
                     triplet.add(nums[i]);
                     triplet.add(nums[start]);
                     triplet.add(nums[end]);

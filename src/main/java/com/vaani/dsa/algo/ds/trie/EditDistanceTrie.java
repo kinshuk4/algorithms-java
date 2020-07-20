@@ -94,7 +94,7 @@ public class EditDistanceTrie {
         dict.insert("arb");
         dict.insert("area");
 
-        ArrayList<Character> word = new ArrayList<Character>();
+        ArrayList<Character> word = new ArrayList<>();
         word.add('a');
         word.add('r');
         word.add('c');

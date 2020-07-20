@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class PossiblePassword {
     public static List<String> createPasswords(String s, Map<Character, List<Character>> map) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         StringBuilder single = new StringBuilder();
         createPasswords(s, 0, map, single, result);
         return result;
@@ -38,8 +38,8 @@ public class PossiblePassword {
 
     public static void main(String[] args) {
         String s = "face";
-        Map<Character, List<Character>> map = new HashMap<Character, List<Character>>();
-        map.put('a', new ArrayList<Character>(Arrays.asList('@', '4', 'A')));
+        Map<Character, List<Character>> map = new HashMap<>();
+        map.put('a', new ArrayList<>(Arrays.asList('@', '4', 'A')));
         System.out.println(createPasswords(s, map));
     }
 }

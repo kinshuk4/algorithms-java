@@ -108,7 +108,7 @@ public class FindKthSmallestInArray {
      */
     public static int findKthSmallest2(int[] arr, int k) {
         if (k < 1 || k > arr.length) return -1;
-        Queue<Integer> queue = new PriorityQueue<Integer>(arr.length);
+        Queue<Integer> queue = new PriorityQueue<>(arr.length);
         for (int num : arr) {
             queue.add(num);
         }
@@ -125,14 +125,14 @@ public class FindKthSmallestInArray {
      */
     public static int findKthSmallest3(int[] arr, int k) {
         if (k < 1 || k > arr.length) return -1;
-        Comparator<Integer> comparator = new Comparator<Integer>() {
+        Comparator<Integer> comparator = new Comparator<>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o2 - o1;
             }
         };
 
-        Queue<Integer> queue = new PriorityQueue<Integer>(k, comparator);
+        Queue<Integer> queue = new PriorityQueue<>(k, comparator);
         for (int i = 0; i < k; i++) {
             queue.add(arr[i]);
         }
@@ -153,7 +153,7 @@ public class FindKthSmallestInArray {
      */
     public static int findKthLargest(int[] arr, int k) {
         if (k < 1 || k > arr.length) return -1;
-        Queue<Integer> queue = new PriorityQueue<Integer>(k);
+        Queue<Integer> queue = new PriorityQueue<>(k);
         for (int i = 0; i < k; i++) {
             queue.add(arr[i]);
         }

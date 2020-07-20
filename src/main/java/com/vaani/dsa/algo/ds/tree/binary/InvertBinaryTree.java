@@ -29,7 +29,7 @@ Output:
  */
 public class InvertBinaryTree {
     public BinaryTreeNode invertTreeIterative(BinaryTreeNode root) {
-        LinkedList<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+        LinkedList<BinaryTreeNode> queue = new LinkedList<>();
 
         if (root != null) {
             queue.add(root);

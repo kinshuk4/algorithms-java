@@ -15,14 +15,14 @@ public class MergeKSortedLists {
     public static ListNode mergeKLists(List<ListNode> lists) {
         if (lists.size() == 0) return null;
 
-        Comparator<ListNode> comparator = new Comparator<ListNode>() {
+        Comparator<ListNode> comparator = new Comparator<>() {
             @Override
             public int compare(ListNode o1, ListNode o2) {
                 return o1.val - o2.val;
             }
         };
 
-        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.size(), comparator);
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.size(), comparator);
         for (ListNode node : lists) {
             if (node != null) queue.offer(node);
         }
@@ -101,7 +101,7 @@ public class MergeKSortedLists {
         l3.next.next = new ListNode(10);
         l3.next.next.next = new ListNode(12);
 
-        List<ListNode> list = new ArrayList<ListNode>();
+        List<ListNode> list = new ArrayList<>();
         list.add(l1);
         list.add(l2);
         list.add(l3);

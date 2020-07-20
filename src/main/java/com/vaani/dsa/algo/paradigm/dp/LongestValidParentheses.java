@@ -25,7 +25,7 @@ public class LongestValidParentheses {
         //so when left stack is empty(all matched), use this to calculate the length
         int last = -1;
 
-        Stack<Integer> left = new Stack<Integer>();
+        Stack<Integer> left = new Stack<>();
 
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(') {

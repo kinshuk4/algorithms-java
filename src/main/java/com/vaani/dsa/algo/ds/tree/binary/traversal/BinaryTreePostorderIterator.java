@@ -11,7 +11,7 @@ public class BinaryTreePostorderIterator {
     private BinaryTreeNode current;
 
     public BinaryTreePostorderIterator(BinaryTreeNode node) {
-        stack = new Stack<BinaryTreeNode>();
+        stack = new Stack<>();
         BinaryTreeNode cur = node;
         while (node != null) {
             stack.push(node);

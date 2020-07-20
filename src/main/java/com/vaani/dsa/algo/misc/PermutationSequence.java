@@ -22,7 +22,7 @@ public class PermutationSequence {
     public String getPermutation(int n, int k) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<Integer> nums = new ArrayList<Integer>();
+        ArrayList<Integer> nums = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
             nums.add(i);
         }

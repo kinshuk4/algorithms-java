@@ -32,7 +32,7 @@ public class PermutationsArray {
     public List<List<Integer>> helper(int[] num, int index) {
         List<List<Integer>> s = new ArrayList<>();
         if (index == 0) {
-            List<Integer> init = new ArrayList<Integer>();
+            List<Integer> init = new ArrayList<>();
             init.add(num[0]);
             s.add(init);
             return s;
@@ -40,7 +40,7 @@ public class PermutationsArray {
 
         for (List<Integer> cur : helper(num, index - 1)) {
             for (int i = 0; i <= cur.size(); i++) {
-                ArrayList<Integer> temp = new ArrayList<Integer>(cur);
+                ArrayList<Integer> temp = new ArrayList<>(cur);
                 temp.add(i, num[index]);
                 s.add(temp);
             }

@@ -16,14 +16,14 @@ You should return the indices: [0,9].
 public class SubstringwithConcatenantionofAllWords {
     public ArrayList<Integer> findSubstring(String S, String[] L) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
-        HashMap<String, Integer> mapL = new HashMap<String, Integer>();
+        HashMap<String, Integer> mapL = new HashMap<>();
 
         int singleWordSize = L[0].length();
         int LSize = L.length;
 
         int concatLength = LSize * singleWordSize;
 
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<>();
 
         for (String s : L) {
             mapL.put(s, mapL.get(s) == null ? 1 : (mapL.get(s) + 1));
@@ -31,7 +31,7 @@ public class SubstringwithConcatenantionofAllWords {
 
         for (int i = 0; i <= S.length() - concatLength; i++) {
             String s = S.substring(i, i + concatLength);
-            HashMap<String, Integer> temp = new HashMap<String, Integer>(mapL);
+            HashMap<String, Integer> temp = new HashMap<>(mapL);
 
             for (int j = 0; j < concatLength; j += singleWordSize) {
                 String cur = s.substring(j, j + singleWordSize);

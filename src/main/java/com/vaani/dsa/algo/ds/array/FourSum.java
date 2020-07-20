@@ -21,7 +21,7 @@ public class FourSum {
         // the same Solution instance will be reused for each test case.
 
         Arrays.sort(num);
-        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         int length = num.length;
         if (length < 4) {
             return result;
@@ -50,7 +50,7 @@ public class FourSum {
                     }
                     int temp = num[L] + num[R];
                     if (temp == remainder) {
-                        ArrayList<Integer> list = new ArrayList<Integer>();
+                        ArrayList<Integer> list = new ArrayList<>();
                         list.add(num[i]);
                         list.add(num[L]);
                         list.add(num[R]);

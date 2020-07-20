@@ -27,8 +27,8 @@ public class JumpGame {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
 
-        Stack<Integer> stack = new Stack<Integer>();
-        HashSet<Integer> visited = new HashSet<Integer>();
+        Stack<Integer> stack = new Stack<>();
+        HashSet<Integer> visited = new HashSet<>();
 
         stack.push(0);
         visited.add(0);

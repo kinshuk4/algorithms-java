@@ -32,7 +32,7 @@ public class SimplifyUnixPath {
     }
 
     public static String simplifyUnixPath(String path) {
-        Stack<String> pathStack = new Stack<String>();
+        Stack<String> pathStack = new Stack<>();
         String dir = "";
 
         for (int i = 0; i < path.length(); i++) {

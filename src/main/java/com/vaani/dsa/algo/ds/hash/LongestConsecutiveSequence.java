@@ -27,7 +27,7 @@ public class LongestConsecutiveSequence {
         int length = num.length;
 
         //Key: value, Value: index
-        HashMap<Integer, Integer> numMap = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> numMap = new HashMap<>();
         boolean[] visited = new boolean[length];
 
         for (int i = 0; i < length; i++) {

@@ -23,7 +23,7 @@ public class GenerateParentheses {
     }
 
     public List<String> generateParenthesis1(int n) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         StringBuilder single = new StringBuilder();
         if (n == 0) return result;
         dfs1(n, n, single, result);
@@ -51,7 +51,7 @@ public class GenerateParentheses {
 
 
     public List<String> generateParenthesis3(int n) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         if (n == 0) {
             return result;
         }
@@ -78,7 +78,7 @@ public class GenerateParentheses {
      * Cannot generate (())(()) when n = 4
      * */
     public List<String> generateParenthesis2(int n) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         if (n == 0) return result;
         if (n == 1) {
             result.add("()");

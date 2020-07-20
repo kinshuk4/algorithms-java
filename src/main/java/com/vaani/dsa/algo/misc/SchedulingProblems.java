@@ -29,13 +29,13 @@ public class SchedulingProblems {
      * Time: O(nlogn)
      */
     public static int findMax(List<Interval> intervals) {
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
         for (Interval interval : intervals) {
             list.add(interval.start);
             list.add(-interval.end);
         }
 
-        Comparator<Integer> comparator = new Comparator<Integer>() {
+        Comparator<Integer> comparator = new Comparator<>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 if (Math.abs(o1) == Math.abs(o2)) {
@@ -61,7 +61,7 @@ public class SchedulingProblems {
     }
 
     public static void main(String[] args) {
-        List<Interval> intervals = new ArrayList<Interval>();
+        List<Interval> intervals = new ArrayList<>();
         intervals.add(new Interval(4, 5));
         intervals.add(new Interval(1, 4));
         intervals.add(new Interval(2, 3));
@@ -87,8 +87,8 @@ public class SchedulingProblems {
      * http://www.geeksforgeeks.org/amazon-interview-set-111-campus/
      */
     public int fileMinMeetingRooms(List<Interval> intervals) {
-        List<Integer> list = new ArrayList<Integer>();
-        Comparator<Integer> comparator = new Comparator<Integer>() {
+        List<Integer> list = new ArrayList<>();
+        Comparator<Integer> comparator = new Comparator<>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 if (Math.abs(o1) == Math.abs(o2)) {

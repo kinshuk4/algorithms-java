@@ -12,7 +12,7 @@ public class GenerateParenthesis {
         int leftMid = n2, rightMid = n2;
         int leftBig = n3, rightBig = n3;
         StringBuilder sb = new StringBuilder();
-        Stack<Character> stack = new Stack<Character>();
+        Stack<Character> stack = new Stack<>();
         generate(leftSmall, rightSmall, leftMid, rightMid, leftBig, rightBig, stack, sb);
     }
 

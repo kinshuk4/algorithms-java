@@ -30,7 +30,7 @@ public class SubstringWithConcatenationAllWords {
     * Better solution exists
     * */
     public List<Integer> findSubstring(String S, String[] L) {
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> map = new HashMap<>();
         for (String word : L) {
             if (!map.containsKey(word)) {
                 map.put(word, 0);
@@ -38,12 +38,12 @@ public class SubstringWithConcatenationAllWords {
             map.put(word, map.get(word) + 1);
         }
 
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         int wordLen = L[0].length();
         int len = L.length * wordLen;
 
         for (int i = 0; i <= S.length() - len; i++) {
-            Map<String, Integer> copy = new HashMap<String, Integer>(map);
+            Map<String, Integer> copy = new HashMap<>(map);
             String sub = S.substring(i, i + len);
             while (true) {
                 String word = sub.substring(0, wordLen);
@@ -68,8 +68,8 @@ public class SubstringWithConcatenationAllWords {
      * Slightly better solution
      */
     public List<Integer> findSubstring2(String S, String[] L) {
-        List<Integer> result = new ArrayList<Integer>();
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        List<Integer> result = new ArrayList<>();
+        Map<String, Integer> map = new HashMap<>();
         for (int i = 0; i < L.length; i++) {
             if (map.containsKey(L[i])) {
                 map.put(L[i], map.get(L[i]) + 1);
@@ -82,7 +82,7 @@ public class SubstringWithConcatenationAllWords {
         int totalLen = L.length * wordLen;
         int i = 0;
         while (i + totalLen <= S.length()) {
-            Map<String, Integer> copy = new HashMap<String, Integer>(map);
+            Map<String, Integer> copy = new HashMap<>(map);
             int j = 0;
             while (j < L.length) {
                 String word = S.substring(i + j * wordLen, i + (j + 1) * wordLen);

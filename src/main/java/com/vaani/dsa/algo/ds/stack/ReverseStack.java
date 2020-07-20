@@ -7,7 +7,7 @@ import java.util.*;
 
 class ReverseStack {
 
-    Stack<Integer> stack = new Stack<Integer>();
+    Stack<Integer> stack = new Stack<>();
 
     void reverse() {
         if (!stack.isEmpty()) {

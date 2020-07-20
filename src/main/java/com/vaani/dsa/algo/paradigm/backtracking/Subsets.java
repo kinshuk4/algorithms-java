@@ -33,7 +33,7 @@ public class Subsets {
         // the same Solution instance will be reused for each test case.
         Arrays.sort(S);
         List<List<Integer>> results = new ArrayList<>();
-        results.add(new ArrayList<Integer>());
+        results.add(new ArrayList<>());
         int index = 0;
         while (index < S.length) {
             int cur = S[index];

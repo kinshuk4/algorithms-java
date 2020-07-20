@@ -13,7 +13,7 @@ import java.util.List;
 public class BurglarizingHouse {
 
     public List<Integer> bestValue(int[] houses) {
-        List<Integer> index = new ArrayList<Integer>();
+        List<Integer> index = new ArrayList<>();
         int[] values = new int[houses.length];
 
         for (int i = 0; i < houses.length; ++i) {

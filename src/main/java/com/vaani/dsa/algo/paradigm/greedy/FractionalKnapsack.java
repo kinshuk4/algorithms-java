@@ -27,7 +27,7 @@ public class FractionalKnapsack {
         }
 
         // sorting items by value;
-        Arrays.sort(iVal, new Comparator<ItemValue>() {
+        Arrays.sort(iVal, new Comparator<>() {
             @Override
             public int compare(ItemValue o1, ItemValue o2) {
                 return o2.cost.compareTo(o1.cost);

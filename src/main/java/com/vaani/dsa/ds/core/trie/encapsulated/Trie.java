@@ -93,7 +93,7 @@ public class Trie {
         TrieNode temp = root;
         TrieNode tn = getPrefixNode(prefix);
 
-        List<String> words = new ArrayList<String>();
+        List<String> words = new ArrayList<>();
 
         findAllChildWords(tn, words);
         return words;

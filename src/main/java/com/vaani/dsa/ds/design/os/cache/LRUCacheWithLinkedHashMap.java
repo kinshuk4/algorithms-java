@@ -29,7 +29,7 @@ public class LRUCacheWithLinkedHashMap<K, V> extends LinkedHashMap<K, V> {
 
     public static void main(String[] args) {
 
-        LRUCacheWithLinkedHashMap<String, Integer> lru = new LRUCacheWithLinkedHashMap<String, Integer>(2);
+        LRUCacheWithLinkedHashMap<String, Integer> lru = new LRUCacheWithLinkedHashMap<>(2);
 
         lru.put("A", 1);
         lru.put("B", 2);

@@ -26,7 +26,7 @@ public class SlidingWindowMaximum {
 
         // In deque we insert element at Start i.e. first
         // current max will be stored at last
-        Deque<Integer> deque = new LinkedList<Integer>();
+        Deque<Integer> deque = new LinkedList<>();
         for (int i = 0; i < nums.length; i++) {
             // remove the item from window once index is out
             if (!deque.isEmpty() && deque.peekFirst() == i - k) {

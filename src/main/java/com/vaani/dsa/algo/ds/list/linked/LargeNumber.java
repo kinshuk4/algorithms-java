@@ -11,7 +11,7 @@ public class LargeNumber {
     List<Integer> largeNumber;
 
     public LargeNumber(String number) {
-        largeNumber = new LinkedList<Integer>();
+        largeNumber = new LinkedList<>();
         createNumber(number);
     }
 
@@ -142,7 +142,7 @@ public class LargeNumber {
 
         int carry = 0;
 
-        LinkedList<Integer> sumList = new LinkedList<Integer>();
+        LinkedList<Integer> sumList = new LinkedList<>();
         Iterator<Integer> iter1 = list1.iterator();
         Iterator<Integer> iter2 = list2.iterator();
         SumDigit sumOfDig = new SumDigit(0, 0);

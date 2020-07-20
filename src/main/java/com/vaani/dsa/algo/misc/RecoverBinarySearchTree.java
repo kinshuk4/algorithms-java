@@ -37,7 +37,7 @@ public class RecoverBinarySearchTree {
     public void recoverTree(BinaryTreeNode<Integer> root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        track = new ArrayList<BinaryTreeNode<Integer>>();
+        track = new ArrayList<>();
         previous = null;
         inorderTraverse(root);
 

@@ -25,7 +25,7 @@ public class SimplifyPath {
         String cleanPath = s.toString();
         String[] paths = cleanPath.split("/");
 
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
         for (int i = 0; i < paths.length; i++) {
             if (paths[i].equals(".") || paths[i].length() == 0) {
 

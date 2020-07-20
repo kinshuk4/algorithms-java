@@ -13,14 +13,14 @@ public class Permutationii {
     public ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         permuteUnique(num, 0, result);
         return result;
     }
 
     public void permuteUnique(int[] num, int begin, ArrayList<ArrayList<Integer>> result) {
         if (begin == num.length) {
-            ArrayList<Integer> list = new ArrayList<Integer>();
+            ArrayList<Integer> list = new ArrayList<>();
             for (int h = 0; h < num.length; h++) {
                 list.add(num[h]);
             }

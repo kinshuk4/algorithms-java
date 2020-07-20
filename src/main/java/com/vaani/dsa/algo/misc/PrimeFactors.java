@@ -9,7 +9,7 @@ import java.util.List;
 public class PrimeFactors {
 
     public List<Integer> primeFactor(int n) {
-        List<Integer> primes = new ArrayList<Integer>();
+        List<Integer> primes = new ArrayList<>();
 
         int prime = 2;
 

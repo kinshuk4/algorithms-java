@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class ThreeSum2 {
     public static List<List<Integer>> threeSum(int[] num) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-        List<Integer> single = new ArrayList<Integer>();
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> single = new ArrayList<>();
         Arrays.sort(num); // Don't need to sort if you don't want sorted result
         threeSum(num, 0, 0, 0, single, result);
         return result;
@@ -24,7 +24,7 @@ public class ThreeSum2 {
     public static void threeSum(int[] num, int index, int count, int sum, List<Integer> single, List<List<Integer>> result) {
         if (index > num.length || count > 3) return;
         if (count == 3 && sum == 0) {
-            result.add(new ArrayList<Integer>(single));
+            result.add(new ArrayList<>(single));
             return;
         }
 

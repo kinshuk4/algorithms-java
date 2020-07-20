@@ -29,7 +29,7 @@ import java.util.TreeMap;
 public class BinaryTreeVerticalSum {
     public static void verticalSum(BinaryTreeNode root) {
         if (root == null) return;
-        Map<Integer, Integer> map = new TreeMap<Integer, Integer>();
+        Map<Integer, Integer> map = new TreeMap<>();
         verticalSum(root, 0, map);
         System.out.println(map.entrySet());
     }

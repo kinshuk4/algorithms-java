@@ -2,7 +2,7 @@ package com.vaani.dsa.ds.core.graph.generic;
 
 public class GraphTestUtil {
     public static Graph<String> getSimpleUndirectedGraph() {
-        Graph<String> stringGraph = new Graph<String>(false);
+        Graph<String> stringGraph = new Graph<>(false);
 
         //to make the graph un directed use the same weight
 
@@ -21,7 +21,7 @@ public class GraphTestUtil {
     }
 
     public static Graph<String> getSimpleDirectedGraph() {
-        Graph<String> stringGraph = new Graph<String>(true);
+        Graph<String> stringGraph = new Graph<>(true);
 
         //to make the graph un directed use the same weight
 
@@ -46,7 +46,7 @@ public class GraphTestUtil {
         //  \  /    /    /
         //    2 -- 6 -- 8
 
-        Graph<String> stringGraph = new Graph<String>(false);
+        Graph<String> stringGraph = new Graph<>(false);
         stringGraph.addEdge("1", "3");
         stringGraph.addEdge("1", "2");
         stringGraph.addEdge("3", "4");
@@ -70,7 +70,7 @@ public class GraphTestUtil {
         //  ⭨  ⭧    ⭧     ⭧
         //    2 --> 6 --> 8
 
-        Graph<String> stringGraph = new Graph<String>(true);
+        Graph<String> stringGraph = new Graph<>(true);
         stringGraph.addEdge("1", "3");
         stringGraph.addEdge("1", "2");
         stringGraph.addEdge("3", "4");
@@ -93,7 +93,7 @@ public class GraphTestUtil {
         //  ⭨  ⭧    ⭧
         //    6  --> 3
 
-        Graph<String> stringGraph = new Graph<String>(true);
+        Graph<String> stringGraph = new Graph<>(true);
         stringGraph.addEdge("7", "5");
         stringGraph.addEdge("7", "6");
         stringGraph.addEdge("5", "4");
@@ -117,7 +117,7 @@ public class GraphTestUtil {
         // d --  h
 
 
-        Graph<String> stringGraph = new Graph<String>(false);
+        Graph<String> stringGraph = new Graph<>(false);
         stringGraph.addEdge("a", "e");
         stringGraph.addEdge("a", "f");
         stringGraph.addEdge("b", "g");

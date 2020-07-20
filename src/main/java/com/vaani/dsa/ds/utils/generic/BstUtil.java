@@ -174,7 +174,7 @@ public class BstUtil<T> {
     }
 
     public static <T extends Comparable> void insert(BinaryTreeNode<T> root, T id) {
-        BinaryTreeNode<T> newNode = new BinaryTreeNode<T>(id);
+        BinaryTreeNode<T> newNode = new BinaryTreeNode<>(id);
         if (root == null) {
             root = newNode;
             return;

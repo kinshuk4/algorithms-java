@@ -38,10 +38,10 @@ The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 
 // @formatter:on
 
-public class InorderTraversal {
+public class BinaryTreeInorderTraversal {
     //iterative
     public static List<Integer> inorderTraversalIterative(BinaryTreeNode root) {
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         Stack<BinaryTreeNode> stack = new Stack<>();
 
         BinaryTreeNode node = root;
@@ -60,9 +60,7 @@ public class InorderTraversal {
 
     //recursive
     public List<Integer> inorderTraversalRecurive(BinaryTreeNode root) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         inorderTraversalRecursiveHelper(root, result);
         return result;
     }

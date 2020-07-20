@@ -84,7 +84,7 @@ public class FindLargestSubMatrixWith1s {
         int max = 0, tmp;
         int[] area = new int[h.length];
 
-        Stack<Integer> s = new Stack<Integer>();
+        Stack<Integer> s = new Stack<>();
 
         //find the left
         for (int i = 0; i <= h.length - 1; i++) {

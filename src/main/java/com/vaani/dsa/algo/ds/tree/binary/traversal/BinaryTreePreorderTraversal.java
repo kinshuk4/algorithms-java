@@ -21,11 +21,9 @@ Note: Recursive getTreeHeight is trivial, could you do it iteratively?
 
 //recursive
 
-public class PreorderTraversal {
-    public List<Integer> preOrderTraversal(BinaryTreeNode root) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
-        List<Integer> result = new ArrayList<Integer>();
+public class BinaryTreePreorderTraversal {
+    public List<Integer> preorderTraversal(BinaryTreeNode root) {
+        List<Integer> result = new ArrayList<>();
         helper(root, result);
         return result;
     }
@@ -43,11 +41,11 @@ public class PreorderTraversal {
     public List<Integer> preOrderTraversalIterative(BinaryTreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
-        Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
+        Stack<BinaryTreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
             BinaryTreeNode node = stack.pop();

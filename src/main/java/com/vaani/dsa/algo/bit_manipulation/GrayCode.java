@@ -24,7 +24,7 @@ public class GrayCode {
     public ArrayList<Integer> grayCode(int n) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<>();
         result.add(0);
 
         if (n == 0) return result;

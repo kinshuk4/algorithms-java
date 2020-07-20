@@ -44,7 +44,7 @@ public class FindCharacterOrderFromAlienDict {
                     Vertex vertex1 = new Vertex(word1.charAt(j));
                     Vertex vertex2 = new Vertex(word2.charAt(j));
                     if (!edgeMap.containsKey(vertex1)) {
-                        edgeMap.put(vertex1, new ArrayList<Vertex>());
+                        edgeMap.put(vertex1, new ArrayList<>());
                     }
                     edgeMap.get(vertex1).add(vertex2);
                     break;

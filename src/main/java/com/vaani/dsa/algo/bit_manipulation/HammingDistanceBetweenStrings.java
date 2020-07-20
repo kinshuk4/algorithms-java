@@ -47,7 +47,7 @@ public class HammingDistanceBetweenStrings {
         String x = "1001";
         String y = "1011";
         String z = "0010";
-        List<String> binarys = new ArrayList<String>();
+        List<String> binarys = new ArrayList<>();
         binarys.add(x);
         binarys.add(y);
         binarys.add(z);

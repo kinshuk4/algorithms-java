@@ -47,10 +47,10 @@ public class CloneGraph {
         if (node == null) {
             return null;
         }
-        HashMap<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<UndirectedGraphNode, UndirectedGraphNode>();
+        HashMap<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
 
         UndirectedGraphNode head = new UndirectedGraphNode(node.label);
-        Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
+        Queue<UndirectedGraphNode> queue = new LinkedList<>();
         queue.add(node);
         map.put(node, head);
 
@@ -75,8 +75,8 @@ public class CloneGraph {
 
     public UndirectedGraphNode cloneGraph2(UndirectedGraphNode node) {
         if (node == null) return null;
-        Queue<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
-        Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<UndirectedGraphNode, UndirectedGraphNode>();
+        Queue<UndirectedGraphNode> queue = new LinkedList<>();
+        Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
         queue.add(node);
         while (!queue.isEmpty()) {
             UndirectedGraphNode oldNode = queue.poll();

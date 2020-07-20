@@ -112,7 +112,7 @@ public class ZigZagLevelOrder {
     private static void dfs(BinaryTreeNode cur, int level, List<List<Integer>> result) {
         if (cur == null) return;
         if (result.size() <= level) {
-            result.add(new ArrayList<Integer>());
+            result.add(new ArrayList<>());
         }
         if (level % 2 == 0) {
             result.get(level).add(cur.val);

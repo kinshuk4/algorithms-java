@@ -7,7 +7,7 @@ public class TextJustification {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
 
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
         if (L == 0) {
             result.add("");
             return result;

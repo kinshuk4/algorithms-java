@@ -4,8 +4,8 @@ import java.util.*;
 
 public class ScreeningTest {
     public static void main(String[] args) {
-        List<Integer> data1 = new LinkedList<Integer>(Arrays.asList(1, 4, 7));
-        List<Integer> data2 = new LinkedList<Integer>(Arrays.asList(123, -2, 477, 3, 14, 6551));
+        List<Integer> data1 = new LinkedList<>(Arrays.asList(1, 4, 7));
+        List<Integer> data2 = new LinkedList<>(Arrays.asList(123, -2, 477, 3, 14, 6551));
                 
         ScreeningTest obj = new ScreeningTest();
 

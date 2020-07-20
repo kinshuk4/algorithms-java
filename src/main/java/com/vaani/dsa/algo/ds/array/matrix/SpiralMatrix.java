@@ -20,7 +20,7 @@ public class SpiralMatrix {
     public List<Integer> spiralOrderRecursive(int[][] matrix) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
         int rowLength = matrix.length;
-        List<Integer> results = new ArrayList<Integer>();
+        List<Integer> results = new ArrayList<>();
         if (rowLength == 0) {
             return results;
         }

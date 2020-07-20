@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class KEditDistance {
     public Set<String> kDistance(String target, List<String> words, int k) {
-        Set<String> res = new HashSet<String>();
+        Set<String> res = new HashSet<>();
         for (String candidate : words) {
             if (similar(target, candidate, k)) {
                 res.add(candidate);

@@ -18,7 +18,7 @@ public class SortArrayBasedOnAnotherArray {
      * http://www.geeksforgeeks.org/sort-array-according-order-defined-another-array/
      */
     public static void sortAccording(int[] A1, int[] A2) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int n : A1) {
             if (map.containsKey(n)) {
                 map.put(n, map.get(n) + 1);
@@ -38,7 +38,7 @@ public class SortArrayBasedOnAnotherArray {
             }
         }
 
-        List<Integer> keys = new ArrayList<Integer>(map.keySet());
+        List<Integer> keys = new ArrayList<>(map.keySet());
         Collections.sort(keys);
         for (int key : keys) {
             int count = map.get(key);

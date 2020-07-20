@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class FindPrimeNumbers {
     public static List<Integer> findPrimeNumbers(int n) {
-        List<Integer> result = new ArrayList<Integer>();
+        List<Integer> result = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
             if (isPrime(i)) result.add(i);
         }

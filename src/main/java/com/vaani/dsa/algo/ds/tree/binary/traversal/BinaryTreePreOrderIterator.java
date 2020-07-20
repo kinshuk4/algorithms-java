@@ -11,7 +11,7 @@ public class BinaryTreePreOrderIterator {
     private BinaryTreeNode current;
 
     public BinaryTreePreOrderIterator(BinaryTreeNode node) {
-        stack = new Stack<BinaryTreeNode>();
+        stack = new Stack<>();
         stack.push(node);
     }
 

@@ -10,7 +10,7 @@ public class LongestLines {
     public static void main(String... args) throws Exception {
         Scanner sc = new Scanner(new File(args[0]));
         int linesSize = sc.nextInt();
-        PriorityQueue<String> lines = new PriorityQueue<String>(linesSize, lengthComparator);
+        PriorityQueue<String> lines = new PriorityQueue<>(linesSize, lengthComparator);
         while (sc.hasNextLine()) {
             String currentLine = sc.nextLine();
             if (lines.size() < linesSize){
@@ -30,7 +30,7 @@ public class LongestLines {
         }
     }
 
-    private static Comparator<String> lengthComparator = new Comparator<String>() {
+    private static Comparator<String> lengthComparator = new Comparator<>() {
         @Override
         public int compare(String o1, String o2) {
             int firstLength = o1 == null ? -1 : o1.length();

@@ -31,7 +31,7 @@ public class CombinationSum2 {
             return result;
         }
         Arrays.sort(candidates);
-        helper(candidates, new ArrayList<Integer>(), 0, target, result);
+        helper(candidates, new ArrayList<>(), 0, target, result);
         return result;
     }
 
@@ -43,7 +43,7 @@ public class CombinationSum2 {
                 if (i > currIndex && candidates[i] == candidates[i - 1]) {
                     continue;
                 }
-                List<Integer> temp = new ArrayList<Integer>(cur);
+                List<Integer> temp = new ArrayList<>(cur);
                 temp.add(candidates[i]);
                 helper(candidates, temp, i + 1, target - candidates[i], result);
             }

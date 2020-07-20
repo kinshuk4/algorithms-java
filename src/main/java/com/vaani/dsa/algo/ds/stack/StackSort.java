@@ -12,7 +12,7 @@ public class StackSort {
         StackSort ss = new StackSort();
 
         //initiate the stack of integers
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<>();
         //push the elements
         stack.push(3);
         stack.push(4);
@@ -54,7 +54,7 @@ public class StackSort {
     }
 
     public static Stack<Integer> sortUsingAuxStack(Stack<Integer> stack) {
-        Stack<Integer> auxiliary = new Stack<Integer>();
+        Stack<Integer> auxiliary = new Stack<>();
         while (!stack.isEmpty()) {
             Integer value = stack.pop();
             while (!auxiliary.isEmpty() && value < auxiliary.peek())

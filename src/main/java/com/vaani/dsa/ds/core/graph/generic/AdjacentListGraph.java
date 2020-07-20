@@ -20,18 +20,18 @@ public class AdjacentListGraph<T> {
     }
 
     public List<Vertex<T>> getAdjacentList(T nodeId){
-        return adjacencys.get(new Vertex<T>(nodeId));
+        return adjacencys.get(new Vertex<>(nodeId));
     }
 
     public void addVertices(T[] vertices){
         for(T item: vertices){
-            vertexMap.put(item, new Vertex<T>(item));
+            vertexMap.put(item, new Vertex<>(item));
         }
     }
 
     public void addEdge(T source, T destination){
-        Vertex<T> sourceVertex = new Vertex<T>(source);
-        Vertex<T> destinationVertex = new Vertex<T>(destination);
+        Vertex<T> sourceVertex = new Vertex<>(source);
+        Vertex<T> destinationVertex = new Vertex<>(destination);
         vertexMap.put(source, sourceVertex);
         vertexMap.put(destination, destinationVertex);
         addEdge(sourceVertex, destinationVertex);

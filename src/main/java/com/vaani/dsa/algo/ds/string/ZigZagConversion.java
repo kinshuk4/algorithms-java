@@ -29,9 +29,9 @@ public class ZigZagConversion {
     }
 
     public String convert(String s, int nRows) {
-        List<List<Character>> matrix = new ArrayList<List<Character>>();
+        List<List<Character>> matrix = new ArrayList<>();
         for (int i = 0; i < nRows; i++) {
-            matrix.add(new ArrayList<Character>());
+            matrix.add(new ArrayList<>());
         }
 
         int index = 0;

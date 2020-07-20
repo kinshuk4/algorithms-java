@@ -28,7 +28,7 @@ public class Vertex<T> {
     }
 
     boolean addEdge(Vertex<T> v2, int weight) {
-        return edges.add(new Edge<T>(this, v2, weight));
+        return edges.add(new Edge<>(this, v2, weight));
     }
 
     boolean contains(Edge<T> edge) {

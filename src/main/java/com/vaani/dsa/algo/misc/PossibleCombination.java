@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class PossibleCombination {
     public static List<String> getCombination(String s) {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         StringBuilder single = new StringBuilder();
         dfs(s, 0, single, result);
         return result;

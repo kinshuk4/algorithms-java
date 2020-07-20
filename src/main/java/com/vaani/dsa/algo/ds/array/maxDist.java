@@ -43,7 +43,7 @@ public class maxDist {
 
     public static void main(String args[]) {
 
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your int array : ");
         String in = scanner.nextLine();

@@ -25,7 +25,7 @@ public class ActivityZero {
 
     public static void main(String args[]) {
 
-        List<ActivityZero> listActivityZero = new ArrayList<ActivityZero>();
+        List<ActivityZero> listActivityZero = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -43,7 +43,7 @@ public class ActivityZero {
 
         scanner.close();
 
-        List<ActivityZero> tmpList = new ArrayList<ActivityZero>();
+        List<ActivityZero> tmpList = new ArrayList<>();
         sumCalorie(listActivityZero, listActivityZero.size(), tmpList, true);
 
     }

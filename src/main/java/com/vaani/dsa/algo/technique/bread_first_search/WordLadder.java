@@ -25,8 +25,8 @@ public class WordLadder {
     public int ladderLength(String start, String end, HashSet<String> dict) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
-        Map<String, Boolean> visited = new HashMap<String, Boolean>();
-        LinkedList<Count> queue = new LinkedList<Count>();
+        Map<String, Boolean> visited = new HashMap<>();
+        LinkedList<Count> queue = new LinkedList<>();
         queue.add(new Count(start, 1));
         visited.put(start, true);
 
