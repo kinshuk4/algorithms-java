@@ -42,13 +42,21 @@ public class IsSameTree_EqualTree {
         System.out.println(test.isSameTree(root1, root2));
     }
 
-    public boolean isSameTree(BinaryTreeNode p, BinaryTreeNode q) {
+    public static boolean isSameTree(BinaryTreeNode p, BinaryTreeNode q) {
         if (p == null && q == null)
             return true;
         else if (p == null || q == null)
             return false;
         else
-            return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+            return (p.val == q.val) && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+
+    // more smaller
+    public static boolean isSameTree2(BinaryTreeNode p, BinaryTreeNode q) {
+        if (p == null || q == null)
+            return p == null && q == null;
+        else
+            return (p.val == q.val) && isSameTree2(p.left, q.left) || isSameTree2(p.right, q.right);
     }
 
 
