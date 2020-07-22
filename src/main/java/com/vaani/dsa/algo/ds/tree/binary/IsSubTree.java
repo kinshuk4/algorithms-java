@@ -2,7 +2,7 @@ package com.vaani.dsa.algo.ds.tree.binary;
 
 import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
 
-import static com.vaani.dsa.algo.ds.tree.binary.IsSameTree.isSameTreeGeneric;
+import static com.vaani.dsa.algo.ds.tree.binary.IsSameTree_EqualTree.isSameTreeGeneric;
 
 //https://app.codesignal.com/interview-practice/task/mDpAJnDQkJqaYYsCg
 public class IsSubTree {

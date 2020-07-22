@@ -26,7 +26,7 @@ Input:     1         1
 
 Output: false
  */
-public class IsSameTree {
+public class IsSameTree_EqualTree {
 
 
     public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class IsSameTree {
         root2.left = new BinaryTreeNode(2);
         root2.right = new BinaryTreeNode(3);
 
-        IsSameTree test = new IsSameTree();
+        IsSameTree_EqualTree test = new IsSameTree_EqualTree();
         System.out.println(test.isSameTree(root1, root2));
     }
 
@@ -48,7 +48,7 @@ public class IsSameTree {
         else if (p == null || q == null)
             return false;
         else
-            return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+            return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 
 

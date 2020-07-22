@@ -8,9 +8,6 @@ import java.util.Scanner;
 import java.util.Stack;
 
 
-/**
- * Created by kchandra on 19/08/16.
- */
 public class QueueFrom2Stacks<T> implements IQueue<T> {
     Stack<T> inStack = new Stack<>();   // place where enqueued
     Stack<T> outStack = new Stack<>(); // place where dequeued
