@@ -1,10 +1,10 @@
-package com.vaani.dsa.algo.numerical;
+package com.vaani.dsa.algo.bit_manipulation.ispower;
 
-/**
+/** https://leetcode.com/problems/power-of-three/
  * Check whether a number is power of 3.
  * Time complexity: O(log_9 N)
  */
-public class PowerOfThree {
+public class IsPowerOfThree {
 
     public boolean isPowerOfThree(int num) {
         if (num == 0) {

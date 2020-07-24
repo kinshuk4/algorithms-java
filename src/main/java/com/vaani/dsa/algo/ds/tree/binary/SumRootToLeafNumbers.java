@@ -1,8 +1,9 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
 
 /**
+ * https://leetcode.com/problems/sum-root-to-leaf-numbers/
  * Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
  * <p>
  * An example is the root-to-leaf path 1->2->3 which represents the number 123.
@@ -10,43 +11,66 @@ import com.vaani.dsa.ds.core.tree.binarytree.generic.BinaryTreeNode;
  * Find the total sum of all root-to-leaf numbers.
  * <p>
  * For example,
- * <p>
- * 1
- * / \
- * 2   3
- * <p>
- * The root-to-leaf path 1->2 represents the number 12.
- * The root-to-leaf path 1->3 represents the number 13.
- * <p>
- * Return the sum = 12 + 13 = 25.
- * <p>
- *  on 8/14/2014.
  */
 public class SumRootToLeafNumbers {
-    int sum = 0;
+
 
     public static void main(String[] args) {
         BinaryTreeNode node = new BinaryTreeNode(1);
         node.left = new BinaryTreeNode(2);
         node.right = new BinaryTreeNode(3);
 
-        SumRootToLeafNumbers test = new SumRootToLeafNumbers();
+        SumRootToLeafNumbers.UsingDFS1 test = new UsingDFS1();
         System.out.println(test.sumNumbers(node));
     }
 
-    public int sumNumbers(BinaryTreeNode root) {
-        sumNumbers(root, 0);
-        return sum;
+    static class UsingDFS1 {
+        int sum = 0;
+
+        public int sumNumbers(BinaryTreeNode root) {
+            sumNumbers(root, 0);
+            return sum;
+        }
+
+        public void sumNumbers(BinaryTreeNode root, int currSum) {
+            if (root == null) {
+                return;
+            }
+            currSum = 10 * currSum + root.val;
+            if (root.left == null && root.right == null) {
+                sum += currSum;
+                return;
+            }
+            sumNumbers(root.left, currSum);
+            sumNumbers(root.right, currSum);
+        }
     }
 
-    public void sumNumbers(BinaryTreeNode<Integer> root, int count) {
-        if (root == null) return;
-        count = 10 * count + root.val;
-        if (root.left == null && root.right == null) {
-            sum += count;
-            return;
+    static class UsingDFS2 {
+        int sum;
+
+        public int sumNumbers(BinaryTreeNode root) {
+            sum = 0;
+            if (root == null) {
+                return sum;
+            }
+            helper(root, 0);
+            return sum;
         }
-        sumNumbers(root.left, count);
-        sumNumbers(root.right, count);
+
+        public void helper(BinaryTreeNode root, int curSum) {
+            curSum = curSum * 10 + root.val;
+            if (root.left == null && root.right == null) {
+                sum = sum + curSum;
+            }
+            if (root.left != null) {
+                helper(root.left, curSum);
+            }
+            if (root.right != null) {
+                helper(root.right, curSum);
+            }
+        }
     }
+
+
 }
