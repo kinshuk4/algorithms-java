@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * https://leetcode.com/problems/two-sum/
  * 1. Two Sum
  * Easy
  * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -19,13 +20,21 @@ import java.util.Map;
  * return [0, 1].
  */
 public class TwoSum {
-    public static int[] twoSumUsingSorting(int[] numbers, int target) {
+    public static void main(String[] args) {
+        int[] nums = {3, 2, 4};
+        int[] result = twoSum(nums, 6);
+        System.out.println(result[0] + " " + result[1]);
+    }
+
+    // using sorting
+    public static int[] twoSum3(int[] numbers, int target) {
         int[] result = new int[2];
         Arrays.sort(numbers);
         return TwoSum2.twoSumOnSortedArr(numbers, target);
     }
 
-    public static int[] twoSumUsingHashTable(int[] numbers, int target) {
+    // with realtime update of map
+    public static int[] twoSum(int[] numbers, int target) {
         int[] result = new int[2];
 
         Map<Integer, Integer> map = new HashMap<>();
@@ -41,9 +50,22 @@ public class TwoSum {
         return result;
     }
 
-    public static void main(String[] args) {
-        int[] nums = {3, 2, 4};
-        int[] result = twoSumUsingHashTable(nums, 6);
-        System.out.println(result[0] + " " + result[1]);
+    // with offline update of map
+    public int[] twoSum2(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            int otherNum = target - nums[i];
+            if (map.containsKey(otherNum) && !map.get(otherNum).equals(i)) {
+                return new int[]{i, map.get(otherNum)};
+            }
+        }
+        return new int[]{-1, -1};
     }
+
+
 }

@@ -3,7 +3,7 @@ package com.vaani.dsa.algo.ds.array.nsum;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
+/** https://leetcode.com/problems/two-sum-iii-data-structure-design/
  * Design and implement a TwoSum class. It should support the following operations: add and find.
  * <p>
  * add - Add the number to an internal data structure.

@@ -1,5 +1,6 @@
-package com.vaani.dsa.algo.ds.array;
+package com.vaani.dsa.algo.ds.array.stock;
 
+import com.vaani.dsa.algo.ds.array.stock.BestTimeToBuyAndSellStockWithCooldown;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

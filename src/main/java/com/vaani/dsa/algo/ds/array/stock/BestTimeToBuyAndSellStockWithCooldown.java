@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.ds.array;
+package com.vaani.dsa.algo.ds.array.stock;
 
 /**
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/

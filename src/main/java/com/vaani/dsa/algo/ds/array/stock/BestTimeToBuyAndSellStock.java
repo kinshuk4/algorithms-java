@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.ds.array;
+package com.vaani.dsa.algo.ds.array.stock;
 
 import org.junit.Assert;
 
