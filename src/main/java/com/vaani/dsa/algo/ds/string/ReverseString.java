@@ -4,10 +4,21 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-//https://github.com/shijiebei2009/Algorithms/blob/master/src%2Fmain%2Fjava%2Fcn%2Fcodepub%2Falgorithms%2Fstrings%2FReverseString.java
+
+/**
+ * https://leetcode.com/problems/reverse-string/
+ * 344. Reverse String
+ * Easy
+ * <p>
+ * Write a function that reverses a string. The input string is given as an array of characters char[].
+ * <p>
+ * Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+ * <p>
+ * You may assume all the characters consist of printable ascii characters.
+ */
 public class ReverseString {
     private String input;
-    private String output = "";//默认是null，所以此处将""赋值给它
+    private String output = "";
 
     public ReverseString(String in) {
         input = in;
@@ -49,5 +60,30 @@ public class ReverseString {
             output = output + ch;
         }
         return output;
+    }
+
+    public void reverseString(char[] s) {
+        int n = s.length;
+        for (int i = 0; i < n / 2; i++) {
+            char c = s[i];
+            s[i] = s[n - i - 1];
+            s[n - i - 1] = c;
+        }
+    }
+
+    /*
+     * As string is immutable in java, we use char[] instead.
+     * O(1) space, O(n) time.
+     */
+    public void reverseString2(char[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+        while (start < end) {
+            char tmp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = tmp;
+            ++start;
+            --end;
+        }
     }
 }

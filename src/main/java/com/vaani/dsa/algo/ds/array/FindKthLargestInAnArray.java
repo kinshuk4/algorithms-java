@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 
 import static com.vaani.dsa.algo.ds.array.FindKthSmallestInArray.getKthSmallestQuickSelect2;
 
-public class FindKthLargestInArray {
+public class FindKthLargestInAnArray {
     public static int findKthLargest(int[] nums, int k) {
         if (k < 1 || nums == null) {
             return 0;

@@ -68,12 +68,12 @@ public class WordBreak2 {
             return result;
         }
 
-        dfs(s, seg, 0, result, new StringBuffer(), dict);
+        dfs(s, seg, 0, result, new StringBuilder(), dict);
 
         return result;
     }
 
-    private void dfs(String s, boolean[][] seg, int start, List<String> result, StringBuffer sb, Set<String> dict) {
+    private void dfs(String s, boolean[][] seg, int start, List<String> result, StringBuilder sb, Set<String> dict) {
         if (start == s.length()) {
             result.add(sb.toString());
         } else if (start < s.length()) {
@@ -81,7 +81,7 @@ public class WordBreak2 {
                 if (seg[start][end]) {
                     String next = s.substring(start, end);
                     if (!dict.contains(next)) continue;
-                    StringBuffer temp = new StringBuffer(sb);
+                    StringBuilder temp = new StringBuilder(sb);
                     if (temp.length() != 0) temp.append(" ");
                     temp.append(next);
                     dfs(s, seg, end, result, temp, dict);

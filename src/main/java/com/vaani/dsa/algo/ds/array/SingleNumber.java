@@ -1,6 +1,8 @@
 package com.vaani.dsa.algo.ds.array;
 
 /** https://leetcode.com/problems/single-number/
+ * 136. Single Number
+ * Easy
  * Given an array of integers, every element appears twice except for one. Find that single one.
  * <p>
  * Note:

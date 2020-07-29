@@ -48,6 +48,10 @@ public class IsSymmetricTree {
             return true;
         else if (right == null || left == null)
             return false;
+        // can be uncomment to shorten the code:
+        // if(left == null || right==null){
+        // return left == right;
+        // }
 
         // Note using equals method and not == as otherwise for generic objects it checks equality of reference.
         return left.val == right.val && isSymmetricDFSHelper(left.left, right.right) && isSymmetricDFSHelper(left.right, right.left);

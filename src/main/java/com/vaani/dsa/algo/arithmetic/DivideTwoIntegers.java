@@ -46,8 +46,6 @@ public class DivideTwoIntegers {
     }
 
     public int divide2(int dividend, int divisor) {
-
-
         boolean negative = false;
         //check if negative
         if (dividend == 0) {

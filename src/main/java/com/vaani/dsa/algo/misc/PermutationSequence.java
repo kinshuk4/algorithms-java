@@ -1,27 +1,50 @@
 package com.vaani.dsa.algo.misc;
 
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
 import java.util.ArrayList;
-/*
-The set [1,2,3,…,n] contains a total of n! unique permutations.
 
-By listing and labeling all of the permutations in order,
-We get the following sequence (ie, for n = 3):
-
-"123"
-"132"
-"213"
-"231"
-"312"
-"321"
-Given n and k, return the kth permutation sequence.
-
-Note: Given n will be between 1 and 9 inclusive.
-*/
+/**
+ * https://leetcode.com/problems/permutation-sequence/
+ * The set [1,2,3,…,n] contains a total of n! unique permutations.
+ * <p>
+ * By listing and labeling all of the permutations in order,
+ * We get the following sequence (ie, for n = 3):
+ * <p>
+ * "123"
+ * "132"
+ * "213"
+ * "231"
+ * "312"
+ * "321"
+ * Given n and k, return the kth permutation sequence.
+ * <p>
+ * Note: Given n will be between 1 and 9 inclusive.
+ */
 
 public class PermutationSequence {
+    PermutationSequence underTest;
+
+    @Before
+    public void before() {
+        underTest = new PermutationSequence();
+    }
+
+    @After
+    public void after() {
+        underTest = null;
+    }
+
+    @Test
+    public void testNormalCases() {
+        Assert.assertEquals("213", underTest.getPermutation(3, 3));
+        Assert.assertEquals("2314", underTest.getPermutation(4, 9));
+    }
+
     public String getPermutation(int n, int k) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
         ArrayList<Integer> nums = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
             nums.add(i);
@@ -32,21 +55,21 @@ public class PermutationSequence {
         //IMPORTANT: there are k - 1 permutations before
         k = k - 1;
         while (k > 0) {
-            index[i] = k / getFact(n - 1);
-            k = k % getFact(n - 1);
+            index[i] = k / getFactorial(n - 1);
+            k = k % getFactorial(n - 1);
             n--;
             i++;
         }
 
-        String result = "";
-        for (int j = 0; j < index.length; j++) {
-            result += nums.get(index[j]);
-            nums.remove(index[j]);
+        StringBuilder result = new StringBuilder();
+        for (int value : index) {
+            result.append(nums.get(value));
+            nums.remove(value);
         }
-        return result;
+        return result.toString();
     }
 
-    public int getFact(int x) {
+    public int getFactorial(int x) {
         int result = 1;
         for (int i = x; i > 1; i--) {
             result *= i;

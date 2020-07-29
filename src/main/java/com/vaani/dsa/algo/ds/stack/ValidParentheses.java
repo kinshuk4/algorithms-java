@@ -3,15 +3,17 @@ package com.vaani.dsa.algo.ds.stack;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
-/*
-Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
-
-The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
-*/
+/**
+ * 20. Valid Parentheses
+ * Easy
+ * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+ * <p>
+ * The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
+ */
 
 public class ValidParentheses {
 
-    // using stack
+    // using stack - submitted
     public static boolean isValid1(String s) {
         HashMap<Character, Character> parenthese = new HashMap<>() {{
             put('(', ')');

@@ -18,5 +18,6 @@ public class SuffixTree {
     public static void main(String[] args) {
         SuffixTree suffixTree = new SuffixTree("banana");
         System.out.println(suffixTree.getIndices("nana"));
+        System.out.println(suffixTree.getIndices("ana"));
     }
 }

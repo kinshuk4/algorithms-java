@@ -2,7 +2,25 @@ package com.vaani.dsa.algo.bit_manipulation.ispower;
 
 /**
  * https://leetcode.com/problems/power-of-two/
+ * 231. Power of Two
+ * Easy
  * Given an integer, write a function to determine if it is a power of two
+ * Example 1:
+ * <p>
+ * Input: 1
+ * Output: true
+ * Explanation: 20 = 1
+ * <p>
+ * Example 2:
+ * <p>
+ * Input: 16
+ * Output: true
+ * Explanation: 24 = 16
+ * <p>
+ * Example 3:
+ * <p>
+ * Input: 218
+ * Output: false
  */
 public class IsPowerOfTwo {
 
