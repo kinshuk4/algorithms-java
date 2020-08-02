@@ -68,6 +68,44 @@ public class Trie {
         return true;
     }
 
+    // Returns the shortest matching prefix between the string and Trie
+    // eg. Trie = cat, s = cattle => output = cat
+    // Trie = cattle123 , s = cattle => cattle
+    // Trie = cat, s= battle => output = ""
+    public String shortestMatchingPrefix(String s) {
+        TrieNode curr = this.root.children.get(s.charAt(0));
+        if (curr == null) {
+            return ""; // no matching prefix
+        }
+
+        for (int i = 1; i < s.length(); i++) {
+            if (curr.isWord) {
+                return curr.prefix;
+            }
+            char c = s.charAt(i);
+            TrieNode next = curr.children.get(c);
+            if (next != null) {
+                curr = next;
+            }else {
+                // nothing more to scan
+                return s;
+            }
+        }
+
+        return "";
+    }
+
+    public List<String> wordsWithPrefix(String prefix) {
+        char[] prefixArray = prefix.toCharArray();
+        TrieNode temp = root;
+        TrieNode tn = getPrefixNode(prefix);
+
+        List<String> words = new ArrayList<>();
+
+        findAllChildWords(tn, words);
+        return words;
+    }
+
     private TrieNode getPrefixNode(String prefix) {
         TrieNode node = root;
         for (char c : prefix.toCharArray()) {
@@ -89,14 +127,4 @@ public class Trie {
         }
     }
 
-    public List<String> wordsWithPrefix(String prefix) {
-        char[] prefixArray = prefix.toCharArray();
-        TrieNode temp = root;
-        TrieNode tn = getPrefixNode(prefix);
-
-        List<String> words = new ArrayList<>();
-
-        findAllChildWords(tn, words);
-        return words;
-    }
 }
