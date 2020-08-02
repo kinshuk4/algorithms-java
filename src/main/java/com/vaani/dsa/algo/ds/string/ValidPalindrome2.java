@@ -2,21 +2,18 @@ package com.vaani.dsa.algo.ds.string;
 
 /**
  * https://leetcode.com/problems/valid-palindrome-ii/
+ * 680. Valid Palindrome II
+ * Easy
  * Given a non-empty string s, you may delete at most
  * one character. Judge whether you can make it a palindrome.
  *
  * <p>Example 1: Input: "aba" Output: True Example 2: Input: "abca" Output: True Explanation: You
  * could delete the character 'c'. Note: The string will only contain lowercase characters a-z. The
  * maximum length of the string is 50000.
+ * https://www.youtube.com/watch?v=L_74qbyPHXE
  */
 public class ValidPalindrome2 {
 
-    /**
-     * Main method
-     *
-     * @param args
-     * @throws Exception
-     */
     public static void main(String[] args) throws Exception {
         System.out.println(new ValidPalindrome2.UsingFor().validPalindrome("aaaaaab"));
     }

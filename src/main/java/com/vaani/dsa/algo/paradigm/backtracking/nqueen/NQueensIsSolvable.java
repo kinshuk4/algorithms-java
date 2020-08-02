@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.paradigm.backtracking;
+package com.vaani.dsa.algo.paradigm.backtracking.nqueen;
 
 public class NQueensIsSolvable {
     public int[][] solution;

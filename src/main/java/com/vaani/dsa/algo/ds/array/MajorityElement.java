@@ -5,16 +5,34 @@ import java.util.Arrays;
 
 /**
  * https://leetcode.com/problems/majority-element/
+ * 169. Majority Element
+ * Easy
+ * <p>
+ * Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+ * <p>
+ * You may assume that the array is non-empty and the majority element always exist in the array.
+ * <p>
+ * Example 1:
+ * <p>
+ * Input: [3,2,3]
+ * Output: 3
+ * <p>
+ * Example 2:
+ * <p>
+ * Input: [2,2,1,1,1,2,2]
+ * Output: 2
+ * <p>
+ * https://algorithms.tutorialhorizon.com/majority-element-boyer-moore-majority-vote-algorithm/
  */
-//https://algorithms.tutorialhorizon.com/majority-element-boyer-moore-majority-vote-algorithm/
-public class MajorityNumber {
+
+public class MajorityElement {
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 3, 2, 2, 4, 2, 5, 8, 2};
         ArrayList<Integer> a = new ArrayList<>();
         for (int i : nums) {
             a.add(i);
         }
-        System.out.println(new MajorityNumber().majorityNumber(a));
+        System.out.println(new MajorityElement().majorityNumber(a));
     }
 
     public int boyerMooreMajority(int[] nums) {

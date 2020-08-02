@@ -16,12 +16,8 @@ import java.util.Map;
  * Challenge
  * O(n) time and O(k) extra space
  */
-public class MajorityNumber3 {
-    /**
-     * @param nums: A list of integers
-     * @param k:    As described
-     * @return: The majority number
-     */
+public class MajorityElement3 {
+
     public int majorityNumber(List<Integer> nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {

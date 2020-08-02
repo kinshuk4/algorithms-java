@@ -1,12 +1,15 @@
 package com.vaani.dsa.algo.ds.array;
 
-/** https://leetcode.com/problems/single-number-ii/
+/**
+ * https://leetcode.com/problems/single-number-ii/
+ * 137. Single Number II
+ * Medium
  * Given an array of integers, every element appears three times except for one. Find that single one.
  * <p>
  * Note:
  * Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
  * <p>
- *  on 7/20/2014.
+ * https://www.youtube.com/watch?v=LnB2DbxuREo
  */
 public class SingleNumber2 {
     public static int singleNumber(int[] nums) {

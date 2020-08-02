@@ -5,12 +5,12 @@ import java.util.List;
 
 
 public class UndirectedGraphNode {
-    public int label;
+    public int val;
     public List<UndirectedGraphNode> neighbors;
     public boolean visited;
 
     public UndirectedGraphNode(int x) {
-        label = x;
+        val = x;
         neighbors = new ArrayList<>();
         visited = false;
     }

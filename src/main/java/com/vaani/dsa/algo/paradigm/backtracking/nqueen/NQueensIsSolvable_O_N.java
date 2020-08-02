@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.paradigm.backtracking;
+package com.vaani.dsa.algo.paradigm.backtracking.nqueen;
 
 import java.util.Arrays;
 
