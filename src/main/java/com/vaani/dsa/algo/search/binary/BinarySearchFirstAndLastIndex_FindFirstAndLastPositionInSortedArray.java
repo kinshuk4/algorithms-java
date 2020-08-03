@@ -1,7 +1,8 @@
-package com.vaani.dsa.algo.ds.array.search;
+package com.vaani.dsa.algo.search.binary;
 
-import static com.vaani.dsa.algo.ds.array.search.BinarySearchFirstIndex.searchFirstIterative;
-import static com.vaani.dsa.algo.ds.array.search.BinarySearchLastIndex.searchLastIterative;
+
+import static com.vaani.dsa.algo.search.binary.BinarySearchFirstIndex.searchFirstIterative;
+import static com.vaani.dsa.algo.search.binary.BinarySearchLastIndex.searchLastIterative;
 
 /**
  * https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/

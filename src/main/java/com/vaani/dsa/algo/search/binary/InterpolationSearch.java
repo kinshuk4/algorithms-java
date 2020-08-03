@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.ds.array.search;
+package com.vaani.dsa.algo.search.binary;
 
 /**
  *
