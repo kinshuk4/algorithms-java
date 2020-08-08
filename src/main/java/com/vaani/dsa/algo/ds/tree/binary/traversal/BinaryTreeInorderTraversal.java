@@ -59,7 +59,7 @@ public class BinaryTreeInorderTraversal {
     }
 
     //recursive
-    public List<Integer> inorderTraversalRecurive(BinaryTreeNode root) {
+    public List<Integer> inorderTraversalRecursive(BinaryTreeNode root) {
         List<Integer> result = new ArrayList<>();
         inorderTraversalRecursiveHelper(root, result);
         return result;
