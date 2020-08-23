@@ -1,30 +1,27 @@
 package com.vaani.dsa.ds.core.trie.morebasic.without_prefix;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class TrieNode {
+public class TrieNodeUsingArr {
 
     public boolean isWord;
-    public Map<Character, TrieNode> children = new HashMap<>();
-
-    @SuppressWarnings("Duplicates")
+    public TrieNodeUsingArr[] children = new TrieNodeUsingArr[26];
+    
     public void insert(String word) {
         int length = word.length();
-        TrieNode curr = this;
+        TrieNodeUsingArr curr = this;
 
         for (int i = 0; i < length; i++) {
             char c = word.charAt(i);
             boolean isWord = i == length - 1;
-            if (!curr.children.containsKey(c)) {
-                curr.children.put(c, new TrieNode());
+            int childIdx = c - 'a';
+            if (curr.children[childIdx] == null) {
+                curr.children[childIdx] = new TrieNodeUsingArr();
             }
             // only set when this condition matches. Otherwise, it may unset in case of other child match, wehre iit thhe cheild is not leaf node
             if (isWord) {
-                curr.children.get(c).isWord = isWord;// for existing child, check if it is a word based on new word
+                curr.children[childIdx].isWord = isWord;// for existing child, check if it is a word based on new word
             }
 
-            curr = curr.children.get(c);
+            curr = curr.children[childIdx];
         }
     }
 }
