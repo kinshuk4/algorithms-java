@@ -18,6 +18,7 @@ public class TrieNode {
         children = new HashMap<>();
     }
 
+    @SuppressWarnings("Duplicates")
     public void insert(String word) {
         int length = word.length();
         TrieNode curr = this;
