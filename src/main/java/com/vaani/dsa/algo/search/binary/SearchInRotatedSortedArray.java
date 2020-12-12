@@ -1,4 +1,4 @@
-package com.vaani.dsa.algo.misc;
+package com.vaani.dsa.algo.search.binary;
 
 /**
  * https://leetcode.com/problems/search-in-rotated-sorted-array/
