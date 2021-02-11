@@ -1,68 +1,84 @@
 package com.vaani.dsa.algo.misc;
 
-/*
-Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
+import java.util.Arrays;
 
-If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).
+/**
+ * https://leetcode.com/problems/next-permutation/
+ * 31. Next Permutation
+ * Medium
+ * Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
+ * <p>
+ * If such an arrangement is not possible, it must rearrange it as the lowest possible order (i.e., sorted in ascending order).
+ * <p>
+ * The replacement must be in place and use only constant extra memory.
+ * <p>
+ * <p>
+ * <p>
+ * Example 1:
+ * <p>
+ * Input: nums = [1,2,3]
+ * Output: [1,3,2]
+ * Example 2:
+ * <p>
+ * Input: nums = [3,2,1]
+ * Output: [1,2,3]
+ * Example 3:
+ * <p>
+ * Input: nums = [1,1,5]
+ * Output: [1,5,1]
+ * Example 4:
+ * <p>
+ * Input: nums = [1]
+ * Output: [1]
+ * <p>
+ * <p>
+ * Constraints:
+ * <p>
+ * 1 <= nums.length <= 100
+ * 0 <= nums[i] <= 100
+ */
 
-The replacement must be in-place, do not allocate extra memory.
 
-Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.
-1,2,3 → 1,3,2
-3,2,1 → 1,2,3
-1,1,5 → 1,5,1
-*/
-
-
-//from right to left, find the first number that violates the increasing trend --> Partition Number
-//from right to left, find the first number that is bigger than Partition Number --> Change Number
-//swap Partition and Change Number
-//reverse all the number on the right side of the partition index
 public class NextPermutation {
-    public void nextPermutation(int[] num) {
-        // IMPORTANT: Please reset any member data you declared, as
-        // the same Solution instance will be reused for each test case.
-        int length = num.length;
-        if (length == 0 || length == 1) return;
 
-        int partitionIndex = length, changeIndex = length;
-        for (int i = length - 1; i > 0; i--) {
-            if (num[i] > num[i - 1]) {
-                partitionIndex = i - 1;
+    //from right to left, find the first number that violates the increasing trend --> Partition Number
+    //from right to left, find the first number that is bigger than Partition Number --> Change Number
+    //swap Partition and Change Number
+    //reverse all the number on the right side of the partition index
+    public void nextPermutation(int[] nums) {
+        int n = nums.length;
+        if (n == 0 || n == 1) {
+            return;
+        }
+
+        // find first value smaller than right neighbour
+        int partitionIdx = n;
+        for (int i = n - 1; i > 0; i--) {
+            if (nums[i] > nums[i - 1]) {
+                partitionIdx = i - 1;
                 break;
             }
         }
 
-        if (partitionIndex == length) {
-            for (int i = 0; i < length / 2; i++) {
-                int temp = num[i];
-                num[i] = num[length - 1 - i];
-                num[length - 1 - i] = temp;
-            }
-        } else {
-            for (int i = length - 1; i >= 0; i--) {
-                if (num[i] > num[partitionIndex]) {
-                    changeIndex = i;
-                    int temp = num[changeIndex];
-                    num[changeIndex] = num[partitionIndex];
-                    num[partitionIndex] = temp;
-                    break;
-                }
-            }
-            if (changeIndex == length) {
-                changeIndex = partitionIndex - 1;
-                int temp = num[changeIndex];
-                num[changeIndex] = num[partitionIndex];
-                num[partitionIndex] = temp;
-            } else {
-                for (int i = partitionIndex + 1; i < (length + partitionIndex + 1) / 2; i++) {
-                    int temp = num[i];
-                    num[i] = num[length + partitionIndex - i];
-                    num[length + partitionIndex - i] = temp;
-                }
-            }
-
+        if (partitionIdx == n) {
+            Arrays.sort(nums);
+            return;
         }
 
+        //find the smallest value after partition index, then swap with it
+        int min = Integer.MAX_VALUE;
+        int swapIdx= n;
+        for (int i = partitionIdx + 1; i < n; i++) {
+            if(nums[i] < min && nums[i] > nums[partitionIdx]){
+                min = nums[i];
+                swapIdx = i;
+            }
+        }
+        int temp = nums[partitionIdx];
+        nums[partitionIdx] = nums[swapIdx];
+        nums[swapIdx] = temp;
+
+        //sort array after  partitionIdx
+        Arrays.sort(nums, partitionIdx+1, nums.length);
     }
 }
