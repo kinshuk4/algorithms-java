@@ -1,4 +1,4 @@
-package com.vaani.dsa.ds.core.graph.simple;
+package com.vaani.dsa.ds.core.graph.simple.map;
 
 import java.util.*;
 
