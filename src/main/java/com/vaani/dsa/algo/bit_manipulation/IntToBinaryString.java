@@ -19,4 +19,10 @@ public class IntToBinaryString {
         }
         return builder.reverse().toString();
     }
+
+    public static void main(String[] args) {
+        System.out.println(toBinaryString(4));
+        System.out.println(toBinaryString(16));
+        System.out.println(toBinaryString(64));
+    }
 }

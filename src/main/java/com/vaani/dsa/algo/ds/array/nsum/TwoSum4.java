@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.array.nsum;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.HashSet;
 
@@ -45,11 +45,11 @@ public class TwoSum4 {
     public static void main(String[] args) throws Exception {
     }
 
-    public boolean findTarget(BinaryTreeNode root, int k) {
+    public boolean findTarget(TreeNode root, int k) {
         return inorder(root, new HashSet<>(), k);
     }
 
-    private boolean inorder(BinaryTreeNode root, HashSet<Integer> set, int k) {
+    private boolean inorder(TreeNode root, HashSet<Integer> set, int k) {
         if (root != null) {
             int req = k - (root.val);
             if (set.contains(req)) {

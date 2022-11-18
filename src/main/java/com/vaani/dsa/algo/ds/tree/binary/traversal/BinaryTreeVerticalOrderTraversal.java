@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary.traversal;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.*;
 
@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class BinaryTreeVerticalOrderTraversal {
     static class UsingMap {
-        public static List<List<Integer>> verticalTraversal(BinaryTreeNode root) {
+        public static List<List<Integer>> verticalTraversal(TreeNode root) {
             if (root == null) {
                 return new LinkedList<>();
             }
@@ -18,7 +18,7 @@ public class BinaryTreeVerticalOrderTraversal {
             Map<Integer, List<Integer>> map = new TreeMap<>();
             List<List<Integer>> result = new LinkedList<>();
 
-            Queue<BinaryTreeNode> queue = new LinkedList<>();
+            Queue<TreeNode> queue = new LinkedList<>();
             queue.add(root);
             Queue<Integer> distanceQueue = new LinkedList<>();
             distanceQueue.add(0);
@@ -26,7 +26,7 @@ public class BinaryTreeVerticalOrderTraversal {
             while (!queue.isEmpty()) {
                 int size = queue.size();
                 while (size > 0) {
-                    BinaryTreeNode current = queue.poll();
+                    TreeNode current = queue.poll();
 
                     int currDistance = distanceQueue.poll();
 

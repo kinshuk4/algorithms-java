@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary.traversal;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.*;
 
@@ -34,20 +34,20 @@ The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 */
 
 public class LevelOrderTraversalBottomUp {
-    public List<List<Integer>> levelOrderBottom(BinaryTreeNode root) {
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
 
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
-        ArrayList<BinaryTreeNode> list = new ArrayList<>();
+        ArrayList<TreeNode> list = new ArrayList<>();
         list.add(root);
-        ArrayList<BinaryTreeNode> parent = list;
+        ArrayList<TreeNode> parent = list;
         while (!parent.isEmpty()) {
-            ArrayList<BinaryTreeNode> cur = new ArrayList<>();
+            ArrayList<TreeNode> cur = new ArrayList<>();
             ArrayList<Integer> parentData = new ArrayList<>();
-            for (BinaryTreeNode n : parent) {
+            for (TreeNode n : parent) {
                 parentData.add(n.val);
                 if (n.left != null) {
                     cur.add(n.left);
@@ -64,17 +64,17 @@ public class LevelOrderTraversalBottomUp {
 
     }
 
-    public List<List<Integer>> levelOrderBottom2(BinaryTreeNode root) {
+    public List<List<Integer>> levelOrderBottom2(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
 
-        Queue<BinaryTreeNode> queue1 = new LinkedList<>();
-        Queue<BinaryTreeNode> queue2 = new LinkedList<>();
+        Queue<TreeNode> queue1 = new LinkedList<>();
+        Queue<TreeNode> queue2 = new LinkedList<>();
         List<Integer> level = new ArrayList<>();
         queue1.add(root);
 
         while (!queue1.isEmpty()) {
-            BinaryTreeNode node = queue1.poll();
+            TreeNode node = queue1.poll();
             level.add(node.val);
 
             if (node.left != null) {
@@ -95,10 +95,10 @@ public class LevelOrderTraversalBottomUp {
         return result;
     }
 
-    public List<List<Integer>> levelOrderBottom3(BinaryTreeNode root) {
+    public List<List<Integer>> levelOrderBottom3(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
-        Queue<BinaryTreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         int numNodesAtCurrLevel = 1;
         int nextLevel = 0;
@@ -106,7 +106,7 @@ public class LevelOrderTraversalBottomUp {
         while (!queue.isEmpty()) {
             List<Integer> level = new ArrayList<>();
             for (int i = 0; i < numNodesAtCurrLevel; i++) {
-                BinaryTreeNode node = queue.poll();
+                TreeNode node = queue.poll();
                 level.add(node.val);
                 if (node.left != null) {
                     queue.add(node.left);

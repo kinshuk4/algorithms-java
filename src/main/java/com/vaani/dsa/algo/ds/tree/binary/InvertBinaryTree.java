@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.*;
 
@@ -28,21 +28,21 @@ Output:
 
  */
 public class InvertBinaryTree {
-    public BinaryTreeNode invertTreeIterative(BinaryTreeNode root) {
-        LinkedList<BinaryTreeNode> queue = new LinkedList<>();
+    public TreeNode invertTreeIterative(TreeNode root) {
+        LinkedList<TreeNode> queue = new LinkedList<>();
 
         if (root != null) {
             queue.add(root);
         }
 
         while (!queue.isEmpty()) {
-            BinaryTreeNode p = queue.poll();
+            TreeNode p = queue.poll();
             if (p.left != null)
                 queue.add(p.left);
             if (p.right != null)
                 queue.add(p.right);
 
-            BinaryTreeNode temp = p.left;
+            TreeNode temp = p.left;
             p.left = p.right;
             p.right = temp;
         }
@@ -50,17 +50,17 @@ public class InvertBinaryTree {
         return root;
     }
 
-    public BinaryTreeNode invertTreeRecursive1(BinaryTreeNode root) {
+    public TreeNode invertTreeRecursive1(TreeNode root) {
         helper(root);
         return root;
     }
 
-    public void helper(BinaryTreeNode n) {
+    public void helper(TreeNode n) {
         if (n == null) {
             return;
         }
 
-        BinaryTreeNode t = n.left;
+        TreeNode t = n.left;
         n.left = n.right;
         n.right = t;
 
@@ -68,7 +68,7 @@ public class InvertBinaryTree {
         helper(n.right);
     }
 
-    public BinaryTreeNode invertTreeRecursive2(BinaryTreeNode root) {
+    public TreeNode invertTreeRecursive2(TreeNode root) {
         if (root == null) {
             return root;
         }
@@ -76,7 +76,7 @@ public class InvertBinaryTree {
         invertTreeRecursive2(root.left);
         invertTreeRecursive2(root.right);
 
-        BinaryTreeNode t = root.left;
+        TreeNode t = root.left;
         root.left = root.right;
         root.right = t;
 
@@ -84,7 +84,7 @@ public class InvertBinaryTree {
     }
 
 
-    public BinaryTreeNode invertTreeRecursive3(BinaryTreeNode root) {
+    public TreeNode invertTreeRecursive3(TreeNode root) {
         if (root == null) {
             return root;
         }
@@ -93,8 +93,8 @@ public class InvertBinaryTree {
         return root;
     }
 
-    private void invertTreeHelper(BinaryTreeNode left, BinaryTreeNode right) {
-        BinaryTreeNode temp = left;
+    private void invertTreeHelper(TreeNode left, TreeNode right) {
+        TreeNode temp = left;
         left = right;
         right = temp;
         if (left.left != null) {

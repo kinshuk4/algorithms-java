@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.bst;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,27 +35,27 @@ The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 
 
 public class UniqueBinarySearchTrees2 {
-    public List<BinaryTreeNode> generateTreesRecursive(int n) {
+    public List<TreeNode> generateTreesRecursive(int n) {
         if (n == 0){
             return new ArrayList<>();
         }
         return helper(1, n);
     }
 
-    private List<BinaryTreeNode> helper(int start, int end) {
-        List<BinaryTreeNode> result = new ArrayList<>();
+    private List<TreeNode> helper(int start, int end) {
+        List<TreeNode> result = new ArrayList<>();
         if (start > end) {
             result.add(null);
             return result;
         }
 
         for (int i = start; i <= end; i++) {
-            List<BinaryTreeNode> leftTrees = helper(start, i - 1);
-            List<BinaryTreeNode> rightTrees = helper(i + 1, end);
+            List<TreeNode> leftTrees = helper(start, i - 1);
+            List<TreeNode> rightTrees = helper(i + 1, end);
 
-            for (BinaryTreeNode left : leftTrees) {
-                for (BinaryTreeNode right : rightTrees) {
-                    BinaryTreeNode root = new BinaryTreeNode(i);
+            for (TreeNode left : leftTrees) {
+                for (TreeNode right : rightTrees) {
+                    TreeNode root = new TreeNode(i);
                     root.left = left;
                     root.right = right;
                     result.add(root);

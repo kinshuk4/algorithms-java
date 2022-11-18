@@ -1,15 +1,15 @@
 package com.vaani.dsa.ds.core.tree.binarytree.simple;
 
-public class BinaryTreeNode {
+public class TreeNode {
     public int val;
-    public BinaryTreeNode left;
-    public BinaryTreeNode right;
+    public TreeNode left;
+    public TreeNode right;
 
-    public BinaryTreeNode(int val) {
+    public TreeNode(int val) {
         this.val = val;
     }
 
-    public BinaryTreeNode(int val, BinaryTreeNode left, BinaryTreeNode right) {
+    public TreeNode(int val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
         this.right = right;

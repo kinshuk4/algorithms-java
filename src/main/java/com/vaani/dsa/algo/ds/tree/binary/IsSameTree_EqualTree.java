@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 /*
 https://leetcode.com/problems/same-tree/
 Given two binary trees, write a function to check if they are the same or not.
@@ -30,19 +30,19 @@ public class IsSameTree_EqualTree {
 
 
     public static void main(String[] args) {
-        BinaryTreeNode root1 = new BinaryTreeNode(1);
-        root1.left = new BinaryTreeNode(2);
-        root1.right = new BinaryTreeNode(3);
+        TreeNode root1 = new TreeNode(1);
+        root1.left = new TreeNode(2);
+        root1.right = new TreeNode(3);
 
-        BinaryTreeNode root2 = new BinaryTreeNode(1);
-        root2.left = new BinaryTreeNode(2);
-        root2.right = new BinaryTreeNode(3);
+        TreeNode root2 = new TreeNode(1);
+        root2.left = new TreeNode(2);
+        root2.right = new TreeNode(3);
 
         IsSameTree_EqualTree test = new IsSameTree_EqualTree();
         System.out.println(test.isSameTree(root1, root2));
     }
 
-    public static boolean isSameTree(BinaryTreeNode p, BinaryTreeNode q) {
+    public static boolean isSameTree(TreeNode p, TreeNode q) {
         if (p == null && q == null)
             return true;
         else if (p == null || q == null)
@@ -52,7 +52,7 @@ public class IsSameTree_EqualTree {
     }
 
     // more smaller
-    public static boolean isSameTree2(BinaryTreeNode p, BinaryTreeNode q) {
+    public static boolean isSameTree2(TreeNode p, TreeNode q) {
         if (p == null || q == null)
             return p == null && q == null;
         else

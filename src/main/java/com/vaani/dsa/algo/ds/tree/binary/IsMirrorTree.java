@@ -1,9 +1,9 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 public class IsMirrorTree {
-    public static boolean isMirror(BinaryTreeNode t1, BinaryTreeNode t2) {
+    public static boolean isMirror(TreeNode t1, TreeNode t2) {
         if (t1 == null && t2 == null) return true;
         if (t1 == null || t2 == null) return false;
         return (t1.val == t2.val)

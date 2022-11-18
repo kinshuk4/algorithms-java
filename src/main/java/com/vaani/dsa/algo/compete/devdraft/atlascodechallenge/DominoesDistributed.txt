@@ -5,10 +5,10 @@ Aside from sending subarrays it will send where first dominoe (dominoe F) of the
 On each machine build interval tree and calculate hitDistance[i] per each dominoe i.
 Some hitDistances may be overlapped between two or even more machines, so we need to filter which hitDistances can
 be returned as a results already and which cannot. To do this we check that hitDistance[i] < F and if it does then 
-return it as a result back to master node, otherwise return it as a new dominoe which stands on i and has height 
+return it as a result back to master wordNode, otherwise return it as a new dominoe which stands on i and has height
 hitDistance[i].
 
-From new dominoes master node will build a new problem and will run the calculation again repeating the process 
+From new dominoes master wordNode will build a new problem and will run the calculation again repeating the process
 until the size of new problem will not get small enough to be solved on master machine.
 
 Analysis

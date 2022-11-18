@@ -1,7 +1,7 @@
 package com.vaani.dsa.algo.ds.convert;
 
 import com.vaani.dsa.ds.core.list.sll.simple.ListNode;
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import static com.vaani.dsa.ds.utils.simple.ListUtil.getLength;
 
@@ -60,7 +60,7 @@ public class ConvertSortedListToBST {
     }
 
 
-    public BinaryTreeNode sortedListToBST(ListNode head) {
+    public TreeNode sortedListToBST(ListNode head) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
         if (head == null) {
@@ -73,7 +73,7 @@ public class ConvertSortedListToBST {
         return getNode(head, end);
     }
 
-    public BinaryTreeNode getNode(ListNode start, ListNode end) {
+    public TreeNode getNode(ListNode start, ListNode end) {
         ListNode fast = start;
         ListNode slow = start;
         if (start == end) {
@@ -83,7 +83,7 @@ public class ConvertSortedListToBST {
             slow = slow.next;
             fast = fast.next.next;
         }
-        BinaryTreeNode root = new BinaryTreeNode(slow.val);
+        TreeNode root = new TreeNode(slow.val);
         root.left = getNode(start, slow);
         root.right = getNode(slow.next, end);
         return root;
@@ -95,14 +95,14 @@ public class ConvertSortedListToBST {
      * Top-down approach
      * Time: O(NlogN)
      */
-    public BinaryTreeNode sortedListToBST2(ListNode head) {
+    public TreeNode sortedListToBST2(ListNode head) {
         if (head == null) return null;
-        if (head.next == null) return new BinaryTreeNode(head.val);
+        if (head.next == null) return new TreeNode(head.val);
         ListNode preMid = getPreMid2(head);
         ListNode mid = preMid.next;
         preMid.next = null;
         ListNode first = head, second = mid.next;
-        BinaryTreeNode root = new BinaryTreeNode(mid.val);
+        TreeNode root = new TreeNode(mid.val);
         root.left = sortedListToBST(first);
         root.right = sortedListToBST(second);
         return root;
@@ -128,17 +128,17 @@ public class ConvertSortedListToBST {
     ListNode head;
 
     // submitted
-    public BinaryTreeNode sortedListToBST3(ListNode head) {
+    public TreeNode sortedListToBST3(ListNode head) {
         int len = getLength(head);
         this.head = head;
         return sortedListToBST3(0, len - 1);
     }
 
-    public BinaryTreeNode sortedListToBST3(int start, int end) {
+    public TreeNode sortedListToBST3(int start, int end) {
         if (start > end) return null;
         int mid = start + (end - start) / 2;
-        BinaryTreeNode left = sortedListToBST3(start, mid - 1);
-        BinaryTreeNode root = new BinaryTreeNode(head.val);
+        TreeNode left = sortedListToBST3(start, mid - 1);
+        TreeNode root = new TreeNode(head.val);
         head = head.next;
         root.left = left;
         root.right = sortedListToBST3(mid + 1, end);

@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 /** https://leetcode.com/problems/univalued-binary-tree/
  * A binary tree is univalued if every node in the tree has the same value.
@@ -9,7 +9,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
  */
 public class IsUniValuedBinaryTree {
 
-    static boolean isUnivalTree(BinaryTreeNode root) {
+    static boolean isUnivalTree(TreeNode root) {
         if (root == null) {
             return true;
         }

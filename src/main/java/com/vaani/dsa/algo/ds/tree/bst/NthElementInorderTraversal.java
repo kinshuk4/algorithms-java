@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.bst;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.Stack;
 
@@ -11,12 +11,12 @@ public class NthElementInorderTraversal {
     int order = 0;
 
     public static void main(String[] args) {
-        BinaryTreeNode root = new BinaryTreeNode(5);
-        root.left = new BinaryTreeNode(4);
-        root.left.left = new BinaryTreeNode(2);
-        root.left.right = new BinaryTreeNode(1);
-        root.right = new BinaryTreeNode(3);
-        root.right.right = new BinaryTreeNode(6);
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(4);
+        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(1);
+        root.right = new TreeNode(3);
+        root.right.right = new TreeNode(6);
 
 
         NthElementInorderTraversal underTest = new NthElementInorderTraversal();
@@ -24,7 +24,7 @@ public class NthElementInorderTraversal {
         System.out.println(underTest.getNthRecursive(root, 2));
     }
 
-    public static int getNthRecursive(BinaryTreeNode node, int n) {
+    public static int getNthRecursive(TreeNode node, int n) {
         ValueHolder holder = new ValueHolder();
         holder.value = 0;
         return getNthRecursiveHelper(node, n, holder);
@@ -34,7 +34,7 @@ public class NthElementInorderTraversal {
         int value;
     }
 
-    public static int getNthRecursiveHelper(BinaryTreeNode node, int n, ValueHolder order) {
+    public static int getNthRecursiveHelper(TreeNode node, int n, ValueHolder order) {
         if (node == null) {
             return -1;
         }
@@ -51,18 +51,18 @@ public class NthElementInorderTraversal {
     }
 
     // submitted
-    public static int getNthIterative(BinaryTreeNode root, int n) {
+    public static int getNthIterative(TreeNode root, int n) {
         if (root == null) {
             return -1;
         }
-        Stack<BinaryTreeNode> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
 
         while (!stack.isEmpty() || root != null) {
             if (root != null) {
                 stack.push(root);
                 root = root.left;
             } else {
-                BinaryTreeNode node = stack.pop();
+                TreeNode node = stack.pop();
                 n--;
                 if (n == 0) {
                     return node.val;

@@ -1,11 +1,11 @@
 package com.vaani.dsa.algo.ds.tree.bst;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 public class InsertintoaBinarySearchTree {
-    public BinaryTreeNode insertIntoBST(BinaryTreeNode root, int val) {
+    public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) {
-            return new BinaryTreeNode(val);
+            return new TreeNode(val);
         }
         if (root.val > val) {
             root.left = insertIntoBST(root.left, val);
@@ -15,12 +15,12 @@ public class InsertintoaBinarySearchTree {
         return root;
     }
 
-    public BinaryTreeNode insertIntoBSTIterative(BinaryTreeNode root, int val) {
+    public TreeNode insertIntoBSTIterative(TreeNode root, int val) {
         if (root == null) {
-            return new BinaryTreeNode(val);
+            return new TreeNode(val);
         }
-        BinaryTreeNode curr = root;
-        BinaryTreeNode newNode = new BinaryTreeNode(val);
+        TreeNode curr = root;
+        TreeNode newNode = new TreeNode(val);
         while (true){
             if (curr.val > val) {
                 if(curr.left == null){

@@ -1,6 +1,6 @@
 package com.vaani.dsa.ds.utils.simple;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 public class BinaryTreeUtil {
 
@@ -13,16 +13,16 @@ public class BinaryTreeUtil {
  /  \      \
 7    2      1
      */
-    public static BinaryTreeNode getABinaryTree1() {
-        BinaryTreeNode root = new BinaryTreeNode(5);
-        root.left = new BinaryTreeNode(4);
-        root.right = new BinaryTreeNode(8);
-        root.left.left = new BinaryTreeNode(11);
-        root.right.left = new BinaryTreeNode(13);
-        root.right.right = new BinaryTreeNode(4);
-        root.left.left.left = new BinaryTreeNode(7);
-        root.left.left.right = new BinaryTreeNode(2);
-        root.right.right.right = new BinaryTreeNode(1);
+    public static TreeNode getABinaryTree1() {
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(4);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(11);
+        root.right.left = new TreeNode(13);
+        root.right.right = new TreeNode(4);
+        root.left.left.left = new TreeNode(7);
+        root.left.left.right = new TreeNode(2);
+        root.right.right.right = new TreeNode(1);
         return root;
     }
 }

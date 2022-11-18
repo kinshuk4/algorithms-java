@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 public class LowestCommonAncestorWithParentPointer {
 
@@ -48,15 +48,15 @@ public class LowestCommonAncestorWithParentPointer {
      * @param right
      * @return
      */
-    public BinaryTreeNode lcaRecursive(BinaryTreeNode root, BinaryTreeNode left, BinaryTreeNode right) {
+    public TreeNode lcaRecursive(TreeNode root, TreeNode left, TreeNode right) {
         if (root == null) {
             return null;
         }
         if (root == left || root == right) {
             return root;
         }
-        BinaryTreeNode lcaLeft = lcaRecursive(root.left, left, right);
-        BinaryTreeNode lcaRight = lcaRecursive(root.right, left, right);
+        TreeNode lcaLeft = lcaRecursive(root.left, left, right);
+        TreeNode lcaRight = lcaRecursive(root.right, left, right);
         if (lcaLeft != null && lcaRight != null) { // both sides find either p or q
             return root;
         }

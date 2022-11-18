@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.LinkedList;
 
@@ -18,14 +18,14 @@ public class SerializeBinaryTree {
 
     private static int index = 0;
 
-    public static String serializeWithPreorder(BinaryTreeNode head) {
+    public static String serializeWithPreorder(TreeNode head) {
         StringBuilder result = new StringBuilder();
         preorder(head, result);
         return result.toString();
     }
 
     @SuppressWarnings("Duplicates")
-    private static void preorder(BinaryTreeNode head, StringBuilder result) {
+    private static void preorder(TreeNode head, StringBuilder result) {
         if (head == null) {
             result.append("#");
             result.append(" ");
@@ -37,38 +37,38 @@ public class SerializeBinaryTree {
         preorder(head.right, result);
     }
 
-    public static BinaryTreeNode deserializeWithPreOrder(String input) {
+    public static TreeNode deserializeWithPreOrder(String input) {
         String[] tokens = input.split(" ");
         return deserializeWithPreOrderHelper(tokens);
     }
 
 
     @SuppressWarnings("Duplicates")
-    private static BinaryTreeNode deserializeWithPreOrderHelper(String[] tokens) {
+    private static TreeNode deserializeWithPreOrderHelper(String[] tokens) {
 
         if (index >= tokens.length || tokens[index].equals("#")) {
             index++;
             return null;
         }
-        BinaryTreeNode root = new BinaryTreeNode(Integer.parseInt(tokens[index++]));
+        TreeNode root = new TreeNode(Integer.parseInt(tokens[index++]));
         root.left = deserializeWithPreOrderHelper(tokens);
         root.right = deserializeWithPreOrderHelper(tokens);
         return root;
     }
 
     // Encodes a tree to a single string.
-    public static String serializeWithLevelOrder(BinaryTreeNode root) {
+    public static String serializeWithLevelOrder(TreeNode root) {
         if (root == null) {
             return "";
         }
 
         StringBuilder sb = new StringBuilder();
 
-        LinkedList<BinaryTreeNode> queue = new LinkedList<>();
+        LinkedList<TreeNode> queue = new LinkedList<>();
 
         queue.add(root);
         while (!queue.isEmpty()) {
-            BinaryTreeNode t = queue.poll();
+            TreeNode t = queue.poll();
             if (t != null) {
                 sb.append(t.val).append(",");
                 queue.add(t.left);
@@ -82,27 +82,27 @@ public class SerializeBinaryTree {
         return sb.toString();
     }
 
-    public static BinaryTreeNode deserializeWithLevelOrder(String data) {
+    public static TreeNode deserializeWithLevelOrder(String data) {
         if (data == null || data.length() == 0)
             return null;
 
         String[] arr = data.split(",");
-        BinaryTreeNode root = new BinaryTreeNode(Integer.parseInt(arr[0]));
+        TreeNode root = new TreeNode(Integer.parseInt(arr[0]));
 
 
-        LinkedList<BinaryTreeNode> queue = new LinkedList<>();
+        LinkedList<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
         int i = 1;
         while (!queue.isEmpty()) {
-            BinaryTreeNode node = queue.poll();
+            TreeNode node = queue.poll();
 
             if (node == null) {
                 continue;
             }
 
             if (!arr[i].equals("#")) {
-                node.left = new BinaryTreeNode(Integer.parseInt(arr[i]));
+                node.left = new TreeNode(Integer.parseInt(arr[i]));
                 queue.offer(node.left);
 
             } else {
@@ -112,7 +112,7 @@ public class SerializeBinaryTree {
             i++;
 
             if (!arr[i].equals("#")) {
-                node.right = new BinaryTreeNode(Integer.parseInt(arr[i]));
+                node.right = new TreeNode(Integer.parseInt(arr[i]));
                 queue.offer(node.right);
 
             } else {
@@ -127,12 +127,12 @@ public class SerializeBinaryTree {
     }
 
     public static void main(String[] args) {
-        BinaryTreeNode root = new BinaryTreeNode(30);
-        root.left = new BinaryTreeNode(10);
-        root.right = new BinaryTreeNode(20);
-        root.left.left = new BinaryTreeNode(50);
-        root.right.left = new BinaryTreeNode(45);
-        root.right.right = new BinaryTreeNode(35);
+        TreeNode root = new TreeNode(30);
+        root.left = new TreeNode(10);
+        root.right = new TreeNode(20);
+        root.left.left = new TreeNode(50);
+        root.right.left = new TreeNode(45);
+        root.right.right = new TreeNode(35);
         System.out.println(serializeWithPreorder(root));
         String input = "30 10 50 # # # 20 45 # # 35 # # ";
         System.out.println(deserializeWithPreOrder(input));

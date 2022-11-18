@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.Stack;
 
@@ -36,16 +36,16 @@ If you notice carefully in the flattened tree, each node's right child points to
 
 // @formatter:on
 public class FlattenBinaryTreeToLinkedList {
-    public void flattenIterative(BinaryTreeNode root) {
+    public void flattenIterative(TreeNode root) {
         if (root == null) {
             return;
         }
 
-        Stack<BinaryTreeNode> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
 
         while (!stack.isEmpty()) {
-            BinaryTreeNode curr = stack.pop();
+            TreeNode curr = stack.pop();
             if (curr.right != null) {
                 stack.push(curr.right);
             }
@@ -61,13 +61,13 @@ public class FlattenBinaryTreeToLinkedList {
         }
     }
 
-    public void flatten(BinaryTreeNode root) {
+    public void flatten(TreeNode root) {
         if (root == null) return;
         if (root.left == null && root.right == null) return;
 
         flatten(root.left);
         flatten(root.right);
-        BinaryTreeNode right = root.right;
+        TreeNode right = root.right;
         root.right = root.left;
         root.left = null;
         while (root.right != null)
@@ -75,28 +75,28 @@ public class FlattenBinaryTreeToLinkedList {
         root.right = right;
     }
 
-    public void flatten2(BinaryTreeNode root) {
+    public void flatten2(TreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
         if (root == null) {
             return;
         }
 
-        Stack<BinaryTreeNode> rightStack = new Stack<>();
+        Stack<TreeNode> rightStack = new Stack<>();
 
         root = nextNode(root, rightStack);
     }
 
-    public BinaryTreeNode nextNode(BinaryTreeNode node, Stack<BinaryTreeNode> rightStack) {
-        Stack<BinaryTreeNode> stack = new Stack<>();
-        stack = (Stack<BinaryTreeNode>) rightStack.clone();
+    public TreeNode nextNode(TreeNode node, Stack<TreeNode> rightStack) {
+        Stack<TreeNode> stack = new Stack<>();
+        stack = (Stack<TreeNode>) rightStack.clone();
         if (node.right != null) {
             stack.push(node.right);
         }
 
         if (node.left == null) {
             if (!stack.isEmpty()) {
-                BinaryTreeNode temp = stack.pop();
+                TreeNode temp = stack.pop();
                 node.right = nextNode(temp, stack);
             }
         } else {

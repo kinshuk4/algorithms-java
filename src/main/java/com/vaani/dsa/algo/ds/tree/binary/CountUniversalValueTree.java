@@ -1,13 +1,13 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import static com.vaani.dsa.algo.ds.tree.binary.IsUniValuedBinaryTree.isUnivalTree;
 
 public class CountUniversalValueTree {
 
     // O (n ^ 2)
-    int countUniValTreeBad(BinaryTreeNode root) {
+    int countUniValTreeBad(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -28,7 +28,7 @@ public class CountUniversalValueTree {
     // valued subtrees under root. It returns true if subtree
     // under root is Singly, else false.
     // https://www.youtube.com/watch?v=7HgsS8bRvjo
-    boolean countUniValTreeHelper(BinaryTreeNode root, Counter c) {
+    boolean countUniValTreeHelper(TreeNode root, Counter c) {
         // Return false to indicate NULL
         if (root == null) {
             return true;
@@ -63,7 +63,7 @@ public class CountUniversalValueTree {
         return true;
     }
 
-    int countUnivalTree(BinaryTreeNode root) {
+    int countUnivalTree(TreeNode root) {
         Counter ct = new Counter();
         // Recursive function to count
         countUniValTreeHelper(root, ct);

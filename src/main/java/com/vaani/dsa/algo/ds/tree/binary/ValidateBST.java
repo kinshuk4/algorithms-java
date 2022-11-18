@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.LinkedList;
 
@@ -18,7 +18,7 @@ import java.util.LinkedList;
  */
 public class ValidateBST {
 
-    boolean isValidBSTWrong(BinaryTreeNode node) {
+    boolean isValidBSTWrong(TreeNode node) {
         if (node == null) {
             return true;
         }
@@ -42,7 +42,7 @@ public class ValidateBST {
         return true;
     }
 
-    boolean isValidBSTInefficient(BinaryTreeNode node) {
+    boolean isValidBSTInefficient(TreeNode node) {
 
         if (node == null)
             return (true);
@@ -64,29 +64,29 @@ public class ValidateBST {
 
     }
 
-    int minValue(BinaryTreeNode node) {
-        BinaryTreeNode current = node;   // loop down to find the leftmost leaf
+    int minValue(TreeNode node) {
+        TreeNode current = node;   // loop down to find the leftmost leaf
         while (current.left != null) {
             current = current.left;
         }
         return current.val;
     }
 
-    int maxValue(BinaryTreeNode node) {
-        BinaryTreeNode current = node;   // loop down to find the leftmost leaf
+    int maxValue(TreeNode node) {
+        TreeNode current = node;   // loop down to find the leftmost leaf
         while (current.right != null) {
             current = current.right;
         }
         return current.val;
     }
 
-    public boolean isValidBSTEfficient(BinaryTreeNode root) {
+    public boolean isValidBSTEfficient(TreeNode root) {
         return isValidBSTEfficientHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
     // We are using long min and long max to handle the case
     // when node's value is Integer.MIN_VALUE OR Integer.MAX_VALUE
-    public boolean isValidBSTEfficientHelper(BinaryTreeNode root, long min, long max) {
+    public boolean isValidBSTEfficientHelper(TreeNode root, long min, long max) {
         if (root == null) {
             return true;
         }
@@ -101,18 +101,18 @@ public class ValidateBST {
 
 
     class BNode {
-        BinaryTreeNode n;
+        TreeNode n;
         double left;
         double right;
 
-        public BNode(BinaryTreeNode n, double left, double right) {
+        public BNode(TreeNode n, double left, double right) {
             this.n = n;
             this.left = left;
             this.right = right;
         }
     }
 
-    public boolean isValidBSTIterative(BinaryTreeNode root) {
+    public boolean isValidBSTIterative(TreeNode root) {
         if (root == null)
             return true;
 
@@ -133,10 +133,10 @@ public class ValidateBST {
         return true;
     }
 
-    BinaryTreeNode previous;
+    TreeNode previous;
     boolean valid;
 
-    public boolean isValidBSTInorder(BinaryTreeNode root) {
+    public boolean isValidBSTInorder(TreeNode root) {
         // IMPORTANT: Please reset any member data you declared, as
         // the same Solution instance will be reused for each test case.
         previous = null;
@@ -145,7 +145,7 @@ public class ValidateBST {
         return valid;
     }
 
-    public void isValidInorderHelper(BinaryTreeNode root) {
+    public void isValidInorderHelper(TreeNode root) {
         if (root == null) {
             return;
         }

@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 /**https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
  * Given a binary search tree (BST), find the lowest common ancestor of two given nodes in the BST.
@@ -9,7 +9,7 @@ import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
  */
 public class LowestCommonAncestorOfBST {
 
-    public static BinaryTreeNode getLCA1(BinaryTreeNode root, BinaryTreeNode p, BinaryTreeNode q) {
+    public static TreeNode getLCA1(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || p == null || q == null) {
             return null;
         }
@@ -26,7 +26,7 @@ public class LowestCommonAncestorOfBST {
      * O(logN) Time
      * Reference:
      */
-    public static BinaryTreeNode getLCA2(BinaryTreeNode root, BinaryTreeNode p, BinaryTreeNode q) {
+    public static TreeNode getLCA2(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || p == null || q == null) {
             return null;
         }
@@ -40,18 +40,18 @@ public class LowestCommonAncestorOfBST {
     }
 
     public static void main(String[] args) {
-        BinaryTreeNode root = new BinaryTreeNode(6);
-        root.left = new BinaryTreeNode(2);
-        root.right = new BinaryTreeNode(8);
-        root.left.left = new BinaryTreeNode(0);
-        root.left.right = new BinaryTreeNode(4);
-        root.right.left = new BinaryTreeNode(7);
-        root.right.right = new BinaryTreeNode(9);
-        root.left.right.left = new BinaryTreeNode(3);
-        root.left.right.right = new BinaryTreeNode(5);
+        TreeNode root = new TreeNode(6);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(4);
+        root.right.left = new TreeNode(7);
+        root.right.right = new TreeNode(9);
+        root.left.right.left = new TreeNode(3);
+        root.left.right.right = new TreeNode(5);
 
-        BinaryTreeNode p = new BinaryTreeNode(2);
-        BinaryTreeNode q = new BinaryTreeNode(8);
+        TreeNode p = new TreeNode(2);
+        TreeNode q = new TreeNode(8);
         System.out.println(getLCA2(root, p, q).val);
     }
 }

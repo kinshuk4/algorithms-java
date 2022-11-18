@@ -32,7 +32,7 @@ public class SearchAlgos {
 
     public static int search(String[] strings, String str) {
         if (strings == null || str == null) return -1;
-        if (str == "") {
+        if (str.equals("")) {
             for (int i = 0; i < strings.length; i++) {
                 if (strings[i] == "") return i;
             }

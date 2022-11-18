@@ -1,7 +1,7 @@
 package com.vaani.dsa.algo.ds.string;
 
-import com.vaani.dsa.algo.search.string.RabinKarp;
 
+import com.vaani.dsa.algo.search.string.RabinKarp;
 /**
  * https://leetcode.com/problems/implement-strstr/
  * Implement strStr().
@@ -57,22 +57,32 @@ public class ImplementStrStr {
         return j >= nL;
     }
 
+    static class UsingRabinKarp1 {
+        public int strStr(String haystack, String needle) {
 
-    public int strStr2(String haystack, String needle) {
-        if (haystack.isEmpty() && needle.isEmpty()) {
-            return 0;
-        }
-        if (needle.isEmpty()) {
-            return 0;
-        }
+            if (haystack.isEmpty() && needle.isEmpty()) {
+                return 0;
+            }
+            if (needle.isEmpty()) {
+                return 0;
+            }
 
-        if(needle.length() > haystack.length()){
-            return -1;
-        }
+            if(needle.length() > haystack.length()){
+                return -1;
+            }
 
-        RabinKarp rk = new RabinKarp(needle);
-        return rk.search(haystack);
+            var rk = new com.vaani.dsa.algo.search.string.algods4e.RabinKarp(needle);
+            return rk.search(haystack);
+        }
     }
+
+    static class UsingRabinKarp2 {
+        public int strStr(String haystack, String needle) {
+            RabinKarp rk = new RabinKarp(needle);
+            return rk.indexOf(haystack);
+        }
+    }
+
 
 
 //    public static void main(String[] args) {

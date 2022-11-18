@@ -22,7 +22,7 @@ Return the following binary tree:
 
 */
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import static com.vaani.dsa.ds.utils.generic.ArrayUtils.linearSearch;
 
@@ -34,7 +34,7 @@ public class ConstructBinaryTreeFromInorderAndPreorder {
         buildTree1(preorder, inorder);
     }
 
-    public static BinaryTreeNode buildTree1(int[] preorder, int[] inorder) {
+    public static TreeNode buildTree1(int[] preorder, int[] inorder) {
         int preLength = preorder.length;
         int inLength = inorder.length;
 
@@ -46,12 +46,12 @@ public class ConstructBinaryTreeFromInorderAndPreorder {
         return buildTreeHelper2(preorder, inorder, 0, 0, inLength - 1);
     }
 
-    public static BinaryTreeNode buildTreeHelper(int[] preorder, int[] inorder, int preStart, int preEnd, int inStart, int inEnd) {
+    public static TreeNode buildTreeHelper(int[] preorder, int[] inorder, int preStart, int preEnd, int inStart, int inEnd) {
         if (preEnd < preStart || inEnd < inStart) {
             return null;
         }
 
-        BinaryTreeNode root = new BinaryTreeNode(preorder[preStart]);
+        TreeNode root = new TreeNode(preorder[preStart]);
 
         for (int i = inStart; i <= inEnd; i++) {
             if (inorder[i] == root.val) {
@@ -66,13 +66,13 @@ public class ConstructBinaryTreeFromInorderAndPreorder {
         return root;
     }
 
-    private static BinaryTreeNode buildTreeHelper2(int[] preorder, int[] inorder, int preStart, int inStart, int inEnd) {
+    private static TreeNode buildTreeHelper2(int[] preorder, int[] inorder, int preStart, int inStart, int inEnd) {
         if (inStart > inEnd || preStart > preorder.length - 1) {
             return null;
         }
 
         // Pick current node from Preorder traversal using preStart and increment preStart
-        BinaryTreeNode root = new BinaryTreeNode(preorder[preStart]);
+        TreeNode root = new TreeNode(preorder[preStart]);
 
         // If this node has no children then return
         if (inStart == inEnd) {

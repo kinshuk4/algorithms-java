@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.ArrayList;
 
@@ -40,22 +40,22 @@ public class BinaryTreeMaximumPathSum {
     int max = Integer.MIN_VALUE;
 
     public static void main(String[] args) {
-        BinaryTreeNode root = new BinaryTreeNode(1);
-        root.left = new BinaryTreeNode(20);
-        root.right = new BinaryTreeNode(3);
-        root.left.left = new BinaryTreeNode(40);
-        root.left.right = new BinaryTreeNode(50);
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(20);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(40);
+        root.left.right = new TreeNode(50);
 
         BinaryTreeMaximumPathSum pathSum = new BinaryTreeMaximumPathSum();
         System.out.println(pathSum.maxPathSum1(root));
     }
 
-    public int maxPathSum1(BinaryTreeNode root) {
+    public int maxPathSum1(TreeNode root) {
         dfs1(root);
         return max;
     }
 
-    public int dfs1(BinaryTreeNode root) {
+    public int dfs1(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -76,7 +76,7 @@ public class BinaryTreeMaximumPathSum {
      */
     // very similar to post order - process leaves and then root
     // submitted
-    public int dfs2(BinaryTreeNode root) {
+    public int dfs2(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -93,13 +93,13 @@ public class BinaryTreeMaximumPathSum {
         return root.val + Math.max(left, right); // current node is in path of max sum i.e. one of the children is missed
     }
 
-    public int maxPathSum3(BinaryTreeNode root) {
+    public int maxPathSum3(TreeNode root) {
         if (root == null) return 0;
         dfs3(root);
         return max;
     }
 
-    private int dfs3(BinaryTreeNode root) {
+    private int dfs3(TreeNode root) {
         if (root == null) return 0;
         int left = dfs3(root.left);
         int right = dfs3(root.right);
@@ -135,7 +135,7 @@ public class BinaryTreeMaximumPathSum {
     }
 
     //doesn't pass all cases
-    public int dfs5(BinaryTreeNode root) {
+    public int dfs5(TreeNode root) {
         if (root == null) {
             return 0;
         }

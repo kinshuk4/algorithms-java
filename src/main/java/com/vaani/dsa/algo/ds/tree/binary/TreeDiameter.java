@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import static com.vaani.dsa.algo.ds.tree.binary.BinaryTreeHeight.getTreeHeight;
 
@@ -11,7 +11,7 @@ public class TreeDiameter {
     /**
      * Time Complexity: O(n^2) - so bad
      */
-    int getDiameterBad(BinaryTreeNode root) {
+    int getDiameterBad(TreeNode root) {
         /* base case if tree is empty */
         if (root == null)
             return 0;
@@ -32,7 +32,7 @@ public class TreeDiameter {
 
     }
 
-    private static int[] getDiameter(BinaryTreeNode root) {
+    private static int[] getDiameter(TreeNode root) {
         int[] result = new int[]{0, 0};    //1st element: diameter, 2nd: height
         if (root == null) {
             return result;
@@ -52,7 +52,7 @@ public class TreeDiameter {
         return result;
     }
 
-    public static int getBinaryTreeDiameter(BinaryTreeNode root) {
+    public static int getBinaryTreeDiameter(TreeNode root) {
         return getDiameter(root)[0];
     }
 }

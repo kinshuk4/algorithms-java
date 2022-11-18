@@ -1,10 +1,10 @@
 package com.vaani.dsa.algo.ds.tree.bst;
 
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 public class SearchinaBinarySearchTree {
-    public BinaryTreeNode searchBST(BinaryTreeNode root, int val) {
+    public TreeNode searchBST(TreeNode root, int val) {
         if (root == null) {
             return null;
         }

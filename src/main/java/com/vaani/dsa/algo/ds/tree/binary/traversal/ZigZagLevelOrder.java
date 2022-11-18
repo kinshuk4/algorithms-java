@@ -1,25 +1,25 @@
 package com.vaani.dsa.algo.ds.tree.binary.traversal;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.*;
 
 public class ZigZagLevelOrder {
 
-    public static List<List<Integer>> zigzagLevelOrderUsingQueue(BinaryTreeNode root) {
+    public static List<List<Integer>> zigzagLevelOrderUsingQueue(TreeNode root) {
         List<List<Integer>> result = new LinkedList<>();
         if (root == null) {
             return result;
         }
 
-        Queue<BinaryTreeNode> queue1 = new LinkedList<>();
-        Queue<BinaryTreeNode> queue2 = new LinkedList<>();
+        Queue<TreeNode> queue1 = new LinkedList<>();
+        Queue<TreeNode> queue2 = new LinkedList<>();
 
         List<Integer> level = new LinkedList<>();
         queue1.add(root);
 
         while (!queue1.isEmpty()) {
-            BinaryTreeNode node = queue1.poll();
+            TreeNode node = queue1.poll();
             level.add(node.val);
 
             if (node.left != null) {
@@ -45,16 +45,16 @@ public class ZigZagLevelOrder {
     /**
      * Two Stack Solution
      */
-    public static List<List<Integer>> ZigZagLevelOrderUsingStack(BinaryTreeNode root) {
+    public static List<List<Integer>> ZigZagLevelOrderUsingStack(TreeNode root) {
         List<List<Integer>> result = new LinkedList<>();
         if (root == null) {
             return result;
         }
 
 
-        Stack<BinaryTreeNode> currLevel = new Stack<>();
-        Stack<BinaryTreeNode> nextLevel = new Stack<>();
-        Stack<BinaryTreeNode> temp;
+        Stack<TreeNode> currLevel = new Stack<>();
+        Stack<TreeNode> nextLevel = new Stack<>();
+        Stack<TreeNode> temp;
 
         boolean leftToRight = true;
 
@@ -63,7 +63,7 @@ public class ZigZagLevelOrder {
         List<Integer> level = new LinkedList<>();
 
         while (!currLevel.empty()) {
-            BinaryTreeNode node = currLevel.pop(); //top();
+            TreeNode node = currLevel.pop(); //top();
             level.add(node.val);
 
             if (leftToRight) {
@@ -94,13 +94,13 @@ public class ZigZagLevelOrder {
         return result;
     }
 
-    private static void pushToStack(Stack<BinaryTreeNode> stack, BinaryTreeNode node) {
+    private static void pushToStack(Stack<TreeNode> stack, TreeNode node) {
         if (node != null) {
             stack.push(node);
         }
     }
 
-    public static List<List<Integer>> zigzagLevelOrderUsingRecursion(BinaryTreeNode root) {
+    public static List<List<Integer>> zigzagLevelOrderUsingRecursion(TreeNode root) {
         List<List<Integer>> result = new LinkedList<>();
         if (root == null) {
             return result;
@@ -109,7 +109,7 @@ public class ZigZagLevelOrder {
         return result;
     }
 
-    private static void dfs(BinaryTreeNode cur, int level, List<List<Integer>> result) {
+    private static void dfs(TreeNode cur, int level, List<List<Integer>> result) {
         if (cur == null) return;
         if (result.size() <= level) {
             result.add(new ArrayList<>());

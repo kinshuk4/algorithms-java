@@ -1,10 +1,10 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 public class BinaryTreeHeight {
-	public static int getTreeHeight(BinaryTreeNode root) {
+	public static int getTreeHeight(TreeNode root) {
 		if (root == null) {
 			return -1;
 		}

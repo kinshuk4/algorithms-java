@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -16,7 +16,7 @@ import java.util.Queue;
  */
 public class MinimumDepthOfBinaryTree {
     public static void main(String[] args) {
-        BinaryTreeNode root = new BinaryTreeNode(1);
+        TreeNode root = new TreeNode(1);
 //        root.left = new BinaryTreeNode(2);
 
         MinimumDepthOfBinaryTree test = new MinimumDepthOfBinaryTree();
@@ -26,7 +26,7 @@ public class MinimumDepthOfBinaryTree {
     /**
      * DFS
      */
-    public int minDepth(BinaryTreeNode root) {
+    public int minDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -45,7 +45,7 @@ public class MinimumDepthOfBinaryTree {
     /**
      * DFS
      */
-    public int minDepthWithHelper(BinaryTreeNode root) {
+    public int minDepthWithHelper(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -53,7 +53,7 @@ public class MinimumDepthOfBinaryTree {
     }
 
     @SuppressWarnings("Duplicates")
-    private int getDepth(BinaryTreeNode root) {
+    private int getDepth(TreeNode root) {
         if (root.left == null && root.right == null) {
             return 1;
         } else if (root.left == null) {
@@ -68,15 +68,15 @@ public class MinimumDepthOfBinaryTree {
     /**
      * Level-first traversal
      */
-    public int minDepthIterative(BinaryTreeNode root) {
+    public int minDepthIterative(TreeNode root) {
         if (root == null) return 0;
-        Queue<BinaryTreeNode> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         int level = 1;
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                BinaryTreeNode node = queue.poll();
+                TreeNode node = queue.poll();
                 if (node.left == null && node.right == null) {
                     return level;
                 }

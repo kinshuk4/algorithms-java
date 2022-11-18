@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.bst;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 /* https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
@@ -33,16 +33,16 @@ Follow up:
 What if the BST is modified (insert/delete operations) often and you need to find the kth smallest frequently? How would you optimize the kthSmallest routine?
  */
 public class KthSmallestInBST {
-    public static int kthSmallestInBST(BinaryTreeNode root, int k) {
+    public static int kthSmallestInBST(TreeNode root, int k) {
         return NthElementInorderTraversal.getNthIterative(root, k);
     }
-    public int kthSmallestRecursive(BinaryTreeNode root, int k) {
+    public int kthSmallestRecursive(TreeNode root, int k) {
         int[] nums = new int[2]; // 0th = where we are uptill k, 1th = value of the node that we have to return
         inorder(root, nums, k);
         return nums[1];
     }
 
-    private void inorder(BinaryTreeNode root, int[] nums, int k) {
+    private void inorder(TreeNode root, int[] nums, int k) {
         if(root == null){
             return;
         }

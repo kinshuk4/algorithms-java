@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 /**
  * Given a binary tree, determine if it is height-balanced.
@@ -10,11 +10,11 @@ import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
  * on 8/11/2014.
  */
 public class CheckBalancedBinaryTree {
-    public boolean isBalanced(BinaryTreeNode root) {
+    public boolean isBalanced(TreeNode root) {
         return getBalance(root) != -1;
     }
 
-    public int getBalance(BinaryTreeNode root) {
+    public int getBalance(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -35,7 +35,7 @@ public class CheckBalancedBinaryTree {
         return left > right ? left + 1 : right + 1;
     }
 
-    public boolean isBalanced2(BinaryTreeNode root) {
+    public boolean isBalanced2(TreeNode root) {
         if (root == null) {
             return true;
         }
@@ -47,7 +47,7 @@ public class CheckBalancedBinaryTree {
         }
     }
 
-    public int getHeight(BinaryTreeNode node) {
+    public int getHeight(TreeNode node) {
         if (node == null) {
             return 0;
         }

@@ -1,7 +1,7 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import static com.vaani.dsa.algo.ds.tree.binary.IsSameTree_EqualTree.isSameTree;
 import static com.vaani.dsa.algo.ds.tree.binary.IsSameTree_EqualTree.isSameTreeGeneric;
@@ -31,7 +31,7 @@ Return true, because t has the same structure and node values with a subtree of 
 public class IsSubTree_SubtreeOfAnotherTree {
 
     // Time complexity - O(m*n), Space complexity - O(min(m, n));
-    public boolean isSubtree(BinaryTreeNode t1, BinaryTreeNode t2) {
+    public boolean isSubtree(TreeNode t1, TreeNode t2) {
         if (t1 == null) {
             return false;
         } else if (isSameTree(t1, t2)) {

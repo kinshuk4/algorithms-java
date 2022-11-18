@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 /**
  * https://leetcode.com/problems/sum-root-to-leaf-numbers/
@@ -16,9 +16,9 @@ public class SumRootToLeafNumbers {
 
 
     public static void main(String[] args) {
-        BinaryTreeNode node = new BinaryTreeNode(1);
-        node.left = new BinaryTreeNode(2);
-        node.right = new BinaryTreeNode(3);
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.right = new TreeNode(3);
 
         SumRootToLeafNumbers.UsingDFS1 test = new UsingDFS1();
         System.out.println(test.sumNumbers(node));
@@ -27,12 +27,12 @@ public class SumRootToLeafNumbers {
     static class UsingDFS1 {
         int sum = 0;
 
-        public int sumNumbers(BinaryTreeNode root) {
+        public int sumNumbers(TreeNode root) {
             sumNumbers(root, 0);
             return sum;
         }
 
-        public void sumNumbers(BinaryTreeNode root, int currSum) {
+        public void sumNumbers(TreeNode root, int currSum) {
             if (root == null) {
                 return;
             }
@@ -49,7 +49,7 @@ public class SumRootToLeafNumbers {
     static class UsingDFS2 {
         int sum;
 
-        public int sumNumbers(BinaryTreeNode root) {
+        public int sumNumbers(TreeNode root) {
             sum = 0;
             if (root == null) {
                 return sum;
@@ -58,7 +58,7 @@ public class SumRootToLeafNumbers {
             return sum;
         }
 
-        public void helper(BinaryTreeNode root, int curSum) {
+        public void helper(TreeNode root, int curSum) {
             curSum = curSum * 10 + root.val;
             if (root.left == null && root.right == null) {
                 sum = sum + curSum;

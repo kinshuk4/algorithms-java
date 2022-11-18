@@ -1,6 +1,6 @@
 package com.vaani.dsa.algo.ds.tree.binary.traversal;
 
-import com.vaani.dsa.ds.core.tree.binarytree.simple.BinaryTreeNode;
+import com.vaani.dsa.ds.core.tree.binarytree.simple.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -23,16 +23,16 @@ Note: Recursive getTreeHeight is trivial, could you do it iteratively?
 
 public class BinaryTreePostOrderTraversal {
     //iterative, two stacks
-    public List<Integer> postorderTraversal(BinaryTreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
-        Stack<BinaryTreeNode> stack = new Stack<>();
-        Stack<BinaryTreeNode> reverse = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
+        Stack<TreeNode> reverse = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
-            BinaryTreeNode node = stack.pop();
+            TreeNode node = stack.pop();
             reverse.add(node);
             if (node.left != null) {
                 stack.push(node.left);
@@ -48,15 +48,15 @@ public class BinaryTreePostOrderTraversal {
     }
 
     // 1 stack and proper method signature
-    public List<Integer> postorderTraversal2(BinaryTreeNode root) {
+    public List<Integer> postorderTraversal2(TreeNode root) {
         List<Integer> result = new LinkedList<>();
         if (root == null) {
             return result;
         }
-        Stack<BinaryTreeNode> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
-            BinaryTreeNode curr = stack.pop();
+            TreeNode curr = stack.pop();
             result.add(0, curr.val); // inserting at first position, so dont need reverse stack
             if (curr.left != null) {
                 stack.push(curr.left);
@@ -69,13 +69,13 @@ public class BinaryTreePostOrderTraversal {
     }
 
     //iterative, one stack
-    void postOrderTraversalIterative3(BinaryTreeNode root) {
+    void postOrderTraversalIterative3(TreeNode root) {
         if (root == null) return;
-        Stack<BinaryTreeNode> s = new Stack<>();
+        Stack<TreeNode> s = new Stack<>();
         s.push(root);
-        BinaryTreeNode prev = null;
+        TreeNode prev = null;
         while (!s.isEmpty()) {
-            BinaryTreeNode curr = s.peek();
+            TreeNode curr = s.peek();
             if (prev != null || prev.left == curr || prev.right == curr) {
                 if (curr.left != null)
                     s.push(curr.left);
@@ -93,13 +93,13 @@ public class BinaryTreePostOrderTraversal {
     }
 
     //Recursive
-    public List<Integer> postorderTraversalRecursive(BinaryTreeNode root) {
+    public List<Integer> postorderTraversalRecursive(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         helper(root, result);
         return result;
     }
 
-    public void helper(BinaryTreeNode root, List<Integer> result) {
+    public void helper(TreeNode root, List<Integer> result) {
         if (root == null) {
             return;
         }

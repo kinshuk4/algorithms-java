@@ -2,10 +2,7 @@ package com.vaani.dsa.algo.paradigm.backtracking;
 
 import com.vaani.dsa.ds.core.trie.morebasic.TrieNode;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 7/4/2017. Given a 2D board and a list of words from the dictionary, find
@@ -21,56 +18,153 @@ import java.util.Set;
  * ["eat","oath"]. Note: You may assume that all inputs are consist of lowercase letters a-z.
  */
 public class WordSearch2 {
-    private final int[] R = {0, 0, -1, 1};
-    private final int[] C = {-1, 1, 0, 0};
 
-    public static void main(String[] args) throws Exception {
-        char[][] board = {
-                {'o', 'a', 'a', 'n'}, {'e', 't', 'a', 'e'}, {'i', 'h', 'k', 'r'}, {'i', 'f', 'l', 'v'}
-        };
-        String[] words = {"oath", "pea", "eat", "rain"};
-        System.out.println(new WordSearch2().findWords1(board, words));
-    }
+    static class UsingTrie1 {
+        private final int[] R = {0, 0, -1, 1};
+        private final int[] C = {-1, 1, 0, 0};
 
-    // solution with DFS + Trie + HM
-    public List<String> findWords1(char[][] board, String[] words) {
-        Set<String> dictionary = new HashSet<>();
-        TrieNode trie = new TrieNode("");
-        for (String w : words) {
-            trie.insert(w);
-            dictionary.add(w);
+        public static void main(String[] args) throws Exception {
+            char[][] board = {
+                    {'o', 'a', 'a', 'n'}, {'e', 't', 'a', 'e'}, {'i', 'h', 'k', 'r'}, {'i', 'f', 'l', 'v'}
+            };
+            String[] words = {"oath", "pea", "eat", "rain"};
+            System.out.println(new WordSearch2().findWords1(board, words));
         }
-        boolean[][] visited = new boolean[board.length][board[0].length];
-        Set<String> resultSet = new HashSet<>();
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                dfs1(i, j, visited, board, resultSet, trie, dictionary, String.valueOf(board[i][j]));
+
+        // solution with DFS + Trie + HM
+        public List<String> findWords1(char[][] board, String[] words) {
+            Set<String> dictionary = new HashSet<>();
+            TrieNode trie = new TrieNode("");
+            for (String w : words) {
+                trie.insert(w);
+                dictionary.add(w);
             }
-        }
-        return new ArrayList<>(resultSet);
-    }
-
-    private void dfs1(int r, int c, boolean[][] visited, char[][] board, Set<String> result, TrieNode trie,  Set<String> dictionary, String s) {
-        char newChar = board[r][c];
-        TrieNode subTrie = trie.children.get(newChar);
-        if (subTrie == null) {
-            return;
-        }
-        visited[r][c] = true;
-        if (dictionary.contains(s)) {
-            result.add(s);
-        }
-        for (int i = 0; i < 4; i++) {
-            int newR = r + R[i];
-            int newC = c + C[i];
-            if (newR >= 0 && newC >= 0 && newR < board.length && newC < board[0].length) {
-                if (!visited[newR][newC]) {
-                    dfs1(newR, newC, visited, board, result, subTrie, dictionary, s + board[newR][newC]);
+            boolean[][] visited = new boolean[board.length][board[0].length];
+            Set<String> resultSet = new HashSet<>();
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
+                    dfs1(i, j, visited, board, resultSet, trie, dictionary, String.valueOf(board[i][j]));
                 }
             }
+            return new ArrayList<>(resultSet);
         }
-        visited[r][c] = false;
+
+        private void dfs1(int r, int c, boolean[][] visited, char[][] board, Set<String> result, TrieNode trie, Set<String> dictionary, String s) {
+            char newChar = board[r][c];
+            TrieNode subTrie = trie.children.get(newChar);
+            if (subTrie == null) {
+                return;
+            }
+            visited[r][c] = true;
+            if (dictionary.contains(s)) {
+                result.add(s);
+            }
+            for (int i = 0; i < 4; i++) {
+                int newR = r + R[i];
+                int newC = c + C[i];
+                if (newR >= 0 && newC >= 0 && newR < board.length && newC < board[0].length) {
+                    if (!visited[newR][newC]) {
+                        dfs1(newR, newC, visited, board, result, subTrie, dictionary, s + board[newR][newC]);
+                    }
+                }
+            }
+            visited[r][c] = false;
+        }
     }
+
+
+    static class UsingTrie2 {
+        private static final int[] R = {0, 0, -1, 1};
+        private static final int[] C = {-1, 1, 0, 0};
+
+        public List<String> findWords(char[][] board, String[] words) {
+            TrieNode trie = new TrieNode();
+            for (String w : words) {
+                insert(trie, w);
+            }
+            boolean[][] visited = new boolean[board.length][board[0].length];
+            Set<String> ansSet = new HashSet<>();
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
+                    dfs(board, i, j, visited,  ansSet, trie, "");
+                }
+            }
+            return new ArrayList<>(ansSet);
+        }
+
+        public void insert(TrieNode root, String word) {
+            TrieNode curr = root;
+            for (char c : word.toCharArray()) {
+                curr.children.putIfAbsent(c, new TrieNode());
+                curr = curr.children.get(c);
+            }
+            curr.word = word;
+        }
+
+        private void dfs(char[][] board, int r, int c, boolean[][] visited, Set<String> ansSet, TrieNode trie, String s) {
+            if (r < 0 || r >= board.length || c < 0 || c >= board[0].length) return;
+            if (visited[r][c]) return;
+
+            char newChar = board[r][c];
+            if (!trie.children.containsKey(newChar)) {
+                return;
+            }
+
+            s = s + newChar;
+            if (! "".equals(trie.children.get(newChar).word)) {
+                ansSet.add(s);
+            }
+
+            visited[r][c] = true;
+            TrieNode subTrie = trie.children.get(newChar);
+            for (int i = 0; i < 4; i++) {
+                int newR = r + R[i];
+                int newC = c + C[i];
+                dfs(board, newR, newC, visited, ansSet, subTrie, s);
+            }
+            visited[r][c]=false;
+        }
+    }
+
+    static class TrieNode {
+        public Map<Character, TrieNode> children = new HashMap<>();
+        public String word = "";
+    }
+
+    static class Trie {
+        TrieNode root;
+
+        public Trie() {
+            root = new TrieNode();
+        }
+
+
+
+        public boolean contains(String word) {
+            TrieNode node = root;
+            for (char c : word.toCharArray()) {
+                if (!node.children.containsKey(c)) {
+                    return false;
+                }
+                node = node.children.get(c);
+            }
+            return node.word.equals(word);
+        }
+
+        public boolean startsWith(String prefix) {
+            TrieNode node = root;
+            for (char c : prefix.toCharArray()) {
+                if (!node.children.containsKey(c)) {
+                    return false;
+                }
+                node = node.children.get(c);
+            }
+            return true;
+        }
+    }
+
+
+}
 
 //    private class Trie {
 //
