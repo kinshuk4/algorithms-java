@@ -28,25 +28,26 @@ public class WordSearch2 {
                     {'o', 'a', 'a', 'n'}, {'e', 't', 'a', 'e'}, {'i', 'h', 'k', 'r'}, {'i', 'f', 'l', 'v'}
             };
             String[] words = {"oath", "pea", "eat", "rain"};
-            System.out.println(new WordSearch2().findWords1(board, words));
+//            System.out.println(new WordSearch2().findWords1(board, words));
         }
 
         // solution with DFS + Trie + HM
         public List<String> findWords1(char[][] board, String[] words) {
-            Set<String> dictionary = new HashSet<>();
-            TrieNode trie = new TrieNode("");
-            for (String w : words) {
-                trie.insert(w);
-                dictionary.add(w);
-            }
-            boolean[][] visited = new boolean[board.length][board[0].length];
-            Set<String> resultSet = new HashSet<>();
-            for (int i = 0; i < board.length; i++) {
-                for (int j = 0; j < board[0].length; j++) {
-                    dfs1(i, j, visited, board, resultSet, trie, dictionary, String.valueOf(board[i][j]));
-                }
-            }
-            return new ArrayList<>(resultSet);
+//            Set<String> dictionary = new HashSet<>();
+////            TrieNode trie = new TrieNode("");
+//            for (String w : words) {
+////                trie.insert(w);
+//                dictionary.add(w);
+//            }
+//            boolean[][] visited = new boolean[board.length][board[0].length];
+//            Set<String> resultSet = new HashSet<>();
+//            for (int i = 0; i < board.length; i++) {
+//                for (int j = 0; j < board[0].length; j++) {
+//                    dfs1(i, j, visited, board, resultSet, trie, dictionary, String.valueOf(board[i][j]));
+//                }
+//            }
+//            return new ArrayList<>(resultSet);
+            return null;
         }
 
         private void dfs1(int r, int c, boolean[][] visited, char[][] board, Set<String> result, TrieNode trie, Set<String> dictionary, String s) {
@@ -242,4 +243,4 @@ public class WordSearch2 {
 //        return found;
 //
 //    }
-}
+//}
