@@ -13,7 +13,7 @@ public class FractionalKnapsack {
             this.wt = wt;
             this.val = val;
             this.ind = ind;
-            cost = new Double(val / wt);
+            cost = Double.valueOf(val / wt);
         }
 
     }
